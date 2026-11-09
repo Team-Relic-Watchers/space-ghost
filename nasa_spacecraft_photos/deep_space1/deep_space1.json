@@ -1,0 +1,14 @@
+{
+  "deep_space_real_photo.jpg": {
+    "description": "Spacecraft photograph: Deep Space 1 image archive.",
+    "source": "https://www.jpl.nasa.gov/nmp/ds1/images.html"
+  },
+  "deep-space-taken-photo.jpg": {
+    "description": " Deep Space 1 encounter with Comet Borrelly.",
+    "source": "https://www.science.org/content/article/comets-black-heart"
+  },
+  "deep_space_technical_illustration.gif": {
+    "description": "Technical illustration: Deep Space 1 spacecraft configuration.",
+    "source": "https://www.jpl.nasa.gov/nmp/ds1/tech/spacecraft.html"
+  }
+}

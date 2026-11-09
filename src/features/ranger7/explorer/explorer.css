@@ -1,0 +1,239 @@
+/*
+ * The integrated Ranger 7 screen.
+ *
+ * Desktop: two persistent columns — 3D model left, mission info right.
+ * Mobile:  one view at a time, with a two-option bar pinned to the bottom.
+ *
+ * Both panels are always mounted. Switching only changes which panel is visible
+ * and reachable, which is what makes the switch non-destructive.
+ */
+.explorer {
+  position: relative;
+  display: grid;
+  grid-template-areas: 'model info';
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--space-950);
+}
+
+.explorer__model {
+  grid-area: model;
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-right: 3px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Spacecraft 3D Inspection inside the left model column */
+.explorer__model .inspect {
+  height: 100%;
+  min-height: 0;
+  padding: calc(0.6rem + env(safe-area-inset-top)) clamp(0.6rem, 2vw, 1.2rem)
+    calc(0.6rem + env(safe-area-inset-bottom));
+  background: transparent;
+}
+
+.explorer__model .inspect__top {
+  gap: 0.5rem;
+}
+
+.explorer__model .inspect__title h2 {
+  font-size: clamp(1.1rem, 2.5vmin, 1.5rem);
+}
+
+.explorer__model .inspect__progress-bar {
+  width: 120px;
+}
+
+.explorer__model .inspect__stage {
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 0.5rem;
+  min-height: 0;
+}
+
+.explorer__model .inspect__canvas {
+  border-radius: 24px;
+}
+
+.explorer__model .inspect__card {
+  max-height: 28vh;
+  overflow-y: auto;
+  padding: 0.75rem 1.1rem;
+  border-radius: 20px;
+  gap: 0.35rem;
+}
+
+.explorer__model .inspect__card h3 {
+  font-size: clamp(1rem, 2.2vmin, 1.25rem);
+}
+
+.explorer__model .inspect__card p {
+  font-size: clamp(0.82rem, 1.8vmin, 0.95rem);
+}
+
+.explorer__model .inspect__prompt {
+  font-size: 0.98rem;
+}
+
+/* The drag/zoom hint belongs to the 3D panel, not to the page chrome. */
+.explorer__hint {
+  position: absolute;
+  left: 50%;
+  bottom: calc(0.8rem + env(safe-area-inset-bottom));
+  margin: 0;
+  padding: 0.35em 0.9em;
+  font-size: clamp(0.68rem, 1.5vmin, 0.82rem);
+  font-weight: 600;
+  color: #ded6ff;
+  white-space: nowrap;
+  background: rgba(12, 5, 32, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.explorer__info {
+  grid-area: info;
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Bottom tab bar: only meaningful when one view shows at a time. */
+.explorer__tabs {
+  display: none;
+  grid-area: tabs;
+  position: relative;
+  z-index: 50;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+  padding: 0.45rem max(0.5rem, env(safe-area-inset-left))
+    calc(0.45rem + env(safe-area-inset-bottom)) max(0.5rem, env(safe-area-inset-right));
+  background: linear-gradient(180deg, rgba(12, 5, 32, 0.86), rgba(6, 2, 14, 0.98));
+  border-top: 3px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+}
+
+.explorer__tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 46px;
+  padding: 0.4em 0.8em;
+  font-size: clamp(0.82rem, 2.1vmin, 0.98rem);
+  font-weight: 700;
+  color: rgba(233, 227, 255, 0.72);
+  cursor: pointer;
+  background: rgba(27, 11, 77, 0.7);
+  border: 3px solid transparent;
+  border-radius: 16px;
+  transition: transform 0.12s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.explorer__tab[data-active='true'] {
+  color: var(--ink);
+  background: linear-gradient(180deg, #ffe27a, var(--orange));
+  border-color: var(--ink-deep);
+  box-shadow: 0 4px 0 var(--ink-deep);
+}
+
+.explorer__tab:active {
+  transform: translateY(2px);
+}
+
+/* ---------- Mission info panel: hosts the existing screens unchanged ---------- */
+.mission-info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  /* The existing screens are written for the viewport; they get this panel. */
+  --ranger7-panel-h: 100%;
+}
+
+/* Inside a panel the screens' own height is the panel, and they scroll. */
+.explorer__info :is(.story, .hub, .photos-screen, .challenge, .complete, .briefing, .inspect, .site) {
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.mission-info__bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.5rem clamp(0.6rem, 2vw, 1.4rem) 0;
+  padding-top: calc(0.5rem + env(safe-area-inset-top));
+  background: linear-gradient(180deg, rgba(18, 7, 46, 0.96), rgba(18, 7, 46, 0));
+}
+
+.mission-info__back {
+  min-height: 40px;
+  font-size: 0.9rem;
+}
+
+.mission-info__where {
+  font-size: clamp(0.75rem, 1.8vmin, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+/* A stop fills the state required to size itself; the bar takes its own room. */
+.mission-info > :not(.mission-info__bar) {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* ---------- Mobile: one view at a time ---------- */
+@media (max-width: 900px) {
+  .explorer[data-layout='single'] {
+    grid-template-areas:
+      'stage'
+      'tabs';
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  .explorer[data-layout='single'] .explorer__tabs {
+    display: grid;
+  }
+
+  /* The hidden panel stays mounted for its state, but takes no room and cannot
+     be reached by pointer, keyboard or screen reader. */
+  .explorer[data-layout='single'] [inert] {
+    display: none;
+  }
+
+  .explorer__model {
+    grid-area: stage;
+    border-right: 0;
+  }
+
+  .explorer__info {
+    grid-area: stage;
+  }
+
+  .explorer__hint {
+    bottom: 0.6rem;
+  }
+}
+
+/* Desktop never shows the tab bar, so the panels get the whole width. */
+@media (min-width: 901px) {
+  .explorer__tabs {
+    display: none;
+  }
+}

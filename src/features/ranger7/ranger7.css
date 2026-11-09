@@ -1,0 +1,15 @@
+@import './ranger7-ui.css';
+
+.ranger7 {
+  position: relative;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--space-950);
+}
+
+.ranger7__language {
+  position: absolute;
+  right: max(0.6rem, env(safe-area-inset-right));
+  top: calc(0.9rem + env(safe-area-inset-top));
+  z-index: 40;
+}

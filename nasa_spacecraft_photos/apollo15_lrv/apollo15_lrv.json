@@ -1,0 +1,14 @@
+{
+  "apollo-15_real_photo.jpg": {
+    "description": "Vehicle on the Moon: Apollo 15 on the Moon.",
+    "source": "https://science.nasa.gov/resource/apollo-15-on-the-moon/"
+  },
+  "apollo-15-photo_taken.jpeg": {
+    "description": "Taking a Ride on the Moon in the Lunar Roving Vehicle",
+    "source": "https://www.nasa.gov/gallery/apollo-15/"
+  },
+  "apollo15_technical_illustration.png": {
+    "description": "Technical illustration: Apollo 15 mission report with Lunar Roving Vehicle figure.",
+    "source": "https://apollojournals.org/alsj/a15/a15mrp9.pdf"
+  }
+}

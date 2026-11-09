@@ -1,0 +1,63 @@
+.big-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  min-height: 64px;
+  padding: 0.55em 1.6em;
+  font-size: clamp(1.25rem, 3.4vmin + 0.6rem, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  text-align: center;
+  cursor: pointer;
+  border: 5px solid var(--ink-deep);
+  border-radius: 999px;
+  text-shadow: 0 3px 0 rgba(23, 11, 58, 0.45);
+  overflow: hidden;
+}
+
+.big-button--go {
+  background: linear-gradient(180deg, #ffe27a 0%, var(--orange) 55%, #ff5ca8 100%);
+  box-shadow:
+    0 8px 0 #a1306b,
+    0 14px 0 var(--ink-deep),
+    0 0 34px rgba(255, 138, 31, 0.65);
+  animation: big-button-pulse 2.4s ease-in-out infinite;
+}
+
+.big-button--calm {
+  background: linear-gradient(180deg, #8bf0ff 0%, var(--cyan) 50%, #6a2bd1 100%);
+  box-shadow:
+    0 8px 0 #2b1170,
+    0 14px 0 var(--ink-deep),
+    0 0 28px rgba(56, 225, 255, 0.5);
+}
+
+.big-button__shine {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 6%;
+  height: 34%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+.big-button__label,
+.big-button__icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+@keyframes big-button-pulse {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.12);
+  }
+}

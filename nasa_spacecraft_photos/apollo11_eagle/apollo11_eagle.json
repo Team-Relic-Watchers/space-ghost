@@ -1,0 +1,14 @@
+{
+  "apollo11_real_photo.webp": {
+    "description": "Vehicle on the Moon: Apollo 11 landing site and Eagle descent stage.",
+    "source": "https://www.sfgate.com/business/article/far-above-the-earth-nasa-s-apollo-lunar-lander-22349653.php"
+  },
+  "apollo11_photo_taken.jpg": {
+    "description": "Apollo 11 vehicle photograph: Eagle's Return.",
+    "source": "https://science.nasa.gov/earth/earth-observatory/apollo-11-landing-site-39408/"
+  },
+  "apollo11_technical_illustration.png": {
+    "description": "Technical illustration: NASA Project Apollo technical diagrams.",
+    "source": "https://www.nasa.gov/gallery/project-apollo-technical-diagrams/"
+  }
+}

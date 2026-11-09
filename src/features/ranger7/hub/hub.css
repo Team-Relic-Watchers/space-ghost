@@ -1,0 +1,195 @@
+.hub {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: clamp(0.4rem, 1.5vh, 1rem);
+  height: 100dvh;
+  padding: calc(0.8rem + env(safe-area-inset-top)) clamp(0.9rem, 3vw, 2.4rem)
+    calc(0.7rem + env(safe-area-inset-bottom));
+  overflow: hidden;
+  background:
+    radial-gradient(120% 70% at 50% 0%, rgba(143, 75, 240, 0.55) 0%, transparent 60%),
+    radial-gradient(80% 60% at 50% 110%, rgba(255, 92, 168, 0.4) 0%, transparent 60%),
+    linear-gradient(180deg, #1b0b4d 0%, #2b1170 55%, #12072e 100%);
+}
+
+.hub__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 0;
+}
+
+.hub__eyebrow {
+  display: block;
+  font-size: clamp(0.8rem, 2vmin, 1rem);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.hub__title h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 9vmin, 5rem);
+  line-height: 0.95;
+  font-weight: 700;
+  color: var(--sun);
+  -webkit-text-stroke: 0.06em var(--ink-deep);
+  paint-order: stroke fill;
+  text-shadow: 0 0.05em 0 var(--ink-deep), 0 0.1em 0 var(--ink-deep);
+}
+
+.hub__cameo {
+  width: clamp(110px, 30vmin, 260px);
+  height: clamp(100px, 22vh, 220px);
+  flex: none;
+}
+
+.hub__banner {
+  margin: 0;
+  justify-self: center;
+  padding: 0.4em 1em;
+  font-weight: 700;
+  color: var(--ink);
+  background: linear-gradient(180deg, #fff, #ffe9a8);
+  border: 3px solid var(--ink-deep);
+  border-radius: 999px;
+  box-shadow: 0 4px 0 var(--ink-deep);
+}
+
+.hub__fan {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.4rem, 1.6vw, 1.1rem);
+  min-height: 0;
+  padding: 0 max(0px, env(safe-area-inset-left));
+}
+
+.hub__stop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  width: clamp(88px, 12.4vw, 150px);
+  aspect-ratio: 3 / 4;
+  max-height: 100%;
+  padding: 0.8rem 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  border: 5px solid var(--ink-deep);
+  border-radius: 32px;
+  box-shadow: 0 9px 0 var(--ink-deep), 0 18px 32px rgba(10, 4, 28, 0.45);
+}
+
+.hub__stop:nth-child(2) { transform: translateY(4%); }
+.hub__stop:nth-child(4) { transform: translateY(4%); }
+.hub__stop:nth-child(6) { transform: translateY(4%); }
+
+.hub__stop--sun { background: radial-gradient(circle at 50% 12%, #fff3b8, #ff8a1f 60%, #ff5ca8); }
+.hub__stop--cyan { background: radial-gradient(circle at 50% 12%, #d9fbff, #38e1ff 55%, #6a2bd1); }
+.hub__stop--pink { background: radial-gradient(circle at 50% 12%, #ffd6ea, #ff5ca8 60%, #a02a8f); }
+.hub__stop--mint { background: radial-gradient(circle at 50% 12%, #d8ffe9, #7dffb5 55%, #1f9c8a); }
+.hub__stop--violet { background: radial-gradient(circle at 50% 12%, #ecdcff, #8f4bf0 60%, #43199a); }
+
+.hub__stop-icon {
+  display: grid;
+  place-items: center;
+  width: clamp(44px, 7vmin, 64px);
+  height: clamp(44px, 7vmin, 64px);
+  color: #fff;
+  background: rgba(23, 11, 58, 0.78);
+  border: 3px solid var(--ink-deep);
+  border-radius: 50%;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.35);
+}
+
+.hub__stop-index {
+  position: absolute;
+  top: -12px;
+  left: -10px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--lilac);
+  border: 3px solid var(--ink-deep);
+  border-radius: 50%;
+}
+
+/*
+ * The pastel gradients behind each stop put white text on light colour
+ * (1.2:1 to 3.8:1). The labels sit on a dark chip — the same idea as the icon
+ * chip above them — so the text keeps 12.5:1 or better on every tone and at any
+ * card size, without flattening the card colours.
+ */
+.hub__stop-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  max-width: 100%;
+  padding: 0.5em 0.8em;
+  background: rgba(23, 11, 58, 0.9);
+  border: 3px solid rgba(255, 255, 255, 0.24);
+  border-radius: 18px;
+}
+
+.hub__stop-title {
+  font-size: clamp(0.95rem, 2.2vmin + 0.35rem, 1.35rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.hub__stop-sub {
+  font-size: clamp(0.7rem, 1.6vmin + 0.15rem, 0.9rem);
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.hub__stop-done {
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  color: var(--mint);
+  filter: drop-shadow(0 2px 0 var(--ink-deep));
+}
+
+.hub__foot {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: clamp(0.78rem, 1.8vmin, 0.95rem);
+  color: rgba(233, 227, 255, 0.75);
+}
+
+.hub__score {
+  font-weight: 700;
+  color: var(--sun);
+}
+
+@media (max-width: 560px) {
+  .hub__fan {
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 0.7rem;
+  }
+
+  .hub__stop {
+    width: clamp(96px, 29vw, 150px);
+    aspect-ratio: 1 / 1.05;
+    padding: 0.6rem 0.4rem;
+    border-radius: 24px;
+  }
+
+  .hub__stop-sub {
+    display: none;
+  }
+}

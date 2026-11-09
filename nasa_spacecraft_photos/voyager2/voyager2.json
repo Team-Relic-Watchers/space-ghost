@@ -1,0 +1,14 @@
+{
+  "voyeger2_real_photo.jpg": {
+    "description": "Spacecraft photograph: Voyager spacecraft in clean room.",
+    "source": "https://www.wired.com/story/voyager-2-gets-a-life-extending-power-boost-in-deep-space/"
+  },
+  "voyager2_taken_photo.jpg": {
+    "description": "Jupiter’s Violent Storms",
+    "source": "https://science.nasa.gov/gallery/voyager-at-jupiter/"
+  },
+  "vayager1_technical_illustration.webp": {
+    "description": "Technical illustration: Voyager spacecraft and components.",
+    "source": "https://science.nasa.gov/mission/voyager/spacecraft/"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "Sojourner_real_photo.jpg": {
+    "description": "Lander on Mars",
+    "source": "https://en.wikipedia.org/wiki/Mars_Pathfinder"
+  },
+  "mars-pathfinder-taken_photo.jpg": {
+    "description": "Panorama taken by the Pathfinder lander.",
+    "source": "https://science.nasa.gov/mission/mars-pathfinder"
+  },
+  "mars-pathfinder-taken_photo.jpg": {
+    "description": "Technical illustration: Mars Pathfinder",
+    "source": "https://en.wikipedia.org/wiki/Mars_Pathfinder"
+  }
+}

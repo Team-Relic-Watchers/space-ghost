@@ -1,0 +1,46 @@
+.speech-bubble {
+  position: relative;
+  padding: 0.7em 1em;
+  color: var(--ink);
+  font-size: clamp(1rem, 2.4vmin + 0.4rem, 1.4rem);
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  background: #fff;
+  border: 5px solid var(--ink-deep);
+  border-radius: 28px;
+  box-shadow: 0 6px 0 var(--ink-deep), 0 0 26px rgba(255, 255, 255, 0.25);
+}
+
+.speech-bubble::before,
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  left: 22%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+/* Outline triangle sits behind the white fill triangle. */
+.speech-bubble::before {
+  bottom: -30px;
+  margin-left: -4px;
+  border-width: 28px 20px 0 0;
+  border-color: var(--ink-deep) transparent transparent transparent;
+}
+
+.speech-bubble::after {
+  bottom: -19px;
+  border-width: 22px 15px 0 0;
+  border-color: #fff transparent transparent transparent;
+}
+
+.speech-bubble p {
+  margin: 0;
+}
+
+.speech-bubble p + p {
+  margin-top: 0.25em;
+  color: var(--space-600);
+}

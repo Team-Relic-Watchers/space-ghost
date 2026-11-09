@@ -1,0 +1,86 @@
+.warp {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  justify-items: center;
+  height: 100dvh;
+  padding: clamp(1rem, 4vmin, 3rem) 1rem calc(1rem + env(safe-area-inset-bottom));
+  overflow: hidden;
+}
+
+.warp > :not(.backdrop) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Concentric rings rushing outward give the feeling of speed. */
+.warp__tunnel {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: repeating-radial-gradient(
+    circle at 50% 45%,
+    transparent 0 40px,
+    rgba(56, 225, 255, 0.18) 40px 46px,
+    transparent 46px 110px
+  );
+  animation: warp-rush 1.8s linear infinite;
+  mask-image: radial-gradient(circle at 50% 45%, transparent 8%, #000 60%);
+}
+
+@keyframes warp-rush {
+  from { background-size: 100% 100%; transform: scale(1); }
+  to { background-size: 100% 100%; transform: scale(1.6); }
+}
+
+.warp__year {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.95;
+  filter: drop-shadow(0 0 24px rgba(255, 212, 59, 0.6));
+}
+
+.warp__year-label {
+  font-size: clamp(1.1rem, 3vmin, 1.8rem);
+  font-weight: 600;
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.warp__year-number {
+  font-size: clamp(4rem, 17vmin, 10rem);
+  font-weight: 700;
+  color: var(--sun);
+  -webkit-text-stroke: 0.08em var(--ink-deep);
+  paint-order: stroke fill;
+  text-shadow: 0 0.06em 0 var(--ink-deep), 0 0.12em 0 var(--ink-deep);
+}
+
+:lang(bn) .warp__year-label {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.warp__panda {
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: min(100%, 360px);
+  min-height: 0;
+  margin-bottom: 1rem;
+}
+
+.warp__panda-art {
+  width: auto;
+  height: min(34vh, 300px);
+}
+
+.warp__dock {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 14px;
+}

@@ -1,0 +1,14 @@
+{
+  "insight_real_photo.jpg": {
+    "description": "InSight’s First Selfie ",
+    "source": "https://science.nasa.gov/photojournal/insights-first-selfie/"
+  },
+  "insight_photo_taken.jpg": {
+    "description": "InSight’s Dusty Solar Panel ",
+    "source": "https://science.nasa.gov/photojournal/insights-dusty-solar-panel/"
+  },
+  "insight_real_photo.jpg": {
+    "description": "Technical illustration: NASA InSight labelled instrument illustration.",
+    "source": "https://www.planetary.org/space-images/engineering-drawing-of-insight?utm_source=chatgpt.com"
+  }
+}

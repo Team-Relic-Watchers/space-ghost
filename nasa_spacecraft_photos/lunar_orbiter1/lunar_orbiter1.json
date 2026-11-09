@@ -1,0 +1,14 @@
+{
+  "lunar-orbiter-1_real_photo.jpg": {
+    "description": "An artist's concept of NASA's Lunar Orbiter spacecraft at the Moon.",
+    "source": "https://science.nasa.gov/mission/lunar-orbiter-1/"
+  },
+  "lunar-orbiter-1_photo_taken.jpg": {
+    "description": "Image captured by the spacecraft: First view of Earth from the Moon.",
+    "source": "https://science.nasa.gov/resource/first-view-of-earth-from-the-moon-and-oblique-view-of-the-lunar-surface/"
+  },
+  "Lunar-orbiter-1_technical_illustration.jpg": {
+    "description": "Technical illustration: Lunar Orbiter spacecraft diagram.",
+    "source": "https://science.nasa.gov/resource/lunar-orbiter-diagram/"
+  }
+}

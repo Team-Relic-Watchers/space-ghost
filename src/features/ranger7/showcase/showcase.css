@@ -1,0 +1,239 @@
+/* The Ranger 7 3D stage. Fills its parent: full-viewport on the standalone
+   deep link, one grid cell in the integrated explorer. */
+.showcase {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(120% 90% at 78% 8%, rgba(143, 75, 240, 0.55) 0%, transparent 58%),
+    radial-gradient(90% 70% at 12% 96%, rgba(255, 92, 168, 0.35) 0%, transparent 62%),
+    linear-gradient(160deg, #1b0b4d 0%, #12072e 48%, #06020e 100%);
+}
+
+/* Standalone deep link keeps the full-viewport presentation. */
+.showcase[data-variant='full'] {
+  height: 100dvh;
+}
+
+/* Embedded panel: no duplicated heading, just the scene and its states. */
+.showcase[data-variant='panel'] .showcase__stage {
+  inset: 0;
+}
+
+.showcase__stage {
+  position: absolute;
+  inset: 0;
+}
+
+.showcase__stage canvas {
+  display: block;
+  touch-action: none;
+}
+
+/* ---------- Minimal chrome ---------- */
+.showcase__title {
+  position: absolute;
+  top: calc(1rem + env(safe-area-inset-top));
+  left: max(1rem, env(safe-area-inset-left));
+  max-width: min(62vw, 26rem);
+  pointer-events: none;
+}
+
+.showcase__eyebrow {
+  display: block;
+  font-size: clamp(0.7rem, 1.6vmin, 0.85rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  text-shadow: 0 2px 10px rgba(6, 2, 14, 0.9);
+}
+
+.showcase__title h1 {
+  margin: 0.1em 0 0.15em;
+  font-size: clamp(2rem, 6.4vmin, 3.6rem);
+  line-height: 0.95;
+  color: var(--sun);
+  -webkit-text-stroke: 0.055em var(--ink-deep);
+  paint-order: stroke fill;
+  text-shadow: 0 0.06em 0 var(--ink-deep), 0 0.12em 0.35em rgba(6, 2, 14, 0.85);
+}
+
+.showcase__title p {
+  margin: 0;
+  font-size: clamp(0.85rem, 2vmin, 1.05rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: #ece7ff;
+  text-shadow: 0 2px 12px rgba(6, 2, 14, 0.95);
+}
+
+.showcase__hint {
+  position: absolute;
+  left: 50%;
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+  margin: 0;
+  padding: 0.45em 1.1em;
+  font-size: clamp(0.78rem, 1.8vmin, 0.95rem);
+  font-weight: 600;
+  color: #ded6ff;
+  white-space: nowrap;
+  background: rgba(12, 5, 32, 0.55);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.showcase__credit {
+  position: absolute;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: calc(0.9rem + env(safe-area-inset-bottom));
+  max-width: 42vw;
+  margin: 0;
+  font-size: clamp(0.6rem, 1.4vmin, 0.72rem);
+  line-height: 1.2;
+  color: rgba(222, 214, 255, 0.55);
+  text-align: right;
+  pointer-events: none;
+}
+
+/* The journey hands the player on: one clear primary action, bottom centre. */
+.showcase__dock {
+  position: absolute;
+  left: 50%;
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.showcase__dock .pill-button {
+  font-size: clamp(0.95rem, 2.2vmin, 1.1rem);
+  padding: 0.55em 1.4em;
+}
+
+/* Inside the integrated explorer the panel covers its own corner, so the CTA
+   only ever appears on the standalone deep link. */
+.showcase[data-variant='panel'] .showcase__dock {
+  bottom: calc(0.8rem + env(safe-area-inset-bottom));
+}
+
+/* ---------- Loading and failure states ---------- */
+.showcase__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  padding: 1.5rem;
+  text-align: center;
+  color: #e9e3ff;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(106, 43, 209, 0.55), rgba(6, 2, 14, 0.92) 70%),
+    #06020e;
+  transition: opacity 0.4s ease;
+}
+
+.showcase__overlay--error {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 92, 168, 0.34), rgba(6, 2, 14, 0.94) 68%),
+    #06020e;
+}
+
+.showcase__overlay p {
+  margin: 0;
+  max-width: 34ch;
+  font-size: clamp(0.95rem, 2.2vmin, 1.15rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.showcase__overlay--error p:first-child {
+  font-size: clamp(1.1rem, 2.8vmin, 1.4rem);
+  color: var(--pink);
+}
+
+.showcase__detail {
+  font-size: 0.8rem !important;
+  font-weight: 400 !important;
+  color: rgba(233, 227, 255, 0.65);
+  overflow-wrap: anywhere;
+}
+
+.showcase__orb {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, #fff, #d2c2ff 32%, #6a2bd1 100%);
+  box-shadow: 0 0 40px rgba(143, 75, 240, 0.85);
+  animation: showcase-bob 1.5s ease-in-out infinite alternate;
+}
+
+.showcase__bar {
+  display: block;
+  width: min(220px, 60vw);
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.showcase__bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--cyan), var(--pink), var(--sun));
+  transition: width 0.25s ease;
+}
+
+.showcase__overlay-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-top: 0.3rem;
+}
+
+@keyframes showcase-bob {
+  from { transform: translateY(-6px) scale(0.96); }
+  to { transform: translateY(6px) scale(1.04); }
+}
+
+/* ---------- Responsive composition ---------- */
+/* On phones the heading is stacked tightly into the top-left corner so the
+   scene keeps the middle and the Moon keeps the upper right. */
+@media (max-width: 640px) {
+  .showcase__title {
+    max-width: 56vw;
+  }
+
+  .showcase__title h1 {
+    font-size: clamp(1.7rem, 8.5vmin, 2.6rem);
+  }
+
+  .showcase__title p {
+    display: none;
+  }
+
+  .showcase__hint {
+    max-width: 88vw;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+@media (max-height: 460px) {
+  .showcase__title p {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase__orb {
+    animation: none;
+  }
+}

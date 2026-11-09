@@ -1,0 +1,171 @@
+.challenge {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: calc(0.9rem + env(safe-area-inset-top)) clamp(0.9rem, 3vw, 2.4rem)
+    calc(1rem + env(safe-area-inset-bottom));
+}
+
+.challenge > :not(.backdrop) {
+  position: relative;
+  z-index: 1;
+}
+
+.challenge__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+}
+
+.challenge__title {
+  font-size: 1.05rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--violet, #c9b8ff);
+}
+
+.challenge__score {
+  padding: 0.2em 0.7em;
+  color: var(--ink);
+  background: var(--sun);
+  border-radius: 999px;
+}
+
+.challenge__progress {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.challenge__progress span {
+  display: block;
+  height: 100%;
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--mint), var(--sun), var(--pink));
+  transition: transform 0.4s ease;
+}
+
+.challenge__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: min(100%, 640px);
+  margin: auto;
+  padding: clamp(1rem, 3.2vmin, 2rem);
+  background: linear-gradient(170deg, rgba(143, 75, 240, 0.4), rgba(20, 10, 48, 0.9));
+  border: 4px solid rgba(255, 255, 255, 0.18);
+  border-radius: 34px;
+  box-shadow: 0 26px 60px rgba(10, 4, 28, 0.55);
+}
+
+.challenge__count {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.challenge__card h2 {
+  margin: 0;
+  font-size: clamp(1.25rem, 3.6vmin, 1.8rem);
+  line-height: 1.2;
+  color: #fff;
+}
+
+.challenge__answers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.challenge__answer {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+  padding: 0.7em 0.9em;
+  font-size: clamp(0.95rem, 2.2vmin, 1.08rem);
+  font-weight: 600;
+  text-align: left;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  border: 3px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  transition: transform 0.12s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.challenge__answer:hover:not(:disabled) {
+  transform: translateX(4px);
+  background: rgba(143, 75, 240, 0.45);
+}
+
+.challenge__answer:disabled {
+  cursor: default;
+}
+
+.challenge__answer[data-state='correct'] {
+  background: rgba(125, 255, 181, 0.22);
+  border-color: var(--mint);
+}
+
+.challenge__answer[data-state='wrong'] {
+  background: rgba(255, 92, 168, 0.22);
+  border-color: var(--pink);
+}
+
+.challenge__answer[data-state='dim'] {
+  opacity: 0.5;
+}
+
+.challenge__letter {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--lilac);
+  border-radius: 12px;
+}
+
+.challenge__feedback {
+  padding: 0.7rem 0.9rem;
+  overflow: hidden;
+  border-radius: 18px;
+  background: rgba(125, 255, 181, 0.14);
+  border-left: 6px solid var(--mint);
+}
+
+.challenge__feedback[data-correct='false'] {
+  background: rgba(255, 92, 168, 0.14);
+  border-left-color: var(--pink);
+}
+
+.challenge__feedback strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--mint);
+}
+
+.challenge__feedback[data-correct='false'] strong {
+  /* --pink (#ff5ca8) is only 3.15:1 on this pink-tinted panel; the lighter pink
+     keeps the "wrong" colour cue while clearing 4.5:1. */
+  color: #ffa8d8;
+}
+
+.challenge__feedback p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: #efe9ff;
+}
+
+.challenge__next {
+  align-self: center;
+}

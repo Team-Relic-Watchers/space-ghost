@@ -1,0 +1,14 @@
+{
+  "surveyor-1_real_photo.webp": {
+    "description": "Spacecraft photograph / model: Surveyor 1 historical photographs.",
+    "source": "https://www.nasa.gov/history/55-years-ago-surveyor-1-makes-a-soft-landing-on-the-moon/"
+  },
+  "surveyor1_photo_taken.jpg": {
+    "description": "Image captured by the spacecraft: Surveyor 1's shadow on the lunar surface.",
+    "source": "https://photojournal.jpl.nasa.gov/catalog/PIA02976"
+  },
+  "surveyor-1_technical_illustration.webp": {
+    "description": "Technical illustration: Surveyor 1 spacecraft schematic reference.",
+    "source": "https://www.nasa.gov/history/55-years-ago-surveyor-1-makes-a-soft-landing-on-the-moon/"
+  }
+}

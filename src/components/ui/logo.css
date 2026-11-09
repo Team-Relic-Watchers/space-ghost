@@ -1,0 +1,35 @@
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  line-height: 0.9;
+  transform: rotate(-3deg);
+  filter: drop-shadow(0 0 18px rgba(255, 92, 168, 0.5));
+}
+
+.logo__word {
+  font-size: clamp(2rem, 7vmin + 0.5rem, 4.4rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  -webkit-text-stroke: 0.1em var(--ink-deep);
+  paint-order: stroke fill;
+  text-shadow: 0 0.06em 0 var(--ink-deep), 0 0.12em 0 var(--ink-deep);
+}
+
+.logo__word--first {
+  color: var(--sun);
+}
+
+.logo__word--second {
+  margin-left: 0.5em;
+  color: var(--cyan);
+}
+
+/* Bangla joins letters, so tracking and caps would break it. */
+:lang(bn) .logo__word {
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.1;
+}

@@ -1,0 +1,2186 @@
+{
+  "schema_version": "1.0.0",
+  "document": {
+    "title": "Space Ghosts Story Bible — Detailed Bangla (English + বাংলা)",
+    "source_filename": "Space_Ghosts_Story_Bible_Detailed_Bangla (1).docx",
+    "description": "Structured extraction of the source DOCX. English and Bangla text are preserved as written; this file does not fact-check or rewrite the story.",
+    "story_format": {
+      "machine_count": 17,
+      "parts_per_machine": 7,
+      "parts": [
+        {
+          "part": 1,
+          "title": "Introduction"
+        },
+        {
+          "part": 2,
+          "title": "Design & Technology"
+        },
+        {
+          "part": 3,
+          "title": "Mission"
+        },
+        {
+          "part": 4,
+          "title": "Journey & Challenges"
+        },
+        {
+          "part": 5,
+          "title": "Discovery"
+        },
+        {
+          "part": 6,
+          "title": "Mission Ending"
+        },
+        {
+          "part": 7,
+          "title": "Legacy"
+        }
+      ],
+      "recurring_elements": [
+        "At-a-glance facts",
+        "Seven-part bilingual story",
+        "Pandastein's question and quiz answer",
+        "Imagined voice",
+        "Bilingual robot voice card"
+      ]
+    }
+  },
+  "campaign_overview": [
+    {
+      "#": "১",
+      "রোবট": "রেঞ্জার ৭",
+      "সাল": "১৯৬৪",
+      "কোথায়": "চাঁদ",
+      "শেষ অবস্থা": "ইচ্ছে করে আছড়ে পড়ল"
+    },
+    {
+      "#": "২",
+      "রোবট": "সার্ভেয়র ১",
+      "সাল": "১৯৬৬",
+      "কোথায়": "চাঁদ",
+      "শেষ অবস্থা": "চুপ হয়ে গেল"
+    },
+    {
+      "#": "৩",
+      "রোবট": "লুনার অরবিটার ১",
+      "সাল": "১৯৬৬",
+      "কোথায়": "চাঁদ",
+      "শেষ অবস্থা": "ইচ্ছে করে আছড়ে পড়ল"
+    },
+    {
+      "#": "৪",
+      "রোবট": "অ্যাপোলো ১১ ঈগল ডিসেন্ট স্টেজ",
+      "সাল": "১৯৬৯",
+      "কোথায়": "চাঁদ",
+      "শেষ অবস্থা": "থেকে গেল"
+    },
+    {
+      "#": "৫",
+      "রোবট": "অ্যাপোলো ১৫ লুনার রোভিং ভেহিকল",
+      "সাল": "১৯৭১",
+      "কোথায়": "চাঁদ",
+      "শেষ অবস্থা": "থেকে গেল"
+    },
+    {
+      "#": "৬",
+      "রোবট": "পায়োনিয়ার ১০",
+      "সাল": "১৯৭২",
+      "কোথায়": "মহাকাশের গভীরে",
+      "শেষ অবস্থা": "চুপ হয়ে গেল"
+    },
+    {
+      "#": "৭",
+      "রোবট": "ভাইকিং ১",
+      "সাল": "১৯৭৫",
+      "কোথায়": "মঙ্গল",
+      "শেষ অবস্থা": "চুপ হয়ে গেল"
+    },
+    {
+      "#": "৮",
+      "রোবট": "ভয়েজার ১",
+      "সাল": "১৯৭৭",
+      "কোথায়": "মহাকাশের গভীরে",
+      "শেষ অবস্থা": "এখনও কথা বলছে"
+    },
+    {
+      "#": "৯",
+      "রোবট": "ভয়েজার ২",
+      "সাল": "১৯৭৭",
+      "কোথায়": "মহাকাশের গভীরে",
+      "শেষ অবস্থা": "এখনও কথা বলছে"
+    },
+    {
+      "#": "১০",
+      "রোবট": "মার্স পাথফাইন্ডার",
+      "সাল": "১৯৯৬",
+      "কোথায়": "মঙ্গল",
+      "শেষ অবস্থা": "চুপ হয়ে গেল"
+    },
+    {
+      "#": "১১",
+      "রোবট": "সোজার্নার",
+      "সাল": "১৯৯৬",
+      "কোথায়": "মঙ্গল",
+      "শেষ অবস্থা": "চুপ হয়ে গেল"
+    },
+    {
+      "#": "১২",
+      "রোবট": "ডিপ স্পেস ১",
+      "সাল": "১৯৯৮",
+      "কোথায়": "মহাকাশের গভীরে",
+      "শেষ অবস্থা": "অবসর নিল"
+    },
+    {
+      "#": "১৩",
+      "রোবট": "অপরচুনিটি",
+      "সাল": "২০০৩",
+      "কোথায়": "মঙ্গল",
+      "শেষ অবস্থা": "চুপ হয়ে গেল"
+    },
+    {
+      "#": "১৪",
+      "রোবট": "নিউ হরাইজনস",
+      "সাল": "২০০৬",
+      "কোথায়": "মহাকাশের গভীরে",
+      "শেষ অবস্থা": "এখনও কথা বলছে"
+    },
+    {
+      "#": "১৫",
+      "রোবট": "ফিনিক্স",
+      "সাল": "২০০৭",
+      "কোথায়": "মঙ্গল",
+      "শেষ অবস্থা": "চুপ হয়ে গেল"
+    },
+    {
+      "#": "১৬",
+      "রোবট": "ইনসাইট",
+      "সাল": "২০১৮",
+      "কোথায়": "মঙ্গল",
+      "শেষ অবস্থা": "চুপ হয়ে গেল"
+    },
+    {
+      "#": "১৭",
+      "রোবট": "ইনজেনুইটি",
+      "সাল": "২০২১",
+      "কোথায়": "মঙ্গল",
+      "শেষ অবস্থা": "চুপ হয়ে গেল (উড়তে পারে না)"
+    }
+  ],
+  "missions": [
+    {
+      "id": "machine-01",
+      "sequence": 1,
+      "name": {
+        "en": "Ranger 7",
+        "bn": "রেঞ্জার ৭"
+      },
+      "year": "১৯৬৪",
+      "location_bn": "চাঁদ",
+      "status_bn": "ইচ্ছে করে আছড়ে পড়ল",
+      "at_a_glance": {
+        "en": "Launch: 28 July 1964\nDestination: The Moon, Mare Cognitum\nCameras: 6\nPhotos: More than 4,300 (in the last 17 minutes)\nEnd: 31 July 1964, crashed on purpose",
+        "bn": "উৎক্ষেপণ: ২৮ জুলাই ১৯৬৪\nগন্তব্য: চাঁদ, মেয়ার কগনিটাম\nক্যামেরা: ৬টি\nছবি: ৪,৩০০-র বেশি (শেষ ১৭ মিনিটে)\nশেষ: ৩১ জুলাই ১৯৬৪, ইচ্ছাকৃত সংঘর্ষ"
+      },
+      "story_parts": [
+        {
+          "part": 1,
+          "title": {
+            "en": "১ · Introduction   শুরুর কথা",
+            "bn": "১ · Introduction   শুরুর কথা"
+          },
+          "text": {
+            "en": "Once upon a time there was a little robot called Ranger 7. It was the 1960s, and America and the Soviet Union were racing to reach the Moon first. But there was a big problem: nobody had good pictures of the Moon! Through Earth's telescopes it looked blurry. The six Rangers before Ranger 7 had not managed to send back good pictures. So on 28 July 1964 the seventh Ranger left Earth, and everyone held their breath.",
+            "bn": "এক যে ছিল ছোট্ট রোবট, নাম রেঞ্জার ৭। তখন ১৯৬০-এর দশক। আমেরিকা আর সোভিয়েত ইউনিয়ন—দুই দেশই চাঁদে আগে পৌঁছাতে চায়। কিন্তু একটা বড় সমস্যা ছিল: চাঁদের ভালো ছবিই কারও কাছে নেই! পৃথিবীর টেলিস্কোপে চাঁদ দেখায় ঝাপসা। আগের ছয়টা রেঞ্জার ঠিকমতো ছবি পাঠাতে পারেনি। তাই ২৮ জুলাই ১৯৬৪ সপ্তম রেঞ্জার পৃথিবী ছাড়ল, আর সবাই নিঃশ্বাস বন্ধ করে অপেক্ষা করল।"
+          }
+        },
+        {
+          "part": 2,
+          "title": {
+            "en": "২ · Design & Technology   গড়ন ও প্রযুক্তি",
+            "bn": "২ · Design & Technology   গড়ন ও প্রযুক্তি"
+          },
+          "text": {
+            "en": "Ranger 7 looked like a bird with its wings spread: two solar panels on the sides and a round dish antenna on top. Near its nose sat six TV cameras, two for a wide view and four for fine detail. It had no wheels and no arms, because it was never meant to land. The cameras took the pictures, and the pictures flew home to Earth as radio signals.",
+            "bn": "রেঞ্জার ৭ দেখতে ছিল ডানা-মেলা পাখির মতো। দুই পাশে দুটো সৌর প্যানেল, মাথায় একটা গোল ডিশ অ্যান্টেনা। তার নাকের কাছে বসানো ছয়টা টিভি-ক্যামেরা: দুটো চওড়া এলাকা দেখার, চারটে খুঁটিনাটি দেখার। চাকা নেই, হাত নেই, কারণ তার নামারই দরকার ছিল না। ক্যামেরাগুলো ছবি তুলত, আর ছবি রেডিও-সংকেত হয়ে সোজা পৃথিবীতে চলে আসত।"
+          }
+        },
+        {
+          "part": 3,
+          "title": {
+            "en": "৩ · Mission   মূল কাজ",
+            "bn": "৩ · Mission   মূল কাজ"
+          },
+          "text": {
+            "en": "Its job was truly strange: to keep taking pictures right up to the moment it smashed into the Moon. The closer it got, the clearer the pictures would be. NASA would use them to decide where Apollo astronauts could land safely: where the rocks were, where the craters were, and where the ground was flat.",
+            "bn": "কাজটা ছিল সত্যিই অদ্ভুত: চাঁদের গায়ে আছড়ে পড়ার ঠিক আগ পর্যন্ত ছবি তুলে যাওয়া। যত নিচে নামবে, ছবি তত স্পষ্ট। এই ছবি দেখে নাসা ঠিক করবে অ্যাপোলোর নভোচারীরা কোথায় নিরাপদে নামতে পারবেন: কোথায় পাথর, কোথায় গর্ত, কোথায় সমতল জায়গা।"
+          }
+        },
+        {
+          "part": 4,
+          "title": {
+            "en": "৪ · Journey & Challenges   যাত্রা ও বাধা",
+            "bn": "৪ · Journey & Challenges   যাত্রা ও বাধা"
+          },
+          "text": {
+            "en": "The trip from Earth to the Moon took 68 hours. On the way, its path had to be nudged a little so it would arrive in the right spot. The biggest challenge was time: once the cameras switched on, there were only 17 minutes before impact. No room for mistakes. Pandastein whispers, 'Last chance, Ranger!'",
+            "bn": "পৃথিবী থেকে চাঁদ পর্যন্ত সে উড়ল টানা ৬৮ ঘণ্টা। পথে একবার তার পথ সামান্য ঠিক করে দিতে হলো, যাতে সে চাঁদের সঠিক জায়গায় পৌঁছায়। সবচেয়ে বড় চ্যালেঞ্জ সময়: চাঁদে আঘাত করার আগে ক্যামেরা চালানোর সুযোগ মাত্র ১৭ মিনিট। ভুল করার কোনো উপায় নেই। প্যান্ডাস্টাইন ফিসফিসিয়ে বলে, 'শেষ সুযোগ, রেঞ্জার!'"
+          }
+        },
+        {
+          "part": 5,
+          "title": {
+            "en": "৫ · Discovery   আবিষ্কার",
+            "bn": "৫ · Discovery   আবিষ্কার"
+          },
+          "text": {
+            "en": "In those 17 minutes Ranger 7 sent back more than 4,300 photos. Click, click, click! The closer it came, the sharper they got. The last pictures even showed things about half a metre across. The Moon was covered in craters big and small, and some areas looked quite flat. These were a thousand times clearer than Earth's telescopes could show, and the scientists jumped for joy.",
+            "bn": "ওই ১৭ মিনিটে রেঞ্জার ৭ পাঠাল ৪,৩০০-র বেশি ছবি। টিক, টিক, টিক! যত কাছে এল, ছবি তত পরিষ্কার। শেষ ছবিগুলোতে ধরা পড়ল অর্ধ মিটারের মতো ছোট জিনিসও। দেখা গেল চাঁদ ভর্তি ছোট-বড় গর্তে, আর কিছু জায়গা বেশ সমতল। পৃথিবীর টেলিস্কোপের চেয়ে হাজার গুণ স্পষ্ট ছবি পেয়ে বিজ্ঞানীরা আনন্দে লাফিয়ে উঠলেন।"
+          }
+        },
+        {
+          "part": 6,
+          "title": {
+            "en": "৬ · Mission Ending   শেষ অধ্যায়",
+            "bn": "৬ · Mission Ending   শেষ অধ্যায়"
+          },
+          "text": {
+            "en": "On 31 July 1964 it hit the Moon at 2.6 kilometres per second in a region called Mare Cognitum. It was on purpose, because that was the plan all along. After the last photo there were no more signals. Pandastein says, 'This is not a goodbye. This is a successful ending.' Ranger 7 is now part of the Moon itself.",
+            "bn": "৩১ জুলাই ১৯৬৪, মেয়ার কগনিটাম নামের এক এলাকায় সে সেকেন্ডে ২.৬ কিলোমিটার গতিতে আছড়ে পড়ল। ইচ্ছে করেই, কারণ পরিকল্পনাটাই ছিল এমন। শেষ ছবি পাঠানোর পর আর কোনো সংকেত এল না। প্যান্ডাস্টাইন বলে, 'এটা বিদায় নয়, এটা সফল সমাপ্তি।' সে এখন চাঁদেরই একটা অংশ।"
+          }
+        },
+        {
+          "part": 7,
+          "title": {
+            "en": "৭ · Legacy   রেখে যাওয়া উপহার",
+            "bn": "৭ · Legacy   রেখে যাওয়া উপহার"
+          },
+          "text": {
+            "en": "Ranger 7's pictures proved that landing on the Moon was possible. Rangers 8 and 9 also succeeded. Then came Surveyor, Lunar Orbiter, and in 1969, Apollo 11. Ranger 7 was the first step on that long road. The area it photographed was named 'Mare Cognitum', the Sea That Has Become Known. Only 17 minutes of pictures, but they worked for the whole programme. Story over, stars aglow!",
+            "bn": "রেঞ্জার ৭-এর ছবিই প্রমাণ করল চাঁদে নামা সম্ভব। এরপর রেঞ্জার ৮ আর ৯-ও সফল হলো। তারপর এল সার্ভেয়র, লুনার অরবিটার, আর ১৯৬৯-এ অ্যাপোলো ১১। সেই লম্বা পথের প্রথম ধাপ ছিল রেঞ্জার ৭। তার ছবির জায়গাটার নাম হয়ে গেল 'মেয়ার কগনিটাম'—যে সাগর এখন সবার চেনা। মাত্র ১৭ মিনিটের ছবি, কিন্তু কাজ করল সারা অভিযানের জন্য। গল্প ফুরালো, তারা জ্বললো!"
+          }
+        }
+      ],
+      "pandastein_question": {
+        "en": "Where was Ranger 7 heading while it took pictures, and what happened to it at the end?",
+        "answer_en": "Toward the Moon; it crashed into it on purpose.",
+        "bn": "ছবি তুলতে তুলতে রেঞ্জার ৭ কোথায় নামছিল, আর শেষে তার কী হলো?",
+        "answer_bn": "চাঁদের দিকে; ইচ্ছে করে আছড়ে পড়ল।"
+      },
+      "imagined_voice": {
+        "en": "Imagined voice: \"Click, click, click! I have one more picture to take!\"",
+        "bn": "কল্পিত কণ্ঠ: \"টিক, টিক, টিক! আমার আর একটা ছবি বাকি!\""
+      },
+      "robot_voice_card": {
+        "en": "BEEP. I am Ranger 7. NASA's JPL built me. Launched 28 July 1964. Flew 68.6 hours. Impact 31 July 1964, Mare Cognitum, at 2.62 kilometres per second. Six cameras. Over 4,300 photos. Status: crashed on purpose. END.",
+        "bn": "বিপ। আমি রেঞ্জার ৭। নাসার জেপিএল আমাকে বানিয়েছে। উৎক্ষেপণ: ২৮ জুলাই ১৯৬৪। উড়েছি ৬৮.৬ ঘণ্টা। আঘাত: ৩১ জুলাই ১৯৬৪, মেয়ার কগনিটাম, সেকেন্ডে ২.৬২ কিলোমিটার গতিতে। ক্যামেরা ছয়টি। ছবি ৪,৩০০-র বেশি। অবস্থা: ইচ্ছাকৃত সংঘর্ষ। শেষ।"
+      }
+    },
+    {
+      "id": "machine-02",
+      "sequence": 2,
+      "name": {
+        "en": "Surveyor 1",
+        "bn": "সার্ভেয়র ১"
+      },
+      "year": "১৯৬৬",
+      "location_bn": "চাঁদ",
+      "status_bn": "চুপ হয়ে গেল",
+      "at_a_glance": {
+        "en": "Launch: 30 May 1966\nLanding: 2 June 1966, Ocean of Storms\nPhotos: More than 11,000\nLast contact: January 1967\nStatus: Quiet on the Moon",
+        "bn": "উৎক্ষেপণ: ৩০ মে ১৯৬৬\nঅবতরণ: ২ জুন ১৯৬৬, ঝড়ের সাগর\nছবি: ১১,০০০-র বেশি\nশেষ যোগাযোগ: জানুয়ারি ১৯৬৭\nঅবস্থা: চাঁদে চুপচাপ"
+      },
+      "story_parts": [
+        {
+          "part": 1,
+          "title": {
+            "en": "১ · Introduction   শুরুর কথা",
+            "bn": "১ · Introduction   শুরুর কথা"
+          },
+          "text": {
+            "en": "Once upon a time there was a three-legged robot called Surveyor 1. The Rangers had only taken pictures and crashed. But astronauts need a place where they can really stand. One worry kept scientists awake at night: what if Moon dust was so soft that any spacecraft would sink? To find the answer, Surveyor 1 set off on 30 May 1966.",
+            "bn": "এক যে ছিল তিন-পায়ের রোবট, নাম সার্ভেয়র ১। রেঞ্জাররা শুধু ছবি তুলে আছড়ে পড়েছিল। কিন্তু নভোচারীদের দরকার এমন জায়গা, যেখানে সত্যিই পা রাখা যায়। তখন বিজ্ঞানীদের একটা ভয় ঘুম কেড়ে নিয়েছিল: চাঁদের ধুলো যদি এত নরম হয় যে কোনো যান নামলে ডুবে যায়? এই প্রশ্নের উত্তর খুঁজতে ৩০ মে ১৯৬৬ সার্ভেয়র ১ রওনা দিল।"
+          }
+        },
+        {
+          "part": 2,
+          "title": {
+            "en": "২ · Design & Technology   গড়ন ও প্রযুক্তি",
+            "bn": "২ · Design & Technology   গড়ন ও প্রযুক্তি"
+          },
+          "text": {
+            "en": "Surveyor 1 looked like a camera tripod: three long legs and a mast in the middle. On top of the mast sat a solar panel and an antenna, and below it a TV camera that turned to look all around. Each foot had a shock-absorbing pad. To land, it first fired a big braking rocket, then used small engines to settle down slowly.",
+            "bn": "সার্ভেয়র ১ দেখতে ছিল ক্যামেরা-স্ট্যান্ডের মতো: তিনটে লম্বা পা, মাঝখানে একটা মাস্তুল। মাস্তুলের মাথায় সৌর প্যানেল আর অ্যান্টেনা, নিচে একটা টিভি-ক্যামেরা, যা ঘুরে ঘুরে চারদিক দেখত। প্রতিটা পায়ের নিচে ধাক্কা-সামলানো প্যাড। নামার সময় প্রথমে বড় একটা রকেট-ব্রেক, তারপর ছোট ছোট ইঞ্জিনে ধীরে ধীরে নামা।"
+          }
+        },
+        {
+          "part": 3,
+          "title": {
+            "en": "৩ · Mission   মূল কাজ",
+            "bn": "৩ · Mission   মূল কাজ"
+          },
+          "text": {
+            "en": "It had three jobs. One: land softly to show that a heavy spacecraft could touch down on the Moon. Two: take pictures of the soil and rocks around it. Three: work out how hard the Moon's ground was, just from the bump of its own landing.",
+            "bn": "তার কাজ ছিল তিনটে। এক, নরমভাবে নেমে দেখানো যে এত ভারী যান চাঁদে নামতে পারে। দুই, চারপাশের মাটি আর পাথরের ছবি তোলা। তিন, নামার ধাক্কা থেকেই বোঝা, চাঁদের মাটি কতটা শক্ত।"
+          }
+        },
+        {
+          "part": 4,
+          "title": {
+            "en": "৪ · Journey & Challenges   যাত্রা ও বাধা",
+            "bn": "৪ · Journey & Challenges   যাত্রা ও বাধা"
+          },
+          "text": {
+            "en": "A soft landing is very hard to do. The Soviet Luna 9 had landed a few months earlier, so Surveyor 1 was America's first try. On 2 June 1966 it landed on the Ocean of Storms on its very first attempt! But the real test came later: the Moon night. Two weeks of darkness and bitter cold. The solar panel could not work, and only the battery was left. Surveyor 1 slept, woke up, and went back to work.",
+            "bn": "নরম অবতরণ খুব কঠিন কাজ। সোভিয়েত লুনা ৯ কয়েক মাস আগেই নেমেছিল, তাই সার্ভেয়র ১ ছিল আমেরিকার প্রথম চেষ্টা। ২ জুন ১৯৬৬ সে প্রথম চেষ্টাতেই 'ঝড়ের সাগরে' নামল! কিন্তু আসল পরীক্ষা এল পরে: চাঁদের রাত। টানা দু-সপ্তাহের অন্ধকার আর ভয়ঙ্কর ঠান্ডা। সৌর প্যানেল কাজ করে না, ব্যাটারি ভরসা। সার্ভেয়র ১ ঘুমাল, জাগল, আবার কাজে লাগল।"
+          }
+        },
+        {
+          "part": 5,
+          "title": {
+            "en": "৫ · Discovery   আবিষ্কার",
+            "bn": "৫ · Discovery   আবিষ্কার"
+          },
+          "text": {
+            "en": "Surveyor 1 sent back more than 11,000 pictures: Moon dust, small rocks, the shadows of its own legs, the distant horizon. The biggest news was this: the Moon's ground is firm enough, and a spacecraft does not sink! The dust fear was wrong. That news made the Apollo programme a lot bolder.",
+            "bn": "সার্ভেয়র ১ পাঠাল ১১,০০০-র বেশি ছবি: চাঁদের ধুলো, ছোট পাথর, নিজের পায়ের ছায়া, দূরের দিগন্ত। সবচেয়ে বড় খবর ছিল এটাই: চাঁদের মাটি যথেষ্ট শক্ত, যান ডুবে যায় না! ধুলোর ভয়টা মিথ্যে প্রমাণিত হলো। এই খবরে অ্যাপোলো প্রকল্পের সাহস অনেক বেড়ে গেল।"
+          }
+        },
+        {
+          "part": 6,
+          "title": {
+            "en": "৬ · Mission Ending   শেষ অধ্যায়",
+            "bn": "৬ · Mission Ending   শেষ অধ্যায়"
+          },
+          "text": {
+            "en": "It talked until January 1967, then went quiet. But it never left. It still stands in the Ocean of Storms. In 2009 NASA's Moon-orbiting camera spotted it from above: a tiny dot with a long shadow. Pandastein says, 'It went quiet. It did not get lost.'",
+            "bn": "জানুয়ারি ১৯৬৭ পর্যন্ত সে কথা বলল, তারপর চুপ হয়ে গেল। কিন্তু সে ওখান থেকে সরেনি। আজও সে ঝড়ের সাগরে দাঁড়িয়ে আছে। ২০০৯ সালে নাসার চাঁদ-প্রদক্ষিণকারী ক্যামেরা ওপর থেকে তাকে খুঁজে পেল: ছোট্ট একটা বিন্দু, সঙ্গে লম্বা ছায়া। প্যান্ডাস্টাইন বলে, 'ও চুপ হয়েছে, হারিয়ে যায়নি।'"
+          }
+        },
+        {
+          "part": 7,
+          "title": {
+            "en": "৭ · Legacy   রেখে যাওয়া উপহার",
+            "bn": "৭ · Legacy   রেখে যাওয়া উপহার"
+          },
+          "text": {
+            "en": "After Surveyor 1, six more Surveyors flew, and five of the seven succeeded. In 1969 the Apollo 12 astronauts walked over to Surveyor 3 and brought some of its parts home to Earth. What did we learn? Robots go first and show the way, then people follow. Story over, stars aglow!",
+            "bn": "সার্ভেয়র ১-এর পরে আরও ছয়টা সার্ভেয়র গেল। মোট পাঁচটা সফল হলো। ১৯৬৯-এ অ্যাপোলো ১২-র নভোচারীরা হেঁটে গিয়ে সার্ভেয়র ৩-এর কিছু অংশ পৃথিবীতে এনেছিলেন। কী শিখলাম? রোবট আগে গিয়ে পথ দেখায়, তারপর মানুষ যায়। গল্প ফুরালো, তারা জ্বললো!"
+          }
+        }
+      ],
+      "pandastein_question": {
+        "en": "Surveyor 1 wanted to know if the Moon's ground was soft or hard. What was the answer?",
+        "answer_en": "Firm enough; spacecraft do not sink.",
+        "bn": "সার্ভেয়র ১ জানতে চেয়েছিল চাঁদের মাটি নরম না শক্ত। উত্তরটা কী ছিল?",
+        "answer_bn": "যথেষ্ট শক্ত; যান ডুবে যায় না।"
+      },
+      "imagined_voice": {
+        "en": "Imagined voice: \"I am standing on three legs. I did not sink, look!\"",
+        "bn": "কল্পিত কণ্ঠ: \"আমি তিন পায়ে দাঁড়িয়ে আছি। ডুবিনি, দেখো!\""
+      },
+      "robot_voice_card": {
+        "en": "BEEP. I am Surveyor 1, a lander with three legs. Launched 30 May 1966. Landed 2 June 1966, Ocean of Storms. More than 11,000 pictures sent. Last contact January 1967. Status: quiet on the Moon. END.",
+        "bn": "বিপ। আমি সার্ভেয়র ১, তিন পায়ের ল্যান্ডার। উৎক্ষেপণ: ৩০ মে ১৯৬৬। অবতরণ: ২ জুন ১৯৬৬, ঝড়ের সাগর। ছবি পাঠিয়েছি ১১ হাজারের বেশি। শেষ যোগাযোগ: জানুয়ারি ১৯৬৭। অবস্থা: চাঁদে নীরব। শেষ।"
+      }
+    },
+    {
+      "id": "machine-03",
+      "sequence": 3,
+      "name": {
+        "en": "Lunar Orbiter 1",
+        "bn": "লুনার অরবিটার ১"
+      },
+      "year": "১৯৬৬",
+      "location_bn": "চাঁদ",
+      "status_bn": "ইচ্ছে করে আছড়ে পড়ল",
+      "at_a_glance": {
+        "en": "Launch: 10 August 1966\nInto lunar orbit: 14 August 1966\nFirst Earth photo: 23 August 1966\nEnd: 29 October 1966, on orbit 577\nStatus: Crashed on purpose",
+        "bn": "উৎক্ষেপণ: ১০ আগস্ট ১৯৬৬\nচাঁদের কক্ষপথে: ১৪ আগস্ট ১৯৬৬\nপৃথিবীর প্রথম ছবি: ২৩ আগস্ট ১৯৬৬\nশেষ: ২৯ অক্টোবর ১৯৬৬, ৫৭৭তম পাকে\nঅবস্থা: ইচ্ছাকৃত সংঘর্ষ"
+      },
+      "story_parts": [
+        {
+          "part": 1,
+          "title": {
+            "en": "১ · Introduction   শুরুর কথা",
+            "bn": "১ · Introduction   শুরুর কথা"
+          },
+          "text": {
+            "en": "Once upon a time there was a circling robot called Lunar Orbiter 1. Rangers rushed in and crashed, and Surveyors sat in one spot. But astronauts needed pictures of many parts of the Moon so they could pick the very best landing place. So on 10 August 1966 NASA sent up America's first spacecraft to circle the Moon.",
+            "bn": "এক যে ছিল চক্কর-কাটা রোবট, নাম লুনার অরবিটার ১। রেঞ্জার ছুটে গিয়ে আছড়ে পড়ত, সার্ভেয়র এক জায়গায় বসে থাকত। কিন্তু নভোচারীদের দরকার চাঁদের অনেক এলাকার ছবি, যাতে সবচেয়ে ভালো নামার জায়গা বেছে নেওয়া যায়। তাই ১০ আগস্ট ১৯৬৬ নাসা পাঠাল আমেরিকার প্রথম চাঁদ-প্রদক্ষিণকারী মহাকাশযান।"
+          }
+        },
+        {
+          "part": 2,
+          "title": {
+            "en": "২ · Design & Technology   গড়ন ও প্রযুক্তি",
+            "bn": "২ · Design & Technology   গড়ন ও প্রযুক্তি"
+          },
+          "text": {
+            "en": "Its camera was the funniest part. Inside it was a tiny darkroom! Pictures were taken on real film, and the film was developed right there on board. Then a scanner read the film bit by bit and radioed the picture home. It had two lenses: one for a wide view, one for small details. Solar panels gave it power.",
+            "bn": "তার ক্যামেরাটাই ছিল সবচেয়ে মজার। ভেতরে ছিল ছোট্ট এক ডার্করুম! ছবি তোলা হতো সত্যিকারের ফিল্মে, ভেতরেই ফিল্ম ধোয়া হতো। তারপর একটা স্ক্যানার ফিল্মটা একটু একটু করে স্ক্যান করে রেডিওতে ছবি পাঠিয়ে দিত। দুটো লেন্স ছিল: একটা বড় এলাকা দেখার, একটা ছোট জিনিস দেখার। সৌর প্যানেল তাকে শক্তি দিত।"
+          }
+        },
+        {
+          "part": 3,
+          "title": {
+            "en": "৩ · Mission   মূল কাজ",
+            "bn": "৩ · Mission   মূল কাজ"
+          },
+          "text": {
+            "en": "The mission was to take pictures while circling the Moon, especially of places where Apollo astronauts might land. Where is it flat? Where are the mountains? Where are the big craters? All of that had to be known.",
+            "bn": "মিশন ছিল চাঁদকে পাক খেতে খেতে ছবি তোলা। বিশেষ করে সেই জায়গাগুলোর ছবি, যেখানে অ্যাপোলোর নভোচারীরা নামতে পারেন। কোথায় সমতল, কোথায় পাহাড়, কোথায় বড় গর্ত, সব জানতে হবে।"
+          }
+        },
+        {
+          "part": 4,
+          "title": {
+            "en": "৪ · Journey & Challenges   যাত্রা ও বাধা",
+            "bn": "৪ · Journey & Challenges   যাত্রা ও বাধা"
+          },
+          "text": {
+            "en": "Orbiting the Moon means firing the engine at exactly the right time and speed. On 14 August 1966 it slipped into lunar orbit. But the film chemicals, the spinning motors, the scanner: if any one broke, all the pictures would be lost. And sending a picture took hours. Patience was its real strength.",
+            "bn": "চাঁদকে ঘিরে ঘোরা মানে ঠিক সময়ে, ঠিক গতিতে ইঞ্জিন চালানো। ১৪ আগস্ট ১৯৬৬ সে সফলভাবে চাঁদের কক্ষপথে ঢুকল। কিন্তু ফিল্ম ধোয়ার রাসায়নিক, ঘুরন্ত মোটর, স্ক্যানার: একটা বিগড়ে গেলেই সব ছবি শেষ। তার ওপর ছবি পাঠাতে ঘণ্টার পর ঘণ্টা লাগত। ধৈর্যই ছিল তার আসল শক্তি।"
+          }
+        },
+        {
+          "part": 5,
+          "title": {
+            "en": "৫ · Discovery   আবিষ্কার",
+            "bn": "৫ · Discovery   আবিষ্কার"
+          },
+          "text": {
+            "en": "On 23 August 1966 it took a picture that was not on the main to-do list. Over the edge of the Moon, a tiny curved Earth was rising! It was the first photo of Earth taken from the Moon. It also photographed the far side of the Moon, the side we can never see from Earth.",
+            "bn": "২৩ আগস্ট ১৯৬৬ সে এমন একটা ছবি তুলল, যা প্রধান কাজের তালিকায় ছিল না। চাঁদের কিনারার ওপরে ছোট্ট একটা বাঁকা পৃথিবী উঠছে! এটাই চাঁদ থেকে তোলা পৃথিবীর প্রথম ছবি। এছাড়া সে চাঁদের ওপারের এলাকার ছবিও তুলল, যে দিকটা পৃথিবী থেকে কখনও দেখা যায় না।"
+          }
+        },
+        {
+          "part": 6,
+          "title": {
+            "en": "৬ · Mission Ending   শেষ অধ্যায়",
+            "bn": "৬ · Mission Ending   শেষ অধ্যায়"
+          },
+          "text": {
+            "en": "On 29 October 1966, on its 577th orbit, NASA gave it a command: go down on the far side of the Moon. It crashed on purpose so that its radio signal would not disturb the orbiters that came after. That way it worked for the team right up to the last moment.",
+            "bn": "২৯ অক্টোবর ১৯৬৬, তার ৫৭৭তম পাকের সময় নাসা তাকে নির্দেশ দিল: চাঁদের ওপারে নেমে যাও। সে ইচ্ছে করেই আছড়ে পড়ল, যাতে তার রেডিও-সংকেত পরের অরবিটারদের কাজে বাধা না দেয়। এভাবে সে শেষ মুহূর্ত পর্যন্ত দলের কাজ করে গেল।"
+          }
+        },
+        {
+          "part": 7,
+          "title": {
+            "en": "৭ · Legacy   রেখে যাওয়া উপহার",
+            "bn": "৭ · Legacy   রেখে যাওয়া উপহার"
+          },
+          "text": {
+            "en": "Five Lunar Orbiters together mapped almost the whole Moon. Two years later the Apollo 8 astronauts took the famous colour 'Earthrise' photo from lunar orbit. The way for it had been opened by Lunar Orbiter 1's little black-and-white picture. Story over, stars aglow!",
+            "bn": "মোট পাঁচটা লুনার অরবিটার মিলে চাঁদের প্রায় পুরোটার মানচিত্র বানিয়ে ফেলল। দুই বছর পর অ্যাপোলো ৮-র নভোচারীরা চাঁদ থেকে রঙিন 'আর্থরাইজ' ছবি তুললেন। সেই ছবির পথ খুলে দিয়েছিল লুনার অরবিটার ১-এর ছোট্ট সাদা-কালো ছবিটা। গল্প ফুরালো, তারা জ্বললো!"
+          }
+        }
+      ],
+      "pandastein_question": {
+        "en": "In the first photo of Earth from the Moon, what did Earth look like?",
+        "answer_en": "A small curved (crescent) Earth above the Moon's edge.",
+        "bn": "চাঁদ থেকে তোলা পৃথিবীর প্রথম ছবিতে পৃথিবী দেখতে কেমন ছিল?",
+        "answer_bn": "ছোট্ট বাঁকা (অর্ধচন্দ্র-আকৃতির) পৃথিবী, চাঁদের কিনারার ওপরে।"
+      },
+      "imagined_voice": {
+        "en": "Imagined voice: \"Round and round I go! Look, there is our Earth!\"",
+        "bn": "কল্পিত কণ্ঠ: \"ঘুরছি, ঘুরছি! ওই যে আমাদের পৃথিবী!\""
+      },
+      "robot_voice_card": {
+        "en": "BEEP. I am Lunar Orbiter 1. Launched 10 August 1966. In lunar orbit from 14 August. First view of Earth from the Moon: 23 August 1966. Commanded impact: 29 October 1966, orbit 577. Status: crashed on purpose. END.",
+        "bn": "বিপ। আমি লুনার অরবিটার ১। উৎক্ষেপণ: ১০ আগস্ট ১৯৬৬। চাঁদের কক্ষপথে: ১৪ আগস্ট থেকে। চাঁদ থেকে পৃথিবীর প্রথম ছবি: ২৩ আগস্ট ১৯৬৬। নির্দেশে আঘাত: ২৯ অক্টোবর ১৯৬৬, ৫৭৭তম কক্ষপথ। অবস্থা: ইচ্ছাকৃত সংঘর্ষ। শেষ।"
+      }
+    },
+    {
+      "id": "machine-04",
+      "sequence": 4,
+      "name": {
+        "en": "Eagle",
+        "bn": "অ্যাপোলো ১১ ঈগল ডিসেন্ট স্টেজ"
+      },
+      "year": "১৯৬৯",
+      "location_bn": "চাঁদ",
+      "status_bn": "থেকে গেল",
+      "at_a_glance": {
+        "en": "Launch: 16 July 1969 (Apollo 11)\nLanding: 20 July 1969, Sea of Tranquility\nTime on the Moon: About 21 hours\nRocks brought home: About 21 kilograms\nLaser mirrors: 100, still working today",
+        "bn": "উৎক্ষেপণ: ১৬ জুলাই ১৯৬৯ (অ্যাপোলো ১১)\nঅবতরণ: ২০ জুলাই ১৯৬৯, শান্তির সাগর\nচাঁদে থাকা: প্রায় ২১ ঘণ্টা\nআনা পাথর: প্রায় ২১ কেজি\nলেজার আয়না: ১০০টি, আজও কাজ করে"
+      },
+      "story_parts": [
+        {
+          "part": 1,
+          "title": {
+            "en": "১ · Introduction   শুরুর কথা",
+            "bn": "১ · Introduction   শুরুর কথা"
+          },
+          "text": {
+            "en": "Once upon a time there was a little spacecraft called Eagle. On 16 July 1969 the giant Saturn V rocket lifted three astronauts into the sky. Near the Moon, two of them, Neil Armstrong and Buzz Aldrin, climbed into Eagle to go down. The third, Michael Collins, stayed above in orbit. Pandastein whispers, 'Shh, landing!'",
+            "bn": "এক যে ছিল ছোট্ট মহাকাশযান, নাম ঈগল। ১৬ জুলাই ১৯৬৯ বিশাল স্যাটার্ন ৫ রকেট তিন নভোচারীকে নিয়ে আকাশে উঠল। চাঁদের কাছে এসে দুজন, নিল আর্মস্ট্রং আর বাজ অলড্রিন, ঈগলে চড়ে নিচে নামার জন্য তৈরি হলেন। তৃতীয়জন, মাইকেল কলিন্স, ওপরে ঘুরতে থাকলেন। প্যান্ডাস্টাইন ফিসফিসিয়ে বলে, 'শশশ, নামছে!'"
+          }
+        },
+        {
+          "part": 2,
+          "title": {
+            "en": "২ · Design & Technology   গড়ন ও প্রযুক্তি",
+            "bn": "২ · Design & Technology   গড়ন ও প্রযুক্তি"
+          },
+          "text": {
+            "en": "Eagle had two parts. The top part held the astronauts' cabin and the engine for going home. The bottom part, the descent stage, was shaped like an eight-sided box, wrapped in gold foil to protect it from heat. It had four long legs, each with a wide dish-shaped pad so it would not sink in the dust, and an engine in the middle whose power could be turned up and down. One leg had the ladder.",
+            "bn": "ঈগলের ছিল দুটো অংশ। ওপরের অংশে নভোচারীদের থাকার ঘর আর ফেরার ইঞ্জিন। নিচের অংশ, ডিসেন্ট স্টেজ, আট কোনাওয়ালা বাক্সের মতো, সোনালি ফয়েলে মোড়া, যাতে তাপ থেকে বাঁচে। তার চারটা লম্বা পা, প্রতিটার নিচে চওড়া থালার মতো প্যাড, যাতে ধুলোয় ডুবে না যায়। মাঝখানের ইঞ্জিনের জোর কমানো-বাড়ানো যেত। একটা পায়ে ছিল নামার সিঁড়ি।"
+          }
+        },
+        {
+          "part": 3,
+          "title": {
+            "en": "৩ · Mission   মূল কাজ",
+            "bn": "৩ · Mission   মূল কাজ"
+          },
+          "text": {
+            "en": "The bottom part had two jobs. One: set the astronauts down gently on the Moon. Two: then become the launch pad for the top part. That meant it would never come back; it had to stay on the Moon. Its belly also held experiments that the astronauts would set up on the surface.",
+            "bn": "নিচের অংশের কাজ ছিল দুটো। এক, নভোচারীদের নরমভাবে চাঁদে নামানো। দুই, তারপর ওপরের অংশের উৎক্ষেপণ-মঞ্চ হওয়া। মানে সে আর ফিরবে না, তাকে চাঁদেই থেকে যেতে হবে। আবার তার পেটের ভেতরের খোপে রাখা ছিল পরীক্ষার যন্ত্র, যা নভোচারীরা চাঁদে বসাবেন।"
+          }
+        },
+        {
+          "part": 4,
+          "title": {
+            "en": "৪ · Journey & Challenges   যাত্রা ও বাধা",
+            "bn": "৪ · Journey & Challenges   যাত্রা ও বাধা"
+          },
+          "text": {
+            "en": "Just before landing, alarms started beeping in the computer. The ground below was full of big rocks and a crater, and fuel was running low. Armstrong took over by hand, floated Eagle forward and set it down on a smooth spot. On 20 July 1969 Eagle touched down in the Sea of Tranquility. Pandastein: 'Phew, that was close!'",
+            "bn": "নামার ঠিক আগে কম্পিউটারে অ্যালার্ম বাজতে লাগল। নিচের মাটিতে বড় বড় পাথর আর একটা গর্ত। জ্বালানিও কমে আসছে। আর্মস্ট্রং নিজের হাতে ঈগলকে সামনে ভাসিয়ে নিয়ে গেলেন, তারপর একটা মসৃণ জায়গায় নামালেন। ২০ জুলাই ১৯৬৯ ঈগল শান্তির সাগরে ছুঁয়ে দাঁড়াল। প্যান্ডাস্টাইন: 'ফুঃ, বাঁচা গেল!'"
+          }
+        },
+        {
+          "part": 5,
+          "title": {
+            "en": "৫ · Discovery   আবিষ্কার",
+            "bn": "৫ · Discovery   আবিষ্কার"
+          },
+          "text": {
+            "en": "The astronauts stayed on the Moon for about 21 hours. They collected about 21 kilograms of Moon rock and soil. They took instruments out of Eagle's belly and set them up: a seismometer, a foil to catch the solar wind, and a mirror for laser beams. The mirror array holds 100 little mirrors. Scientists shoot a laser from Earth and time how long it takes to bounce back. That is how we know the Moon is moving away from Earth by about 3.8 centimetres every year!",
+            "bn": "নভোচারীরা প্রায় ২১ ঘণ্টা চাঁদে ছিলেন। তাঁরা প্রায় ২১ কেজি চাঁদের পাথর-মাটি তুললেন। আর ঈগলের পেট থেকে যন্ত্র বের করে বসালেন: একটা ভূমিকম্প-মাপার যন্ত্র, সৌরবায়ু ধরার ফয়েল, আর লেজারের জন্য একটা আয়না। সেই আয়নার সারিতে ১০০টা ছোট্ট আয়না। বিজ্ঞানীরা পৃথিবী থেকে লেজার ছুড়ে ফিরে আসার সময় মাপেন। এভাবে জানা গেছে, চাঁদ প্রতি বছর পৃথিবী থেকে প্রায় ৩.৮ সেন্টিমিটার দূরে সরে যাচ্ছে!"
+          }
+        },
+        {
+          "part": 6,
+          "title": {
+            "en": "৬ · Mission Ending   শেষ অধ্যায়",
+            "bn": "৬ · Mission Ending   শেষ অধ্যায়"
+          },
+          "text": {
+            "en": "On 21 July 1969 the top part used Eagle's bottom part as a launch pad and flew away. The bottom part stayed at Tranquility Base. It is still there today, standing quietly. The Moon has no air, so nothing rusts and no storms blow. It is now the foundation of humanity's first home on the Moon.",
+            "bn": "২১ জুলাই ১৯৬৯ ওপরের অংশ ঈগলের নিচের অংশকে মঞ্চ বানিয়ে উড়ে গেল। নিচের অংশ থেকে গেল ট্রাঙ্কুইলিটি বেসে। আজও সে সেখানে চুপচাপ দাঁড়িয়ে আছে। চাঁদে বাতাস নেই, তাই মরচে ধরে না, ঝড়ও ওঠে না। সে এখন চাঁদের মাটিতে মানুষের প্রথম বাড়ির ভিত।"
+          }
+        },
+        {
+          "part": 7,
+          "title": {
+            "en": "৭ · Legacy   রেখে যাওয়া উপহার",
+            "bn": "৭ · Legacy   রেখে যাওয়া উপহার"
+          },
+          "text": {
+            "en": "Eagle showed us that people can land on another world and come back. After Apollo 11, people landed on the Moon five more times. That laser mirror still works, and scientists use it today. And NASA's Artemis programme wants to take people toward the Moon again. Eagle laid the foundation long ago. Story over, stars aglow!",
+            "bn": "ঈগল দেখিয়ে দিল: মানুষ অন্য জগতে নামতে পারে, আবার ফিরেও আসতে পারে। অ্যাপোলো ১১-এর পর আরও পাঁচবার মানুষ চাঁদে নামল। সেই লেজার-আয়না আজও কাজ করছে, বিজ্ঞানীরা এখনও তা ব্যবহার করেন। আর নাসার আর্টেমিস কর্মসূচি আবার মানুষকে চাঁদের দিকে নিয়ে যেতে চাইছে। ঈগল আগে থেকে ভিত গড়ে রেখেছিল। গল্প ফুরালো, তারা জ্বললো!"
+          }
+        }
+      ],
+      "pandastein_question": {
+        "en": "Which part of Eagle stayed on the Moon, and which part flew home?",
+        "answer_en": "The bottom part (descent stage) stayed; the top part flew home.",
+        "bn": "ঈগলের কোন অংশ চাঁদে থেকে গেল, আর কোন অংশ ফিরে গেল?",
+        "answer_bn": "নিচের অংশ (ডিসেন্ট স্টেজ) থেকে গেল; ওপরের অংশ ফিরে গেল।"
+      },
+      "imagined_voice": {
+        "en": "Imagined voice: \"I will not come back. But you will, and I have shown the way.\"",
+        "bn": "কল্পিত কণ্ঠ: \"আমি ফিরব না। কিন্তু তোমরা ফিরবে, আর আমি পথ দেখিয়ে দিলাম।\""
+      },
+      "robot_voice_card": {
+        "en": "BEEP. I am the Eagle descent stage, the bottom half of Apollo 11's lunar module. Landed 20 July 1969, Sea of Tranquility. My top half left on 21 July. Status: at rest on the Moon. The laser mirror nearby still works. END.",
+        "bn": "বিপ। আমি ঈগল ডিসেন্ট স্টেজ, অ্যাপোলো ১১-র চাঁদ-যানের নিচের অংশ। অবতরণ: ২০ জুলাই ১৯৬৯, শান্তির সাগর। আমার ওপরের অংশ গেছে ২১ জুলাই। অবস্থা: চাঁদে স্থির। কাছের লেজার-আয়না এখনও কাজ করে। শেষ।"
+      }
+    },
+    {
+      "id": "machine-05",
+      "sequence": 5,
+      "name": {
+        "en": "Apollo 15 Lunar Roving Vehicle",
+        "bn": "অ্যাপোলো ১৫ লুনার রোভিং ভেহিকল"
+      },
+      "year": "১৯৭১",
+      "location_bn": "চাঁদ",
+      "status_bn": "থেকে গেল",
+      "at_a_glance": {
+        "en": "Landing: 30 July 1971, Hadley-Apennine\nFirst drive: 31 July 1971\nTotal distance: About 27.9 km in 3 hours 2 minutes\nFarthest point: 5 km from the lander\nStatus: At rest on the Moon",
+        "bn": "অবতরণ: ৩০ জুলাই ১৯৭১, হ্যাডলি-অ্যাপেনাইন\nপ্রথম চালানো: ৩১ জুলাই ১৯৭১\nমোট দূরত্ব: প্রায় ২৭.৯ কিমি, ৩ ঘণ্টা ২ মিনিটে\nসবচেয়ে দূরে: ল্যান্ডার থেকে ৫ কিমি\nঅবস্থা: চাঁদে থেমে আছে"
+      },
+      "story_parts": [
+        {
+          "part": 1,
+          "title": {
+            "en": "১ · Introduction   শুরুর কথা",
+            "bn": "১ · Introduction   শুরুর কথা"
+          },
+          "text": {
+            "en": "Once upon a time there was a Moon car. On Apollo 11 the astronauts stayed close to Eagle, because walking far on the Moon is hard. But farther away there were new rocks and new places to find. So NASA built an electric car. In July 1971 Apollo 15 carried it folded up to the Moon. For the first time, people were going to drive on the Moon!",
+            "bn": "এক যে ছিল চাঁদ-গাড়ি। অ্যাপোলো ১১-তে নভোচারীরা ঈগলের খুব কাছেই ঘুরেছিলেন, কারণ চাঁদে পায়ে হেঁটে বেশি দূর যাওয়া কঠিন। বেশি দূরে গেলে পাওয়া যাবে নতুন নতুন পাথর, নতুন নতুন জায়গা। তাই নাসা বানাল একটা ইলেকট্রিক গাড়ি। ১৯৭১-এর জুলাইয়ে অ্যাপোলো ১৫ তাকে ভাঁজ করে চাঁদে নিয়ে গেল। এই প্রথম মানুষ চাঁদে গাড়ি চালাতে যাচ্ছে!"
+          }
+        },
+        {
+          "part": 2,
+          "title": {
+            "en": "২ · Design & Technology   গড়ন ও প্রযুক্তি",
+            "bn": "২ · Design & Technology   গড়ন ও প্রযুক্তি"
+          },
+          "text": {
+            "en": "The car was unusual. Four wheels, and each wheel had its own electric motor. The wheels were made of woven steel wire mesh, so they could never go flat. Two batteries powered it. In front was a joystick. It had two seats but no windows. It even had a TV camera that could be turned from Earth. Folded up, it fitted into the side of the lander like a suitcase.",
+            "bn": "গাড়িটা ছিল অদ্ভুত। চারটা চাকা, আর প্রতিটা চাকায় আলাদা ইলেকট্রিক মোটর। চাকা বানানো ইস্পাতের তারের জালি দিয়ে, যাতে হাওয়াই লাগে না, ফাটেও না। দুটো ব্যাটারি তাকে চালাত। সামনে একটা জয়স্টিক। দুটো সিট, কিন্তু কোনো কাচের জানালা নেই। এমনকি একটা টিভি-ক্যামেরাও ছিল, যা পৃথিবী থেকে ঘুরিয়ে দেওয়া যেত। ভাঁজ করা অবস্থায় সে ল্যান্ডারের গায়ে সুটকেসের মতো ঢুকে থাকত।"
+          }
+        },
+        {
+          "part": 3,
+          "title": {
+            "en": "৩ · Mission   মূল কাজ",
+            "bn": "৩ · Mission   মূল কাজ"
+          },
+          "text": {
+            "en": "Its job was to carry the astronauts, their tools and their bags of rocks. It would take them to places they could not reach on foot, and become the first moving laboratory on the Moon.",
+            "bn": "তার কাজ ছিল নভোচারীদের আর তাঁদের যন্ত্রপাতি-পাথরের থলে বয়ে নিয়ে যাওয়া। হেঁটে যেখানে যাওয়া যেত না, সেখানে পৌঁছে দেওয়া। আর চাঁদে প্রথম চলমান ল্যাব হয়ে ওঠা।"
+          }
+        },
+        {
+          "part": 4,
+          "title": {
+            "en": "৪ · Journey & Challenges   যাত্রা ও বাধা",
+            "bn": "৪ · Journey & Challenges   যাত্রা ও বাধা"
+          },
+          "text": {
+            "en": "On the first drive the front-wheel steering did not respond for a while ⚠, so the astronauts managed with the rear wheels. There were no roads and no GPS, just grey ground that looked the same everywhere. If you get lost, you cannot get back! So the car had a small navigation computer that always told them which way the lander was and how far.",
+            "bn": "প্রথম চালানোর সময় সামনের চাকার স্টিয়ারিং কিছুক্ষণ ঠিক সাড়া দেয়নি ⚠, নভোচারীরা পেছনের চাকা দিয়েই সামলে নিলেন। রাস্তা নেই, জিপিএস নেই, চারদিকে একই রকম ধূসর মাটি। পথ হারালে ফেরা যাবে না! তাই গাড়ির ভেতর ছিল একটা ছোট নেভিগেশন-কম্পিউটার, যা সবসময় বলে দিত ল্যান্ডার কোন দিকে আর কত দূরে।"
+          }
+        },
+        {
+          "part": 5,
+          "title": {
+            "en": "৫ · Discovery   আবিষ্কার",
+            "bn": "৫ · Discovery   আবিষ্কার"
+          },
+          "text": {
+            "en": "On 31 July 1971 Scott and Irwin drove it for the first time. Three trips, about 28 kilometres in 3 hours 2 minutes. Zoom, zoom! They went up to 5 kilometres from the lander. They saw a deep, winding valley called Hadley Rille, and collected rocks along the way. One rock was more than four billion years old ⚠, and it was named the 'Genesis Rock'.",
+            "bn": "৩১ জুলাই ১৯৭১ স্কট আর আরউইন তাকে প্রথমবার চালালেন। তিন যাত্রায় প্রায় ২৮ কিলোমিটার, ৩ ঘণ্টা ২ মিনিটে। ভুউউম! তাঁরা ল্যান্ডার থেকে ৫ কিলোমিটার দূর পর্যন্ত গেলেন। হ্যাডলি রিল নামের গভীর, প্যাঁচানো উপত্যকা দেখলেন, আর পথে পাথর কুড়ালেন। তার মধ্যে একটা পাথর ছিল চারশো কোটি বছরের বেশি পুরনো ⚠, যার নাম রাখা হলো 'জেনেসিস রক'।"
+          }
+        },
+        {
+          "part": 6,
+          "title": {
+            "en": "৬ · Mission Ending   শেষ অধ্যায়",
+            "bn": "৬ · Mission Ending   শেষ অধ্যায়"
+          },
+          "text": {
+            "en": "When the work was done, the car was parked near the lander. Its front TV camera, turned from Earth, watched the astronauts' ship lift off from the Moon. A plaque on the car says it brought mankind's first wheels to the Moon. It is still there today, almost just as it was, because there is no air to wear it down.",
+            "bn": "কাজ শেষে গাড়িটাকে ল্যান্ডারের কাছেই দাঁড় করিয়ে রাখা হলো। তার সামনের টিভি-ক্যামেরা পৃথিবী থেকে ঘুরিয়ে চাঁদ থেকে ওঠা নভোচারীদের যানের উৎক্ষেপণ দেখাল। গাড়িতে একটা ফলকে লেখা ছিল: চাঁদে মানুষের প্রথম চাকা। সে আজও সেখানেই আছে, বাতাস নেই বলে প্রায় আগের মতোই।"
+          }
+        },
+        {
+          "part": 7,
+          "title": {
+            "en": "৭ · Legacy   রেখে যাওয়া উপহার",
+            "bn": "৭ · Legacy   রেখে যাওয়া উপহার"
+          },
+          "text": {
+            "en": "Apollo 16 and 17 took cars too. The Apollo 17 car went even farther, about 36 kilometres. NASA's Artemis programme also plans new vehicles for the Moon. The first Moon car taught us that to go far, you need wheels. Story over, stars aglow!",
+            "bn": "অ্যাপোলো ১৬ আর ১৭-তেও এমন গাড়ি গেল। অ্যাপোলো ১৭-র গাড়ি আরও দূরে গেল, প্রায় ৩৬ কিলোমিটার। নাসার আর্টেমিস কর্মসূচিতেও চাঁদের নতুন গাড়ির পরিকল্পনা আছে। প্রথম চাঁদ-গাড়ি শিখিয়ে দিল, দূরে যেতে হলে চাকা লাগে। গল্প ফুরালো, তারা জ্বললো!"
+          }
+        }
+      ],
+      "pandastein_question": {
+        "en": "Why were the Moon car's wheels made of wire mesh? (Think!)",
+        "answer_en": "Air-filled tyres could burst on the rocky Moon ground; wire mesh cannot.",
+        "bn": "চাঁদ-গাড়ির চাকা তারের জালি দিয়ে বানানো হয়েছিল কেন? (ভাবো!)",
+        "answer_bn": "চাঁদের পাথুরে মাটিতে হাওয়া-ভরা টায়ার ফাটতে পারত, তারের জালি ফাটে না।"
+      },
+      "imagined_voice": {
+        "en": "Imagined voice: \"Zoom! Any rocks? I will carry them!\"",
+        "bn": "কল্পিত কণ্ঠ: \"ভুউউম! পাথর আছে? আমি নিয়ে যাব!\""
+      },
+      "robot_voice_card": {
+        "en": "BEEP. I am the Apollo 15 Lunar Roving Vehicle. Electric. Four wheels. Landed 30 July 1971, Hadley-Apennine. Drove about 27.9 kilometres in 3 hours 2 minutes. Farthest point: 5 kilometres from the lander. Status: at rest on the Moon. END.",
+        "bn": "বিপ। আমি অ্যাপোলো ১৫-র লুনার রোভিং ভেহিকল। বৈদ্যুতিক। চার চাকা। পৌঁছেছি ৩০ জুলাই ১৯৭১, হ্যাডলি-অ্যাপেনাইন। চলেছি প্রায় ২৭.৯ কিলোমিটার, ৩ ঘণ্টা ২ মিনিটে। সবচেয়ে দূরে: ল্যান্ডার থেকে ৫ কিলোমিটার। অবস্থা: চাঁদে স্থির। শেষ।"
+      }
+    },
+    {
+      "id": "machine-06",
+      "sequence": 6,
+      "name": {
+        "en": "Pioneer 10",
+        "bn": "পায়োনিয়ার ১০"
+      },
+      "year": "১৯৭২",
+      "location_bn": "মহাকাশের গভীরে",
+      "status_bn": "চুপ হয়ে গেল",
+      "at_a_glance": {
+        "en": "Launch: 2 March 1972\nClosest to Jupiter: December 1973\nLast signal: January 2003, from 12.2 billion km away\nPlanned lifetime: About 21 months\nActually: More than 30 years of signals!",
+        "bn": "উৎক্ষেপণ: ২ মার্চ ১৯৭২\nবৃহস্পতির কাছাকাছি: ডিসেম্বর ১৯৭৩\nশেষ সংকেত: জানুয়ারি ২০০৩, ১২.২ বিলিয়ন কিমি দূর থেকে\nপরিকল্পনা: প্রায় ২১ মাস\nআসলে: ৩০ বছরের বেশি সংকেত!"
+      },
+      "story_parts": [
+        {
+          "part": 1,
+          "title": {
+            "en": "১ · Introduction   শুরুর কথা",
+            "bn": "১ · Introduction   শুরুর কথা"
+          },
+          "text": {
+            "en": "Once upon a time there was a brave robot called Pioneer 10. 'Pioneer' means someone who walks a new path before everybody else. On 2 March 1972 it set off for a place no one had ever been: the planet Jupiter. Could it cross the asteroid belt in between? And what would happen near Jupiter? All eyes were on it.",
+            "bn": "এক যে ছিল সাহসী রোবট, নাম পায়োনিয়ার ১০। 'পায়োনিয়ার' মানে পথিকৃৎ, যে সবার আগে নতুন পথে হাঁটে। ২ মার্চ ১৯৭২ সে এমন এক জায়গায় রওনা দিল যেখানে আগে কেউ যায়নি: বৃহস্পতি গ্রহ। প্রশ্ন ছিল, মাঝখানের গ্রহাণু-বেল্ট পেরোনো যায় কি? আর বৃহস্পতির কাছে গেলে কী ঘটে? তার ওপর ছিল সবার চোখ।"
+          }
+        },
+        {
+          "part": 2,
+          "title": {
+            "en": "২ · Design & Technology   গড়ন ও প্রযুক্তি",
+            "bn": "২ · Design & Technology   গড়ন ও প্রযুক্তি"
+          },
+          "text": {
+            "en": "Pioneer 10 looked like a big round dish, about 2.7 metres wide, always facing Earth. Two long arms held power generators that ran on plutonium, because the Sun's light is very weak out near Jupiter. It carried about a dozen instruments for measuring radiation and magnetic fields, and a special one that slowly scanned Jupiter to draw pictures. On its side was a golden plaque showing a man and a woman. If anyone ever finds it, they will know who built it.",
+            "bn": "পায়োনিয়ার ১০ দেখতে ছিল গোল একটা বড় ডিশের মতো, প্রায় ২.৭ মিটার চওড়া, সবসময় পৃথিবীর দিকে তাকিয়ে। দুই পাশে লম্বা দুটো হাত, শেষে প্লুটোনিয়ামে চলা বিদ্যুৎ-যন্ত্র, কারণ বৃহস্পতির ওদিকে সূর্যের আলো খুব কম। তার ছিল ডজনখানেক যন্ত্র: বিকিরণ মাপার, চুম্বকক্ষেত্র মাপার, আর একটা বিশেষ যন্ত্র, যা ধীরে ধীরে স্ক্যান করে বৃহস্পতির ছবি আঁকত। গায়ে লাগানো ছিল একটা সোনালি ফলক, তাতে একজন পুরুষ আর একজন নারীর ছবি। যদি কখনও কেউ তাকে খুঁজে পায়, বুঝবে এটা কে বানিয়েছে।"
+          }
+        },
+        {
+          "part": 3,
+          "title": {
+            "en": "৩ · Mission   মূল কাজ",
+            "bn": "৩ · Mission   মূল কাজ"
+          },
+          "text": {
+            "en": "It had two jobs. First, to be the first spacecraft to cross the asteroid belt. Second, to fly close past Jupiter and measure its storms, radiation and magnetic field. Scientists wanted to know: if we want to go even farther in the future, is this road safe?",
+            "bn": "তার কাজ ছিল দুটো: প্রথম, গ্রহাণু-বেল্ট পেরিয়ে যাওয়া প্রথম যান হওয়া। দ্বিতীয়, বৃহস্পতির খুব কাছ দিয়ে উড়ে গিয়ে সেখানকার ঝড়-বাতাস, বিকিরণ আর চুম্বকক্ষেত্র মাপা। বিজ্ঞানীরা তখন ভাবছিলেন: ভবিষ্যতে আরও দূরে যেতে হলে এই পথটা আগে দেখে আসা চাই।"
+          }
+        },
+        {
+          "part": 4,
+          "title": {
+            "en": "৪ · Journey & Challenges   যাত্রা ও বাধা",
+            "bn": "৪ · Journey & Challenges   যাত্রা ও বাধা"
+          },
+          "text": {
+            "en": "The first fear was the asteroid belt. Billions of rocks, and it had to fly right through! It turned out the belt was not nearly as crowded as feared. The second fear was Jupiter's radiation. On 3 December 1973 it passed very close to Jupiter, and the radiation was so strong that its instruments muttered nonsense for a while. Pandastein: 'Hang on, Pioneer!' It hung on.",
+            "bn": "প্রথম ভয় ছিল গ্রহাণু-বেল্ট। কোটি কোটি পাথর, তারই মাঝ দিয়ে যেতে হবে! দেখা গেল বেল্টটা ততটা ভিড় নয়। দ্বিতীয় ভয় ছিল বৃহস্পতির বিকিরণ। ৩ ডিসেম্বর ১৯৭৩ সে বৃহস্পতির খুব কাছে গেল, আর সেখানকার বিকিরণ এত বেশি যে তার যন্ত্রগুলো কিছুক্ষণ এলোমেলো কথা বলল। প্যান্ডাস্টাইন: 'টিকে থাকো, পায়োনিয়ার!' সে টিকে গেল।"
+          }
+        },
+        {
+          "part": 5,
+          "title": {
+            "en": "৫ · Discovery   আবিষ্কার",
+            "bn": "৫ · Discovery   আবিষ্কার"
+          },
+          "text": {
+            "en": "Pioneer 10 reported that the radiation belts around Jupiter are terribly strong, deadly for people. For the first time, close-up pictures of Jupiter arrived. The asteroid belt had little dust and few rocks, so future spacecraft could cross it safely. Using this knowledge, the next spacecraft, Voyager, was built to shield its instruments from radiation.",
+            "bn": "পায়োনিয়ার ১০ জানাল, বৃহস্পতির চারপাশে বিকিরণের বলয় ভয়ঙ্কর শক্তিশালী, মানুষের পক্ষে মারাত্মক। প্রথমবার বৃহস্পতির কাছ থেকে ছবি পাওয়া গেল। গ্রহাণু-বেল্টে ধুলো আর পাথর কম, তাই ভবিষ্যতের যানগুলো নিরাপদে পেরোতে পারবে। এই তথ্য দেখেই পরের যান ভয়েজারের যন্ত্র বিকিরণ থেকে বাঁচানোর মতো করে বানানো হলো।"
+          }
+        },
+        {
+          "part": 6,
+          "title": {
+            "en": "৬ · Mission Ending   শেষ অধ্যায়",
+            "bn": "৬ · Mission Ending   শেষ অধ্যায়"
+          },
+          "text": {
+            "en": "It was built to last about 21 months. But it kept sending signals year after year, for more than 30 years! In January 2003 it sent its last faint signal, when it was about 12.2 billion kilometres from Earth. Then silence. In about 2 million years it may pass near a star called Aldebaran.",
+            "bn": "তাকে বানানো হয়েছিল প্রায় ২১ মাসের জন্য। কিন্তু সে বছরের পর বছর ধরে সংকেত পাঠিয়ে গেল, ৩০ বছরেরও বেশি! জানুয়ারি ২০০৩ সে শেষবার ক্ষীণ সংকেত পাঠাল, তখন সে পৃথিবী থেকে প্রায় ১২.২ বিলিয়ন কিলোমিটার দূরে। তারপর চুপ। প্রায় ২০ লক্ষ বছর পরে সে আলদেবারান নামের এক তারার কাছাকাছি পৌঁছাতে পারে।"
+          }
+        },
+        {
+          "part": 7,
+          "title": {
+            "en": "৭ · Legacy   রেখে যাওয়া উপহার",
+            "bn": "৭ · Legacy   রেখে যাওয়া উপহার"
+          },
+          "text": {
+            "en": "After Pioneer opened the road to Jupiter, Voyager, Galileo and Juno followed. The idea of the golden plaque grew into Voyager's 'Golden Record'. This little robot taught us that you can go beyond the edge and still be heard, at least by signal. 'Built for a little, gave a lot' fits Pioneer's story best of all. Story over, stars aglow!",
+            "bn": "বৃহস্পতির পথ খোলার পর ভয়েজার, গ্যালিলিও আর জুনো সেই পথে গেল। সোনালি ফলকের আইডিয়া থেকে জন্ম নিল ভয়েজারের 'গোল্ডেন রেকর্ড'। ছোট্ট এই রোবট শিখিয়ে দিল: সীমানার ওপারে গিয়ে ফিরে আসা যায়, অন্তত সংকেত দিয়ে। 'কম বানানো, অনেক দেওয়া'—এই কথাটা পায়োনিয়ারের গল্পেই সবচেয়ে ভালো মানায়। গল্প ফুরালো, তারা জ্বললো!"
+          }
+        }
+      ],
+      "pandastein_question": {
+        "en": "How long was Pioneer 10 built to work, and how long did it actually work?",
+        "answer_en": "About 21 months; it sent signals for more than 30 years.",
+        "bn": "পায়োনিয়ার ১০-কে কত দিনের জন্য বানানো হয়েছিল, আর সে কতদিন কাজ করেছিল?",
+        "answer_bn": "প্রায় ২১ মাস; সংকেত পাঠিয়েছে ৩০ বছরেরও বেশি।"
+      },
+      "imagined_voice": {
+        "en": "Imagined voice: \"I can no longer speak, but I am still travelling.\"",
+        "bn": "কল্পিত কণ্ঠ: \"আমি আর কথা বলতে পারছি না, কিন্তু আমি এখনও চলছি।\""
+      },
+      "robot_voice_card": {
+        "en": "BEEP. I am Pioneer 10. Launched 2 March 1972. Job: Jupiter flyby. First through the asteroid belt. Jupiter closest approach: December 1973. Last signal: January 2003, 12.2 billion kilometres away. Status: gone quiet. END.",
+        "bn": "বিপ। আমি পাইওনিয়ার ১০। উৎক্ষেপণ: ২ মার্চ ১৯৭২। কাজ: বৃহস্পতির পাশ দিয়ে যাওয়া। গ্রহাণুপুঞ্জ পার হওয়া প্রথম যান। বৃহস্পতির সবচেয়ে কাছে: ডিসেম্বর ১৯৭৩। শেষ সংকেত: জানুয়ারি ২০০৩, ১২২০ কোটি কিলোমিটার দূর থেকে। অবস্থা: নীরব। শেষ।"
+      }
+    },
+    {
+      "id": "machine-07",
+      "sequence": 7,
+      "name": {
+        "en": "Viking 1",
+        "bn": "ভাইকিং ১"
+      },
+      "year": "১৯৭৫",
+      "location_bn": "মঙ্গল",
+      "status_bn": "চুপ হয়ে গেল",
+      "at_a_glance": {
+        "en": "Launch: 20 August 1975\nLanding: 20 July 1976, Chryse Planitia\nWorked for: About 6 years\nLast contact: 11 November 1982\nLater name: Thomas A. Mutch Memorial Station",
+        "bn": "উৎক্ষেপণ: ২০ আগস্ট ১৯৭৫\nঅবতরণ: ২০ জুলাই ১৯৭৬, ক্রিসি প্ল্যানিশিয়া\nকাজ করেছে: প্রায় ৬ বছর\nশেষ যোগাযোগ: ১১ নভেম্বর ১৯৮২\nপরে নাম: থমাস এ. মাচ স্মারক স্টেশন"
+      },
+      "story_parts": [
+        {
+          "part": 1,
+          "title": {
+            "en": "১ · Introduction   শুরুর কথা",
+            "bn": "১ · Introduction   শুরুর কথা"
+          },
+          "text": {
+            "en": "Once upon a time there was a robot that landed on the red planet and kept on working, called Viking 1. In the 1970s people's biggest question was: is there life on Mars? Scientists decided that taking pictures was not enough. A spacecraft had to land on Mars, test the soil and search for life. On 20 August 1975 Viking 1 set off.",
+            "bn": "এক যে ছিল লাল গ্রহে নামা প্রথম সফল-কাজের রোবট, নাম ভাইকিং ১। ১৯৭০-এর দশকে মানুষের সবচেয়ে বড় প্রশ্ন: মঙ্গলে কি প্রাণ আছে? বিজ্ঞানীরা ঠিক করলেন, শুধু ছবি তুললে হবে না। একটা যান মঙ্গলের মাটিতে নেমে মাটি পরীক্ষা করবে, প্রাণের খোঁজ করবে। ২০ আগস্ট ১৯৭৫ ভাইকিং ১ রওনা দিল।"
+          }
+        },
+        {
+          "part": 2,
+          "title": {
+            "en": "২ · Design & Technology   গড়ন ও প্রযুক্তি",
+            "bn": "২ · Design & Technology   গড়ন ও প্রযুক্তি"
+          },
+          "text": {
+            "en": "Viking 1 was a pair: an orbiter above and a lander below. The lander was a six-sided box with three legs, two cameras, and a long robot arm with a scoop on the end for picking up soil. Inside was a tiny laboratory with three experiments looking for life and an instrument to measure what the soil is made of. It also carried a weather station and a seismometer. Power came from a plutonium generator. For landing it used a parachute and rockets.",
+            "bn": "ভাইকিং ১ ছিল জোড়া-যান: ওপরে একটা অরবিটার, নিচে একটা ল্যান্ডার। ল্যান্ডার ছিল ছয় কোনাওয়ালা একটা বাক্স, তিন পা, দুটো ক্যামেরা, আর একটা লম্বা রোবট-হাত, যার ডগায় মাটি তোলার চামচ। ভেতরে ছিল ছোট্ট একটা ল্যাব, প্রাণের খোঁজে তিনটে পরীক্ষা আর মাটির উপাদান মাপার একটা যন্ত্র। সঙ্গে আবহাওয়া মাপার যন্ত্র আর একটা ভূমিকম্প-মাপার যন্ত্র। বিদ্যুৎ আসত প্লুটোনিয়ামে চলা যন্ত্র থেকে। নামার সময় প্যারাসুট আর রকেট কাজে লাগত।"
+          }
+        },
+        {
+          "part": 3,
+          "title": {
+            "en": "৩ · Mission   মূল কাজ",
+            "bn": "৩ · Mission   মূল কাজ"
+          },
+          "text": {
+            "en": "It had two jobs: to look for signs of life in Mars's soil, and to photograph Mars. The lander would go down, while the orbiter circled above, took pictures and stayed in touch.",
+            "bn": "কাজ ছিল দুটো: মঙ্গলের মাটিতে প্রাণের চিহ্ন খোঁজা, আর মঙ্গলের ছবি তোলা। ল্যান্ডার নামবে, আর অরবিটার ওপর থেকে ঘুরে ঘুরে ছবি তুলবে, তার সঙ্গে সংযোগ রাখবে।"
+          }
+        },
+        {
+          "part": 4,
+          "title": {
+            "en": "৪ · Journey & Challenges   যাত্রা ও বাধা",
+            "bn": "৪ · Journey & Challenges   যাত্রা ও বাধা"
+          },
+          "text": {
+            "en": "Viking 1 was supposed to land on 4 July 1976, America's 200th birthday. But the orbiter's pictures showed that the spot was very rough and the lander might tip over. So the date was pushed back and a new place was found. On 20 July 1976 Viking 1 landed on Chryse Planitia. After landing, a stuck locking pin on the soil-scooping arm would not come out at first ⚠. In the end it worked, and so did the experiments.",
+            "bn": "ভাইকিং ১-এর নামার তারিখ ঠিক ছিল ৪ জুলাই ১৯৭৬, আমেরিকার দুশো বছর পূর্তির দিনে। কিন্তু অরবিটারের ছবিতে দেখা গেল সেই জায়গাটা খুব এবড়োখেবড়ো, ল্যান্ডার উল্টে যেতে পারে। তাই তারিখ পিছিয়ে নতুন জায়গা খোঁজা হলো। ২০ জুলাই ১৯৭৬ ক্রিসি প্ল্যানিশিয়ায় নামল ভাইকিং ১। নামার পর মাটি তোলার হাতের একটা আটকানো পিন প্রথমে খুলছিল না ⚠। শেষে ঠিক হলো, কাজও শুরু হলো।"
+          }
+        },
+        {
+          "part": 5,
+          "title": {
+            "en": "৫ · Discovery   আবিষ্কার",
+            "bn": "৫ · Discovery   আবিষ্কার"
+          },
+          "text": {
+            "en": "Within minutes, Viking 1 sent the first clear picture of the Martian ground: its own footpad. Soon came colour pictures: reddish soil and a grey-pink sky. The life experiments gave results scientists still argue about. No clear sign of life was found in the soil. It turned out that Mars's soil is chemically very active. It also gave many years of weather records.",
+            "bn": "মিনিট কয়েকের মধ্যে ভাইকিং ১ পাঠাল মঙ্গলের মাটির প্রথম পরিষ্কার ছবি: তার নিজের পায়ের প্যাড। পরে এল রঙিন ছবি: লালচে মাটি, আর আকাশ ধূসর-গোলাপি। প্রাণের পরীক্ষাগুলো এমন ফল দিল যে বিজ্ঞানীরা আজও তর্ক করেন। মাটিতে প্রাণের স্পষ্ট চিহ্ন পাওয়া গেল না। জানা গেল, মঙ্গলের মাটি রাসায়নিকভাবে খুব সক্রিয়। সঙ্গে আবহাওয়ার বহু বছরের হিসাব।"
+          }
+        },
+        {
+          "part": 6,
+          "title": {
+            "en": "৬ · Mission Ending   শেষ অধ্যায়",
+            "bn": "৬ · Mission Ending   শেষ অধ্যায়"
+          },
+          "text": {
+            "en": "Viking 1 worked for about 6 years, many years longer than planned. Its last contact came on 11 November 1982. After a wrong command, the link could not be restored ⚠. It was later renamed the Thomas A. Mutch Memorial Station, in memory of one of the mission's leaders. It still stands on Chryse Planitia.",
+            "bn": "ভাইকিং ১ কাজ করেছিল প্রায় ৬ বছর, অনেক বছর পরিকল্পনার বেশি। ১১ নভেম্বর ১৯৮২ তার সঙ্গে শেষ যোগাযোগ হলো। এক ভুল নির্দেশের পর আর সংযোগ ফেরানো যায়নি ⚠। পরে তার নাম রাখা হলো থমাস এ. মাচ স্মারক স্টেশন, মিশনের একজন নেতার স্মৃতিতে। সে আজও ক্রিসি প্ল্যানিশিয়ায় দাঁড়িয়ে।"
+          }
+        },
+        {
+          "part": 7,
+          "title": {
+            "en": "৭ · Legacy   রেখে যাওয়া উপহার",
+            "bn": "৭ · Legacy   রেখে যাওয়া উপহার"
+          },
+          "text": {
+            "en": "Viking introduced us to the look, weather and soil of Mars. Every Mars spacecraft after it was planned using its pictures. 'Is there life on Mars?' is still an open question. The search goes on. Story over, stars aglow!",
+            "bn": "ভাইকিং মঙ্গলের চেহারা, আবহাওয়া আর মাটির সঙ্গে আমাদের প্রথম পরিচয় করিয়ে দিল। তার ছবি দেখে পরের সব মঙ্গল-যান পরিকল্পনা হলো। 'মঙ্গলে প্রাণ আছে কি না', এই প্রশ্নটা আজও খোলা। সেই খোঁজ এখনও চলছে। গল্প ফুরালো, তারা জ্বললো!"
+          }
+        }
+      ],
+      "pandastein_question": {
+        "en": "Why was Viking 1's landing date pushed back?",
+        "answer_en": "The first chosen site was too rough, so a safer site was found.",
+        "bn": "ভাইকিং ১-এর নামার তারিখ পিছিয়ে দেওয়া হয়েছিল কেন?",
+        "answer_bn": "প্রথম বাছা জায়গাটা খুব এবড়োখেবড়ো ছিল, তাই নিরাপদ জায়গা খোঁজা হলো।"
+      },
+      "imagined_voice": {
+        "en": "Imagined voice: \"I am here. Can you see my footpad?\"",
+        "bn": "কল্পিত কণ্ঠ: \"আমি এখানে। তুমি কি আমার পায়ের প্যাডটা দেখতে পাচ্ছ?\""
+      },
+      "robot_voice_card": {
+        "en": "BEEP. I am the Viking 1 lander. Launched 20 August 1975. Landed 20 July 1976, Chryse Planitia, Mars. Job: search for life and photograph Mars. Worked about 6 years. Last contact: 11 November 1982. Status: gone quiet. END.",
+        "bn": "বিপ। আমি ভাইকিং ১ ল্যান্ডার। উৎক্ষেপণ: ২০ আগস্ট ১৯৭৫। অবতরণ: ২০ জুলাই ১৯৭৬, ক্রাইসি প্লানিশিয়া, মঙ্গল। কাজ: প্রাণের খোঁজ আর মঙ্গলের ছবি। কাজ করেছি প্রায় ৬ বছর। শেষ যোগাযোগ: ১১ নভেম্বর ১৯৮২। অবস্থা: নীরব। শেষ।"
+      }
+    },
+    {
+      "id": "machine-08",
+      "sequence": 8,
+      "name": {
+        "en": "Voyager 1",
+        "bn": "ভয়েজার ১"
+      },
+      "year": "১৯৭৭",
+      "location_bn": "মহাকাশের গভীরে",
+      "status_bn": "এখনও কথা বলছে",
+      "at_a_glance": {
+        "en": "Launch: 5 September 1977\nPlanets: Jupiter (1979), Saturn (1980)\nBetween the stars: Since 2012\nDistance: About 25.9 billion km\nSignal time to Earth: About 24 hours",
+        "bn": "উৎক্ষেপণ: ৫ সেপ্টেম্বর ১৯৭৭\nগ্রহ: বৃহস্পতি (১৯৭৯), শনি (১৯৮০)\nতারাদের মাঝখানে: ২০১২ থেকে\nদূরত্ব: প্রায় ২৫.৯ বিলিয়ন কিমি\nসংকেত আসতে: প্রায় ২৪ ঘণ্টা"
+      },
+      "story_parts": [
+        {
+          "part": 1,
+          "title": {
+            "en": "১ · Introduction   শুরুর কথা",
+            "bn": "১ · Introduction   শুরুর কথা"
+          },
+          "text": {
+            "en": "Once upon a time there was a far traveller called Voyager 1. In the late 1970s a rare chance came: Jupiter, Saturn, Uranus and Neptune lined up so that one spacecraft could visit them all. Such a chance comes about once in 176 years. Two Voyagers were built. Funny thing: Voyager 1 left second, on 5 September 1977, but it took a faster path and arrived first. Voyager 2 had left even earlier.",
+            "bn": "এক যে ছিল দূরের পথিক, নাম ভয়েজার ১। ১৯৭০-এর দশকের শেষে একটা বিরল সুযোগ এল: বৃহস্পতি, শনি, ইউরেনাস আর নেপচুন গ্রহগুলো এমনভাবে সারিবদ্ধ হলো যে একটা যান সবার পাশ দিয়ে যেতে পারে। এমন সুযোগ প্রায় ১৭৬ বছরে একবার। দুটো ভয়েজার বানানো হলো। মজার কথা: ভয়েজার ১ ওড়ে পরে, ৫ সেপ্টেম্বর ১৯৭৭, কিন্তু সে দ্রুতগামী পথে চলল, তাই আগে পৌঁছাল। ভয়েজার ২ ওড়ে তারও আগে।"
+          }
+        },
+        {
+          "part": 2,
+          "title": {
+            "en": "২ · Design & Technology   গড়ন ও প্রযুক্তি",
+            "bn": "২ · Design & Technology   গড়ন ও প্রযুক্তি"
+          },
+          "text": {
+            "en": "Voyager 1 is a big dish antenna, about 3.7 metres wide, with instruments sprouting all around it. On a long boom sit the camera and the instruments that measure radiation and magnetic fields. Power comes from plutonium generators. Its computer memory is millions of times smaller than a modern phone's, and it stored pictures on a tape. And on its side is a golden record with the sounds, pictures and greetings of Earth.",
+            "bn": "ভয়েজার ১ দেখতে একটা বড় ডিশ-অ্যান্টেনা, প্রায় ৩.৭ মিটার চওড়া, তার গায়ে নানা যন্ত্রের ডালপালা। একটা লম্বা দণ্ডে ক্যামেরা, বিকিরণ আর চুম্বকক্ষেত্র মাপার যন্ত্র। বিদ্যুৎ আসে প্লুটোনিয়ামে চলা যন্ত্র থেকে। তার ভেতরের কম্পিউটারের স্মৃতি এখনকার একটা ফোনের তুলনায় লক্ষ লক্ষ গুণ ছোট, আর ছবি জমা রাখত একটা টেপে। আর তার গায়ে আছে একটা সোনালি রেকর্ড, তাতে পৃথিবীর শব্দ, ছবি, ভাষায় শুভেচ্ছা।"
+          }
+        },
+        {
+          "part": 3,
+          "title": {
+            "en": "৩ · Mission   মূল কাজ",
+            "bn": "৩ · Mission   মূল কাজ"
+          },
+          "text": {
+            "en": "Its main job was to bring back pictures and data from Jupiter and Saturn up close. Later a new job was added: to keep going as far as possible and find out what lies beyond the edge of the Sun's reach.",
+            "bn": "মূল কাজ ছিল বৃহস্পতি আর শনির কাছ থেকে ছবি আর তথ্য আনা। পরে নতুন একটা কাজ জুটল: যতদূর সম্ভব সামনে এগিয়ে গিয়ে খুঁজে দেখা, সূর্যের প্রভাবের সীমানার ওপারে কী আছে।"
+          }
+        },
+        {
+          "part": 4,
+          "title": {
+            "en": "৪ · Journey & Challenges   যাত্রা ও বাধা",
+            "bn": "৪ · Journey & Challenges   যাত্রা ও বাধা"
+          },
+          "text": {
+            "en": "The way was full of trouble. Near Saturn in 1980 it flew past Titan, because the chance to see that moon would never come again. After that its path bent up above the planets' plane, so it could not visit any more planets. In 2017 its path-correcting thrusters were failing, but engineers woke up older thrusters that had been asleep for 37 years, and it carried on. In 2023 it sent meaningless signals for months, and in April 2024 the fault was repaired from billions of kilometres away. Pandastein: 'We could not call a doctor, so we treated it from afar!'",
+            "bn": "পথে অনেক বাধা। ১৯৮০-র শনির কাছাকাছি সে টাইটানের পাশ দিয়ে উড়ে গেল, কারণ ওই চাঁদটা দেখার সুযোগ আর আসবে না। এরপর তার পথ গেল শনির সমতলের ওপরের দিকে, গ্রহগুলোর পাশ দিয়ে আর যাওয়া হলো না। ২০১৭ সালে তার পথ ঠিক রাখার জেট-ইঞ্জিনগুলো কাজ করছিল না, কিন্তু আরও পুরনো, ৩৭ বছর ঘুমিয়ে থাকা ইঞ্জিন জাগিয়ে কাজ চলল। ২০২৩ সালে সে কয়েক মাস অর্থহীন সংকেত পাঠাল, আর ২০২৪-র এপ্রিলে ভুলটা মেরামত হলো, আর এত দূরে বসে। প্যান্ডাস্টাইন: 'ডাক্তার ডেকে আনা গেল না, তাই দূর থেকেই চিকিৎসা!'"
+          }
+        },
+        {
+          "part": 5,
+          "title": {
+            "en": "৫ · Discovery   আবিষ্কার",
+            "bn": "৫ · Discovery   আবিষ্কার"
+          },
+          "text": {
+            "en": "At Jupiter's moon Io came a discovery: volcanoes! The first erupting volcanoes seen beyond Earth. At Saturn it saw tiny ripples and folds in the rings, and Titan's thick atmosphere. On 14 February 1990 it turned and took a picture of Earth from so far away that Earth is just a speck of light: the 'Pale Blue Dot'. And in 2012 it crossed into the space between the stars, the first human-made spacecraft ever to do so.",
+            "bn": "বৃহস্পতির চাঁদ আইও-তে ঘটল এক আবিষ্কার: আগ্নেয়গিরি! পৃথিবীর বাইরে এই প্রথম আগ্নেয়গিরির অগ্ন্যুৎপাতের ছবি। শনির বলয়ের ভেতরের ছোট ছোট ভাঁজ আর ঢেউ, টাইটানের পুরু বায়ুমণ্ডল। ১৪ ফেব্রুয়ারি ১৯৯০ সে এত দূর থেকে পৃথিবীর একটা ছবি তুলল, যেখানে পৃথিবী ছোট্ট একটা আলোর কণা: 'পেল ব্লু ডট'। আর ২০১২ সালে সে তারাদের মাঝখানের জায়গায় ঢুকে গেল, মানুষের তৈরি প্রথম যান হিসেবে।"
+          }
+        },
+        {
+          "part": 6,
+          "title": {
+            "en": "৬ · Mission Ending   শেষ অধ্যায়",
+            "bn": "৬ · Mission Ending   শেষ অধ্যায়"
+          },
+          "text": {
+            "en": "Voyager 1 is still talking. But its power is slowly fading, by about 4 watts a year, so instruments have to be switched off one by one. Each signal now takes about 24 hours to reach Earth. NASA says that on 18 November 2026 it will be one light-day from Earth, so even light takes 24 hours to get there. One day it will go quiet, but it will keep on travelling.",
+            "bn": "ভয়েজার ১ আজও কথা বলছে। কিন্তু তার শক্তি ধীরে ধীরে কমছে, বছরে প্রায় ৪ ওয়াট, তাই একে একে যন্ত্র বন্ধ করে দিতে হচ্ছে। প্রতিটা সংকেত পৃথিবীতে আসতে প্রায় ২৪ ঘণ্টা লাগছে। নাসার হিসেবে ১৮ নভেম্বর ২০২৬ সে পৃথিবী থেকে এক আলো-দিনের দূরত্বে পৌঁছাবে, মানে আলোও যেতে চব্বিশ ঘণ্টা নেবে। একদিন সে চুপ হবে, কিন্তু চলতেই থাকবে।"
+          }
+        },
+        {
+          "part": 7,
+          "title": {
+            "en": "৭ · Legacy   রেখে যাওয়া উপহার",
+            "bn": "৭ · Legacy   রেখে যাওয়া উপহার"
+          },
+          "text": {
+            "en": "Voyager 1 showed that something humans built can cross the edge of the Solar System. It sent the first reports from the strange world beyond. Its golden record will drift among the stars for hundreds of thousands of years. It is the finest example of 'Built for a little, gave a lot.' Pandastein: 'Voyager, how far are you now?' Story over, stars aglow!",
+            "bn": "ভয়েজার ১ দেখিয়ে দিল, মানুষের তৈরি যান সৌরজগতের সীমানা পেরোতে পারে। সে তাকে ঘিরে থাকা অচেনা জগতের প্রথম রিপোর্ট পাঠাল। তার সোনালি রেকর্ড আরও কয়েক লক্ষ বছর ধরে তারাদের মাঝে ঘুরবে। 'কম বানানো, অনেক দেওয়া' এই গল্পের সবচেয়ে সুন্দর উদাহরণ সে। প্যান্ডাস্টাইন: 'ভয়েজার, তুমি এখন কত দূর?' গল্প ফুরালো, তারা জ্বললো!"
+          }
+        }
+      ],
+      "pandastein_question": {
+        "en": "About how long does Voyager 1's signal take to reach Earth?",
+        "answer_en": "About 24 hours (one light-day).",
+        "bn": "ভয়েজার ১-এর সংকেত পৃথিবীতে আসতে প্রায় কত সময় লাগছে?",
+        "answer_bn": "প্রায় ২৪ ঘণ্টা (এক আলো-দিন)।"
+      },
+      "imagined_voice": {
+        "en": "Imagined voice: \"I am still here. I am still listening.\"",
+        "bn": "কল্পিত কণ্ঠ: \"আমি এখনও এখানে। আমি এখনও শুনছি।\""
+      },
+      "robot_voice_card": {
+        "en": "BEEP. I am Voyager 1. Launched 5 September 1977. Flew past Jupiter and Saturn. In interstellar space since 2012. Distance: about 25.9 billion kilometres. Signal time to Earth: about 24 hours. Status: still talking. END.",
+        "bn": "বিপ। আমি ভয়েজার ১। উৎক্ষেপণ: ৫ সেপ্টেম্বর ১৯৭৭। বৃহস্পতি ও শনির পাশ দিয়ে গেছি। ২০১২ থেকে তারাদের মাঝের মহাকাশে। দূরত্ব: প্রায় ২৫৯০ কোটি কিলোমিটার। পৃথিবীতে সংকেত পৌঁছাতে প্রায় ২৪ ঘণ্টা। অবস্থা: এখনও কথা বলছি। শেষ।"
+      }
+    },
+    {
+      "id": "machine-09",
+      "sequence": 9,
+      "name": {
+        "en": "Voyager 2",
+        "bn": "ভয়েজার ২"
+      },
+      "year": "১৯৭৭",
+      "location_bn": "মহাকাশের গভীরে",
+      "status_bn": "এখনও কথা বলছে",
+      "at_a_glance": {
+        "en": "Launch: 20 August 1977\nPlanets: Jupiter 1979, Saturn 1981, Uranus 1986, Neptune 1989\nBetween the stars: Since November 2018\nSpecial: The only craft to visit Uranus and Neptune\nStatus: Still talking",
+        "bn": "উৎক্ষেপণ: ২০ আগস্ট ১৯৭৭\nগ্রহ: বৃহস্পতি ১৯৭৯, শনি ১৯৮১, ইউরেনাস ১৯৮৬, নেপচুন ১৯৮৯\nতারাদের মাঝখানে: নভেম্বর ২০১৮ থেকে\nবিশেষত্ব: ইউরেনাস আর নেপচুনে গেছে একমাত্র যান\nঅবস্থা: এখনও কথা বলছে"
+      },
+      "story_parts": [
+        {
+          "part": 1,
+          "title": {
+            "en": "১ · Introduction   শুরুর কথা",
+            "bn": "১ · Introduction   শুরুর কথা"
+          },
+          "text": {
+            "en": "Once upon a time there was Voyager 1's brother, called Voyager 2. He left before his brother, on 20 August 1977, but on a slower path. His brother went fast, while he went to see more planets. His dream was the 'Grand Tour': visiting all four giant planets one after another.",
+            "bn": "এক যে ছিল ভয়েজার ১-এর ভাই, নাম ভয়েজার ২। সে ভাইয়ের আগে, ২০ আগস্ট ১৯৭৭ রওনা দিয়েছিল, কিন্তু ধীর পথে। ভাই গেল তাড়াতাড়ি, সে গেল বেশি গ্রহ দেখতে। তার স্বপ্ন ছিল 'গ্র্যান্ড ট্যুর': চারটে বিশাল গ্রহ একে একে ঘুরে দেখা।"
+          }
+        },
+        {
+          "part": 2,
+          "title": {
+            "en": "২ · Design & Technology   গড়ন ও প্রযুক্তি",
+            "bn": "২ · Design & Technology   গড়ন ও প্রযুক্তি"
+          },
+          "text": {
+            "en": "Voyager 2 looks just like his brother: a big dish antenna, a boom with cameras and instruments, plutonium power generators, and a golden record on its side. When he passed each planet, that planet's own gravity swung him on toward the next. This is called a 'gravity assist': speed without fuel.",
+            "bn": "ভয়েজার ২ দেখতে ভাইয়ের মতোই: বড় ডিশ-অ্যান্টেনা, ডালপালা-দণ্ডে ক্যামেরা আর যন্ত্র, প্লুটোনিয়ামের বিদ্যুৎ-যন্ত্র, আর গায়ে সোনালি রেকর্ড। প্রতিটা গ্রহের পাশ দিয়ে যাওয়ার সময় সেই গ্রহের মাধ্যাকর্ষণই তাকে ধাক্কা মেরে পরের গ্রহের দিকে ছুড়ে দিত। এটাকে বলে 'গ্র্যাভিটি অ্যাসিস্ট', জ্বালানি ছাড়াই গতি।"
+          }
+        },
+        {
+          "part": 3,
+          "title": {
+            "en": "৩ · Mission   মূল কাজ",
+            "bn": "৩ · Mission   মূল কাজ"
+          },
+          "text": {
+            "en": "The job was to fly past four planets and bring back pictures and data. Uranus and Neptune are two planets no other spacecraft has ever visited. So Voyager 2's data is still our only close-up look at them.",
+            "bn": "কাজ ছিল চারটে গ্রহের কাছ দিয়ে উড়ে গিয়ে ছবি আর তথ্য আনা। ইউরেনাস আর নেপচুন এমন দুই গ্রহ, যেখানে আর কোনো যান যায়নি। তাই ভয়েজার ২-এর পাঠানো তথ্যই ওই দুই গ্রহ নিয়ে আমাদের একমাত্র কাছের ছবি।"
+          }
+        },
+        {
+          "part": 4,
+          "title": {
+            "en": "৪ · Journey & Challenges   যাত্রা ও বাধা",
+            "bn": "৪ · Journey & Challenges   যাত্রা ও বাধা"
+          },
+          "text": {
+            "en": "In 1978 his main radio receiver broke! He switched to the backup, but that was partly broken too. So commands from Earth have to be sent at exactly the right tone and frequency. He has been working like this for almost 40 years. In 2020 the one big antenna that could send him commands was shut for repairs for several months, and he carried on quietly on his own.",
+            "bn": "১৯৭৮ সালে তার সংকেত গ্রহণের প্রধান যন্ত্রটা নষ্ট হয়ে গেল! সে বদলে ব্যাকআপ যন্ত্র ধরল, কিন্তু সেটাও আংশিক নষ্ট। তাই পৃথিবী থেকে নির্দেশ পাঠাতে হতো ঠিক সুরে, ঠিক ফ্রিকোয়েন্সিতে। প্রায় ৪০ বছর ধরে সে এভাবে চলছে। ২০২০ সালে তাকে নির্দেশ পাঠানোর একমাত্র বড় অ্যান্টেনা মেরামতের জন্য বন্ধ থাকল, কয়েক মাস সে চুপচাপ নিজের মতো চলল।"
+          }
+        },
+        {
+          "part": 5,
+          "title": {
+            "en": "৫ · Discovery   আবিষ্কার",
+            "bn": "৫ · Discovery   আবিষ্কার"
+          },
+          "text": {
+            "en": "At Uranus (January 1986) he found new moons and rings. At Neptune (August 1989) he found storms, the 'Great Dark Spot', and icy geysers on the moon Triton. People learned for the first time what amazing places Uranus and Neptune are, and it was thanks to this spacecraft. And in November 2018 he too crossed the edge of the Sun's reach ⚠.",
+            "bn": "ইউরেনাসে (জানুয়ারি ১৯৮৬) সে পেল নতুন চাঁদ আর বলয়। নেপচুনে (আগস্ট ১৯৮৯) পাওয়া গেল ঝড়, 'বড় কালো দাগ', আর চাঁদ ট্রাইটনের গায়ে বরফের ফোয়ারা। ইউরেনাস আর নেপচুন যে এমন আশ্চর্য জায়গা, তা মানুষ প্রথম জানল এই যানের মাধ্যমেই। আর নভেম্বর ২০১৮ সে-ও পেরিয়ে গেল সূর্যের প্রভাবের সীমানা ⚠।"
+          }
+        },
+        {
+          "part": 6,
+          "title": {
+            "en": "৬ · Mission Ending   শেষ অধ্যায়",
+            "bn": "৬ · Mission Ending   শেষ অধ্যায়"
+          },
+          "text": {
+            "en": "Voyager 2 is still talking. His power is fading, so instruments have to be switched off one at a time. But he still sends news from the space between the stars. One day he will go quiet. By then he will be very far beyond the Solar System.",
+            "bn": "ভয়েজার ২ এখনও কথা বলছে। তার শক্তি কমছে, তাই কাজের যন্ত্র একে একে বন্ধ করতে হচ্ছে। কিন্তু সে এখনও তারাদের মাঝখানের জায়গার খবর পাঠাচ্ছে। একদিন সে চুপ হবে। কিন্তু ততদিনে সে সৌরজগতের বাইরে অনেক দূর চলে যাবে।"
+          }
+        },
+        {
+          "part": 7,
+          "title": {
+            "en": "৭ · Legacy   রেখে যাওয়া উপহার",
+            "bn": "৭ · Legacy   রেখে যাওয়া উপহার"
+          },
+          "text": {
+            "en": "Voyager 2 is the only spacecraft that has seen Uranus and Neptune. His pictures and data are still in textbooks today. He taught us what good planning can do when the planets line up. 'Built for a little, gave a lot.' Story over, stars aglow!",
+            "bn": "ভয়েজার ২ হলো একমাত্র যান, যে ইউরেনাস আর নেপচুন দেখেছে। তার ছবি আর তথ্য আজও পাঠ্যবইতে আছে। সে শেখাল: গ্রহের সারি মেলার সুযোগ এলে সঠিক পরিকল্পনা কত দূর নিয়ে যেতে পারে। 'কম বানানো, অনেক দেওয়া।' গল্প ফুরালো, তারা জ্বললো!"
+          }
+        }
+      ],
+      "pandastein_question": {
+        "en": "Which two planets has only Voyager 2 visited?",
+        "answer_en": "Uranus and Neptune.",
+        "bn": "কোন দুটো গ্রহে একমাত্র ভয়েজার ২ গেছে?",
+        "answer_bn": "ইউরেনাস আর নেপচুন।"
+      },
+      "imagined_voice": {
+        "en": "Imagined voice: \"I have seen four planets. Do you want to see them?\"",
+        "bn": "কল্পিত কণ্ঠ: \"আমি চারটে গ্রহ দেখেছি। তোমরা কি দেখতে চাও?\""
+      },
+      "robot_voice_card": {
+        "en": "BEEP. I am Voyager 2. Launched 20 August 1977. Flew past Jupiter 1979, Saturn 1981, Uranus 1986, Neptune 1989. Only craft to visit Uranus and Neptune. In interstellar space since November 2018. Status: still talking. END.",
+        "bn": "বিপ। আমি ভয়েজার ২। উৎক্ষেপণ: ২০ আগস্ট ১৯৭৭। বৃহস্পতি ১৯৭৯, শনি ১৯৮১, ইউরেনাস ১৯৮৬, নেপচুন ১৯৮৯। ইউরেনাস ও নেপচুনে যাওয়া একমাত্র যান। ২০১৮-র নভেম্বর থেকে তারাদের মাঝের মহাকাশে। অবস্থা: এখনও কথা বলছি। শেষ।"
+      }
+    },
+    {
+      "id": "machine-10",
+      "sequence": 10,
+      "name": {
+        "en": "Mars Pathfinder",
+        "bn": "মার্স পাথফাইন্ডার"
+      },
+      "year": "১৯৯৬",
+      "location_bn": "মঙ্গল",
+      "status_bn": "চুপ হয়ে গেল",
+      "at_a_glance": {
+        "en": "Launch: 4 December 1996\nLanding: 4 July 1997, Ares Vallis\nLanding method: Airbags, bounced more than 15 times\nLast data: 27 September 1997\nLater name: Carl Sagan Memorial Station",
+        "bn": "উৎক্ষেপণ: ৪ ডিসেম্বর ১৯৯৬\nঅবতরণ: ৪ জুলাই ১৯৯৭, আরেস ভ্যালিস\nনামার কৌশল: বেলুনের মতো এয়ারব্যাগ, ১৫ বারের বেশি লাফ\nশেষ তথ্য: ২৭ সেপ্টেম্বর ১৯৯৭\nপরে নাম: কার্ল সাগান স্মারক স্টেশন"
+      },
+      "story_parts": [
+        {
+          "part": 1,
+          "title": {
+            "en": "১ · Introduction   শুরুর কথা",
+            "bn": "১ · Introduction   শুরুর কথা"
+          },
+          "text": {
+            "en": "Once upon a time there was a little lander called Mars Pathfinder. After Viking, America did not land on Mars for almost 20 years, because Viking was expensive and complicated. This time NASA said: let us show we can do it cheaper with a small spacecraft. Pathfinder set off on 4 December 1996. Hidden in its belly was a tiny companion.",
+            "bn": "এক যে ছিল ছোট্ট ল্যান্ডার, নাম মার্স পাথফাইন্ডার। ভাইকিংয়ের পর প্রায় ২০ বছর আমেরিকা মঙ্গলে নামেনি। কারণ ভাইকিং ছিল দামি আর জটিল। এবার নাসা বলল: কম খরচে, ছোট যান বানিয়ে দেখাই। পাথফাইন্ডার রওনা দিল ৪ ডিসেম্বর ১৯৯৬। তার পেটের ভেতর লুকোনো ছিল ছোট্ট এক সঙ্গী।"
+          }
+        },
+        {
+          "part": 2,
+          "title": {
+            "en": "২ · Design & Technology   গড়ন ও প্রযুক্তি",
+            "bn": "২ · Design & Technology   গড়ন ও প্রযুক্তি"
+          },
+          "text": {
+            "en": "Pathfinder looked like a flower with three petals. Folded up it was small, and after landing the petals opened. Inside were a camera, a weather station, and a camera on a tall mast that could look all around. Its landing method was odd: a parachute, rockets, and finally huge balloons that inflated around it. The companion inside was a small rover called Sojourner.",
+            "bn": "পাথফাইন্ডার দেখতে ছিল একটা তিন পাপড়ির ফুলের মতো। ভাঁজ করা অবস্থায় ছোট, নামার পর পাপড়ি খুলে যেত। ভেতরে ছিল ক্যামেরা, আবহাওয়া-যন্ত্র, আর একটা লম্বা দণ্ডে ক্যামেরার মাথা, যা চারদিক ঘুরে দেখতে পারত। নামার কৌশলটাও অদ্ভুত: ছাতা, রকেট, আর শেষে বিশাল বেলুন, যা তাকে ঘিরে ফুলে ওঠে। ভেতরের সঙ্গী সোজার্নার নামের ছোট্ট রোভার।"
+          }
+        },
+        {
+          "part": 3,
+          "title": {
+            "en": "৩ · Mission   মূল কাজ",
+            "bn": "৩ · Mission   মূল কাজ"
+          },
+          "text": {
+            "en": "Its jobs were to measure Mars's weather, photograph the rocks and soil around it, and set Sojourner down and stay in touch with it. Really, it was answering a big question: can we land on Mars this cheaply and simply?",
+            "bn": "তার কাজ ছিল মঙ্গলের আবহাওয়া মাপা, চারপাশের পাথর-মাটির ছবি তোলা, আর সোজার্নারকে নামিয়ে দিয়ে তার সঙ্গে যোগাযোগ রাখা। আসলে বড় একটা প্রশ্নের উত্তর খোঁজা: এত কম খরচে আর এত সহজ উপায়ে মঙ্গলে নামা সম্ভব কি?"
+          }
+        },
+        {
+          "part": 4,
+          "title": {
+            "en": "৪ · Journey & Challenges   যাত্রা ও বাধা",
+            "bn": "৪ · Journey & Challenges   যাত্রা ও বাধা"
+          },
+          "text": {
+            "en": "On 4 July 1997 it entered Mars's atmosphere. The parachute opened, the rockets fired, the balloons inflated. Then it hit the ground and bounced more than 15 times, balloons and all! At last it stopped on Ares Vallis. But the trouble was not over. A few days later its computer kept restarting because of a mistake in the software. Engineers on Earth fixed the software of a computer sitting on Mars, from far away.",
+            "bn": "৪ জুলাই ১৯৯৭ সে মঙ্গলের বায়ুমণ্ডলে ঢুকল। ছাতা খুলল, রকেট জ্বলল, বেলুন ফুলে উঠল। তারপর মাটিতে পড়ে বেলুনসহ ১৫ বারের বেশি লাফাল! শেষে থামল আরেস ভ্যালিসে। কিন্তু নামার পরেও ঝামেলা গেল না। কিছুদিন পর তার কম্পিউটার বারবার বন্ধ হয়ে যেতে লাগল, কারণ সফটওয়্যারে একটা ভুল ছিল। পৃথিবীর প্রকৌশলীরা মঙ্গলে বসে থাকা কম্পিউটারের সফটওয়্যার দূর থেকে ঠিক করে দিলেন।"
+          }
+        },
+        {
+          "part": 5,
+          "title": {
+            "en": "৫ · Discovery   আবিষ্কার",
+            "bn": "৫ · Discovery   আবিষ্কার"
+          },
+          "text": {
+            "en": "Pathfinder sent thousands of pictures and weather data. Ares Vallis was once a path of ancient floods. From the rounded pebbles all around, scientists understood that a lot of water had once flowed here! It also caught Martian dust whirlwinds and the changing colours of the sky.",
+            "bn": "পাথফাইন্ডার পাঠাল কয়েক হাজার ছবি আর আবহাওয়ার তথ্য। আরেস ভ্যালিস একটা প্রাচীন বন্যার পথ ছিল। চারপাশের গোল গোল নুড়ি দেখে বিজ্ঞানীরা বুঝলেন, এখানে একসময় প্রচুর জল বয়ে গিয়েছিল! মঙ্গলের ধুলোর ঘূর্ণি, রঙ বদলানো আকাশও সে ধরল।"
+          }
+        },
+        {
+          "part": 6,
+          "title": {
+            "en": "৬ · Mission Ending   শেষ অধ্যায়",
+            "bn": "৬ · Mission Ending   শেষ অধ্যায়"
+          },
+          "text": {
+            "en": "Pathfinder worked much longer than planned. On 27 September 1997 its last data arrived, and then silence. It was renamed the Carl Sagan Memorial Station. Carl Sagan was a famous scientist who told everybody stories about space. It still sits on Ares Vallis.",
+            "bn": "পাথফাইন্ডার পরিকল্পনার চেয়ে অনেক বেশিদিন কাজ করল। ২৭ সেপ্টেম্বর ১৯৯৭ তার শেষ তথ্য এল, তারপর চুপ। তার নাম রাখা হলো কার্ল সাগান স্মারক স্টেশন। কার্ল সাগান ছিলেন এক বিখ্যাত বিজ্ঞানী, যিনি সবাইকে মহাকাশের গল্প বলতেন। সে আজও আরেস ভ্যালিসে বসে আছে।"
+          }
+        },
+        {
+          "part": 7,
+          "title": {
+            "en": "৭ · Legacy   রেখে যাওয়া উপহার",
+            "bn": "৭ · Legacy   রেখে যাওয়া উপহার"
+          },
+          "text": {
+            "en": "Pathfinder's airbag method was later used by Spirit and Opportunity too. Holding Sojourner's hand, the age of rovers began. Pandastein: 'Small, cheap, but a very big dream!' Story over, stars aglow!",
+            "bn": "পাথফাইন্ডারের এয়ারব্যাগ-কৌশল পরে স্পিরিট আর অপরচুনিটিও ব্যবহার করল। সোজার্নারের হাত ধরে রোভার-যুগ শুরু হলো। প্যান্ডাস্টাইন: 'ছোট, সস্তা, কিন্তু অনেক বড় স্বপ্ন!' গল্প ফুরালো, তারা জ্বললো!"
+          }
+        }
+      ],
+      "pandastein_question": {
+        "en": "How did Pathfinder land gently on Mars?",
+        "answer_en": "Wrapped in airbags, bouncing along.",
+        "bn": "পাথফাইন্ডার মঙ্গলে নামার সময় কোন কৌশলে নরমভাবে নেমেছিল?",
+        "answer_bn": "এয়ারব্যাগ (বেলুন) দিয়ে ঘেরা হয়ে লাফাতে লাফাতে।"
+      },
+      "imagined_voice": {
+        "en": "Imagined voice: \"I bounced down! Shall I let my friend out?\"",
+        "bn": "কল্পিত কণ্ঠ: \"আমি লাফিয়ে লাফিয়ে নামলাম! আমার বন্ধুকে ছেড়ে দিই?\""
+      },
+      "robot_voice_card": {
+        "en": "BEEP. I am Mars Pathfinder, a lander and base station. Launched 4 December 1996. Landed 4 July 1997, Ares Vallis. Delivered the rover Sojourner. Sent thousands of pictures. Last data: 27 September 1997. Status: gone quiet. END.",
+        "bn": "বিপ। আমি মার্স পাথফাইন্ডার, ল্যান্ডার ও বেস স্টেশন। উৎক্ষেপণ: ৪ ডিসেম্বর ১৯৯৬। অবতরণ: ৪ জুলাই ১৯৯৭, আরেস ভ্যালিস। রোভার সোজার্নারকে নামিয়েছি। পাঠিয়েছি হাজার হাজার ছবি। শেষ তথ্য: ২৭ সেপ্টেম্বর ১৯৯৭। অবস্থা: নীরব। শেষ।"
+      }
+    },
+    {
+      "id": "machine-11",
+      "sequence": 11,
+      "name": {
+        "en": "Sojourner",
+        "bn": "সোজার্নার"
+      },
+      "year": "১৯৯৬",
+      "location_bn": "মঙ্গল",
+      "status_bn": "চুপ হয়ে গেল",
+      "at_a_glance": {
+        "en": "Launch: 4 December 1996 (aboard Pathfinder)\nRolled out: 5 July 1997, Ares Vallis\nPlanned: 7 sols (Martian days)\nActually: 83 sols\nDistance: About 100 metres",
+        "bn": "উৎক্ষেপণ: ৪ ডিসেম্বর ১৯৯৬ (পাথফাইন্ডারে চড়ে)\nনামল: ৫ জুলাই ১৯৯৭, আরেস ভ্যালিস\nপরিকল্পনা: ৭ সল (মঙ্গলের দিন)\nআসলে: ৮৩ সল\nদূরত্ব: প্রায় ১০০ মিটার"
+      },
+      "story_parts": [
+        {
+          "part": 1,
+          "title": {
+            "en": "১ · Introduction   শুরুর কথা",
+            "bn": "১ · Introduction   শুরুর কথা"
+          },
+          "text": {
+            "en": "Once upon a time there was a little rover called Sojourner. 'Sojourner' means someone who stays somewhere for a short while. A young girl chose the name by winning a contest. She named it after Sojourner Truth, a woman who fought for the rights of many people. On 4 December 1996 it set off for Mars, riding inside Pathfinder's belly.",
+            "bn": "এক যে ছিল ছোট্ট রোভার, নাম সোজার্নার। 'সোজার্নার' মানে যে অল্প সময়ের জন্য কোথাও যাত্রাবিরতি করে। নামটা বেছেছিল এক ছোট্ট মেয়ে, একটা প্রতিযোগিতায় জিতে। সে সোজার্নার ট্রুথের নামে নাম রেখেছিল, যিনি ছিলেন অনেক মানুষের অধিকারের জন্য লড়াকু একজন নারী। ৪ ডিসেম্বর ১৯৯৬ সে পাথফাইন্ডারের পেটে চড়ে মঙ্গলের পথে রওনা দিল।"
+          }
+        },
+        {
+          "part": 2,
+          "title": {
+            "en": "২ · Design & Technology   গড়ন ও প্রযুক্তি",
+            "bn": "২ · Design & Technology   গড়ন ও প্রযুক্তি"
+          },
+          "text": {
+            "en": "Sojourner was as small as a microwave oven and weighed about 10 kilograms. It had six wheels on a special rocking suspension, so it could cross rocks. On top were solar panels, cameras at the front and back, and a device at the rear that is pressed against a rock to measure what it is made of. But it could not send signals to Earth itself, so Pathfinder was its postman.",
+            "bn": "সোজার্নার ছিল একটা মাইক্রোওয়েভ-ওভেনের মতো ছোট, ওজনে প্রায় ১০ কেজি। ছয়টা চাকা, একটা বিশেষ ঝোলানো ব্যবস্থায়, যাতে পাথরের ওপর দিয়েও চলতে পারে। মাথার ওপর সৌর প্যানেল, সামনে-পেছনে ক্যামেরা, আর পেছনে একটা যন্ত্র, যা পাথরের গায়ে লাগিয়ে তার উপাদান মাপে। কিন্তু সে নিজে পৃথিবীতে সংকেত পাঠাতে পারত না, তাই পাথফাইন্ডার ছিল তার ডাকপিয়ন।"
+          }
+        },
+        {
+          "part": 3,
+          "title": {
+            "en": "৩ · Mission   মূল কাজ",
+            "bn": "৩ · Mission   মূল কাজ"
+          },
+          "text": {
+            "en": "Its job was to roll around on Mars, press its instrument on rocks to measure them, and prove that a small rover can work on another planet. The plan was only 7 sols.",
+            "bn": "তার কাজ ছিল: মঙ্গলের মাটিতে চাকা নিয়ে ঘুরে দেখা, পাথরের ওপর যন্ত্র লাগিয়ে তাদের উপাদান মাপা, আর প্রমাণ করা যে ছোট রোভার অন্য গ্রহে কাজ করতে পারে। মাত্র ৭ সলের পরিকল্পনা।"
+          }
+        },
+        {
+          "part": 4,
+          "title": {
+            "en": "৪ · Journey & Challenges   যাত্রা ও বাধা",
+            "bn": "৪ · Journey & Challenges   যাত্রা ও বাধা"
+          },
+          "text": {
+            "en": "Sojourner could not be steered directly, because signals take many minutes to travel from Earth to Mars. So it had a built-in 'avoid obstacles by itself' brain. If it saw an obstacle, it stopped and turned. In the first days everybody was nervous: would it get down safely? On 5 July 1997 it rolled slowly down the ramp and set its wheels on Mars.",
+            "bn": "সোজার্নারকে সরাসরি চালানো যেত না, কারণ পৃথিবী থেকে মঙ্গলে সংকেত যেতে অনেক মিনিট লাগে। তাই তার ভেতরে বসানো ছিল 'নিজে বাধা এড়ানোর' বুদ্ধি। একটা বাধা দেখলে সে নিজেই থেমে ঘুরে যেত। প্রথম দিনগুলোয় সবাই ভয় পেয়েছিল, সে কি ঠিকমতো নামতে পারবে? ৫ জুলাই ১৯৯৭ সে র‍্যাম্প বেয়ে আস্তে আস্তে মঙ্গলের মাটিতে পা রাখল।"
+          }
+        },
+        {
+          "part": 5,
+          "title": {
+            "en": "৫ · Discovery   আবিষ্কার",
+            "bn": "৫ · Discovery   আবিষ্কার"
+          },
+          "text": {
+            "en": "Sojourner affectionately named the rocks, like 'Barnacle Bill' and 'Yogi'. By pressing its instrument on them it found that some Martian rocks are like certain volcanic rocks on Earth. It worked 83 sols, twelve times the plan! The distance was only about 100 metres, which sounds small, but it was the first trip on wheels across another planet.",
+            "bn": "সোজার্নার পাথরদের নাম দিয়েছিল আদর করে, যেমন 'ব্যার্নাকল বিল' আর 'ইয়োগি'। তাদের গায়ে যন্ত্র লাগিয়ে সে জানাল, মঙ্গলের পাথর পৃথিবীর কিছু আগ্নেয় পাথরের মতো। সে ৮৩ সল কাজ করল, পরিকল্পনার বারো গুণ বেশি! দূরত্ব প্রায় ১০০ মিটার, অনেক ছোট শোনায়, কিন্তু এটা ছিল অন্য এক গ্রহে চাকা নিয়ে প্রথম ঘোরাঘুরি।"
+          }
+        },
+        {
+          "part": 6,
+          "title": {
+            "en": "৬ · Mission Ending   শেষ অধ্যায়",
+            "bn": "৬ · Mission Ending   শেষ অধ্যায়"
+          },
+          "text": {
+            "en": "When Pathfinder stopped talking, Sojourner had no postman left. In September 1997 both went quiet. It is still on Ares Vallis, next to its friend. Pandastein says, 'It stopped. It did not get lost.'",
+            "bn": "পাথফাইন্ডারের সঙ্গে যোগাযোগ হারালে সোজার্নারের আর কোনো ডাকপিয়ন রইল না। শেষে ১৯৯৭-এর সেপ্টেম্বরে দুজনেই চুপ হয়ে গেল। সে আজও আরেস ভ্যালিসে, তার বন্ধুর পাশেই। প্যান্ডাস্টাইন বলে, 'সে থেমে গেছে, হারায়নি।'"
+          }
+        },
+        {
+          "part": 7,
+          "title": {
+            "en": "৭ · Legacy   রেখে যাওয়া উপহার",
+            "bn": "৭ · Legacy   রেখে যাওয়া উপহার"
+          },
+          "text": {
+            "en": "Sojourner showed us what a small rover can do. Then came Spirit, Opportunity, Curiosity and Perseverance. Behind every big rover stands this little rover's path. 'Built for a little, gave a lot.' Story over, stars aglow!",
+            "bn": "সোজার্নার আমাদের দেখাল, ছোট রোভার কী করতে পারে। তারপর এল স্পিরিট, অপরচুনিটি, কিউরিওসিটি, পারসিভারেন্স। প্রতিটা বড় রোভারের পেছনে ছিল এই ছোট্ট রোভারের পথ। 'কম বানানো, অনেক দেওয়া।' গল্প ফুরালো, তারা জ্বললো!"
+          }
+        }
+      ],
+      "pandastein_question": {
+        "en": "What is the difference between Sojourner's planned and actual working time?",
+        "answer_en": "Planned 7 sols; it worked 83 sols.",
+        "bn": "সোজার্নারের পরিকল্পিত আর আসল কাজের সময়ের পার্থক্য কত?",
+        "answer_bn": "পরিকল্পনা ৭ সল; কাজ করেছে ৮৩ সল।"
+      },
+      "imagined_voice": {
+        "en": "Imagined voice: \"I am small. But I have come a long way!\"",
+        "bn": "কল্পিত কণ্ঠ: \"আমি ছোট। কিন্তু আমি অনেক দূর এসেছি!\""
+      },
+      "robot_voice_card": {
+        "en": "BEEP. I am Sojourner, a rover. Launched 4 December 1996 aboard Pathfinder. Rolled out 5 July 1997, Ares Vallis. Planned: 7 sols. Worked: 83 sols. Distance: about 100 metres. Status: gone quiet. END.",
+        "bn": "বিপ। আমি সোজার্নার, একটি রোভার। উৎক্ষেপণ: ৪ ডিসেম্বর ১৯৯৬, পাথফাইন্ডারের সঙ্গে। নেমেছি ৫ জুলাই ১৯৯৭, আরেস ভ্যালিস। পরিকল্পনা: ৭ সল। কাজ করেছি: ৮৩ সল। দূরত্ব: প্রায় ১০০ মিটার। অবস্থা: নীরব। শেষ।"
+      }
+    },
+    {
+      "id": "machine-12",
+      "sequence": 12,
+      "name": {
+        "en": "Deep Space 1",
+        "bn": "ডিপ স্পেস ১"
+      },
+      "year": "১৯৯৮",
+      "location_bn": "মহাকাশের গভীরে",
+      "status_bn": "অবসর নিল",
+      "at_a_glance": {
+        "en": "Launch: 24 October 1998\nJob: Test 12 new technologies\nAsteroid: Braille (1999)\nComet: Borrelly, 22 September 2001\nRetired: 18 December 2001",
+        "bn": "উৎক্ষেপণ: ২৪ অক্টোবর ১৯৯৮\nকাজ: ১২টা নতুন প্রযুক্তি পরীক্ষা\nগ্রহাণু: ব্রেইল (১৯৯৯)\nধূমকেতু: বোরেলি, ২২ সেপ্টেম্বর ২০০১\nঅবসর: ১৮ ডিসেম্বর ২০০১"
+      },
+      "story_parts": [
+        {
+          "part": 1,
+          "title": {
+            "en": "১ · Introduction   শুরুর কথা",
+            "bn": "১ · Introduction   শুরুর কথা"
+          },
+          "text": {
+            "en": "Once upon a time there was a test robot called Deep Space 1. It did not go to land on any planet. Its job was to test things for others: which new machines would survive in space and which would not. On 24 October 1998 it set off carrying twelve brand-new technologies that had never been run in space before. It was NASA's testing lab, out in space.",
+            "bn": "এক যে ছিল পরীক্ষার রোবট, নাম ডিপ স্পেস ১। সে কোনো গ্রহে নামতে যায়নি। তার কাজ ছিল অন্যদের জন্য পরীক্ষা করা: কোন নতুন যন্ত্র মহাকাশে টিকবে, কোনটা টিকবে না। ২৪ অক্টোবর ১৯৯৮ সে রওনা দিল। ছিল বারোটা সম্পূর্ণ নতুন প্রযুক্তি, আগে কখনও মহাকাশে চালানো হয়নি। সে ছিল নাসার পরীক্ষাগার, মহাকাশে।"
+          }
+        },
+        {
+          "part": 2,
+          "title": {
+            "en": "২ · Design & Technology   গড়ন ও প্রযুক্তি",
+            "bn": "২ · Design & Technology   গড়ন ও প্রযুক্তি"
+          },
+          "text": {
+            "en": "Deep Space 1's most famous machine was the ion engine. This engine does not burn fuel. It shoots a gas of charged particles out very fast using electricity. The push is only as strong as the weight of a sheet of paper, but it never stops and keeps going for months. It also had 'AutoNav', a brain that found its own way, and solar panels that focused sunlight.",
+            "bn": "ডিপ স্পেস ১-এর সবচেয়ে বিখ্যাত যন্ত্র ছিল আয়ন-ইঞ্জিন। এই ইঞ্জিনে জ্বালানি জ্বলে না, বরং একটা গ্যাসের কণাকে বিদ্যুৎ দিয়ে খুব জোরে ছুড়ে দেওয়া হয়। জোর মাত্র একটা কাগজের ওজনের মতো, কিন্তু সে থামে না, মাসের পর মাস চলে। সঙ্গে ছিল 'অটোন্যাভ', মানে নিজে নিজে পথ খুঁজে চলার বুদ্ধি; আর সৌর প্যানেল যা সূর্যের আলো ফোকাস করত।"
+          }
+        },
+        {
+          "part": 3,
+          "title": {
+            "en": "৩ · Mission   মূল কাজ",
+            "bn": "৩ · Mission   মূল কাজ"
+          },
+          "text": {
+            "en": "The mission was to test twelve technologies in space, and, if possible, fly past an asteroid and a comet. If it worked, future missions could use these machines with confidence.",
+            "bn": "মিশন ছিল: বারোটা প্রযুক্তি মহাকাশে পরীক্ষা করা, আর সুযোগ পেলে একটা গ্রহাণু আর একটা ধূমকেতুর পাশ দিয়ে উড়ে যাওয়া। সফল হলে ভবিষ্যতের মিশনগুলো এই যন্ত্র নিশ্চিন্তে ব্যবহার করতে পারবে।"
+          }
+        },
+        {
+          "part": 4,
+          "title": {
+            "en": "৪ · Journey & Challenges   যাত্রা ও বাধা",
+            "bn": "৪ · Journey & Challenges   যাত্রা ও বাধা"
+          },
+          "text": {
+            "en": "On the way a big problem came up: its star tracker, the instrument that finds direction by looking at stars, broke. Without it, it could not tell which way it was pointing. Engineers sent new software from Earth so that its own camera could look at the stars and find direction. Pandastein: 'Machine broken? Then run it with brains!' The mission was saved.",
+            "bn": "পথে একটা বড় সমস্যা এল: তার তারা-দেখে-দিক-চেনার যন্ত্রটা নষ্ট হয়ে গেল। এটা ছাড়া সে বুঝতে পারত না কোন দিকে তাকিয়ে আছে। প্রকৌশলীরা পৃথিবী থেকে নতুন সফটওয়্যার পাঠালেন, যাতে তার ক্যামেরাই তারাদের দেখে দিক চিনতে পারে। প্যান্ডাস্টাইন: 'যন্ত্র নষ্ট? তাহলে বুদ্ধি দিয়ে চালাও!' মিশন বেঁচে গেল।"
+          }
+        },
+        {
+          "part": 5,
+          "title": {
+            "en": "৫ · Discovery   আবিষ্কার",
+            "bn": "৫ · Discovery   আবিষ্কার"
+          },
+          "text": {
+            "en": "In 1999 it flew past an asteroid called Braille. On 22 September 2001 it reached comet Borrelly. The comet's core turned out long and bowling-pin shaped, dark and rough, with jets of dust and gas shooting out. The ion engine ran for more than 670 days, and that was its greatest success.",
+            "bn": "১৯৯৯ সালে সে ব্রেইল নামের গ্রহাণুর কাছ দিয়ে উড়ে গেল। ২২ সেপ্টেম্বর ২০০১ পৌঁছাল বোরেলি ধূমকেতুর কাছে। দেখা গেল ধূমকেতুর কেন্দ্র লম্বাটে, বোলিংয়ের পিনের মতো, গায়ে কালো আর খসখসে, আর তার থেকে ধুলো-গ্যাসের ফোয়ারা বেরোচ্ছে। আয়ন-ইঞ্জিন চলল ৬৭০ দিনের বেশি, এটাই তার সবচেয়ে বড় সাফল্য।"
+          }
+        },
+        {
+          "part": 6,
+          "title": {
+            "en": "৬ · Mission Ending   শেষ অধ্যায়",
+            "bn": "৬ · Mission Ending   শেষ অধ্যায়"
+          },
+          "text": {
+            "en": "On 18 December 2001 NASA retired it, which means switching off its engine so it would do nothing more. But all its tests were successful. It now circles the Sun alone. Retired, but happy.",
+            "bn": "১৮ ডিসেম্বর ২০০১ নাসা তাকে অবসর দিল, মানে ইঞ্জিন বন্ধ করে দিল, সে আর কিছু করবে না। কিন্তু তার সব পরীক্ষা সফল হয়ে গেছে। সে এখন সূর্যের চারপাশে একা একা ঘুরছে। অবসরপ্রাপ্ত, কিন্তু সুখী।"
+          }
+        },
+        {
+          "part": 7,
+          "title": {
+            "en": "৭ · Legacy   রেখে যাওয়া উপহার",
+            "bn": "৭ · Legacy   রেখে যাওয়া উপহার"
+          },
+          "text": {
+            "en": "Deep Space 1's ion engine later worked on a spacecraft called Dawn, which visited two big asteroids. Its AutoNav was used on later missions too. It showed that new things must be tested before being used, and that failing is fine as long as we learn. Story over, stars aglow!",
+            "bn": "ডিপ স্পেস ১-এর আয়ন-ইঞ্জিন পরে ডন নামের যানে কাজ করল, যে দুটো বড় গ্রহাণু ঘুরে দেখে এসেছে। তার অটোন্যাভও পরের মিশনে কাজে লাগল। সে দেখিয়ে দিল: নতুন কিছু চালানোর আগে পরীক্ষা করা দরকার, আর ব্যর্থ হলেও ক্ষতি নেই, যদি আমরা শিখি। গল্প ফুরালো, তারা জ্বললো!"
+          }
+        }
+      ],
+      "pandastein_question": {
+        "en": "How long did Deep Space 1's ion engine run?",
+        "answer_en": "More than 670 days.",
+        "bn": "ডিপ স্পেস ১-এর আয়ন-ইঞ্জিন কত দিন চলেছিল?",
+        "answer_bn": "৬৭০ দিনের বেশি।"
+      },
+      "imagined_voice": {
+        "en": "Imagined voice: \"I test things, so that you do not have to be afraid.\"",
+        "bn": "কল্পিত কণ্ঠ: \"আমি পরীক্ষা করি, যাতে তোমরা ভয় না পাও।\""
+      },
+      "robot_voice_card": {
+        "en": "BEEP. I am Deep Space 1. Launched 24 October 1998. Job: test 12 new technologies. Passed asteroid Braille in 1999 and comet Borrelly on 22 September 2001. Ion engine ran over 670 days. Retired 18 December 2001. Status: gone quiet. END.",
+        "bn": "বিপ। আমি ডিপ স্পেস ১। উৎক্ষেপণ: ২৪ অক্টোবর ১৯৯৮। কাজ: ১২টি নতুন প্রযুক্তি পরীক্ষা। ১৯৯৯-এ গ্রহাণু ব্রেইল ও ২২ সেপ্টেম্বর ২০০১-এ ধূমকেতু বরেলির পাশ দিয়ে গেছি। আয়ন-ইঞ্জিন চলেছে ৬৭০ দিনের বেশি। অবসর: ১৮ ডিসেম্বর ২০০১। অবস্থা: নীরব। শেষ।"
+      }
+    },
+    {
+      "id": "machine-13",
+      "sequence": 13,
+      "name": {
+        "en": "Opportunity",
+        "bn": "অপরচুনিটি"
+      },
+      "year": "২০০৩",
+      "location_bn": "মঙ্গল",
+      "status_bn": "চুপ হয়ে গেল",
+      "at_a_glance": {
+        "en": "Launch: 7 July 2003\nLanding: January 2004, Meridiani Planum\nPlanned: 90 sols, about 1 km\nActually: About 14 years, about 45 km\nLast contact: 10 June 2018",
+        "bn": "উৎক্ষেপণ: ৭ জুলাই ২০০৩\nঅবতরণ: জানুয়ারি ২০০৪, মেরিডিয়ানি প্ল্যানাম\nপরিকল্পনা: ৯০ সল, প্রায় ১ কিমি\nআসলে: প্রায় ১৪ বছর, প্রায় ৪৫ কিমি\nশেষ যোগাযোগ: ১০ জুন ২০১৮"
+      },
+      "story_parts": [
+        {
+          "part": 1,
+          "title": {
+            "en": "১ · Introduction   শুরুর কথা",
+            "bn": "১ · Introduction   শুরুর কথা"
+          },
+          "text": {
+            "en": "Once upon a time there was a runner rover called Opportunity. In 2003 NASA sent two twin rovers: Spirit and Opportunity. A young girl chose the names by winning a contest. There was only one question: did Mars once have water? On 7 July 2003 Opportunity set off across space to Mars.",
+            "bn": "এক যে ছিল দৌড়বাজ রোভার, নাম অপরচুনিটি, মানে সুযোগ। ২০০৩ সালে নাসা পাঠাল দুই যমজ রোভার: স্পিরিট আর অপরচুনিটি। নাম দুটো বেছেছিল এক ছোট মেয়ে, প্রতিযোগিতায় জিতে। প্রশ্ন একটাই: মঙ্গলে কি একসময় জল ছিল? ৭ জুলাই ২০০৩ অপরচুনিটি রওনা দিল মঙ্গল পাড়ি দিতে।"
+          }
+        },
+        {
+          "part": 2,
+          "title": {
+            "en": "২ · Design & Technology   গড়ন ও প্রযুক্তি",
+            "bn": "২ · Design & Technology   গড়ন ও প্রযুক্তি"
+          },
+          "text": {
+            "en": "Opportunity was as big as a golf cart. It had six wheels, a long mast with cameras, and a robot arm. On the arm's end were a rock-grinding tool, a camera like a magnifying glass, and an instrument for measuring what rocks are made of. Its power came from solar panels. The grinder scraped off a rock's dusty surface so the inside could be seen.",
+            "bn": "অপরচুনিটি ছিল গল্ফ-কার্টের মতো বড়, ছয়টা চাকা, একটা লম্বা দণ্ডে ক্যামেরা, আর একটা রোবট-হাত, যার ডগায় পাথর ফুটো করার যন্ত্র, আতশ কাচ-ক্যামেরা আর উপাদান মাপার যন্ত্র। বিদ্যুৎ আসত সৌর প্যানেল থেকে। আর তার ডগায় ছিল একটা পাথর-ঘষা যন্ত্র, যা পাথরের বাইরের ধুলো ঘষে ভেতরটা দেখাত।"
+          }
+        },
+        {
+          "part": 3,
+          "title": {
+            "en": "৩ · Mission   মূল কাজ",
+            "bn": "৩ · Mission   মূল কাজ"
+          },
+          "text": {
+            "en": "Opportunity's job was to look for signs of water in Mars's soil and rocks. The plan was 90 sols and about 1 kilometre. In that time, the more rocks it could touch, the better.",
+            "bn": "অপরচুনিটির কাজ ছিল মঙ্গলের মাটি আর পাথরে জলের চিহ্ন খোঁজা। ৯০ সল আর প্রায় ১ কিলোমিটার, এটাই ছিল পরিকল্পনা। এর মধ্যে সে যত পাথর ছুঁতে পারে, তত ভালো।"
+          }
+        },
+        {
+          "part": 4,
+          "title": {
+            "en": "৪ · Journey & Challenges   যাত্রা ও বাধা",
+            "bn": "৪ · Journey & Challenges   যাত্রা ও বাধা"
+          },
+          "text": {
+            "en": "Opportunity landed in January 2004 with unbelievable luck: it dropped right into a small crater, like a hole-in-one in golf! But the next challenges were bigger. In 2005 it got stuck in a sand dune. For weeks its wheels turned and turned until it finally got out. Its arm joint got stiff (arthritis!). Its memory started making mistakes. And finally came the biggest test: a planet-wide dust storm.",
+            "bn": "অপরচুনিটি নামল জানুয়ারি ২০০৪-এ, আর অবিশ্বাস্য ভাগ্য: সে একটা ছোট গর্তের ভেতরে গিয়ে পড়ল, ঠিক গল্ফের হোল-ইন-ওয়ানের মতো! কিন্তু পরের চ্যালেঞ্জগুলো ছিল বড়। ২০০৫ সালে সে একটা বালির ঢিবিতে আটকে গেল। কয়েক সপ্তাহ চাকা ঘুরে ঘুরে কোনোমতে বেরোল। তার হাতের জোড়ে ব্যথা (আর্থ্রাইটিস!) হলো। স্মৃতিতে ভুল ধরা পড়ল। আর শেষে এল সবচেয়ে বড় পরীক্ষা: বিশ্বজোড়া ধুলোঝড়।"
+          }
+        },
+        {
+          "part": 5,
+          "title": {
+            "en": "৫ · Discovery   আবিষ্কার",
+            "bn": "৫ · Discovery   আবিষ্কার"
+          },
+          "text": {
+            "en": "Opportunity found proof that Mars once had water: salty, acidic water. Small round grains in the rock, called 'blueberries', and mineral stains showed it. It went down into a huge crater and climbed steep cliffs. At one point it passed 42 kilometres, the full length of a marathon! Later, at the rim of Endeavour crater, it found clay minerals that formed in water.",
+            "bn": "অপরচুনিটি প্রমাণ পেল, মঙ্গলে একসময় জল ছিল: লবণাক্ত, অম্লীয় জল। পাথরে ছোট ছোট গোল দানা, নাম 'ব্লুবেরি', আর খনিজ দাগ দেখে তা বোঝা গেল। সে নামল বিশাল গর্তে, উঠল খাড়া পাহাড়ে। এক পর্যায়ে সে ৪২ কিলোমিটার পেরিয়ে ম্যারাথনের পুরো দূরত্ব ছুঁল! আর পরে এন্ডেভার গর্তের ধারে এমন মাটি পেল, যা জল থেকে তৈরি।"
+          }
+        },
+        {
+          "part": 6,
+          "title": {
+            "en": "৬ · Mission Ending   শেষ অধ্যায়",
+            "bn": "৬ · Mission Ending   শেষ অধ্যায়"
+          },
+          "text": {
+            "en": "In June 2018 a dust storm covered all of Mars. Sunlight was blocked and its solar panels could not work. Its last contact came on 10 June 2018. NASA called again and again for about eight months. No answer came. On 13 February 2019 NASA declared the mission complete. It is still on Mars, quietly.",
+            "bn": "জুন ২০১৮ মঙ্গলজুড়ে ধুলোঝড় উঠল। সূর্যের আলো আটকে গেল, তার সৌর প্যানেল কাজ করল না। ১০ জুন ২০১৮ তার সঙ্গে শেষ যোগাযোগ হলো। নাসা আবার আবার ডাকল, প্রায় আট মাস ধরে। সাড়া এল না। ১৩ ফেব্রুয়ারি ২০১৯ নাসা ঘোষণা করল: মিশন সম্পূর্ণ। সে আজও মঙ্গলের মাটিতে, চুপচাপ।"
+          }
+        },
+        {
+          "part": 7,
+          "title": {
+            "en": "৭ · Legacy   রেখে যাওয়া উপহার",
+            "bn": "৭ · Legacy   রেখে যাওয়া উপহার"
+          },
+          "text": {
+            "en": "Opportunity was built for 90 sols, but worked about 14 years and travelled about 45 kilometres. The proof of water it found helped decide where the next rovers, Curiosity and Perseverance, would search for life. 'Built for a little, gave a lot' has no better example. Story over, stars aglow!",
+            "bn": "অপরচুনিটি ৯০ সলের জন্য বানানো, কিন্তু কাজ করল প্রায় ১৪ বছর, চলল প্রায় ৪৫ কিলোমিটার। তার পাওয়া জলের প্রমাণ ঠিক করে দিল, পরের রোভার কিউরিওসিটি আর পারসিভারেন্স কোথায় প্রাণের খোঁজ করবে। 'কম বানানো, অনেক দেওয়া'—এর চেয়ে ভালো উদাহরণ নেই। গল্প ফুরালো, তারা জ্বললো!"
+          }
+        }
+      ],
+      "pandastein_question": {
+        "en": "What are Opportunity's 'blueberries', and what do they show?",
+        "answer_en": "Small round grains in rock; they show Mars once had water.",
+        "bn": "অপরচুনিটির 'ব্লুবেরি' আসলে কী, আর কীসের প্রমাণ?",
+        "answer_bn": "পাথরে ছোট গোল দানা; মঙ্গলে একসময় জল ছিল তার প্রমাণ।"
+      },
+      "imagined_voice": {
+        "en": "Imagined voice: \"I roll and roll and roll. One more rock?\"",
+        "bn": "কল্পিত কণ্ঠ: \"আমি চলেছি, চলেছি, চলেছি। আরও একটা পাথর?\""
+      },
+      "robot_voice_card": {
+        "en": "BEEP. I am Opportunity, a Mars rover. Launched 7 July 2003. Landed January 2004, Meridiani Planum. Planned: 90 sols and 1 kilometre. Achieved: about 14 years and 45 kilometres. Last contact: 10 June 2018. Mission complete: 13 February 2019. Status: gone quiet. END.",
+        "bn": "বিপ। আমি অপরচুনিটি, মঙ্গল-রোভার। উৎক্ষেপণ: ৭ জুলাই ২০০৩। অবতরণ: জানুয়ারি ২০০৪, মেরিডিয়ানি প্লানাম। পরিকল্পনা: ৯০ সল, ১ কিলোমিটার। অর্জন: প্রায় ১৪ বছর, ৪৫ কিলোমিটার। শেষ যোগাযোগ: ১০ জুন ২০১৮। মিশন সমাপ্ত: ১৩ ফেব্রুয়ারি ২০১৯। অবস্থা: নীরব। শেষ।"
+      }
+    },
+    {
+      "id": "machine-14",
+      "sequence": 14,
+      "name": {
+        "en": "New Horizons",
+        "bn": "নিউ হরাইজনস"
+      },
+      "year": "২০০৬",
+      "location_bn": "মহাকাশের গভীরে",
+      "status_bn": "এখনও কথা বলছে",
+      "at_a_glance": {
+        "en": "Launch: 19 January 2006\nPast Pluto: 14 July 2015, about 12,500 km away\nArrokoth: 1 January 2019\nPower: Plutonium generator\nStatus: Still talking",
+        "bn": "উৎক্ষেপণ: ১৯ জানুয়ারি ২০০৬\nপ্লুটোর পাশ দিয়ে: ১৪ জুলাই ২০১৫, প্রায় ১২,৫০০ কিমি দূর\nঅ্যারোকোথ: ১ জানুয়ারি ২০১৯\nশক্তি: প্লুটোনিয়াম জেনারেটর\nঅবস্থা: এখনও কথা বলছে"
+      },
+      "story_parts": [
+        {
+          "part": 1,
+          "title": {
+            "en": "১ · Introduction   শুরুর কথা",
+            "bn": "১ · Introduction   শুরুর কথা"
+          },
+          "text": {
+            "en": "Once upon a time there was a speedy robot called New Horizons, meaning new horizons. Pluto is a small, faraway world that nobody knew much about. The best pictures then were only a few blurry dots. On 19 January 2006 New Horizons set off, leaving Earth as one of the fastest spacecraft ever.",
+            "bn": "এক যে ছিল দৌড়বাজ রোবট, নাম নিউ হরাইজনস, মানে নতুন দিগন্ত। প্লুটো এমন এক ছোট্ট দূরের জগৎ, যেটা নিয়ে সবাই জানে না কী আছে। তখন সবচেয়ে ভালো ছবিও ছিল শুধু কয়েকটা ঝাপসা বিন্দু। ১৯ জানুয়ারি ২০০৬ নিউ হরাইজনস রওনা দিল, আর ছুটল পৃথিবী ছেড়ে যাওয়া সবচেয়ে দ্রুত যানগুলোর একটা হয়ে।"
+          }
+        },
+        {
+          "part": 2,
+          "title": {
+            "en": "২ · Design & Technology   গড়ন ও প্রযুক্তি",
+            "bn": "২ · Design & Technology   গড়ন ও প্রযুক্তি"
+          },
+          "text": {
+            "en": "New Horizons was about as big as a piano, three-cornered, with a big dish on top. Inside were seven instruments: cameras, a temperature sensor and a sensor for particles in the atmosphere. Sunlight is too weak out there for solar panels, so its power comes from a plutonium generator. It also carried some of the ashes of Clyde Tombaugh, the astronomer who discovered Pluto in 1930.",
+            "bn": "নিউ হরাইজনস দেখতে ছিল একটা পিয়ানোর মতো বড়, ত্রিকোণ, ওপরে একটা বড় ডিশ। ভেতরে সাতটা যন্ত্র: ক্যামেরা, তাপমাত্রা মাপার, বায়ুমণ্ডলের কণা মাপার। সূর্য থেকে এত দূরে সৌর প্যানেল চলে না, তাই তার শক্তি আসে প্লুটোনিয়াম জেনারেটর থেকে। তার ভেতরে ছিল ক্লাইড টম্বো নামের এক জ্যোতির্বিজ্ঞানীর কিছুটা ছাই, যিনি ১৯৩০ সালে প্লুটো আবিষ্কার করেছিলেন।"
+          }
+        },
+        {
+          "part": 3,
+          "title": {
+            "en": "৩ · Mission   মূল কাজ",
+            "bn": "৩ · Mission   মূল কাজ"
+          },
+          "text": {
+            "en": "It had one main job: to fly past Pluto and its moons and take their first complete pictures. There was no place to stop, so it had to do everything while flying by. Afterwards, if possible, it would visit more icy worlds in the Kuiper Belt.",
+            "bn": "তার কাজ ছিল একটাই: প্লুটো আর তার চাঁদগুলোর কাছ দিয়ে উড়ে গিয়ে প্রথমবার তাদের পুরো ছবি তোলা। ঘোরার সময় থামার জায়গা নেই, উড়ে যেতে যেতেই সব করতে হবে। তারপর, সুযোগ পেলে, আরও দূরের কাইপার বেল্টের আরও কিছু বরফের জগৎ দেখা।"
+          }
+        },
+        {
+          "part": 4,
+          "title": {
+            "en": "৪ · Journey & Challenges   যাত্রা ও বাধা",
+            "bn": "৪ · Journey & Challenges   যাত্রা ও বাধা"
+          },
+          "text": {
+            "en": "On the way it used Jupiter's pull to speed up in 2007. But the biggest moment came just 10 days before Pluto, on 4 July 2015: its computer was overloaded and switched itself into safe mode! A signal takes four and a half hours to reach Earth, so the engineers were very worried. They fixed the problem within three days. Pandastein: 'Phew, that was close!'",
+            "bn": "পথে সে বৃহস্পতির টানে গতি বাড়িয়ে নিল, ২০০৭ সালে। কিন্তু সবচেয়ে বড় ঘটনা ঘটল প্লুটোর মাত্র ১০ দিন আগে, ৪ জুলাই ২০১৫: তার কম্পিউটার একসঙ্গে অনেক কাজে হাঁপিয়ে নিরাপদ মোডে চলে গেল! পৃথিবী থেকে সংকেত পৌঁছাতে সাড়ে চার ঘণ্টা লাগে, তাই প্রকৌশলীরা খুব চিন্তায় ছিলেন। তাঁরা তিন দিনের মধ্যে সমস্যা সারিয়ে ফেললেন। প্যান্ডাস্টাইন: 'ফুঃ, বাঁচা গেল!'"
+          }
+        },
+        {
+          "part": 5,
+          "title": {
+            "en": "৫ · Discovery   আবিষ্কার",
+            "bn": "৫ · Discovery   আবিষ্কার"
+          },
+          "text": {
+            "en": "On 14 July 2015 it flew about 12,500 kilometres above Pluto. And Pluto showed amazing things: a huge heart-shaped plain of ice, mountains of water ice, bluish haze, and a living, changing landscape. Pluto is not a dead rock at all! Then on 1 January 2019 it passed an icy world called 'Arrokoth', which looks like a snowman made of ice.",
+            "bn": "১৪ জুলাই ২০১৫ সে প্লুটোর প্রায় ১২,৫০০ কিলোমিটার ওপর দিয়ে উড়ে গেল। আর প্লুটো দেখাল অবাক-করা সব জিনিস: হৃদয়-আকৃতির বিশাল সমতল বরফ-এলাকা, জলের বরফের পাহাড়, নীলচে কুয়াশা, আর জীবন্ত ভূগঠন। প্লুটো মোটেই মরা পাথর না! তারপর ১ জানুয়ারি ২০১৯ সে 'অ্যারোকোথ' নামের এক বরফের জগতের পাশ দিয়ে গেল, যে দেখতে বরফের তৈরি একটা তুষারমানবের মতো।"
+          }
+        },
+        {
+          "part": 6,
+          "title": {
+            "en": "৬ · Mission Ending   শেষ অধ্যায়",
+            "bn": "৬ · Mission Ending   শেষ অধ্যায়"
+          },
+          "text": {
+            "en": "New Horizons is still talking today. It is deep in the Kuiper Belt, far from the Sun. Its plutonium is slowly running down, but NASA says it can keep working until about 2028 or 2029. After that? It will go quiet, but keep travelling.",
+            "bn": "নিউ হরাইজনস আজও কথা বলছে। সে এখন কাইপার বেল্টের গভীরে, সূর্য থেকে অনেক দূরে। তার প্লুটোনিয়াম ধীরে ধীরে কমছে, কিন্তু নাসার হিসেবে সে ২০২৮-২৯ সাল পর্যন্ত কাজ করতে পারবে। তারপর? সে চুপ হবে, কিন্তু চলতে থাকবে।"
+          }
+        },
+        {
+          "part": 7,
+          "title": {
+            "en": "৭ · Legacy   রেখে যাওয়া উপহার",
+            "bn": "৭ · Legacy   রেখে যাওয়া উপহার"
+          },
+          "text": {
+            "en": "New Horizons turned Pluto from a 'small blurry dot' into a 'living world'. We now know much more about what the Kuiper Belt and the edge of the Solar System are like. It taught us that however far we go, something new is always waiting. Story over, stars aglow!",
+            "bn": "নিউ হরাইজনস প্লুটোকে বদলে দিল 'ছোট্ট ঝাপসা বিন্দু' থেকে 'জীবন্ত জগৎ'-এ। কাইপার বেল্ট কেমন, সৌরজগতের কিনারা কেমন, এসব নিয়ে আমরা এখন আরও বেশি জানি। সে শেখাল: যত দূরেই যাই, সব সময় নতুন কিছু অপেক্ষা করে। গল্প ফুরালো, তারা জ্বললো!"
+          }
+        }
+      ],
+      "pandastein_question": {
+        "en": "What shape was the big region New Horizons's cameras found on Pluto?",
+        "answer_en": "A huge heart-shaped plain of ice.",
+        "bn": "নিউ হরাইজনসের ক্যামেরা প্লুটোর কোন আকৃতির এলাকা ধরেছিল?",
+        "answer_bn": "হৃদয়ের মতো আকৃতির বিশাল বরফ-সমতল।"
+      },
+      "imagined_voice": {
+        "en": "Imagined voice: \"I have seen Pluto. It is shaped like a heart.\"",
+        "bn": "কল্পিত কণ্ঠ: \"আমি প্লুটোকে দেখেছি। সে হৃদয়ের মতো।\""
+      },
+      "robot_voice_card": {
+        "en": "BEEP. I am New Horizons. Launched 19 January 2006. Pluto closest approach: 14 July 2015, 12,500 kilometres. Arrokoth flyby: 1 January 2019. Power: plutonium generator. Mission extended to about 2028 or 2029. Status: still talking. END.",
+        "bn": "বিপ। আমি নিউ হরাইজনস। উৎক্ষেপণ: ১৯ জানুয়ারি ২০০৬। প্লুটোর সবচেয়ে কাছে: ১৪ জুলাই ২০১৫, ১২,৫০০ কিলোমিটার। আররোকথ পাশ দিয়ে যাওয়া: ১ জানুয়ারি ২০১৯। শক্তি: প্লুটোনিয়াম জেনারেটর। মিশন বাড়ানো হয়েছে প্রায় ২০২৮ বা ২০২৯ পর্যন্ত। অবস্থা: এখনও কথা বলছি। শেষ।"
+      }
+    },
+    {
+      "id": "machine-15",
+      "sequence": 15,
+      "name": {
+        "en": "Phoenix",
+        "bn": "ফিনিক্স"
+      },
+      "year": "২০০৭",
+      "location_bn": "মঙ্গল",
+      "status_bn": "চুপ হয়ে গেল",
+      "at_a_glance": {
+        "en": "Launch: 4 August 2007\nLanding: 25 May 2008, Vastitas Borealis\nPlanned: 90 sols\nDiscovery: Water ice\nLast contact: 2 November 2008, in polar winter",
+        "bn": "উৎক্ষেপণ: ৪ আগস্ট ২০০৭\nঅবতরণ: ২৫ মে ২০০৮, ভাস্টিটাস বোরিয়ালিস\nপরিকল্পনা: ৯০ সল\nআবিষ্কার: জলের বরফ\nশেষ যোগাযোগ: ২ নভেম্বর ২০০৮, মেরুর শীতে"
+      },
+      "story_parts": [
+        {
+          "part": 1,
+          "title": {
+            "en": "১ · Introduction   শুরুর কথা",
+            "bn": "১ · Introduction   শুরুর কথা"
+          },
+          "text": {
+            "en": "Once upon a time there was an ice-hunting lander called Phoenix. The phoenix is the storybook bird that is born again from its own ashes. Why this name? Because an earlier NASA Mars mission had failed, and some of that mission's equipment was reused to build Phoenix ⚠. On 4 August 2007 it set off.",
+            "bn": "এক যে ছিল বরফ-সন্ধানী ল্যান্ডার, নাম ফিনিক্স। ফিনিক্স হলো সেই কল্পকাহিনির পাখি, যে নিজের ছাই থেকে আবার জন্ম নেয়। কেন এই নাম? কারণ নাসার আগের একটা মঙ্গল-মিশন ব্যর্থ হয়েছিল, আর সেই মিশনের কিছু যন্ত্র নতুন করে কাজে লাগিয়ে বানানো হলো ফিনিক্স। ৪ আগস্ট ২০০৭ সে রওনা দিল।"
+          }
+        },
+        {
+          "part": 2,
+          "title": {
+            "en": "২ · Design & Technology   গড়ন ও প্রযুক্তি",
+            "bn": "২ · Design & Technology   গড়ন ও প্রযুক্তি"
+          },
+          "text": {
+            "en": "Phoenix was a three-legged lander like Viking, but it got its power from sunlight. Its biggest tool was a 2.35-metre robot arm with a digging scoop on the end. Inside were a small oven to heat soil, a tiny lab to mix soil with water and test it, and a microscope. For landing it used a parachute and rockets, and then stood on its legs like Viking.",
+            "bn": "ফিনিক্স ছিল ঠিক ভাইকিংয়ের মতো তিন পায়ের ল্যান্ডার, কিন্তু সূর্যের আলো থেকে বিদ্যুৎ নিত। তার সবচেয়ে বড় যন্ত্র ছিল একটা ২.৩৫ মিটার লম্বা রোবট-হাত, ডগায় মাটি-খোঁড়ার চামচ। ভেতরে মাটি গরম করার ছোট্ট চুলা, জলে মাটি মিশিয়ে পরীক্ষার ছোট্ট ল্যাব, আর অণুবীক্ষণ যন্ত্র। নামার সময় প্যারাসুট আর রকেট, আর ভাইকিংয়ের মতো পায়ে ভর দিয়ে নামা।"
+          }
+        },
+        {
+          "part": 3,
+          "title": {
+            "en": "৩ · Mission   মূল কাজ",
+            "bn": "৩ · Mission   মূল কাজ"
+          },
+          "text": {
+            "en": "Its job was to land near Mars's pole, look for water ice under the ground, and find out whether the place had ever been good for life. The plan was 90 sols, because when winter comes at the pole, the Sun no longer rises.",
+            "bn": "মঙ্গলের মেরু-অঞ্চলে নেমে মাটির নিচে জলের বরফ খোঁজা, আর দেখা সেখানে কখনও জীবনের উপযোগী পরিবেশ ছিল কি না। ৯০ সলের পরিকল্পনা, কারণ মেরুতে শীত আসলে আর সূর্য ওঠে না।"
+          }
+        },
+        {
+          "part": 4,
+          "title": {
+            "en": "৪ · Journey & Challenges   যাত্রা ও বাধা",
+            "bn": "৪ · Journey & Challenges   যাত্রা ও বাধা"
+          },
+          "text": {
+            "en": "Landing on Mars is the hardest part. Its last seven minutes are called the 'seven minutes of terror'. Phoenix got through those seven minutes and landed safely on 25 May 2008. But then the real trouble began: the soil was so hard and sticky that some of it clung to the scoop and would not go into the oven ⚠. Engineers shook and tapped it until it worked. And the Sun was slowly sinking lower.",
+            "bn": "মঙ্গলে নামা সবচেয়ে কঠিন অংশ। নামার সাত মিনিটকে বলে 'সাত মিনিটের আতঙ্ক'। ফিনিক্স সেই সাত মিনিট পেরিয়ে ২৫ মে ২০০৮ ঠিকঠাক নামল। কিন্তু তারপর শুরু হলো আসল সমস্যা: মাটি এত শক্ত ও আঠালো যে কিছু মাটি চামচে লেগে থাকত, ওভেনে ঢুকত না। প্রকৌশলীরা হাত নাড়িয়ে নাড়িয়ে তা কাজ করালেন। আর সূর্য আস্তে আস্তে ডুবে যাচ্ছিল।"
+          }
+        },
+        {
+          "part": 5,
+          "title": {
+            "en": "৫ · Discovery   আবিষ্কার",
+            "bn": "৫ · Discovery   আবিষ্কার"
+          },
+          "text": {
+            "en": "Phoenix dug a trench and found small white pieces. A few days later the pieces had vanished! That means they were water ice, which turned to vapour in the Sun's warmth. It was the first time anyone had touched water ice under Mars's ground. The soil also held a salt nobody expected ⚠. And it even saw snow falling from the sky ⚠.",
+            "bn": "ফিনিক্স গর্ত খুঁড়ে সাদা সাদা ছোট টুকরো পেল। কয়েক দিন পর টুকরোগুলো উধাও! তার মানে ওগুলো ছিল জলের বরফ, যা সূর্যের তাপে বাষ্প হয়ে গেছে। এই প্রথম মঙ্গলের মাটির নিচের জলের বরফ সরাসরি ছোঁয়া হলো। মাটিতে এমন লবণও পাওয়া গেল, যা আগে কেউ ভাবেনি। আর সে আকাশ থেকে তুষার পড়তেও দেখল।"
+          }
+        },
+        {
+          "part": 6,
+          "title": {
+            "en": "৬ · Mission Ending   শেষ অধ্যায়",
+            "bn": "৬ · Mission Ending   শেষ অধ্যায়"
+          },
+          "text": {
+            "en": "It kept working beyond the planned 90 sols, for about 5 months. But polar winter came. The Sun sank, and the solar panels got no light. Its last contact was on 2 November 2008. Pandastein says, 'It is asleep.' It is still there under the ice, near Mars's north pole.",
+            "bn": "পরিকল্পিত ৯০ সলের পরেও সে কাজ করল, প্রায় ৫ মাস। কিন্তু মেরুর শীত এল। সূর্য নেমে গেল, সৌর প্যানেল আলো পেল না। ২ নভেম্বর ২০০৮ তার সঙ্গে শেষ যোগাযোগ হলো। প্যান্ডাস্টাইন বলে, 'ও ঘুমাচ্ছে।' আজও সে বরফের নিচে, মঙ্গলের উত্তর মেরুর কাছে।"
+          }
+        },
+        {
+          "part": 7,
+          "title": {
+            "en": "৭ · Legacy   রেখে যাওয়া উপহার",
+            "bn": "৭ · Legacy   রেখে যাওয়া উপহার"
+          },
+          "text": {
+            "en": "Phoenix showed that there is water ice just below Mars's soil. In the future, when people go to Mars, they could get drinking water and rocket fuel from that ice. With one little scoop, it dug up the answer to a big question. Story over, stars aglow!",
+            "bn": "ফিনিক্স জানাল, মঙ্গলের মাটির অল্প নিচেই জলের বরফ আছে। ভবিষ্যতে মানুষ মঙ্গলে গেলে সেই বরফ থেকেই খাবার পানি আর রকেটের জ্বালানি তৈরি করতে পারবে। একটা ছোট্ট চামচ দিয়ে সে বড় একটা প্রশ্নের উত্তর খুঁড়ে তুলে আনল। গল্প ফুরালো, তারা জ্বললো!"
+          }
+        }
+      ],
+      "pandastein_question": {
+        "en": "What did Phoenix dig up?",
+        "answer_en": "Water ice under the ground.",
+        "bn": "ফিনিক্স কী খুঁড়ে পেয়েছিল?",
+        "answer_bn": "মাটির নিচে জলের বরফ।"
+      },
+      "imagined_voice": {
+        "en": "Imagined voice: \"I dig, I dig. Is that ice?\"",
+        "bn": "কল্পিত কণ্ঠ: \"আমি খুঁড়ছি, খুঁড়ছি। ওটা কি বরফ?\""
+      },
+      "robot_voice_card": {
+        "en": "BEEP. I am Phoenix, a lander. Launched 4 August 2007. Landed 25 May 2008, Vastitas Borealis, Mars. Planned: 90 sols. Found water ice. Last contact: 2 November 2008, polar winter. Status: gone quiet. END.",
+        "bn": "বিপ। আমি ফিনিক্স, একটি ল্যান্ডার। উৎক্ষেপণ: ৪ আগস্ট ২০০৭। অবতরণ: ২৫ মে ২০০৮, ভাস্টিটাস বোরিয়ালিস, মঙ্গল। পরিকল্পনা: ৯০ সল। পেয়েছি জলের বরফ। শেষ যোগাযোগ: ২ নভেম্বর ২০০৮, মেরুর শীত। অবস্থা: নীরব। শেষ।"
+      }
+    },
+    {
+      "id": "machine-16",
+      "sequence": 16,
+      "name": {
+        "en": "InSight",
+        "bn": "ইনসাইট"
+      },
+      "year": "২০১৮",
+      "location_bn": "মঙ্গল",
+      "status_bn": "চুপ হয়ে গেল",
+      "at_a_glance": {
+        "en": "Landing: 26 November 2018, Elysium Planitia\nJob: Learn what is inside Mars\nMarsquakes: 1,319\nResult: Mars has a liquid core\nEnd: 21 December 2022",
+        "bn": "অবতরণ: ২৬ নভেম্বর ২০১৮, এলিসিয়াম প্ল্যানিশিয়া\nকাজ: মঙ্গলের ভেতরটা জানা\nমঙ্গলকম্প: ১,৩১৯টি\nফল: মঙ্গলের কেন্দ্র তরল\nশেষ: ২১ ডিসেম্বর ২০২২"
+      },
+      "story_parts": [
+        {
+          "part": 1,
+          "title": {
+            "en": "১ · Introduction   শুরুর কথা",
+            "bn": "১ · Introduction   শুরুর কথা"
+          },
+          "text": {
+            "en": "Once upon a time there was a listening robot called InSight, meaning inner sight. We know Earth is layered inside because we listen to the waves of earthquakes. The question was: is the inside of Mars like that too? But nobody had ever seen inside it. So NASA sent a spacecraft that would land and quietly listen to Mars's heartbeat. It set off in May 2018.",
+            "bn": "এক যে ছিল কান-পাতা রোবট, নাম ইনসাইট, মানে ভেতরের দৃষ্টি। পৃথিবীর ভেতর যে স্তরে স্তরে সাজানো, সেটা আমরা জানি ভূমিকম্পের ঢেউ শুনে। প্রশ্ন ছিল, মঙ্গলের ভেতরটাও কি এমন? কিন্তু তার ভেতরটা কেউ কখনও দেখেনি। তাই নাসা পাঠাল এমন এক যান, যে নামবে, আর চুপচাপ মঙ্গলের হৃৎস্পন্দন শুনবে। ২০১৮-র মে মাসে সে রওনা দিল।"
+          }
+        },
+        {
+          "part": 2,
+          "title": {
+            "en": "২ · Design & Technology   গড়ন ও প্রযুক্তি",
+            "bn": "২ · Design & Technology   গড়ন ও প্রযুক্তি"
+          },
+          "text": {
+            "en": "InSight was a lander with two big round solar panels like wings. Its most precious instrument was a seismometer called SEIS. The robot arm lifted it off the lander and set it on the ground, then covered it with a dome so the wind would not shake it. Another instrument was the 'mole', which was meant to tunnel into the ground like a mole and measure the heat inside. A radio instrument also measured the planet's wobble.",
+            "bn": "ইনসাইট ছিল একটা বড় সৌর প্যানেলওয়ালা ল্যান্ডার, দুই পাশে ডানার মতো দুটো গোল প্যানেল। তার সবচেয়ে দামি যন্ত্র ছিল একটা ভূমিকম্প-মাপার, আর নাম সেইস। রোবট-হাত দিয়ে সেটা ল্যান্ডার থেকে তুলে মাটিতে বসানো হলো, ঢেকে দেওয়া হলো একটা গম্বুজ দিয়ে, যাতে বাতাসে না কাঁপে। আরেকটা যন্ত্র ছিল 'মোল', ছুঁচোর মতো মাটিতে সুড়ঙ্গ খুঁড়ে ভেতরের তাপ মাপার জন্য। আর একটা রেডিও-যন্ত্র গ্রহের দোলন মাপত।"
+          }
+        },
+        {
+          "part": 3,
+          "title": {
+            "en": "৩ · Mission   মূল কাজ",
+            "bn": "৩ · Mission   মূল কাজ"
+          },
+          "text": {
+            "en": "Its job was to find out what is inside Mars: how thick the hard crust is, what lies under it, and what the very centre is like. Knowing whether Mars's core is liquid or solid would tell us how the planet formed.",
+            "bn": "তার কাজ ছিল মঙ্গলের ভেতরটা জানা: ওপরের শক্ত খোলস কত পুরু, তার নিচে কী আছে, আর একদম কেন্দ্রটা কেমন। মঙ্গলের কেন্দ্র তরল না শক্ত, সেটা জানলে বোঝা যাবে গ্রহটা কীভাবে তৈরি হয়েছিল।"
+          }
+        },
+        {
+          "part": 4,
+          "title": {
+            "en": "৪ · Journey & Challenges   যাত্রা ও বাধা",
+            "bn": "৪ · Journey & Challenges   যাত্রা ও বাধা"
+          },
+          "text": {
+            "en": "InSight's road was not easy. Before launch, a leak was found in the seismometer, so lift-off was delayed by almost two years. After landing came another problem: the mole could not dig in, because the soil was different from what had been expected. Two years of trying, and in the end it had to be given up. Pandastein: 'Not every try works, but we learn.' And its biggest enemy was dust, which kept covering the solar panels.",
+            "bn": "ইনসাইটের পথ সহজ ছিল না। ২০১৫-এ ওড়ার আগে ভূমিকম্প-মাপারে একটা ফুটো ধরা পড়ল, তাই উড়তে দেরি হলো প্রায় দুই বছর। নামার পর আরেক সমস্যা: ছুঁচো-খোঁড়া যন্ত্র 'মোল' মাটিতে ঢুকতে পারল না, কারণ মাটি ছিল ভেবে-রাখার চেয়ে আলাদা। দুই বছর চেষ্টা চলল, শেষে ছেড়ে দিতে হলো। প্যান্ডাস্টাইন: 'সব চেষ্টা সফল হয় না, কিন্তু শেখা যায়।' আর সবচেয়ে বড় শত্রু ছিল ধুলো, যা সৌর প্যানেল ঢেকে দিচ্ছিল।"
+          }
+        },
+        {
+          "part": 5,
+          "title": {
+            "en": "৫ · Discovery   আবিষ্কার",
+            "bn": "৫ · Discovery   আবিষ্কার"
+          },
+          "text": {
+            "en": "InSight's seismometer heard 1,319 marsquakes! Some came from inside the planet, some from meteorite impacts. From these shakes scientists learned that Mars's core is liquid. They learned how thick the crust is and what the layers below look like. And it also recorded the sound of Martian wind, for the first time.",
+            "bn": "ইনসাইটের ভূমিকম্প-মাপার মঙ্গলের ১,৩১৯টা কম্পন শুনল! কিছু এল গ্রহের ভেতর থেকে, কিছু এল উল্কা-আঘাত থেকে। সেই কম্পন দেখে বিজ্ঞানীরা জানলেন, মঙ্গলের কেন্দ্র তরল। জানা গেল ওপরের খোলসটাও কত পুরু, নিচের স্তরগুলো কেমন। আর সে মঙ্গলের বাতাসের শব্দও ধরল, প্রথম বার।"
+          }
+        },
+        {
+          "part": 6,
+          "title": {
+            "en": "৬ · Mission Ending   শেষ অধ্যায়",
+            "bn": "৬ · Mission Ending   শেষ অধ্যায়"
+          },
+          "text": {
+            "en": "Slowly dust covered its solar panels. Power fell, and instruments were switched off one by one. On 21 December 2022 NASA announced the mission was over. It took one last picture and sent it home. Now it sits on Elysium Planitia, dusty and quiet.",
+            "bn": "ধুলো ধীরে ধীরে তার সৌর প্যানেল ঢেকে দিল। বিদ্যুৎ কমে গেল, যন্ত্র একে একে বন্ধ হলো। ২১ ডিসেম্বর ২০২২ নাসা ঘোষণা করল মিশন শেষ। শেষবারের মতো সে একটা ছবি তুলে পাঠাল। এখন সে এলিসিয়াম প্ল্যানিশিয়ায়, ধুলোমাখা, চুপচাপ।"
+          }
+        },
+        {
+          "part": 7,
+          "title": {
+            "en": "৭ · Legacy   রেখে যাওয়া উপহার",
+            "bn": "৭ · Legacy   রেখে যাওয়া উপহার"
+          },
+          "text": {
+            "en": "InSight gave us the first map of the inside of Mars. Using this data, future scientists will understand other planets, and even Earth's past, much better. It taught us that you can discover things with your ears, too. Story over, stars aglow!",
+            "bn": "ইনসাইট আমাদের দিল মঙ্গলের ভেতরের প্রথম মানচিত্র। এই তথ্য ধরে ভবিষ্যতের বিজ্ঞানীরা অন্য গ্রহ, এমনকি পৃথিবীর অতীতও আরও ভালো বুঝবেন। সে শেখাল: কান দিয়েও আবিষ্কার করা যায়। গল্প ফুরালো, তারা জ্বললো!"
+          }
+        }
+      ],
+      "pandastein_question": {
+        "en": "What did InSight tell us about the centre of Mars?",
+        "answer_en": "Mars's core is liquid.",
+        "bn": "ইনসাইট মঙ্গলের কেন্দ্র সম্পর্কে কী জানাল?",
+        "answer_bn": "মঙ্গলের কেন্দ্র তরল।"
+      },
+      "imagined_voice": {
+        "en": "Imagined voice: \"Shh! I am listening to the heartbeat of Mars.\"",
+        "bn": "কল্পিত কণ্ঠ: \"শশশ! আমি মঙ্গলের হৃদস্পন্দন শুনছি।\""
+      },
+      "robot_voice_card": {
+        "en": "BEEP. I am InSight, a Mars lander. Landed 26 November 2018, Elysium Planitia. Job: study the inside of Mars. My seismometer heard 1,319 marsquakes. Result: liquid core. Mission ended 21 December 2022, solar panels covered in dust. Status: gone quiet. END.",
+        "bn": "বিপ। আমি ইনসাইট, মঙ্গলের ল্যান্ডার। অবতরণ: ২৬ নভেম্বর ২০১৮, এলিসিয়াম প্ল্যানিশিয়া। কাজ: মঙ্গলের ভেতরটা জানা। আমার যন্ত্র শুনেছে ১,৩১৯টি মঙ্গলকম্প। ফল: তরল কেন্দ্র। মিশন শেষ: ২১ ডিসেম্বর ২০২২, প্যানেলে ধুলো জমে। অবস্থা: নীরব। শেষ।"
+      }
+    },
+    {
+      "id": "machine-17",
+      "sequence": 17,
+      "name": {
+        "en": "Ingenuity",
+        "bn": "ইনজেনুইটি"
+      },
+      "year": "২০২১",
+      "location_bn": "মঙ্গল",
+      "status_bn": "চুপ হয়ে গেল (উড়তে পারে না)",
+      "at_a_glance": {
+        "en": "Launch: 30 July 2020 (with Perseverance)\nLanding: 18 February 2021, Jezero Crater\nPlanned: 5 flights\nActually: 72 flights, 128.8 minutes, about 17 km\nLast flight: 18 January 2024",
+        "bn": "উৎক্ষেপণ: ৩০ জুলাই ২০২০ (পারসিভারেন্সের সঙ্গে)\nঅবতরণ: ১৮ ফেব্রুয়ারি ২০২১, জেজেরো গর্ত\nপরিকল্পনা: ৫টা উড়ান\nআসলে: ৭২টা উড়ান, ১২৮.৮ মিনিট, প্রায় ১৭ কিমি\nশেষ উড়ান: ১৮ জানুয়ারি ২০২৪"
+      },
+      "story_parts": [
+        {
+          "part": 1,
+          "title": {
+            "en": "১ · Introduction   শুরুর কথা",
+            "bn": "১ · Introduction   শুরুর কথা"
+          },
+          "text": {
+            "en": "Once upon a time there was a little helicopter called Ingenuity, meaning clever invention. No one had ever tried to fly on another planet. Mars's air is about one hundred times thinner than Earth's. In such thin air, what would wings push against? So this was a 'technology test'. On 30 July 2020 it set off clinging to the belly of the Perseverance rover.",
+            "bn": "এক যে ছিল ছোট্ট হেলিকপ্টার, নাম ইনজেনুইটি, মানে উদ্ভাবনী বুদ্ধি। অন্য গ্রহে আকাশে ওড়ার চেষ্টা কেউ আগে করেনি। কারণ মঙ্গলের বাতাস পৃথিবীর বাতাসের তুলনায় প্রায় শতভাগের একভাগ পাতলা। পাতলা বাতাসে ডানা কীসের ওপর ভর করবে? তাই এটা ছিল 'প্রযুক্তি-পরীক্ষা'। ৩০ জুলাই ২০২০ সে পারসিভারেন্স রোভারের পেটে লেগে রওনা দিল।"
+          }
+        },
+        {
+          "part": 2,
+          "title": {
+            "en": "২ · Design & Technology   গড়ন ও প্রযুক্তি",
+            "bn": "২ · Design & Technology   গড়ন ও প্রযুক্তি"
+          },
+          "text": {
+            "en": "Ingenuity was a small box with two long rotor blades on top. It weighed only about 1.8 kilograms. The two blades spun in opposite directions, about 2,400 times a minute, much faster than an Earth helicopter's, because the air is so thin. On top was a solar panel, inside a battery, and two cameras: one looked down to find its way, one looked ahead to take pictures. It also carried a small piece of cloth from the Wright brothers' first aeroplane.",
+            "bn": "ইনজেনুইটি ছিল একটা ছোট্ট বাক্সের ওপর দুই সারি লম্বা ব্লেড। ওজন মাত্র প্রায় ১.৮ কিলোগ্রাম। দুটো ব্লেড উল্টো দিকে ঘুরত, প্রায় প্রতি মিনিটে ২,৪০০ বার, পৃথিবীর হেলিকপ্টারের চেয়ে অনেক দ্রুত, কারণ বাতাস পাতলা। ওপরে সৌর প্যানেল, ভেতরে ব্যাটারি, আর দুটো ক্যামেরা: একটা নিচে তাকিয়ে পথ দেখত, একটা সামনে তাকিয়ে ছবি তুলত। তার গায়ে ছিল রাইট ভাইদের প্রথম উড়োজাহাজ থেকে নেওয়া এক টুকরো কাপড়।"
+          }
+        },
+        {
+          "part": 3,
+          "title": {
+            "en": "৩ · Mission   মূল কাজ",
+            "bn": "৩ · Mission   মূল কাজ"
+          },
+          "text": {
+            "en": "The plan was only five flights: to prove that flying in Mars's sky is possible. After that it would be Perseverance's 'sky scout', flying ahead and photographing the path.",
+            "bn": "পরিকল্পনা ছিল মাত্র পাঁচটা উড়ান: প্রমাণ করা যে মঙ্গলের আকাশে ওড়া সম্ভব। এরপর সে হবে পারসিভারেন্সের 'আকাশ-স্কাউট', যে আগে গিয়ে পথের ছবি তুলে দেখবে।"
+          }
+        },
+        {
+          "part": 4,
+          "title": {
+            "en": "৪ · Journey & Challenges   যাত্রা ও বাধা",
+            "bn": "৪ · Journey & Challenges   যাত্রা ও বাধা"
+          },
+          "text": {
+            "en": "Mars nights are freezing, about -90 degrees Celsius. Would its battery survive? It survived the first night. On 19 April 2021 it made its first flight: just about 3 metres up, hovering for about 39 seconds. The whole team cheered! Small dangers came later: once its photo timing went wrong, but it landed safely by itself. Pandastein: 'Wow, it is learning!'",
+            "bn": "মঙ্গলের রাত হিমশীতল, প্রায় −৯০ ডিগ্রি সেলসিয়াস। এত ঠান্ডায় ব্যাটারি টিকবে তো? প্রথম রাত সে টিকে গেল। ১৯ এপ্রিল ২০২১ তার প্রথম উড়ান: মাত্র প্রায় ৩ মিটার ওপরে, প্রায় ৩৯ সেকেন্ড ভেসে থাকল। পুরো দল আনন্দে চেঁচিয়ে উঠল! এর পরেও ছোটখাটো বিপদ এল: একবার তার ছবির সময়-মিলে গোলমাল হলো, কিন্তু সে নিজে নিজেই নিরাপদে নামল। প্যান্ডাস্টাইন: 'বাহ, শিখে গেছে!'"
+          }
+        },
+        {
+          "part": 5,
+          "title": {
+            "en": "৫ · Discovery   আবিষ্কার",
+            "bn": "৫ · Discovery   আবিষ্কার"
+          },
+          "text": {
+            "en": "Ingenuity made 72 flights instead of five! In total about 128.8 minutes and about 17 kilometres. It proved that a helicopter can fly on Mars. From above it took pictures of Perseverance's path, and new views of dunes, rocks and an old river bed. Where the rover cannot go, it brought back pictures.",
+            "bn": "ইনজেনুইটি পাঁচটার বদলে ৭২টা উড়ান দিল! মোট প্রায় ১২৮.৮ মিনিট, প্রায় ১৭ কিলোমিটার। সে প্রমাণ করল, মঙ্গলে হেলিকপ্টার ওড়ানো সম্ভব। সে ওপর থেকে পারসিভারেন্সের পথের ছবি তুলল, আর বালিয়াড়ি, পাথর, নদীর পুরনো খাতের নতুন-কোণের দৃশ্য দিল। রোভার যেখানে যেতে পারে না, সে সেখানকার ছবি আনল।"
+          }
+        },
+        {
+          "part": 6,
+          "title": {
+            "en": "৬ · Mission Ending   শেষ অধ্যায়",
+            "bn": "৬ · Mission Ending   শেষ অধ্যায়"
+          },
+          "text": {
+            "en": "Its last flight was on 18 January 2024. On landing, some of its blades broke. It cannot fly any more, but it still stands in Jezero Crater, upright and safe. Pandastein says, 'The bird has flown. Now it rests.'",
+            "bn": "১৮ জানুয়ারি ২০২৪ ছিল তার শেষ উড়ান। নামার সময় তার কিছু ব্লেড ভেঙে গেল। সে আর উড়তে পারে না, কিন্তু আজও সে জেজেরো গর্তে দাঁড়িয়ে, সোজা, নিরাপদে। প্যান্ডাস্টাইন বলে, 'পাখি উড়েছে, এখন বিশ্রাম।'"
+          }
+        },
+        {
+          "part": 7,
+          "title": {
+            "en": "৭ · Legacy   রেখে যাওয়া উপহার",
+            "bn": "৭ · Legacy   রেখে যাওয়া উপহার"
+          },
+          "text": {
+            "en": "Ingenuity showed that the skies of other planets can be ours too. Future NASA missions are planning bigger helicopters. 'Five flights planned, seventy-two flown.' Who could show 'Built for a little, gave a lot' better? Story over, stars aglow!",
+            "bn": "ইনজেনুইটি দেখিয়ে দিল: অন্য গ্রহের আকাশও আমাদের হতে পারে। ভবিষ্যতের নাসা মিশনে আরও বড় হেলিকপ্টারের পরিকল্পনা আছে। 'পাঁচটা উড়ানের বদলে বাহাত্তরটা।' এর চেয়ে ভালো করে 'কম বানানো, অনেক দেওয়া' আর কে বোঝাবে? গল্প ফুরালো, তারা জ্বললো!"
+          }
+        }
+      ],
+      "pandastein_question": {
+        "en": "How many flights were planned for Ingenuity, and how many did it actually fly?",
+        "answer_en": "Planned 5; actually 72.",
+        "bn": "ইনজেনুইটির পরিকল্পনায় কয়টা উড়ান ছিল, আর সে আসলে কয়টা উড়ল?",
+        "answer_bn": "পরিকল্পনা ৫টা; আসলে ৭২টা।"
+      },
+      "imagined_voice": {
+        "en": "Imagined voice: \"I am flying! The sky of Mars is mine.\"",
+        "bn": "কল্পিত কণ্ঠ: \"আমি উড়ছি! মঙ্গলের আকাশ আমার।\""
+      },
+      "robot_voice_card": {
+        "en": "BEEP. I am Ingenuity, a Mars helicopter. Launched 30 July 2020 with Perseverance. Landed 18 February 2021, Jezero Crater. Planned: 5 flights. Flew: 72 flights, 128.8 minutes, about 17 kilometres. Last flight: 18 January 2024. Status: gone quiet. END.",
+        "bn": "বিপ। আমি ইনজেনুইটি, মঙ্গলের হেলিকপ্টার। উৎক্ষেপণ: ৩০ জুলাই ২০২০, পারসিভারেন্সের সঙ্গে। অবতরণ: ১৮ ফেব্রুয়ারি ২০২১, জেজেরো ক্রেটার। পরিকল্পনা: ৫টি উড়ান। উড়েছি: ৭২টি, ১২৮.৮ মিনিট, প্রায় ১৭ কিলোমিটার। শেষ উড়ান: ১৮ জানুয়ারি ২০২৪। অবস্থা: নীরব। শেষ।"
+      }
+    }
+  ],
+  "editorial_verification_notes": {
+    "items_to_check": [
+      {
+        "গল্প": "৩. লুনার অরবিটার ১",
+        "যা মিলিয়ে নিতে হবে": "লুনার অরবিটার ১-এর তারিখ ও সংখ্যা NSSDCA পাতায় মিলিয়ে নেওয়া"
+      },
+      {
+        "গল্প": "৫. অ্যাপোলো ১৫ লুনার রোভিং ভেহিকল",
+        "যা মিলিয়ে নিতে হবে": "অ্যাপোলো ১৫-র সামনের স্টিয়ারিং সমস্যা (যাত্রা ১)"
+      },
+      {
+        "গল্প": "৫. অ্যাপোলো ১৫ লুনার রোভিং ভেহিকল",
+        "যা মিলিয়ে নিতে হবে": "জেনেসিস রকের বয়স"
+      },
+      {
+        "গল্প": "৬. পায়োনিয়ার ১০",
+        "যা মিলিয়ে নিতে হবে": "পায়োনিয়ার ১০-এর শেষ সংকেতের তারিখ (২২ না ২৩ জানুয়ারি ২০০৩) — 'জানুয়ারি ২০০৩' ছাপা হচ্ছে"
+      },
+      {
+        "গল্প": "৭. ভাইকিং ১",
+        "যা মিলিয়ে নিতে হবে": "ভাইকিং ১-এর হাতের আটকে যাওয়া পিন"
+      },
+      {
+        "গল্প": "৭. ভাইকিং ১",
+        "যা মিলিয়ে নিতে হবে": "ভাইকিং ১-এর সংযোগ হারানোর কারণ (ভুল নির্দেশ)"
+      },
+      {
+        "গল্প": "৮. ভয়েজার ১",
+        "যা মিলিয়ে নিতে হবে": "ভয়েজার ১-এর 'এক আলো-দিন' তারিখ (১৮ নভেম্বর ২০২৬) — NASA ভয়েজার পাতায় ইভেন্টের দিন আবার দেখা"
+      },
+      {
+        "গল্প": "৮. ভয়েজার ১",
+        "যা মিলিয়ে নিতে হবে": "ভয়েজার ১-এর শক্তি কমার হার (বছরে প্রায় ৪ ওয়াট)"
+      },
+      {
+        "গল্প": "৮. ভয়েজার ১",
+        "যা মিলিয়ে নিতে হবে": "২০১৭-র জেট-ইঞ্জিন ও ২০২৩-২৪-এর সমস্যা — NASA পাতায় মিলিয়ে নেওয়া"
+      },
+      {
+        "গল্প": "৯. ভয়েজার ২",
+        "যা মিলিয়ে নিতে হবে": "ভয়েজার ২-এর তারাদের মাঝখানে ঢোকার তারিখ (৫ নভেম্বর না ১০ ডিসেম্বর ২০১৮) — 'নভেম্বর ২০১৮' ছাপা হচ্ছে"
+      },
+      {
+        "গল্প": "৯. ভয়েজার ২",
+        "যা মিলিয়ে নিতে হবে": "২০২০-র অ্যান্টেনা বন্ধ থাকার তথ্য"
+      },
+      {
+        "গল্প": "১০. মার্স পাথফাইন্ডার",
+        "যা মিলিয়ে নিতে হবে": "পাথফাইন্ডারের ছবির সংখ্যা (কয়েক হাজার — নির্দিষ্ট সংখ্যা ছাপার আগে NASA Facts-এ দেখা)"
+      },
+      {
+        "গল্প": "১১. সোজার্নার",
+        "যা মিলিয়ে নিতে হবে": "সোজার্নার নামের প্রতিযোগিতা ও নামকরণের গল্প (NASA/JPL ফ্যাক্টশিটে মিলিয়ে নেওয়া)"
+      },
+      {
+        "গল্প": "১১. সোজার্নার",
+        "যা মিলিয়ে নিতে হবে": "পাথরের উপাদান-সংক্রান্ত লাইন"
+      },
+      {
+        "গল্প": "১২. ডিপ স্পেস ১",
+        "যা মিলিয়ে নিতে হবে": "ডিপ স্পেস ১-এর তারা-ট্র্যাকার নষ্ট হওয়া ও সফটওয়্যারে মেরামত (JPL পাতায় মিলিয়ে নেওয়া)"
+      },
+      {
+        "গল্প": "১২. ডিপ স্পেস ১",
+        "যা মিলিয়ে নিতে হবে": "ডন মিশনে আয়ন-ইঞ্জিনের ব্যবহার"
+      },
+      {
+        "গল্প": "১৩. অপরচুনিটি",
+        "যা মিলিয়ে নিতে হবে": "অপরচুনিটির নামকরণ প্রতিযোগিতার বিবরণ"
+      },
+      {
+        "গল্প": "১৩. অপরচুনিটি",
+        "যা মিলিয়ে নিতে হবে": "অপরচুনিটির অবতরণের তারিখ (২৪ না ২৫ জানুয়ারি ২০০৪) — 'জানুয়ারি ২০০৪' ছাপা হচ্ছে"
+      },
+      {
+        "গল্প": "১৩. অপরচুনিটি",
+        "যা মিলিয়ে নিতে হবে": "২০০৫-এর বালির ঢিবি, আর্থ্রাইটিস, ম্যারাথন (৪২ কিমি) ও এন্ডেভারের তথ্য"
+      },
+      {
+        "গল্প": "১৩. অপরচুনিটি",
+        "যা মিলিয়ে নিতে হবে": "ধুলোঝড়ে আট মাসের ডাকাডাকির সময়কাল"
+      },
+      {
+        "গল্প": "১৪. নিউ হরাইজনস",
+        "যা মিলিয়ে নিতে হবে": "নিউ হরাইজনসের ৪ জুলাই ২০১৫-এর সমস্যা (তারিখ ও সময়কাল)"
+      },
+      {
+        "গল্প": "১৪. নিউ হরাইজনস",
+        "যা মিলিয়ে নিতে হবে": "প্লুটোর সমতল এলাকার নাম 'স্পুটনিক প্ল্যানিশিয়া' (ছাপা হয়নি)"
+      },
+      {
+        "গল্প": "১৪. নিউ হরাইজনস",
+        "যা মিলিয়ে নিতে হবে": "অ্যারোকোথের আকার-বিবরণ"
+      },
+      {
+        "গল্প": "১৪. নিউ হরাইজনস",
+        "যা মিলিয়ে নিতে হবে": "মিশন প্রলম্বন: ২০২৮–২৯ NASA পাতা থেকে নিশ্চিত করা"
+      },
+      {
+        "গল্প": "১৫. ফিনিক্স",
+        "যা মিলিয়ে নিতে হবে": "ফিনিক্সের নামকরণের গল্প (আগের মিশনের যন্ত্র ব্যবহার)"
+      },
+      {
+        "গল্প": "১৫. ফিনিক্স",
+        "যা মিলিয়ে নিতে হবে": "মাটির আঠালো-ভাব নিয়ে সমস্যা"
+      },
+      {
+        "গল্প": "১৫. ফিনিক্স",
+        "যা মিলিয়ে নিতে হবে": "মাটিতে লবণ-তথ্য (পারক্লোরেট) ও তুষারপাত"
+      },
+      {
+        "গল্প": "১৬. ইনসাইট",
+        "যা মিলিয়ে নিতে হবে": "ইনসাইটের সবচেয়ে বড় কম্পনের মাত্রা (৫ না ৪.৭) — ছাপা হচ্ছে না"
+      },
+      {
+        "গল্প": "১৬. ইনসাইট",
+        "যা মিলিয়ে নিতে হবে": "ইনসাইটের প্রাথমিক উৎক্ষেপণ-বিলম্ব ও 'মোল' সমস্যার বিবরণ"
+      },
+      {
+        "গল্প": "১৬. ইনসাইট",
+        "যা মিলিয়ে নিতে হবে": "বাতাসের শব্দ ধরার তথ্য"
+      },
+      {
+        "গল্প": "১৭. ইনজেনুইটি",
+        "যা মিলিয়ে নিতে হবে": "ইনজেনুইটির ব্যাটারি টিকে থাকার ঘটনা"
+      },
+      {
+        "গল্প": "১৭. ইনজেনুইটি",
+        "যা মিলিয়ে নিতে হবে": "উড়ানের সময়-মিল সমস্যা (ফ্লাইট ৬) ও ব্লেড ভাঙার বিবরণ NASA ইনজেনুইটি পাতায় মিলিয়ে নেওয়া"
+      },
+      {
+        "গল্প": "১৭. ইনজেনুইটি",
+        "যা মিলিয়ে নিতে হবে": "আগামী হেলিকপ্টার-পরিকল্পনা (নির্দিষ্ট মিশন না ছাপা)"
+      }
+    ],
+    "known_conflicts_and_current_printing_decisions": [
+      {
+        "Item": "InSight's biggest quake",
+        "Conflict found": "NASA-based pages say magnitude 5, other pages say 4.7",
+        "What we print now": "No magnitude until the NASA page is opened"
+      },
+      {
+        "Item": "Pioneer 10 last signal",
+        "Conflict found": "22 Jan vs 23 Jan 2003 (US date vs UTC)",
+        "What we print now": "'January 2003'"
+      },
+      {
+        "Item": "Voyager 2 enters interstellar space",
+        "Conflict found": "5 Nov 2018 (JPL mission page) vs 10 Dec 2018 (announcement)",
+        "What we print now": "'November 2018'"
+      },
+      {
+        "Item": "Surveyor 1 photos",
+        "Conflict found": "11,237 vs 11,240",
+        "What we print now": "'more than 11,000'"
+      },
+      {
+        "Item": "Opportunity landing",
+        "Conflict found": "24 Jan (US time) vs 25 Jan 2004 (UTC)",
+        "What we print now": "'January 2004'"
+      },
+      {
+        "Item": "Viking 1 last contact",
+        "Conflict found": "11 Nov vs 13 Nov 1982",
+        "What we print now": "11 Nov 1982 (JPL)"
+      },
+      {
+        "Item": "Voyager 1 one-light-day date",
+        "Conflict found": "NASA says 18 Nov; some media say 13 or 15 Nov",
+        "What we print now": "18 Nov 2026, recheck on NASA's Voyager page"
+      },
+      {
+        "Item": "Voyager 1 blackout 18–20 Oct 2026 and Voyager 2 July 2026 power swap",
+        "Conflict found": "Seen only on secondary news pages",
+        "What we print now": "Not printed"
+      }
+    ]
+  }
+}

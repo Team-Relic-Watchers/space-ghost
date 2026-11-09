@@ -1,0 +1,579 @@
+/*
+ * The campaign map: 17 ghosts scattered across one journey through the galaxy.
+ *
+ * The field is taller than the screen, so the student scrolls down through it,
+ * the way the reference artwork is read: top to bottom, the dotted path
+ * weaving between the ghosts.
+ */
+
+.ghosts-map {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: 100dvh;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 70% at 50% 0%, rgba(143, 75, 240, 0.5) 0%, transparent 60%),
+    radial-gradient(90% 60% at 20% 100%, rgba(56, 225, 255, 0.28) 0%, transparent 60%),
+    linear-gradient(180deg, #1b0b4d 0%, #2b1170 55%, #12072e 100%);
+}
+
+.ghosts-map > :not(.backdrop) {
+  position: relative;
+  z-index: 1;
+}
+
+/* The page title for assistive tech; the logo carries the visual name. */
+.ghosts-map > .ghosts-map__title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ghosts-map__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: clamp(0.35rem, 1.2vmin, 0.7rem) clamp(1rem, 3vw, 2rem) 0;
+}
+
+/* The map needs the screen for the journey, so its chrome stays slim. */
+.ghosts-map__top .logo__word {
+  font-size: clamp(1.15rem, 3.4vmin, 1.8rem);
+}
+
+/* A warm greeting in the middle of the HUD: a little candy pill with sparkles. */
+.ghosts-map__welcome {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.22rem;
+  margin: 0;
+  padding: 0 0.4rem;
+}
+
+.ghosts-map__welcome-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.26em 0.95em 0.28em;
+  font-size: clamp(0.8rem, 1.95vmin, 1.05rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-align: center;
+  white-space: normal;
+  max-width: 100%;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(100deg, rgba(143, 75, 240, 0.62), rgba(56, 225, 255, 0.28));
+  border: 2px solid rgba(255, 255, 255, 0.34);
+  border-radius: 999px;
+  box-shadow:
+    0 0 0 3px rgba(12, 5, 34, 0.35),
+    0 8px 22px rgba(7, 2, 24, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.38);
+  text-shadow: 0 1px 0 rgba(12, 5, 34, 0.45), 0 0 16px rgba(143, 75, 240, 0.8);
+  animation: ghosts-welcome-pulse 4.5s ease-in-out infinite;
+}
+
+.ghosts-map__welcome-text::before,
+.ghosts-map__welcome-text::after {
+  content: '✦';
+  font-size: 0.72em;
+  line-height: 1;
+  color: var(--sun);
+  text-shadow: 0 0 10px currentColor;
+}
+
+.ghosts-map__welcome-text::after {
+  color: var(--cyan);
+}
+
+/* A tiny rainbow rail under the pill, echoing the trail's candy dots. */
+.ghosts-map__welcome::after {
+  content: '';
+  width: 2.6rem;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--pink), var(--sun), var(--cyan));
+  box-shadow: 0 0 10px rgba(255, 212, 59, 0.6);
+}
+
+@keyframes ghosts-welcome-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 3px rgba(12, 5, 34, 0.35),
+      0 8px 22px rgba(7, 2, 24, 0.45),
+      0 0 14px rgba(143, 75, 240, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.38);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 3px rgba(12, 5, 34, 0.35),
+      0 8px 22px rgba(7, 2, 24, 0.45),
+      0 0 24px rgba(56, 225, 255, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.38);
+  }
+}
+
+.ghosts-map__top .language-toggle {
+  min-height: 40px;
+  padding: 0.2em 0.85em;
+  font-size: 0.95rem;
+  border-width: 3px;
+  box-shadow: 0 3px 0 var(--ink-deep);
+}
+
+/* The scrolling viewport for the journey. */
+.ghosts-map__canvas {
+  position: relative;
+  min-height: 0;
+  margin-top: clamp(0.2rem, 1vmin, 0.6rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+  overscroll-behavior-y: contain;
+}
+
+.ghosts-map__canvas::-webkit-scrollbar {
+  width: 10px;
+}
+
+.ghosts-map__canvas::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.32);
+  border-radius: 999px;
+}
+
+/* The tall field the ghosts are scattered across. */
+.ghosts-map__stage {
+  position: relative;
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
+.ghosts-map__path {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/*
+ * Each ghost is anchored by its ring centre: the stage places the button at
+ * (x, y), and negative margins pull the ring back over that point. Margins are
+ * used instead of a translate because the entrance animation owns `transform`,
+ * and a transform here would knock every planet off the flight trail.
+ *
+ * The label hangs below the ring as an absolute chip, so it never shifts the
+ * anchor and the dotted trail can meet the planet exactly.
+ */
+.ghosts-map__stage > .ghost {
+  position: absolute;
+  margin-top: calc(var(--ghost-size, 120px) / -2);
+  margin-left: calc(var(--ghost-size, 120px) / -2);
+}
+
+/*
+ * Pandastein is pinned to the screen, not to the field, so he stays put while
+ * the journey scrolls under him. The child selector keeps the map's
+ * `> :not(.backdrop)` grid rule from turning him back into a page row.
+ */
+.ghosts-map > .ghosts-map__panda {
+  position: absolute;
+  left: clamp(0.3rem, 1.6vw, 1rem);
+  bottom: clamp(2.9rem, 6.5vh, 4.2rem);
+  z-index: 30;
+  width: clamp(124px, 12.5vw, 172px);
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.ghosts-map__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.3rem clamp(1rem, 3vw, 2rem)
+    calc(0.3rem + env(safe-area-inset-bottom));
+  font-size: clamp(0.72rem, 1.6vmin, 0.85rem);
+  color: rgba(233, 227, 255, 0.72);
+}
+
+.ghosts-map__count {
+  font-weight: 700;
+  color: var(--cyan);
+}
+
+.ghosts-map__arrows {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ghosts-map__arrows .ghosts-map__arrow {
+  display: grid;
+  place-items: center;
+  padding: 0.2em;
+  min-height: 0;
+  color: var(--sun);
+  border-color: rgba(255, 212, 59, 0.5);
+}
+
+.ghosts-map__arrows .ghosts-map__arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ghosts-map__arrow:hover:not(:disabled) {
+  background: rgba(255, 212, 59, 0.22);
+}
+
+.ghosts-map__arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* The station floor is decoration here: a slim rail, not a second bottom bar. */
+.ghosts-map .backdrop__floor {
+  height: clamp(42px, 7vh, 64px);
+}
+
+/* Phones: Pandastein keeps his bottom-left corner, card and all. */
+@media (max-width: 700px) {
+  .ghosts-map__welcome-text {
+    gap: 0.38em;
+    padding: 0.24em 0.7em 0.26em;
+    font-size: 0.7rem;
+  }
+
+  .ghosts-map__welcome::after {
+    width: 2rem;
+    height: 2px;
+  }
+  .ghosts-map > .ghosts-map__panda {
+    width: 118px;
+    left: 0.35rem;
+    bottom: calc(2.4rem + env(safe-area-inset-bottom));
+  }
+
+  /* Undo the shared side-by-side layout: card on top, panda below. */
+  .ghosts-map > .ghosts-map__panda .ask-panda {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .ghosts-map > .ghosts-map__panda .ask-panda__card {
+    padding: 0.5rem 0.55rem;
+    border-width: 3px;
+    border-radius: 16px;
+    box-shadow: 0 5px 0 var(--ink-deep), 0 10px 20px rgba(10, 4, 28, 0.45);
+  }
+
+  .ghosts-map > .ghosts-map__panda .ask-panda__question {
+    font-size: 0.72rem;
+  }
+
+  .ghosts-map > .ghosts-map__panda .ask-panda__hint {
+    margin-top: 0.25rem;
+    font-size: 0.6rem;
+  }
+
+  /* The tail points down at him again. */
+  .ghosts-map > .ghosts-map__panda .ask-panda__card::after {
+    display: block;
+    bottom: -16px;
+    border-width: 14px 12px 0 12px;
+  }
+
+  .ghosts-map > .ghosts-map__panda .ask-panda__figure {
+    width: 72px;
+    margin-top: 16px;
+  }
+}
+
+/* ---- The ghost node ---- */
+
+.ghost {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--ghost-size, 120px);
+  height: var(--ghost-size, 120px);
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+.ghost__ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #1b0b4d;
+  border: 5px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 22px rgba(7, 2, 24, 0.65),
+    0 0 0 5px rgba(255, 255, 255, 0.12),
+    0 10px 24px rgba(6, 2, 20, 0.45);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/*
+ * The real machine photograph fills the ring. The painted planet stays behind
+ * it as a graceful fallback if an archive image ever fails to load.
+ */
+.ghost__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.08) contrast(1.04);
+  transition: transform 0.25s ease;
+}
+
+.ghost:hover .ghost__photo {
+  transform: scale(1.06);
+}
+
+.ghost[data-active='true'] .ghost__ring,
+.ghost:hover .ghost__ring {
+  box-shadow: 0 0 0 8px rgba(255, 212, 59, 0.42), 0 0 40px rgba(255, 212, 59, 0.6);
+  transform: scale(1.05);
+}
+
+.ghost__number {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--lilac);
+  border: 3px solid var(--ink-deep);
+  border-radius: 50%;
+  box-shadow: 0 3px 0 var(--ink-deep);
+}
+
+/* A small star tally sits on the ring once the explorer has met the machine. */
+.ghost__stars {
+  position: absolute;
+  right: -8px;
+  bottom: 6%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.18rem;
+  padding: 0.18rem 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--sun);
+  background: rgba(18, 7, 46, 0.94);
+  border: 2px solid var(--sun);
+  border-radius: 999px;
+  box-shadow: 0 2px 0 var(--ink-deep), 0 0 12px rgba(255, 212, 59, 0.4);
+}
+
+/*
+ * The label sits on a dark chip so white text keeps a high contrast on every
+ * planet colour, at every size. It hangs from the ring instead of sitting in
+ * the flow, which keeps the ghost's box exactly the size of its planet.
+ */
+.ghost__label {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  width: max-content;
+  max-width: min(190px, 18vw);
+  padding: 0.48em 0.78em;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 60%),
+    linear-gradient(125deg, rgba(143, 75, 240, 0.96), rgba(43, 17, 112, 0.97));
+  border: 2px solid rgba(255, 255, 255, 0.58);
+  border-radius: 15px 15px 15px 5px;
+  box-shadow:
+    0 4px 0 rgba(23, 11, 58, 0.9),
+    0 10px 22px rgba(10, 4, 28, 0.52),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(8px);
+}
+
+.ghost[data-destination='moon'] .ghost__label {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 60%),
+    linear-gradient(125deg, #a345ee, #5627bf);
+}
+
+.ghost[data-destination='mars'] .ghost__label {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 60%),
+    linear-gradient(125deg, #ff8061, #bd347a);
+}
+
+.ghost[data-destination='deep'] .ghost__label {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 60%),
+    linear-gradient(125deg, #168fa8, #4431a5);
+}
+
+.ghost__name {
+  font-size: clamp(0.86rem, 1.7vmin, 1.1rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(23, 11, 58, 0.5);
+}
+
+.ghost__year {
+  font-size: clamp(0.74rem, 1.5vmin, 0.95rem);
+  font-weight: 700;
+  color: var(--sun);
+  text-shadow: 0 1px 2px rgba(23, 11, 58, 0.5);
+}
+
+.ghost__where {
+  font-size: clamp(0.66rem, 1.3vmin, 0.85rem);
+  color: rgba(255, 255, 255, 0.86);
+}
+
+html[lang='bn'] .ghost__label {
+  font-family: 'Baloo Da 2', var(--font-display);
+}
+
+/* ---- The painted world ---- */
+
+.planet {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.planet__body {
+  position: relative;
+  width: 82%;
+  height: 82%;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: inset -8px -10px 20px rgba(0, 0, 0, 0.45), inset 6px 7px 14px rgba(255, 255, 255, 0.32);
+}
+
+.planet__mark {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.planet__mark--one {
+  width: 26%;
+  height: 22%;
+  top: 18%;
+  left: 20%;
+}
+
+.planet__mark--two {
+  width: 18%;
+  height: 30%;
+  top: 44%;
+  left: 52%;
+}
+
+.planet__mark--three {
+  width: 22%;
+  height: 16%;
+  top: 62%;
+  left: 24%;
+}
+
+.planet__glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@media (max-width: 380px) {
+  .ghosts-map__welcome-text {
+    gap: 0.2em;
+    padding: 0.2em 0.5em 0.22em;
+    font-size: 0.64rem;
+  }
+
+  .ghosts-map__welcome-text::before,
+  .ghosts-map__welcome-text::after {
+    display: none;
+  }
+}
+
+/* Phones: two ghosts per row, so each one keeps room to breathe. */
+@media (max-width: 640px) {
+  .ghosts-map__top .logo__word {
+    font-size: clamp(1.05rem, 5vmin, 1.5rem);
+  }
+
+  .ghost__ring {
+    border-width: 4px;
+  }
+
+  .ghost__number {
+    width: 28px;
+    height: 28px;
+    top: -10px;
+    font-size: 0.85rem;
+    border-width: 2px;
+    box-shadow: 0 2px 0 var(--ink-deep);
+  }
+
+  .ghost__label {
+    top: calc(100% + 0.3rem);
+    max-width: min(132px, 32vw);
+    padding: 0.3em 0.5em;
+    border-width: 2px;
+    border-radius: 12px;
+  }
+
+  .ghost__name {
+    font-size: 0.78rem;
+  }
+
+  .ghost__year {
+    font-size: 0.68rem;
+  }
+
+  .ghost__where {
+    font-size: 0.62rem;
+  }
+}

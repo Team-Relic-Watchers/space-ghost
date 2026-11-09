@@ -1,0 +1,14 @@
+{
+  "ranger-7_real_photo.jpg": {
+    "description": "Spacecraft photograph / model: NASA/JPL Ranger 7 spacecraft archive.",
+    "source": "https://photojournal.jpl.nasa.gov/mission/Ranger?subselect=Spacecraft%3ARanger+7%3A"
+  },
+  "ranger-7_taken_photo.jpg": {
+    "description": "Image captured by the spacecraft: Ranger 7's first close-up image of the Moon.",
+    "source": "https://science.nasa.gov/photojournal/first-image-of-the-moon-taken-by-a-us-spacecraft/"
+  },
+  "ranger-7_technical_illustration.gif": {
+    "description": "Technical illustration: Ranger 7 mission and spacecraft reference.",
+    "source": "https://science.nasa.gov/mission/ranger-7/"
+  }
+}

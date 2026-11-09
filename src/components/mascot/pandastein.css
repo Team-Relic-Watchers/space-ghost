@@ -1,0 +1,40 @@
+.pandastein {
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 10px 0 rgba(23, 11, 58, 0.25));
+}
+
+.pandastein__wave {
+  transform-box: fill-box;
+  transform-origin: 20% 90%;
+  animation: pandastein-wave 2.2s ease-in-out infinite;
+}
+
+.pandastein__head {
+  transform-box: fill-box;
+  transform-origin: 50% 90%;
+  animation: pandastein-nod 4.5s ease-in-out infinite;
+}
+
+.pandastein__eyes {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: pandastein-blink 5s infinite;
+}
+
+@keyframes pandastein-wave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-16deg); }
+  50% { transform: rotate(8deg); }
+  75% { transform: rotate(-12deg); }
+}
+
+@keyframes pandastein-nod {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50% { transform: rotate(1.5deg) translateY(2px); }
+}
+
+@keyframes pandastein-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  96% { transform: scaleY(0.1); }
+}

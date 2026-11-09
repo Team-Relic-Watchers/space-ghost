@@ -1,0 +1,55 @@
+.time-machine {
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 0 28px rgba(56, 225, 255, 0.55));
+}
+
+.time-machine__ring,
+.time-machine__swirl {
+  transform-box: view-box;
+  transform-origin: 200px 190px;
+}
+
+.time-machine__ring {
+  animation: tm-spin 24s linear infinite;
+}
+
+.time-machine__swirl {
+  animation: tm-spin 6s linear infinite reverse;
+}
+
+.time-machine__glow {
+  animation: tm-glow 3.2s ease-in-out infinite alternate;
+}
+
+.time-machine--charging .time-machine__ring {
+  animation-duration: 1.4s;
+}
+
+.time-machine--charging .time-machine__swirl {
+  animation-duration: 0.6s;
+}
+
+.time-machine__sparkle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tm-sparkle 2.4s ease-in-out infinite;
+}
+
+.time-machine__sparkle:nth-child(2) { animation-delay: -0.6s; }
+.time-machine__sparkle:nth-child(3) { animation-delay: -1.2s; }
+.time-machine__sparkle:nth-child(4) { animation-delay: -1.8s; }
+
+@keyframes tm-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes tm-glow {
+  from { opacity: 0.1; }
+  to { opacity: 0.28; }
+}
+
+@keyframes tm-sparkle {
+  0%, 100% { transform: scale(0.4) rotate(0deg); opacity: 0.3; }
+  50% { transform: scale(1.1) rotate(45deg); opacity: 1; }
+}

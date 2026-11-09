@@ -1,0 +1,11 @@
+{
+  "Viking_real_photo.jpg": {
+    "description": "Viking Lander photograph",
+    "source": "https://en.wikipedia.org/wiki/Viking_1#/media/File:Viking_spacecraft.jpg"
+  },
+  "Viking1_taken_photo.jpg": {
+    "description": "First Color Image of Mars From Viking Lander 1",
+    "source": "https://science.nasa.gov/resource/first-color-image-from-viking-lander-1/"
+  },
+
+}

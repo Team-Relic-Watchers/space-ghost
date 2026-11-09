@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import validator from 'gltf-validator';
+const f = process.argv[2];
+const buf = new Uint8Array(fs.readFileSync(f));
+const rep = await validator.validateBytes(buf, { uri: 'ranger-7.glb' });
+const i = rep.issues;
+console.log('validator: errors', i.numErrors, 'warnings', i.numWarnings, 'infos', i.numInfos, 'hints', i.numHints);
+for (const m of i.messages) console.log(' ', m.severity, m.code, m.pointer, m.message);
+console.log('generator:', rep.info.generator, '| version', rep.info.version);
+console.log('stats:', JSON.stringify({ nodes: rep.info.nodes ?? undefined, meshes: rep.info.drawCallCount, triangles: rep.info.totalTriangleCount, materials: rep.info.materialCount, textures: rep.info.resources?.filter(r=>r.image).length, extensionsUsed: rep.info.extensionsUsed }));
+console.log('resources:', JSON.stringify(rep.info.resources));

@@ -1,0 +1,37 @@
+{
+  "name": "Ranger 7 impact site (Mare Cognitum)",
+  "description": "Local lunar surface texture derived from NASA Moon Trek data, centred on the last Ranger 7 camera-A frame (A199). Illustrative terrain; the exact impact point is marked by the app, not by a modelled crater.",
+  "center": {
+    "lat": -10.6,
+    "lon": -20.69
+  },
+  "widthKm": 23.8,
+  "box": {
+    "south": -11.3875,
+    "north": -9.8125,
+    "west": -20.843,
+    "east": -19.8425
+  },
+  "impact": {
+    "lat": -10.7,
+    "lon": -20.612,
+    "source": "IAU 2015 lunar coordinate framework"
+  },
+  "height": {
+    "minM": -2186.9,
+    "maxM": -1249.15,
+    "rangeM": 937.76,
+    "metersPerPixel": 46.48,
+    "source": "LOLA DEM 256 ppd (NASA Moon Trek: LRO_LOLA_DEM_Global_256ppd_v06)",
+    "note": "LOLA elevations are relative to a mean lunar radius of 1737.4 km."
+  },
+  "albedo": {
+    "source": "LRO WAC global mosaic 303 ppd (NASA Moon Trek: LRO_WAC_Mosaic_Global_303ppd_v02)",
+    "note": "Colour tint added for readability; crater detail is from the original mosaic."
+  },
+  "sun": {
+    "subSolarLat": 21.68,
+    "subSolarLon": -71.71,
+    "note": "Direction of illumination baked into ranger7-lighting.png."
+  }
+}

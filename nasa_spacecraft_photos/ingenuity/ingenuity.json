@@ -1,0 +1,14 @@
+{
+  "ingenuity_real_photo.jpg": {
+    "description": "Ingenuity Mars Helicopter photo taken by the Mastcam-Z instrument aboard Perseverance on April 16, 2023",
+    "source": "https://science.nasa.gov/photojournal/ingenuity-at-two-years-on-mars/"
+  },
+  "ingenuity_photo_taken.jpg": {
+    "description": "First Aerial Color Image of Mars taken by Ingenuity",
+    "source": "https://science.nasa.gov/photojournal/first-aerial-color-image-of-mars/"
+  },
+  "ingenuity_technical_illustration.jpg": {
+    "description": "Technical illustration: Ingenuity spacecraft anatomy reference.",
+    "source": "https://www.jpl.nasa.gov/news/press_kits/ingenuity/landing/mission/spacecraft/"
+  }
+}

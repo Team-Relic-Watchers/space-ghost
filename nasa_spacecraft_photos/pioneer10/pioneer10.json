@@ -1,0 +1,14 @@
+{
+  "pioneer_10_real_photo.jpeg": {
+    "description": "An artist's concept of the Pioneer 10 spacecraft.",
+    "source": "https://science.nasa.gov/mission/pioneer-10/"
+  },
+  "pioneer10-2": {
+    "description": "Image captured by the spacecraft: Pioneer 10 view of Ganymede.",
+    "source": "https://science.nasa.gov/resource/pioneer-10-ganymede/"
+  },
+  "pioneer10-3": {
+    "description": "Technical illustration: Pioneer spacecraft diagram.",
+    "source": "https://science.nasa.gov/resource/pioneer-spacecraft-diagram/"
+  }
+}

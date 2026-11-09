@@ -1,0 +1,135 @@
+.site {
+  position: relative;
+}
+
+.site__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: calc(0.9rem + env(safe-area-inset-top)) clamp(0.9rem, 3vw, 2rem) 0.4rem;
+}
+
+.site__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.site__heading h2 {
+  margin: 0.15rem 0 0;
+  font-size: clamp(1.15rem, 3.2vmin, 1.8rem);
+  color: #fff;
+}
+
+.site__coords {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0.4em 0.9em;
+  font-size: 0.9rem;
+  background: rgba(23, 11, 58, 0.72);
+  border: 3px solid rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+}
+
+.site__coords strong {
+  color: var(--sun);
+}
+
+.site__coords span {
+  opacity: 0.8;
+}
+
+.site__canvas {
+  position: relative;
+  min-height: 0;
+  margin: 0 clamp(0.6rem, 2vw, 1.4rem);
+  overflow: hidden;
+  border: 4px solid var(--ink-deep);
+  border-radius: 28px;
+  box-shadow: 0 0 40px rgba(143, 75, 240, 0.45), inset 0 0 0 3px rgba(255, 255, 255, 0.08);
+}
+
+.site__hint {
+  position: absolute;
+  left: 50%;
+  bottom: 0.8rem;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0.35em 0.9em;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  background: rgba(10, 4, 28, 0.6);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.site__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.6rem clamp(0.9rem, 3vw, 2rem) calc(0.8rem + env(safe-area-inset-bottom));
+  font-size: clamp(0.72rem, 1.7vmin, 0.9rem);
+  line-height: 1.35;
+  text-align: center;
+  color: rgba(233, 227, 255, 0.85);
+}
+
+.site__bottom p {
+  margin: 0;
+  max-width: 900px;
+}
+
+.site__marker-note {
+  color: var(--sun);
+  font-weight: 600;
+}
+
+.site__caveat {
+  opacity: 0.8;
+}
+
+.site__credits {
+  font-size: 0.75em;
+  opacity: 0.65;
+}
+
+.site__credits a {
+  margin-left: 0.4em;
+  color: var(--cyan);
+}
+
+.site-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  padding: 0.4em 0.8em;
+  font-size: 0.8rem;
+  text-align: center;
+  white-space: nowrap;
+  color: #fff;
+  background: rgba(23, 11, 58, 0.88);
+  border: 2px solid var(--sun);
+  border-radius: 14px;
+  box-shadow: 0 0 18px rgba(255, 212, 59, 0.45);
+}
+
+.site-marker strong {
+  color: var(--sun);
+}
+
+.site-marker--warning {
+  max-width: 260px;
+  white-space: normal;
+  border-color: var(--pink);
+  font-size: 0.75rem;
+}
+

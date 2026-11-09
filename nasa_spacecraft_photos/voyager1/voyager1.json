@@ -1,0 +1,14 @@
+{
+  "voyager1_real_photo.jpeg": {
+    "description": "Spacecraft photograph: Voyager spacecraft in clean room.",
+    "source": "https://www.wired.com/story/voyager-2-gets-a-life-extending-power-boost-in-deep-space/"
+  },
+  "voyager1_taken_photo.webp": {
+    "description": "Famous Pale Blue Dot - Earth",
+    "source": "https://science.nasa.gov/mission/voyager/images-voyager-took/"
+  },
+  "vayager1_technical_illustration.jpeg": {
+    "description": "Technical illustration: Voyager spacecraft and components.",
+    "source": "https://suebob.net/murmurs.html"
+  }
+}

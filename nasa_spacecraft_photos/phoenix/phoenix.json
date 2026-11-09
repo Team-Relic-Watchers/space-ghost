@@ -1,0 +1,14 @@
+{
+  "phoenix-real-photo.jpg": {
+    "description": "Phoenix Lander in lab",
+    "source": "https://science.nasa.gov/mission/mars-phoenix/"
+  },
+  "phoenix-taken-photo.jpg": {
+    "description": "Image captured by the lander: Composite view from Phoenix lander.",
+    "source": "https://science.nasa.gov/resource/composite-view-from-phoenix-lander/"
+  },
+  "phoenix-technical_illustration.jpg": {
+    "description": "Technical illustration: Phoenix lander spacecraft diagram reference.",
+    "source": "https://hyperphysics.phy-astr.gsu.edu/hbasees/Solar/Phoenix.html"
+  }
+}

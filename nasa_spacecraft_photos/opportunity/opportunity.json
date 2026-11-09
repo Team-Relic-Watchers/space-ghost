@@ -1,0 +1,14 @@
+{
+  "opportunity_real_photo.jpg": {
+    "description": "NASA's Opportunity rover",
+    "source": "https://www.extremetech.com/extreme/187076-mars-rover-opportunity-breaks-longest-off-earth-driving-record-finally-beating-the-speed-freak-russians"
+  },
+  "opportunity_taken_photo.jpg": {
+    "description": "Image captured by the rover: Opportunity's final Mars images.",
+    "source": "https://science.nasa.gov/resource/opportunity-rovers-final-mars-images/"
+  },
+  "opportunity_technical_illustration.png": {
+    "description": "Technical illustration: Mars Exploration Rover labelled components poster.",
+    "source": "https://mars.nasa.gov/files/resources/OpportunityPoster.pdf"
+  }
+}

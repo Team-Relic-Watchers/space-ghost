@@ -1,0 +1,27 @@
+:root {
+  /* Cosmic purples */
+  --space-950: #12072e;
+  --space-900: #1b0b4d;
+  --space-800: #2b1170;
+  --space-700: #43199a;
+  --space-600: #6a2bd1;
+  --space-500: #8f4bf0;
+
+  /* Outlines give everything its chunky cartoon edge */
+  --ink: #2b1b5a;
+  --ink-deep: #170b3a;
+
+  /* Bright accents */
+  --pink: #ff5ca8;
+  --cyan: #38e1ff;
+  --mint: #7dffb5;
+  --sun: #ffd43b;
+  --orange: #ff8a1f;
+  --violet: #c9b8ff;
+  --lilac: #efe9ff;
+
+  --font-display: 'Fredoka Variable', 'Baloo Da 2', system-ui, sans-serif;
+
+  /* Height of the station floor. The backdrop draws it and the action dock sits on it. */
+  --floor-h: clamp(96px, 18vh, 170px);
+}

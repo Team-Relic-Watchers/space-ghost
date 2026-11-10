@@ -115,7 +115,7 @@ describe('TimeJump', () => {
     const onDone = vi.fn()
     const { container } = render(<TimeJump active onDone={onDone} />)
     const panda = container.querySelector('img')
-    expect(panda).toHaveAttribute('src', '/images/panda.png')
+    expect(panda).toHaveAttribute('src', '/images/panda-ship.png')
     expect(panda).toHaveAttribute('alt', '')
   })
 

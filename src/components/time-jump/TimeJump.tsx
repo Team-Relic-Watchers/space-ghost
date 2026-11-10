@@ -8,7 +8,7 @@ import './time-jump.css'
 const SKIP_DELAY_MS = 1500
 
 /** Pandastein rides along on every time jump, looping like a gif. */
-const PANDA_SRC = '/images/panda.png'
+const PANDA_SRC = '/images/panda-ship.png'
 
 interface TimeJumpProps {
   /** Takes over the screen once true; the clip is preloaded while false. */

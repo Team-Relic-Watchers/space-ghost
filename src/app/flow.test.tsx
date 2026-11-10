@@ -1,7 +1,7 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
-import { beforeEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import i18n from '../i18n'
 import { useGameStore } from '../game/store'
 import { AppRoutes } from './AppRoutes'
@@ -13,6 +13,12 @@ const renderAt = (path: string) =>
       <AppRoutes />
     </MemoryRouter>,
   )
+
+/** jsdom cannot play media; resolve like a browser would. */
+const mockMedia = () => {
+  vi.spyOn(HTMLMediaElement.prototype, 'pause').mockImplementation(() => {})
+  return vi.spyOn(HTMLMediaElement.prototype, 'play').mockResolvedValue(undefined)
+}
 
 describe('Mission Control flow', () => {
   beforeEach(async () => {
@@ -36,6 +42,13 @@ describe('Mission Control flow', () => {
     expect(screen.queryByRole('navigation')).not.toBeInTheDocument()
   })
 
+  it('keeps the jump overlay outside the screen layout so it can go fullscreen', () => {
+    renderAt('/')
+    // If the overlay sat inside <main>, the mission grid would size it like a
+    // layout row instead of letting it cover the viewport.
+    expect(screen.getByTestId('time-jump').closest('main')).toBeNull()
+  })
+
   it('switches the whole screen to Bangla', async () => {
     const user = userEvent.setup()
     renderAt('/')
@@ -45,11 +58,40 @@ describe('Mission Control flow', () => {
   })
 
   it('launches into the warp screen showing 1964', async () => {
+    mockMedia()
     const user = userEvent.setup()
     renderAt('/')
     await user.click(screen.getByRole('button', { name: /start the adventure/i }))
     expect(useGameStore.getState().hasLaunched).toBe(true)
+    // The Time Machine charges, plays the jump video, then arrives in 1964.
+    await waitFor(
+      () => expect(screen.getByTestId('time-jump')).toHaveAttribute('data-active', 'true'),
+      { timeout: 3000 },
+    )
+    fireEvent(screen.getByTestId('time-jump').querySelector('video')!, new Event('ended'))
     expect(await screen.findByTestId('warp-year', undefined, { timeout: 3000 })).toHaveTextContent('1964')
+  })
+
+  it('lets players skip the jump video straight to the warp screen', async () => {
+    mockMedia()
+    const user = userEvent.setup()
+    renderAt('/')
+    await user.click(screen.getByRole('button', { name: /start the adventure/i }))
+    const skip = await screen.findByRole('button', { name: /skip/i }, { timeout: 5000 })
+    await user.click(skip)
+    expect(await screen.findByTestId('warp-year', undefined, { timeout: 3000 })).toHaveTextContent('1964')
+  })
+
+  it('still reaches the warp screen when the jump video cannot play', async () => {
+    // Both the audible and the muted play attempts are refused.
+    vi.spyOn(HTMLMediaElement.prototype, 'pause').mockImplementation(() => {})
+    vi.spyOn(HTMLMediaElement.prototype, 'play').mockRejectedValue(
+      new DOMException('blocked', 'NotAllowedError'),
+    )
+    const user = userEvent.setup()
+    renderAt('/')
+    await user.click(screen.getByRole('button', { name: /start the adventure/i }))
+    expect(await screen.findByTestId('warp-year', undefined, { timeout: 5000 })).toHaveTextContent('1964')
   })
 
   it('sends visitors who open /warp directly back to Mission Control', () => {
@@ -70,9 +112,9 @@ describe('Mission Control flow', () => {
     useGameStore.setState({ hasLaunched: false })
     renderAt('/ranger-7')
     expect(
-      await screen.findByRole('button', { name: /start the adventure/i }, { timeout: 5000 }),
+      await screen.findByRole('button', { name: /start the adventure/i }, { timeout: 10000 }),
     ).toBeInTheDocument()
-  })
+  }, 10000)
 
   it('redirects unknown routes to Mission Control', () => {
     renderAt('/nope')

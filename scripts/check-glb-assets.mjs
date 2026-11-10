@@ -105,6 +105,16 @@ for (const f of ['ranger7-height.png', 'ranger7-albedo.png', 'ranger7-lighting.p
 const terrain = JSON.parse(fs.readFileSync(path.join(terrainDir, 'ranger7-terrain.json'), 'utf8'))
 note(terrain.impact.lat === -10.7, 'terrain metadata keeps the IAU impact latitude')
 
+// ---- Time-travel jump video ----
+// Mission Control plays this fullscreen clip on launch; keep the name and
+// size in sync with JUMP_VIDEO_SRC in src/features/mission-control/JumpVideo.tsx.
+const jumpVideo = path.join(root, 'public/video-animations/time-travel-jump.mp4')
+note(fs.existsSync(jumpVideo), `jump video exists (${(fs.statSync(jumpVideo).size / 1e6).toFixed(1)} MB)`)
+if (fs.existsSync(jumpVideo)) {
+  const head = fs.readFileSync(jumpVideo).subarray(4, 12).toString()
+  note(head === 'ftypisom' || head.startsWith('ftyp'), 'jump video is an MP4 container')
+}
+
 // ---- Story bible ----
 // The story content ships as data, so it must be present and unabridged in both
 // languages. Milestone 1 does not render it yet (see Milestone 2).

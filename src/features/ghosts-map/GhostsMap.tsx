@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
+import { useReducedMotion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Logo } from '../../components/ui/Logo'
 import { LanguageToggle } from '../../components/ui/LanguageToggle'
 import { StationBackdrop } from '../../components/backdrop/StationBackdrop'
-import { formatNumber } from '../../i18n'
+import { TimeJump } from '../../components/time-jump/TimeJump'
+import { formatNumber, formatYear } from '../../i18n'
 import { useGameStore } from '../../game/store'
-import { machines } from '../../content/ranger7/machines'
+import { machines, pick } from '../../content/ranger7/machines'
 import { AskPanda } from './AskPanda'
 import { GhostDetail } from './GhostDetail'
 import { GhostNode } from './GhostNode'
@@ -33,7 +35,10 @@ const SCROLL_STEP = 0.8
 export function GhostsMap() {
   const { t } = useTranslation()
   const language = useGameStore((s) => s.language)
+  const reduceMotion = useReducedMotion()
   const [openSequence, setOpenSequence] = useState<number | null>(null)
+  /** While set, the time jump to that ghost plays before its detail opens. */
+  const [jumpSequence, setJumpSequence] = useState<number | null>(null)
   const [atStart, setAtStart] = useState(true)
   const [atEnd, setAtEnd] = useState(false)
   const [stageWidth, setStageWidth] = useState(0)
@@ -41,6 +46,29 @@ export function GhostsMap() {
   const stage = useRef<HTMLDivElement>(null)
 
   const open = machines.find((m) => m.sequence === openSequence) ?? null
+  const jumpMachine = machines.find((m) => m.sequence === jumpSequence) ?? null
+
+  /**
+   * Tapping a ghost starts that machine's own time jump — its year, name and
+   * destination flash over the jump — and the story card opens when the
+   * jump lands (or is skipped). Players who prefer reduced motion go
+   * straight to the story.
+   */
+  const handleOpen = useCallback(
+    (sequence: number) => {
+      if (reduceMotion) setOpenSequence(sequence)
+      else setJumpSequence(sequence)
+    },
+    [reduceMotion],
+  )
+
+  /** The jump ended: land on the ghost's story card. */
+  const finishJump = useCallback(() => {
+    setJumpSequence((current) => {
+      if (current !== null) setOpenSequence(current)
+      return null
+    })
+  }, [])
 
   /** The field reflows (three ghosts per row, two on phones) as width changes. */
   const layout = useMemo(() => getLayout(stageWidth), [stageWidth])
@@ -111,70 +139,93 @@ export function GhostsMap() {
   }
 
   return (
-    <main className="ghosts-map screen">
-      <StationBackdrop />
+    <>
+      <main className="ghosts-map screen">
+        <StationBackdrop />
 
-      <h2 className="ghosts-map__title">{t('ghostsMap.title')}</h2>
+        <h2 className="ghosts-map__title">{t('ghostsMap.title')}</h2>
 
-      <header className="ghosts-map__top">
-        <Logo />
-        <p className="ghosts-map__welcome">
-          <span className="ghosts-map__welcome-text">{t('ghostsMap.welcome')}</span>
-        </p>
-        <LanguageToggle />
-      </header>
+        <header className="ghosts-map__top">
+          <Logo />
+          <p className="ghosts-map__welcome">
+            <span className="ghosts-map__welcome-text">{t('ghostsMap.welcome')}</span>
+          </p>
+          <LanguageToggle />
+        </header>
 
-      <div className="ghosts-map__canvas" ref={scroller}>
-        <div className="ghosts-map__stage" ref={stage} style={stageStyle}>
-          {/* The flight path: candy dots through the ghosts in launch order. */}
-          <svg
-            className="ghosts-map__path"
-            width={stageWidth || undefined}
-            height={layout.height}
-            viewBox={`0 0 ${stageWidth || 100} ${layout.height}`}
-            aria-hidden="true"
-          >
-            {buildDots(stageWidth, layout).map((dot, i) => (
-              <circle
-                key={i}
-                cx={dot.x}
-                cy={dot.y}
-                r={dot.r}
-                fill={dot.colour}
-                opacity={dot.glow ? 0.18 : 0.95}
+        <div className="ghosts-map__canvas" ref={scroller}>
+          <div className="ghosts-map__stage" ref={stage} style={stageStyle}>
+            {/* The flight path: candy dots through the ghosts in launch order. */}
+            <svg
+              className="ghosts-map__path"
+              width={stageWidth || undefined}
+              height={layout.height}
+              viewBox={`0 0 ${stageWidth || 100} ${layout.height}`}
+              aria-hidden="true"
+            >
+              {buildDots(stageWidth, layout).map((dot, i) => (
+                <circle
+                  key={i}
+                  cx={dot.x}
+                  cy={dot.y}
+                  r={dot.r}
+                  fill={dot.colour}
+                  opacity={dot.glow ? 0.18 : 0.95}
+                />
+              ))}
+            </svg>
+
+            {layout.placements.map((placement) => (
+              <GhostNode
+                key={placement.machine.id}
+                placement={placement}
+                active={openSequence === placement.machine.sequence}
+                onOpen={handleOpen}
               />
             ))}
-          </svg>
-
-          {layout.placements.map((placement) => (
-            <GhostNode
-              key={placement.machine.id}
-              placement={placement}
-              active={openSequence === placement.machine.sequence}
-              onOpen={setOpenSequence}
-            />
-          ))}
+          </div>
         </div>
-      </div>
 
-      {/* Pandastein stays put at the side of the screen while the journey scrolls. */}
-      <div className="ghosts-map__panda">
-        <AskPanda question={t('ghostsMap.askQuestion')} />
-      </div>
+        {/* Pandastein stays put at the side of the screen while the journey scrolls. */}
+        <div className="ghosts-map__panda">
+          <AskPanda question={t('ghostsMap.askQuestion')} />
+        </div>
 
-      <footer className="ghosts-map__foot">
-        <span className="ghosts-map__hint">{t('ghostsMap.hint')}</span>
-        <ScrollArrows
-          onScrollBy={scrollBy}
-          canScrollUp={!atStart}
-          canScrollDown={!atEnd}
+        <footer className="ghosts-map__foot">
+          <span className="ghosts-map__hint">{t('ghostsMap.hint')}</span>
+          <ScrollArrows
+            onScrollBy={scrollBy}
+            canScrollUp={!atStart}
+            canScrollDown={!atEnd}
+          />
+          <span className="ghosts-map__count">
+            {t('ghostsMap.count', { total: formatNumber(machines.length, language) })}
+          </span>
+        </footer>
+
+        <GhostDetail
+          machine={open}
+          onClose={() => setOpenSequence(null)}
+          onOpenSequence={setOpenSequence}
         />
-        <span className="ghosts-map__count">
-          {t('ghostsMap.count', { total: formatNumber(machines.length, language) })}
-        </span>
-      </footer>
+      </main>
 
-      <GhostDetail machine={open} onClose={() => setOpenSequence(null)} />
-    </main>
+    {/* The jump is a viewport-sized overlay, so it sits outside the screen
+        layout rather than being pinned into the map grid. It stays
+        mounted so the clip is preloaded before the first tap. */}
+    <TimeJump
+      active={jumpMachine !== null}
+      onDone={finishJump}
+      year={
+        jumpMachine ? formatYear(jumpMachine.yearNumber, language) : undefined
+      }
+      title={jumpMachine ? pick(jumpMachine.name, language) : undefined}
+      info={
+        jumpMachine
+          ? t('ghostsMap.jumpInfo', { location: pick(jumpMachine.location, language) })
+          : undefined
+      }
+    />
+    </>
   )
 }

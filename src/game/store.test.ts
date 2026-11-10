@@ -38,12 +38,45 @@ describe('game store', () => {
     expect(useGameStore.getState().hasLaunched).toBe(false)
   })
 
-  it('persists language, Ranger 7 progress and star results, but never the launch state', () => {
+  it('persists language, Ranger 7 progress, star results and the voice, but never the launch state', () => {
     useGameStore.getState().setLanguage('bn')
     useGameStore.getState().launch()
     const saved = JSON.parse(localStorage.getItem('space-ghosts') ?? '{}')
     expect(saved.state.language).toBe('bn')
-    expect(Object.keys(saved.state)).toEqual(['language', 'ranger7', 'quizStars'])
+    expect(Object.keys(saved.state)).toEqual([
+      'language',
+      'ranger7',
+      'quizStars',
+      'voiceChoice',
+    ])
+  })
+
+  it('never starts the reading on its own', async () => {
+    useGameStore.getState().setVoiceEnabled(true)
+    expect(useGameStore.getState().voiceEnabled).toBe(true)
+
+    // The switch itself is not remembered: a new visit starts quiet.
+    const saved = JSON.parse(localStorage.getItem('space-ghosts') ?? '{}')
+    expect(saved.state.voiceEnabled).toBeUndefined()
+
+    // And whatever an older version left behind, the voice stays quiet.
+    localStorage.setItem(
+      'space-ghosts',
+      JSON.stringify({
+        state: { voiceEnabled: true, voiceChoice: { en: '', bn: '' } },
+        version: 6,
+      }),
+    )
+    await useGameStore.persist.rehydrate()
+    expect(useGameStore.getState().voiceEnabled).toBe(false)
+    // The voice the reader picked is still remembered.
+    expect(useGameStore.getState().voiceChoice.bn).toBe('')
+  })
+
+  it('remembers the voice picked for each language', () => {
+    useGameStore.getState().setVoiceChoice('bn', 'Google বাংলা')
+    expect(useGameStore.getState().voiceChoice.bn).toBe('Google বাংলা')
+    expect(useGameStore.getState().voiceChoice.en).toBe('')
   })
 
   it('keeps the best star score for each machine', () => {

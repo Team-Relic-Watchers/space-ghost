@@ -14,6 +14,8 @@ const browser = await chromium.launch({
   headless: true,
   args: [
     '--no-sandbox',
+    // The jump video has sound; allow it in headless after the Start click.
+    '--autoplay-policy=no-user-gesture-required',
     ...(webgl ? ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] : ['--disable-gpu']),
   ],
 })
@@ -46,6 +48,7 @@ try {
   await shot('01-mission-control')
 
   await clickText('start the adventure')
+  await clickText('skip') // dismiss the fullscreen time-travel jump video
   await wait(2500)
   await shot('02-warp')
 

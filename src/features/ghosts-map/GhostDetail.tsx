@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import {
   ArrowLeft,
+  ArrowRight,
   BookOpen,
   Bot,
   CalendarDays,
@@ -8,30 +9,39 @@ import {
   Flag,
   Gift,
   MapPin,
+  Play,
   Route,
   Search,
   Star,
   Target,
+  Volume2,
+  VolumeX,
   X,
 } from 'lucide-react'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { formatNumber, formatYear } from '../../i18n'
 import { useGameStore } from '../../game/store'
-import { machineDetails, pick } from '../../content/ranger7/machines'
+import { machineDetails, machines, pick } from '../../content/ranger7/machines'
 import type { Machine } from '../../content/ranger7/machines'
 import { ghostPhotos } from '../../content/ranger7/photos'
 import type { GhostPhoto } from '../../content/ranger7/photos'
 import { Pandastein } from '../../components/mascot/Pandastein'
 import { Starfield } from '../../components/backdrop/Starfield'
 import { LanguageToggle } from '../../components/ui/LanguageToggle'
+import { VoiceCard } from '../../components/ui/VoiceCard'
+import { isMicrosoftVoice } from '../../audio/microsoftTts'
 import { endingColour } from './art/colours'
+import { GhostPuzzle } from './GhostPuzzle'
 import { StarQuiz } from './StarQuiz'
+import { usePandasteinVoice } from './usePandasteinVoice'
 import './ghost-story.css'
 
 interface GhostDetailProps {
   machine: Machine | null
   onClose: () => void
+  /** Opens another ghost's page, used by the "next ghost" button. */
+  onOpenSequence?: (sequence: number) => void
 }
 
 const PART_KEYS = [
@@ -91,16 +101,75 @@ function StoryPhoto({ photo }: StoryPhotoProps) {
  * all seven story parts with Pandastein explaining each one, the machine's own
  * robot voice, and the ten-question star quiz.
  */
-export function GhostDetail({ machine, onClose }: GhostDetailProps) {
+export function GhostDetail({ machine, onClose, onOpenSequence }: GhostDetailProps) {
   const { t } = useTranslation()
   const language = useGameStore((state) => state.language)
   const quizStars = useGameStore((state) => state.quizStars)
+  const [quizStarted, setQuizStarted] = useState(false)
   const closeRef = useRef<HTMLButtonElement>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
   const onCloseRef = useRef(onClose)
+
+  const {
+    supported: voiceSupported,
+    enabled: voiceEnabled,
+    speakingId: voiceSpeakingId,
+    voices: voiceVoices,
+    voice: currentVoice,
+    microsoft: voiceIsMicrosoft,
+    microsoftAvailable: voiceMicrosoftAvailable,
+    fixed: voiceFixed,
+    paused: voicePaused,
+    missing: voiceMissing,
+    speak: speakVoice,
+    stop: stopVoice,
+    pause: pauseVoice,
+    resume: resumeVoice,
+    toggle: toggleVoice,
+    choose: chooseVoice,
+  } = usePandasteinVoice(language)
+
+  /** The Microsoft voices come first in the picker, the rest after them. */
+  const microsoftVoices = voiceVoices.filter(isMicrosoftVoice)
+  const otherVoices = voiceVoices.filter((candidate) => !isMicrosoftVoice(candidate))
+
+  /** The seven story parts, so the reader's scroll can find them. */
+  const partRefs = useRef(new Map<number, HTMLElement>())
+  /** The newest voice functions, kept fresh without rebuilding the observer. */
+  const speakRef = useRef(speakVoice)
+  const languageRef = useRef(language)
+  /** The reading only starts when the reader asks for it. */
+  const readingRef = useRef(voiceEnabled)
+  /** The part the reader is looking at, so the button can start it at once. */
+  const activePartRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    speakRef.current = speakVoice
+  }, [speakVoice])
+
+  useEffect(() => {
+    languageRef.current = language
+  }, [language])
+
+  useEffect(() => {
+    readingRef.current = voiceEnabled
+  }, [voiceEnabled])
 
   useEffect(() => {
     onCloseRef.current = onClose
   }, [onClose])
+
+  // Every ghost starts with a fresh page: scrolled to the top, quiz not begun.
+  useEffect(() => {
+    if (!machine) return
+    setQuizStarted(false)
+    if (scrollRef.current) scrollRef.current.scrollTop = 0
+  }, [machine])
+
+  // The voice stops the moment the story page closes.
+  useEffect(() => {
+    if (!machine) stopVoice()
+  }, [machine, stopVoice])
 
   useEffect(() => {
     if (!machine) return
@@ -125,13 +194,77 @@ export function GhostDetail({ machine, onClose }: GhostDetailProps) {
   const totalStars = Object.values(quizStars).reduce((sum, stars) => sum + stars, 0)
   const name = machine ? pick(machine.name, language) : ''
 
+  const currentIndex = machine ? machines.findIndex((m) => m.id === machine.id) : -1
+  const previousMachine =
+    currentIndex >= 0
+      ? machines[(currentIndex - 1 + machines.length) % machines.length]
+      : undefined
+  const nextMachine =
+    currentIndex >= 0 ? machines[(currentIndex + 1) % machines.length] : undefined
+
   const glance = detail ? parseGlance(pick(detail.atAGlance, language)) : []
   const totalParts = detail ? detail.parts.length : 7
+
+  // Pandastein starts talking when the reader reaches a part of the story.
+  useEffect(() => {
+    if (!machine || !detail) return
+    const root = scrollRef.current
+    if (!root) return
+    if (typeof IntersectionObserver === 'undefined') return
+
+    let timer: number | null = null
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+        const entry = visible[0]
+        if (!entry) return
+
+        const id = Number((entry.target as HTMLElement).dataset.part)
+        const text = detail.parts.find((part) => part.part === id)?.text
+        if (!text) return
+
+        activePartRef.current = id
+        // Pandastein only reads when the reader has asked him to.
+        if (!readingRef.current) return
+
+        const spoken = pick(text, languageRef.current)
+        // Scrolling quickly must not start every part at once: the last one
+        // the reader settled on wins.
+        if (timer !== null) window.clearTimeout(timer)
+        timer = window.setTimeout(() => speakRef.current(id, spoken), 450)
+      },
+      { root, threshold: [0.3, 0.7] },
+    )
+
+    partRefs.current.forEach((element) => observer.observe(element))
+
+    return () => {
+      observer.disconnect()
+      if (timer !== null) window.clearTimeout(timer)
+    }
+  }, [detail, machine])
 
   const scrollToPart = (part: number) => {
     if (!machine) return
     const element = document.getElementById(`story-part-${machine.id}-${part}`)
     element?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  /**
+   * The sound button: the first press lets Pandastein read, and it starts
+   * with the part the reader is looking at right now.
+   */
+  const handleVoiceToggle = () => {
+    const turningOn = !voiceEnabled
+    toggleVoice()
+
+    if (!turningOn) return
+    const id = activePartRef.current
+    if (id === null) return
+    const part = detail?.parts.find((entry) => entry.part === id)
+    if (part) speakVoice(id, pick(part.text, language))
   }
 
   return (
@@ -151,7 +284,7 @@ export function GhostDetail({ machine, onClose }: GhostDetailProps) {
           <div className="ghost-story__starfield">
             <Starfield count={110} seed={machine.sequence} />
           </div>
-          <div className="ghost-story__scroll">
+          <div className="ghost-story__scroll" ref={scrollRef}>
             <header className="ghost-story__bar">
               <button
                 type="button"
@@ -181,6 +314,27 @@ export function GhostDetail({ machine, onClose }: GhostDetailProps) {
                   })}
                 </span>
               </div>
+
+              {voiceSupported && (
+                <button
+                  type="button"
+                  className="ghost-story__voice"
+                  onClick={handleVoiceToggle}
+                  aria-pressed={voiceEnabled}
+                  aria-label={
+                    voiceEnabled
+                      ? t('ghostStory.voice.turnOff')
+                      : t('ghostStory.voice.turnOn')
+                  }
+                  title={t('ghostStory.voice.label')}
+                >
+                  {voiceEnabled ? (
+                    <Volume2 size={19} aria-hidden="true" />
+                  ) : (
+                    <VolumeX size={19} aria-hidden="true" />
+                  )}
+                </button>
+              )}
 
               <LanguageToggle />
 
@@ -308,6 +462,70 @@ export function GhostDetail({ machine, onClose }: GhostDetailProps) {
                   <p>{t('ghostStory.storyNote')}</p>
                 </header>
 
+                {voiceSupported && (
+                  <div className="ghost-story__voice-picker">
+                    {voiceMissing ? (
+                      <>
+                        <span className="ghost-story__voice-warning">
+                          {t('ghostStory.voice.missing')}
+                        </span>
+                        {voiceMicrosoftAvailable && (
+                          <span className="ghost-story__voice-hint">
+                            {t('ghostStory.voice.install')}
+                          </span>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        {voiceFixed ? (
+                          // English has one voice of its own: Microsoft Mark.
+                          <span className="ghost-story__voice-fixed">
+                            {currentVoice?.name ?? t('ghostStory.voice.microsoft')}
+                          </span>
+                        ) : (
+                          <>
+                            <label htmlFor="pandastein-voice">
+                              {t('ghostStory.voice.pick')}
+                            </label>
+                            <select
+                              id="pandastein-voice"
+                              value={currentVoice?.name ?? ''}
+                              onChange={(event) => chooseVoice(event.target.value)}
+                            >
+                              {microsoftVoices.length > 0 && (
+                                <optgroup label={t('ghostStory.voice.microsoftGroup')}>
+                                  {microsoftVoices.map((candidate) => (
+                                    <option key={candidate.name} value={candidate.name}>
+                                      {candidate.name} · {candidate.lang}
+                                    </option>
+                                  ))}
+                                </optgroup>
+                              )}
+                              {otherVoices.length > 0 && (
+                                <optgroup label={t('ghostStory.voice.otherGroup')}>
+                                  {otherVoices.map((candidate) => (
+                                    <option key={candidate.name} value={candidate.name}>
+                                      {candidate.name} · {candidate.lang}
+                                    </option>
+                                  ))}
+                                </optgroup>
+                              )}
+                            </select>
+                          </>
+                        )}
+                        <span
+                          className="ghost-story__voice-engine"
+                          data-microsoft={voiceIsMicrosoft ? 'true' : 'false'}
+                        >
+                          {voiceIsMicrosoft
+                            ? t('ghostStory.voice.microsoft')
+                            : t('ghostStory.voice.otherEngine')}
+                        </span>
+                      </>
+                    )}
+                  </div>
+                )}
+
                 {detail.parts.map((part) => {
                   const key = PART_KEYS[part.part - 1] ?? 'introduction'
                   const Icon = PART_ICONS[part.part - 1] ?? BookOpen
@@ -317,12 +535,19 @@ export function GhostDetail({ machine, onClose }: GhostDetailProps) {
                       : part.part === 5
                         ? photos?.discovery
                         : undefined
+                  const partText = pick(part.text, language)
 
                   return (
                     <article
                       className="story-part"
                       key={part.part}
                       id={`story-part-${machine.id}-${part.part}`}
+                      data-part={part.part}
+                      data-speaking={voiceSpeakingId === part.part ? 'true' : 'false'}
+                      ref={(element) => {
+                        if (element) partRefs.current.set(part.part, element)
+                        else partRefs.current.delete(part.part)
+                      }}
                     >
                       <div className="story-part__type">
                         <span className="story-part__type-icon">
@@ -344,10 +569,28 @@ export function GhostDetail({ machine, onClose }: GhostDetailProps) {
                           <Pandastein />
                         </div>
                         <div className="story-part__bubble">
-                          <span className="story-part__speaker">
-                            {t('ghostStory.pandastein')}
-                          </span>
-                          <p>{pick(part.text, language)}</p>
+                          <div className="story-part__bubble-head">
+                            <span className="story-part__speaker">
+                              {t('ghostStory.pandastein')}
+                            </span>
+                            {voiceSupported && (
+                              <VoiceCard
+                                className="story-part__voice-card"
+                                onPlay={() => speakVoice(part.part, partText)}
+                                onPause={pauseVoice}
+                                onResume={resumeVoice}
+                                talking={voiceSpeakingId === part.part}
+                                held={voicePaused}
+                                groupLabel={t('ghostStory.voice.label')}
+                                playLabel={t('ghostStory.voice.replay', {
+                                  part: formatNumber(part.part, language),
+                                })}
+                                pauseLabel={t('ghostStory.voice.pause')}
+                                resumeLabel={t('ghostStory.voice.resume')}
+                              />
+                            )}
+                          </div>
+                          <p>{partText}</p>
                         </div>
                       </div>
 
@@ -383,16 +626,77 @@ export function GhostDetail({ machine, onClose }: GhostDetailProps) {
                 </div>
               </section>
 
-              <StarQuiz key={machine.id} machine={machine} />
+              {quizStarted ? (
+                <StarQuiz key={`quiz-${machine.id}`} machine={machine} />
+              ) : (
+                <section className="star-quiz star-quiz--launch" aria-labelledby="star-quiz-start">
+                  <header className="star-quiz__head">
+                    <div className="star-quiz__intro">
+                      <span className="star-quiz__eyebrow">{t('ghostStory.quiz.eyebrow')}</span>
+                      <h3 id="star-quiz-start" className="star-quiz__title">
+                        {t('ghostStory.quiz.title')}
+                      </h3>
+                      <p className="star-quiz__lede">
+                        {t('ghostStory.quiz.intro', { name })}
+                      </p>
+                    </div>
+                  </header>
+                  <div className="star-quiz__launch">
+                    <button
+                      type="button"
+                      className="ghost-story__action star-quiz__start"
+                      onClick={() => setQuizStarted(true)}
+                    >
+                      <Play size={18} fill="currentColor" aria-hidden="true" />
+                      {t('ghostStory.quiz.start')}
+                    </button>
+                  </div>
+                </section>
+              )}
+
+              <GhostPuzzle
+                key={`puzzle-${machine.id}`}
+                name={name}
+                image={photos.cartoon ?? hero}
+              />
 
               <footer className="ghost-story__foot">
-                <button type="button" className="ghost-story__action" onClick={onClose}>
-                  <ArrowLeft size={18} aria-hidden="true" />
-                  {t('ghostStory.back')}
-                </button>
-                <span>
-                  {t('appName')} · {name}
-                </span>
+                {previousMachine && onOpenSequence ? (
+                  <button
+                    type="button"
+                    className="ghost-story__action"
+                    onClick={() => onOpenSequence(previousMachine.sequence)}
+                    aria-label={t('ghostStory.previousGhostLabel', {
+                      name: pick(previousMachine.name, language),
+                    })}
+                  >
+                    <ArrowLeft size={18} aria-hidden="true" />
+                    {t('ghostStory.previousGhost')}
+                  </button>
+                ) : (
+                  <button type="button" className="ghost-story__action" onClick={onClose}>
+                    <ArrowLeft size={18} aria-hidden="true" />
+                    {t('ghostStory.back')}
+                  </button>
+                )}
+                <div className="ghost-story__foot-end">
+                  {nextMachine && onOpenSequence && (
+                    <button
+                      type="button"
+                      className="ghost-story__next"
+                      onClick={() => onOpenSequence(nextMachine.sequence)}
+                      aria-label={t('ghostStory.nextGhostLabel', {
+                        name: pick(nextMachine.name, language),
+                      })}
+                    >
+                      <ArrowRight size={16} aria-hidden="true" />
+                      <span>{t('ghostStory.nextGhost')}</span>
+                    </button>
+                  )}
+                  <span>
+                    {t('appName')} · {name}
+                  </span>
+                </div>
               </footer>
             </div>
           </div>

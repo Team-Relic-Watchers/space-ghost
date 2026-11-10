@@ -94,7 +94,8 @@
 }
 
 .ghost-story__back,
-.ghost-story__close {
+.ghost-story__close,
+.ghost-story__voice {
   display: inline-flex;
   flex: none;
   align-items: center;
@@ -112,6 +113,23 @@
   transition: background 0.18s ease, transform 0.18s ease;
 }
 
+.ghost-story__voice {
+  width: 42px;
+  padding: 0;
+}
+
+.ghost-story__voice[aria-pressed='true'] {
+  color: var(--ink-deep);
+  background: linear-gradient(180deg, #d6f8ff, var(--cyan));
+  border-color: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 0 18px rgba(56, 225, 255, 0.55);
+}
+
+/* The music card sits in the bar, next to the voice. */
+.ghost-story__music {
+  flex: none;
+}
+
 .ghost-story__close {
   width: 42px;
   padding: 0;
@@ -119,9 +137,14 @@
 }
 
 .ghost-story__back:hover,
-.ghost-story__close:hover {
+.ghost-story__close:hover,
+.ghost-story__voice:hover {
   background: rgba(143, 75, 240, 0.7);
   transform: translateY(-1px);
+}
+
+.ghost-story__voice[aria-pressed='true']:hover {
+  background: linear-gradient(180deg, #e6fbff, var(--cyan));
 }
 
 .ghost-story__bar-title {
@@ -444,6 +467,81 @@
   color: rgba(233, 227, 255, 0.68);
 }
 
+/* The voice picker: the reader can hear the story in another voice. */
+.ghost-story__voice-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: center;
+  margin: -0.6rem 0 clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.ghost-story__voice-picker label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(233, 227, 255, 0.66);
+  text-transform: uppercase;
+}
+
+.ghost-story__voice-picker select {
+  max-width: min(100%, 20rem);
+  padding: 0.4em 0.8em;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(56, 225, 255, 0.14);
+  border: 2px solid rgba(56, 225, 255, 0.45);
+  border-radius: 999px;
+}
+
+.ghost-story__voice-picker select option {
+  color: #170b3a;
+  background: #fff;
+}
+
+.ghost-story__voice-warning {
+  padding: 0.4em 0.9em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ffd43b;
+  background: rgba(255, 212, 59, 0.12);
+  border: 2px solid rgba(255, 212, 59, 0.45);
+  border-radius: 999px;
+}
+
+/* The name of the engine that is speaking, so the reader knows it is
+   Microsoft text to speech and not a random voice of the browser. */
+.ghost-story__voice-engine {
+  padding: 0.32em 0.85em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #d9f6ff;
+  text-transform: uppercase;
+  background: rgba(56, 225, 255, 0.14);
+  border: 2px solid rgba(56, 225, 255, 0.42);
+  border-radius: 999px;
+}
+
+.ghost-story__voice-engine[data-microsoft='true'] {
+  color: #fff3c4;
+  background: rgba(255, 212, 59, 0.14);
+  border-color: rgba(255, 212, 59, 0.45);
+}
+
+/* How to give the device a voice for this language. */
+.ghost-story__voice-hint {
+  flex-basis: 100%;
+  max-width: 34rem;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: rgba(233, 227, 255, 0.72);
+  text-align: center;
+}
+
 .story-part {
   position: relative;
   margin-bottom: clamp(1.8rem, 4.5vw, 3.2rem);
@@ -587,6 +685,90 @@ html[lang='bn'] .ghost__label {
   border: 2px solid rgba(255, 255, 255, 0.88);
   border-radius: 999px;
   box-shadow: 0 2px 0 rgba(43, 27, 90, 0.3);
+}
+
+/* The name of the professor and the button that lets him say it again. */
+.story-part__bubble-head {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.story-part__voice {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(23, 11, 58, 0.2);
+  border: 2px solid rgba(23, 11, 58, 0.3);
+  border-radius: 999px;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.story-part__voice:hover {
+  color: var(--ink-deep);
+  background: #ffe27a;
+  transform: scale(1.08);
+}
+
+.story-part__voice[data-active='true'] {
+  color: #fff;
+  background: linear-gradient(180deg, #ff7ab8, #ff3d8f);
+  border-color: rgba(255, 255, 255, 0.9);
+  animation: story-part-voice-pulse 1.1s ease-in-out infinite;
+}
+
+/* While he talks, the bubble glows and the professor bounces. */
+.story-part[data-speaking='true'] .story-part__bubble {
+  box-shadow:
+    0 0 0 3px rgba(255, 212, 59, 0.65),
+    0 7px 0 #433085,
+    0 18px 34px rgba(6, 2, 20, 0.32),
+    inset 0 2px 0 rgba(255, 255, 255, 0.95);
+  animation: story-part-glow 1.4s ease-in-out infinite;
+}
+
+.story-part[data-speaking='true'] .story-part__panda .pandastein {
+  animation: story-part-bounce 0.85s ease-in-out infinite;
+}
+
+@keyframes story-part-voice-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 61, 143, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(255, 61, 143, 0);
+  }
+}
+
+@keyframes story-part-glow {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.08);
+  }
+}
+
+@keyframes story-part-bounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  30% {
+    transform: translateY(-4px) rotate(-2deg);
+  }
+  60% {
+    transform: translateY(1px) rotate(1.5deg);
+  }
 }
 
 .story-part__bubble p {
@@ -789,10 +971,13 @@ html[lang='bn'] .ghost-voice__text {
   padding: clamp(1rem, 3vw, 2rem);
   background:
     radial-gradient(90% 80% at 12% 0%, rgba(255, 212, 59, 0.14) 0%, transparent 60%),
-    linear-gradient(160deg, rgba(143, 75, 240, 0.16), rgba(10, 4, 28, 0.58));
-  border: 3px solid rgba(255, 212, 59, 0.35);
+    linear-gradient(160deg, #2d1c68 0%, #180d40 52%, #12082f 100%);
+  border: 3px solid rgba(255, 212, 59, 0.55);
   border-radius: 30px;
-  box-shadow: 0 24px 60px rgba(6, 2, 20, 0.35);
+  box-shadow:
+    0 0 0 4px rgba(143, 75, 240, 0.22),
+    0 24px 60px rgba(6, 2, 20, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .star-quiz__head {
@@ -801,6 +986,19 @@ html[lang='bn'] .ghost-voice__text {
   gap: 1rem;
   align-items: flex-start;
   justify-content: space-between;
+}
+
+/* The quiz waits behind this button until the explorer is ready. */
+.star-quiz__launch {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(1rem, 2.5vw, 1.6rem);
+}
+
+.star-quiz__start {
+  min-height: 52px;
+  padding: 0.55em 1.9em;
+  font-size: 1.06rem;
 }
 
 .star-quiz__intro {
@@ -857,8 +1055,8 @@ html[lang='bn'] .ghost-voice__text {
 .star-quiz__card {
   margin-top: 1.2rem;
   padding: clamp(1rem, 2.8vw, 1.5rem);
-  background: rgba(10, 4, 28, 0.6);
-  border: 2px solid rgba(255, 255, 255, 0.14);
+  background: #160c3c;
+  border: 2px solid rgba(255, 255, 255, 0.16);
   border-radius: 22px;
 }
 
@@ -1007,8 +1205,8 @@ html[lang='bn'] .star-quiz__prompt {
   margin-top: 1.2rem;
   padding: clamp(1.2rem, 3vw, 2rem);
   text-align: center;
-  background: rgba(10, 4, 28, 0.6);
-  border: 2px solid rgba(255, 212, 59, 0.3);
+  background: #160c3c;
+  border: 2px solid rgba(255, 212, 59, 0.35);
   border-radius: 22px;
 }
 
@@ -1044,6 +1242,334 @@ html[lang='bn'] .star-quiz__prompt {
   font-size: 0.9rem;
   line-height: 1.55;
   color: rgba(233, 227, 255, 0.74);
+}
+
+/* ---- The cartoon puzzle ---- */
+
+.ghost-puzzle {
+  margin-top: clamp(1.4rem, 3.5vw, 2.4rem);
+}
+
+.ghost-puzzle__launch,
+.ghost-puzzle__head {
+  padding: clamp(1rem, 3vw, 1.7rem);
+  background:
+    radial-gradient(90% 80% at 90% 0%, rgba(56, 225, 255, 0.16), transparent 60%),
+    linear-gradient(160deg, #241457 0%, #150c39 100%);
+  border: 2px solid rgba(56, 225, 255, 0.4);
+  border-radius: 26px;
+  box-shadow:
+    0 0 0 3px rgba(56, 225, 255, 0.08),
+    0 18px 44px rgba(6, 2, 20, 0.42);
+}
+
+.ghost-puzzle__launch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ghost-puzzle__game {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+/*
+ * The board and the tray share one row: the missing pieces are always just
+ * next to the holes they belong in, so dragging them over feels easy.
+ */
+.ghost-puzzle__stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(0.8rem, 1.8vw, 1.3rem);
+  align-items: start;
+  justify-items: center;
+}
+
+.ghost-puzzle__side {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.7rem, 1.6vw, 1rem);
+  width: 100%;
+  max-width: 420px;
+}
+
+.ghost-puzzle__intro {
+  flex: 1 1 20rem;
+  min-width: 0;
+}
+
+.ghost-puzzle__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--cyan);
+  text-transform: uppercase;
+}
+
+.ghost-puzzle__title {
+  margin: 0.25rem 0 0.35rem;
+  font-size: clamp(1.25rem, 3vw, 1.7rem);
+  line-height: 1.15;
+  color: #fff;
+}
+
+.ghost-puzzle__lede {
+  max-width: 46rem;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: rgba(233, 227, 255, 0.78);
+}
+
+.ghost-puzzle__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.ghost-puzzle__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.ghost-puzzle__moves {
+  padding: 0.35rem 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--sun);
+  white-space: nowrap;
+  background: rgba(255, 212, 59, 0.12);
+  border: 2px solid rgba(255, 212, 59, 0.4);
+  border-radius: 999px;
+}
+
+.ghost-puzzle__shuffle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 36px;
+  padding: 0.3em 0.85em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  transition: background 0.16s ease, border-color 0.16s ease;
+}
+
+.ghost-puzzle__shuffle:hover {
+  background: rgba(56, 225, 255, 0.16);
+  border-color: rgba(56, 225, 255, 0.55);
+}
+
+.ghost-puzzle__board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+  width: min(440px, 100%);
+  aspect-ratio: 1 / 1;
+  padding: 6px;
+  margin-inline: auto;
+  background: #08031c;
+  border: 2px solid rgba(56, 225, 255, 0.32);
+  border-radius: 18px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.ghost-puzzle__piece {
+  min-width: 0;
+  background-color: #0a0420;
+  background-repeat: no-repeat;
+  background-size: 300% 300%;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 10px;
+}
+
+.ghost-puzzle__slot {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  padding: 0;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  font-weight: 700;
+  color: rgba(56, 225, 255, 0.5);
+  cursor: pointer;
+  background: rgba(56, 225, 255, 0.06);
+  border: 2px dashed rgba(56, 225, 255, 0.38);
+  border-radius: 10px;
+  transition: background 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+}
+
+.ghost-puzzle__slot:hover {
+  background: rgba(56, 225, 255, 0.16);
+  border-color: var(--cyan);
+  transform: scale(1.02);
+}
+
+.ghost-puzzle__slot[data-wrong='true'] {
+  background: rgba(255, 92, 168, 0.2);
+  border-color: var(--pink);
+  animation: ghost-puzzle-shake 0.42s ease;
+}
+
+@keyframes ghost-puzzle-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
+}
+
+/* The tray: the pieces that have to be carried back into the picture. */
+.ghost-puzzle__tray {
+  order: 1;
+  padding: clamp(0.8rem, 2.2vw, 1.2rem);
+  background: linear-gradient(160deg, #211350 0%, #140a36 100%);
+  border: 2px solid rgba(255, 212, 59, 0.42);
+  border-radius: 24px;
+  box-shadow:
+    0 0 0 3px rgba(255, 212, 59, 0.07),
+    0 16px 38px rgba(6, 2, 20, 0.42);
+}
+
+.ghost-puzzle__tray-copy {
+  min-width: 0;
+}
+
+.ghost-puzzle__tray-title {
+  display: block;
+  font-size: 0.98rem;
+  color: var(--sun);
+}
+
+.ghost-puzzle__tray-hint {
+  margin: 0.2rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: rgba(233, 227, 255, 0.7);
+}
+
+/* The complete picture, small enough to sit beside the board without
+   stealing the show. */
+.ghost-puzzle__preview {
+  order: 2;
+  flex: none;
+  width: min(100%, clamp(130px, 20vw, 210px));
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ghost-puzzle__preview img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.38);
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(6, 2, 20, 0.45);
+}
+
+.ghost-puzzle__preview figcaption {
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  color: rgba(233, 227, 255, 0.72);
+}
+
+/* The waiting pieces: a tight grid of chunky pieces, never more than one
+   short hop away from the board. */
+.ghost-puzzle__tray-pieces {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+  gap: 0.6rem;
+  align-items: center;
+  min-height: 100px;
+  margin-top: 0.75rem;
+}
+
+.ghost-puzzle__tray-piece {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  cursor: grab;
+  background-color: #0a0420;
+  background-repeat: no-repeat;
+  background-size: 300% 300%;
+  border: 2px solid rgba(255, 255, 255, 0.26);
+  border-radius: 10px;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ghost-puzzle__tray-piece:hover {
+  border-color: var(--cyan);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.ghost-puzzle__tray-piece:active {
+  cursor: grabbing;
+}
+
+.ghost-puzzle__tray-piece[data-selected='true'] {
+  border-color: var(--sun);
+  box-shadow: 0 0 0 3px var(--sun), 0 0 20px rgba(255, 212, 59, 0.5);
+  transform: translateY(-2px);
+}
+
+.ghost-puzzle__tray-empty {
+  grid-column: 1 / -1;
+  font-size: 0.85rem;
+  color: rgba(125, 255, 181, 0.85);
+}
+
+.ghost-puzzle__board[data-solved='true'] {
+  border-color: rgba(125, 255, 181, 0.7);
+  box-shadow:
+    0 0 0 4px rgba(125, 255, 181, 0.2),
+    0 0 34px rgba(125, 255, 181, 0.35);
+}
+
+.ghost-puzzle__solved {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: center;
+  margin-top: 1rem;
+  color: var(--sun);
+  text-align: center;
+}
+
+.ghost-puzzle__solved strong {
+  font-size: clamp(1.1rem, 2.6vw, 1.35rem);
+}
+
+.ghost-puzzle__solved p {
+  margin: 0 0 0.35rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: rgba(233, 227, 255, 0.8);
 }
 
 /* ---- Shared buttons and the footer ---- */
@@ -1100,7 +1626,64 @@ html[lang='bn'] .star-quiz__prompt {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
+.ghost-story__foot-end {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  align-items: flex-end;
+}
+
+/* Small shortcut that sits directly above the page credit. */
+.ghost-story__next {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 38px;
+  padding: 0.3em 0.95em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink-deep);
+  cursor: pointer;
+  background: linear-gradient(180deg, #d6f8ff, var(--cyan));
+  border: 2px solid var(--ink-deep);
+  border-radius: 999px;
+  box-shadow: 0 3px 0 var(--ink-deep);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+}
+
+.ghost-story__next:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 0 var(--ink-deep);
+}
+
+.ghost-story__next:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--ink-deep);
+}
+
 /* ---- Responsive ---- */
+
+/* A wide screen puts the board and the tray next to each other. */
+@media (min-width: 880px) {
+  .ghost-puzzle__stage {
+    grid-template-columns: minmax(0, 440px) minmax(270px, 360px);
+    justify-content: center;
+    justify-items: stretch;
+  }
+
+  .ghost-puzzle__side {
+    max-width: none;
+  }
+
+  .ghost-puzzle__preview {
+    order: 1;
+  }
+
+  .ghost-puzzle__tray {
+    order: 2;
+  }
+}
 
 @media (max-width: 900px) {
   .ghost-story__hero {
@@ -1270,8 +1853,34 @@ html[lang='bn'] .star-quiz__prompt {
   }
 
   .ghost-story__foot {
+    flex-direction: column;
     justify-content: center;
     text-align: center;
+  }
+
+  .ghost-story__foot-end {
+    align-items: center;
+  }
+
+  .ghost-puzzle__launch {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ghost-puzzle__head {
+    gap: 0.7rem;
+  }
+
+  .ghost-puzzle__meta {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .ghost-puzzle__board {
+    gap: 4px;
+    padding: 5px;
   }
 }
 

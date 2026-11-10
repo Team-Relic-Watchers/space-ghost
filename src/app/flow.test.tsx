@@ -46,7 +46,7 @@ describe('Mission Control flow', () => {
     renderAt('/')
     // If the overlay sat inside <main>, the mission grid would size it like a
     // layout row instead of letting it cover the viewport.
-    expect(screen.getByTestId('jump-video').closest('main')).toBeNull()
+    expect(screen.getByTestId('time-jump').closest('main')).toBeNull()
   })
 
   it('switches the whole screen to Bangla', async () => {
@@ -65,10 +65,10 @@ describe('Mission Control flow', () => {
     expect(useGameStore.getState().hasLaunched).toBe(true)
     // The Time Machine charges, plays the jump video, then arrives in 1964.
     await waitFor(
-      () => expect(screen.getByTestId('jump-video')).toHaveAttribute('data-active', 'true'),
+      () => expect(screen.getByTestId('time-jump')).toHaveAttribute('data-active', 'true'),
       { timeout: 3000 },
     )
-    fireEvent(screen.getByTestId('jump-video').querySelector('video')!, new Event('ended'))
+    fireEvent(screen.getByTestId('time-jump').querySelector('video')!, new Event('ended'))
     expect(await screen.findByTestId('warp-year', undefined, { timeout: 3000 })).toHaveTextContent('1964')
   })
 

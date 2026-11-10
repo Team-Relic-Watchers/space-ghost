@@ -32,6 +32,8 @@ export const bn: Translation = {
     retry: 'আবার চেষ্টা করো',
     error: 'এই ডিভাইসে ত্রিমাত্রিক দৃশ্য শুরু করা যায়নি।',
     loading3d: 'চাঁদ তৈরি হচ্ছে…',
+    jumpLabel: 'সময়-যাত্রা',
+    jumpToYear: '{{year}} সালে সময়-যাত্রা',
   },
   ghostsMap: {
     title: '১৭টি স্পেস ঘোস্ট',
@@ -46,6 +48,7 @@ export const bn: Translation = {
     askHint: 'যেকোনো ঘোস্টে চাপলে তার পরিচিতি পাবে।',
     scrollUp: 'যাত্রাটা উপরে সরাও',
     scrollDown: 'যাত্রাটা নিচে সরাও',
+    jumpInfo: '{{location}}-এ গিয়েছিল',
   },
   ghostStory: {
     dialogLabel: '{{name}} — স্পেস গোস্টের গল্প',

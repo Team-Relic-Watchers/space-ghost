@@ -2,7 +2,7 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import i18n from '../../i18n'
-import { JumpVideo } from './JumpVideo'
+import { TimeJump } from './TimeJump'
 import { JUMP_VIDEO_SRC, nextSeekTime } from './jumpClip'
 
 /** jsdom cannot play media; resolve like a browser would. */
@@ -12,7 +12,7 @@ const mockPlay = () => {
 }
 
 /** The overlay's <video>, which always sits inside the test id container. */
-const videoElement = () => screen.getByTestId('jump-video').querySelector('video')!
+const videoElement = () => screen.getByTestId('time-jump').querySelector('video')!
 
 describe('nextSeekTime', () => {
   it('keeps playing inside the opening and the tail of the clip', () => {
@@ -37,17 +37,17 @@ describe('nextSeekTime', () => {
   })
 })
 
-describe('JumpVideo', () => {
+describe('TimeJump', () => {
   beforeEach(async () => {
     await i18n.changeLanguage('en')
   })
 
   it('preloads the clip but stays out of the way while idle', () => {
     const onDone = vi.fn()
-    render(<JumpVideo active={false} onDone={onDone} />)
+    render(<TimeJump active={false} onDone={onDone} />)
     expect(videoElement()).toHaveAttribute('preload', 'auto')
     expect(videoElement()).toHaveAttribute('src', JUMP_VIDEO_SRC)
-    expect(screen.getByTestId('jump-video')).toHaveAttribute('data-active', 'false')
+    expect(screen.getByTestId('time-jump')).toHaveAttribute('data-active', 'false')
     expect(screen.queryByRole('button', { name: /skip/i })).not.toBeInTheDocument()
     expect(onDone).not.toHaveBeenCalled()
   })
@@ -55,8 +55,8 @@ describe('JumpVideo', () => {
   it('plays the clip when activated and hands off exactly once when it ends', () => {
     mockPlay()
     const onDone = vi.fn()
-    render(<JumpVideo active onDone={onDone} />)
-    expect(screen.getByTestId('jump-video')).toHaveAttribute('data-active', 'true')
+    render(<TimeJump active onDone={onDone} />)
+    expect(screen.getByTestId('time-jump')).toHaveAttribute('data-active', 'true')
     fireEvent(videoElement(), new Event('ended'))
     fireEvent(videoElement(), new Event('ended'))
     expect(onDone).toHaveBeenCalledTimes(1)
@@ -65,7 +65,7 @@ describe('JumpVideo', () => {
   it('cuts from the opening to the tail while the jump plays', () => {
     mockPlay()
     const onDone = vi.fn()
-    render(<JumpVideo active onDone={onDone} />)
+    render(<TimeJump active onDone={onDone} />)
     const video = videoElement()
     Object.defineProperty(video, 'duration', { value: 13, configurable: true })
     Object.defineProperty(video, 'currentTime', { value: 5.2, writable: true, configurable: true })
@@ -77,7 +77,7 @@ describe('JumpVideo', () => {
     mockPlay()
     const onDone = vi.fn()
     const user = userEvent.setup()
-    render(<JumpVideo active onDone={onDone} />)
+    render(<TimeJump active onDone={onDone} />)
     const skip = await screen.findByRole('button', { name: /skip/i }, { timeout: 3000 })
     await user.click(skip)
     expect(onDone).toHaveBeenCalledTimes(1)
@@ -86,7 +86,7 @@ describe('JumpVideo', () => {
   it('skips on the Escape key', () => {
     mockPlay()
     const onDone = vi.fn()
-    render(<JumpVideo active onDone={onDone} />)
+    render(<TimeJump active onDone={onDone} />)
     fireEvent.keyDown(window, { key: 'Escape' })
     expect(onDone).toHaveBeenCalledTimes(1)
   })
@@ -94,7 +94,7 @@ describe('JumpVideo', () => {
   it('skips on a click on the video', () => {
     mockPlay()
     const onDone = vi.fn()
-    render(<JumpVideo active onDone={onDone} />)
+    render(<TimeJump active onDone={onDone} />)
     fireEvent.click(videoElement())
     expect(onDone).toHaveBeenCalledTimes(1)
   })
@@ -106,7 +106,45 @@ describe('JumpVideo', () => {
       new DOMException('blocked', 'NotAllowedError'),
     )
     const onDone = vi.fn()
-    render(<JumpVideo active onDone={onDone} />)
+    render(<TimeJump active onDone={onDone} />)
     await waitFor(() => expect(onDone).toHaveBeenCalledTimes(1), { timeout: 3000 })
+  })
+
+  it('shows Pandastein looping over the jump', () => {
+    mockPlay()
+    const onDone = vi.fn()
+    const { container } = render(<TimeJump active onDone={onDone} />)
+    const panda = container.querySelector('img')
+    expect(panda).toHaveAttribute('src', '/images/panda.png')
+    expect(panda).toHaveAttribute('alt', '')
+  })
+
+  it('keeps the panda out of the way while idle', () => {
+    const onDone = vi.fn()
+    const { container } = render(<TimeJump active={false} onDone={onDone} />)
+    expect(container.querySelector('img')).toBeNull()
+  })
+
+  it('shows the year, name and destination of the ghost we jump to', () => {
+    mockPlay()
+    const onDone = vi.fn()
+    render(<TimeJump active onDone={onDone} year="1966" title="Surveyor 1" info="went to the Moon" />)
+    expect(screen.getByText('1966')).toBeInTheDocument()
+    expect(screen.getByText('Surveyor 1')).toBeInTheDocument()
+    expect(screen.getByText('went to the Moon')).toBeInTheDocument()
+  })
+
+  it('shows no destination lines when there is no ghost to travel to', () => {
+    mockPlay()
+    const onDone = vi.fn()
+    const { container } = render(<TimeJump active onDone={onDone} />)
+    expect(container.querySelector('.jump__text')).toBeNull()
+  })
+
+  it('labels the jump for screen readers', () => {
+    mockPlay()
+    const onDone = vi.fn()
+    render(<TimeJump active onDone={onDone} year="1966" />)
+    expect(screen.getByTestId('time-jump')).toHaveAttribute('aria-label', 'Time jump to 1966')
   })
 })

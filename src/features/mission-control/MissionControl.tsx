@@ -14,7 +14,7 @@ import { SpeechBubble } from '../../components/ui/SpeechBubble'
 import { journey } from '../../content/journey'
 import { useGameStore } from '../../game/store'
 import { formatYear } from '../../i18n'
-import { JumpVideo } from './JumpVideo'
+import { TimeJump } from '../../components/time-jump/TimeJump'
 import './mission-control.css'
 
 const LAUNCH_MS = 1200
@@ -137,7 +137,7 @@ export function MissionControl() {
       {/* The jump is a viewport-sized overlay, so it sits outside the screen
           layout: `.mission > :not(.backdrop)` would otherwise pin it into the
           grid instead of letting it cover the whole page. */}
-      <JumpVideo active={jumping} onDone={() => navigate(ROUTES.warp)} />
+      <TimeJump active={jumping} onDone={() => navigate(ROUTES.warp)} />
     </>
   )
 }

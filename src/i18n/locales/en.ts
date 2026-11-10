@@ -30,6 +30,8 @@ export const en = {
     retry: 'Try again',
     error: 'The 3D scene could not start on this device.',
     loading3d: 'Warming up the Moon…',
+    jumpLabel: 'Time jump',
+    jumpToYear: 'Time jump to {{year}}',
   },
   ghostsMap: {
     title: 'The 17 Space Ghosts',
@@ -44,6 +46,7 @@ export const en = {
     askHint: 'Tap any ghost to meet it.',
     scrollUp: 'Scroll the journey up',
     scrollDown: 'Scroll the journey down',
+    jumpInfo: 'went to {{location}}',
   },
   ghostStory: {
     dialogLabel: '{{name}} — Space Ghost story',

@@ -1,7 +1,7 @@
-import { render, screen, waitForElementToBeRemoved, within } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor, waitForElementToBeRemoved, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
-import { beforeEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import i18n from '../../i18n'
 import { useGameStore } from '../../game/store'
 import { machines } from '../../content/ranger7/machines'
@@ -13,6 +13,23 @@ const renderMap = () =>
       <GhostsMap />
     </MemoryRouter>,
   )
+
+/** jsdom cannot play media; resolve like a browser would. */
+const mockMedia = () => {
+  vi.spyOn(HTMLMediaElement.prototype, 'pause').mockImplementation(() => {})
+  return vi.spyOn(HTMLMediaElement.prototype, 'play').mockResolvedValue(undefined)
+}
+
+/**
+ * Taps a ghost, waits for its time jump to start and lets the jump land, so
+ * the story card opens.
+ */
+const openGhost = async (user: ReturnType<typeof userEvent.setup>, name: RegExp) => {
+  await user.click(screen.getByRole('button', { name }))
+  const jump = screen.getByTestId('time-jump')
+  await waitFor(() => expect(jump).toHaveAttribute('data-active', 'true'))
+  fireEvent(jump.querySelector('video')!, new Event('ended'))
+}
 
 describe('the campaign map', () => {
   beforeEach(async () => {
@@ -49,10 +66,11 @@ describe('the campaign map', () => {
   })
 
   it('opens a machine detail when its ghost is clicked', async () => {
+    mockMedia()
     const user = userEvent.setup()
     renderMap()
 
-    await user.click(screen.getByRole('button', { name: /voyager 1, 1977/i }))
+    await openGhost(user, /voyager 1, 1977/i)
 
     const detail = screen.getByRole('dialog', { name: /voyager 1/i })
     expect(detail).toBeInTheDocument()
@@ -62,11 +80,40 @@ describe('the campaign map', () => {
     expect(detail).toHaveTextContent(/BEEP\. I am Voyager 1/)
   })
 
-  it('shows every Apollo 15 rover photo and its cartoon in the detail page', async () => {
+  it('jumps to a ghost first, showing its year, name and destination', async () => {
+    mockMedia()
     const user = userEvent.setup()
     renderMap()
 
-    await user.click(screen.getByRole('button', { name: /apollo 15 lunar roving vehicle/i }))
+    await user.click(screen.getByRole('button', { name: /voyager 1, 1977/i }))
+
+    const jump = screen.getByTestId('time-jump')
+    await waitFor(() => expect(jump).toHaveAttribute('data-active', 'true'))
+    expect(jump).toHaveTextContent('1977')
+    expect(jump).toHaveTextContent('Voyager 1')
+    expect(jump).toHaveTextContent('went to Deep space')
+    // The story card waits for the jump to land.
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+  })
+
+  it('opens the story when the jump is skipped', async () => {
+    mockMedia()
+    const user = userEvent.setup()
+    renderMap()
+
+    await user.click(screen.getByRole('button', { name: /voyager 1, 1977/i }))
+    const skip = await screen.findByRole('button', { name: /skip/i }, { timeout: 3000 })
+    await user.click(skip)
+
+    expect(screen.getByRole('dialog', { name: /voyager 1/i })).toBeInTheDocument()
+  })
+
+  it('shows every Apollo 15 rover photo and its cartoon in the detail page', async () => {
+    mockMedia()
+    const user = userEvent.setup()
+    renderMap()
+
+    await openGhost(user, /apollo 15 lunar roving vehicle/i)
 
     const detail = screen.getByRole('dialog', { name: /apollo 15 lunar roving vehicle/i })
     const gallery = within(detail).getByRole('region', { name: 'Mission photo album' })
@@ -86,10 +133,11 @@ describe('the campaign map', () => {
   })
 
   it('switches language from the machine detail page', async () => {
+    mockMedia()
     const user = userEvent.setup()
     renderMap()
 
-    await user.click(screen.getByRole('button', { name: /voyager 1, 1977/i }))
+    await openGhost(user, /voyager 1, 1977/i)
     const detail = screen.getByRole('dialog', { name: /voyager 1/i })
     await user.click(within(detail).getByRole('button', { name: 'Switch language to বাংলা' }))
 
@@ -98,10 +146,11 @@ describe('the campaign map', () => {
   })
 
   it('closes the detail again', async () => {
+    mockMedia()
     const user = userEvent.setup()
     renderMap()
 
-    await user.click(screen.getByRole('button', { name: /surveyor 1, 1966/i }))
+    await openGhost(user, /surveyor 1, 1966/i)
     expect(screen.getByRole('dialog', { name: /surveyor 1/i })).toBeInTheDocument()
 
     await user.click(screen.getByRole('button', { name: /close/i }))

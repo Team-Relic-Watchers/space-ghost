@@ -119,32 +119,3 @@
 .mission[data-launching='true'] .mission__dock {
   pointer-events: none;
 }
-
-/* The fullscreen time-travel jump video. It sits outside the screen markup,
-   above everything, and fills the viewport edge to edge. */
-.jump {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  overflow: hidden;
-  background: var(--space-950);
-  visibility: hidden;
-}
-
-.jump[data-active='true'] {
-  visibility: visible;
-}
-
-.jump video {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* The skip control reuses the global pill button; only place it. */
-.jump__skip {
-  position: absolute;
-  right: 1.5rem;
-  bottom: calc(1.5rem + env(safe-area-inset-bottom));
-}

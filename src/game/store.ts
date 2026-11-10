@@ -34,8 +34,14 @@ interface GameState {
   hasLaunched: boolean
   ranger7: Ranger7Progress
   quizStars: QuizStars
+  /** Whether Pandastein reads the story aloud while the reader scrolls. */
+  voiceEnabled: boolean
+  /** The voice the reader picked for each language. */
+  voiceChoice: Record<Language, string>
   setLanguage: (language: Language) => void
   toggleLanguage: () => void
+  setVoiceEnabled: (enabled: boolean) => void
+  setVoiceChoice: (language: Language, name: string) => void
   launch: () => void
   resetJourney: () => void
   setRanger7Step: (step: Ranger7Step) => void
@@ -66,6 +72,14 @@ const sanitizeQuizStars = (raw: unknown): QuizStars => {
   return stars
 }
 
+const sanitizeVoiceChoice = (raw: unknown): Record<Language, string> => {
+  const choice = raw && typeof raw === 'object' ? (raw as Record<string, unknown>) : {}
+  return {
+    en: typeof choice.en === 'string' ? choice.en : '',
+    bn: typeof choice.bn === 'string' ? choice.bn : '',
+  }
+}
+
 export const useGameStore = create<GameState>()(
   persist(
     (set) => ({
@@ -73,9 +87,14 @@ export const useGameStore = create<GameState>()(
       hasLaunched: false,
       ranger7: defaultRanger7,
       quizStars: {},
+      voiceEnabled: false,
+      voiceChoice: { en: '', bn: '' },
       setLanguage: (language) => set({ language }),
       toggleLanguage: () =>
         set((s) => ({ language: s.language === 'en' ? 'bn' : 'en' })),
+      setVoiceEnabled: (voiceEnabled) => set({ voiceEnabled }),
+      setVoiceChoice: (language, name) =>
+        set((s) => ({ voiceChoice: { ...s.voiceChoice, [language]: name } })),
       launch: () => set({ hasLaunched: true }),
       resetJourney: () => set({ hasLaunched: false }),
       setRanger7Step: (step) => set((s) => ({ ranger7: { ...s.ranger7, step } })),
@@ -103,24 +122,48 @@ export const useGameStore = create<GameState>()(
     }),
     {
       name: 'space-ghosts',
-      version: 3,
-      // Language, Ranger 7 progress and the star quiz results survive a reload.
+      version: 7,
+      // Language, Ranger 7 progress, the star quiz results and the voice
+      // settings survive a reload. The reading itself never does: the app
+      // must never start talking on its own.
       partialize: (s) => ({
         language: s.language,
         ranger7: s.ranger7,
         quizStars: s.quizStars,
+        voiceChoice: s.voiceChoice,
       }),
+      migrate: (persisted) => {
+        const state = (persisted ?? {}) as {
+          language?: Language
+          ranger7?: Ranger7Progress
+          quizStars?: QuizStars
+          voiceChoice?: Record<Language, string>
+        }
+        // The old reading switch is dropped on the way: the app must never
+        // start talking on its own.
+        return {
+          language: state.language ?? 'en',
+          ranger7: state.ranger7 ?? defaultRanger7,
+          quizStars: state.quizStars ?? {},
+          voiceChoice: state.voiceChoice ?? { en: '', bn: '' },
+        }
+      },
       merge: (persisted, current) => {
         const p = (persisted ?? {}) as {
           language?: unknown
           ranger7?: unknown
           quizStars?: unknown
+          voiceEnabled?: unknown
+          voiceChoice?: unknown
         }
         return {
           ...current,
           language: isLanguage(p.language) ? p.language : current.language,
           ranger7: sanitizeProgress(p.ranger7),
           quizStars: sanitizeQuizStars(p.quizStars),
+          // Whatever was saved, the voice stays quiet until it is asked for.
+          voiceEnabled: false,
+          voiceChoice: sanitizeVoiceChoice(p.voiceChoice),
         }
       },
     },

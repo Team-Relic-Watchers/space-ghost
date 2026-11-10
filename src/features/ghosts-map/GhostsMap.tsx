@@ -121,6 +121,7 @@ export function GhostsMap() {
         <p className="ghosts-map__welcome">
           <span className="ghosts-map__welcome-text">{t('ghostsMap.welcome')}</span>
         </p>
+
         <LanguageToggle />
       </header>
 
@@ -174,7 +175,11 @@ export function GhostsMap() {
         </span>
       </footer>
 
-      <GhostDetail machine={open} onClose={() => setOpenSequence(null)} />
+      <GhostDetail
+        machine={open}
+        onClose={() => setOpenSequence(null)}
+        onOpenSequence={setOpenSequence}
+      />
     </main>
   )
 }

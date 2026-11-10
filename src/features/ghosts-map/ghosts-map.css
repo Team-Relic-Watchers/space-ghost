@@ -44,6 +44,11 @@
   padding: clamp(0.35rem, 1.2vmin, 0.7rem) clamp(1rem, 3vw, 2rem) 0;
 }
 
+/* The music card sits in the top bar, next to the language. */
+.ghosts-map__music {
+  flex: none;
+}
+
 /* The map needs the screen for the journey, so its chrome stays slim. */
 .ghosts-map__top .logo__word {
   font-size: clamp(1.15rem, 3.4vmin, 1.8rem);

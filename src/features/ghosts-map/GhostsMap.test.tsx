@@ -158,6 +158,87 @@ describe('the campaign map', () => {
     await waitForElementToBeRemoved(() => screen.queryByRole('dialog'))
   })
 
+  it('starts the star quiz only after the start button is clicked', async () => {
+    mockMedia()
+    const user = userEvent.setup()
+    renderMap()
+
+    await openGhost(user, /voyager 1, 1977/i)
+    const detail = screen.getByRole('dialog', { name: /voyager 1/i })
+
+    expect(within(detail).queryByText(/question 1 of/i)).not.toBeInTheDocument()
+
+    await user.click(within(detail).getByRole('button', { name: /start quiz/i }))
+    expect(within(detail).getByText(/question 1 of/i)).toBeInTheDocument()
+  })
+
+  it('jumps to the next ghost from the bottom-left button', async () => {
+    mockMedia()
+    const user = userEvent.setup()
+    renderMap()
+
+    await openGhost(user, /ranger 7, 1964/i)
+    const detail = screen.getByRole('dialog', { name: /ranger 7/i })
+
+    await user.click(within(detail).getByRole('button', { name: /next ghost/i }))
+
+    expect(
+      await screen.findByRole('dialog', {
+        name: new RegExp(machines[1].name.en, 'i'),
+      }),
+    ).toBeInTheDocument()
+  })
+
+  it('opens a five-hole cartoon puzzle with a preview and the missing pieces', async () => {
+    mockMedia()
+    const user = userEvent.setup()
+    renderMap()
+
+    await openGhost(user, /voyager 1, 1977/i)
+    const detail = screen.getByRole('dialog', { name: /voyager 1/i })
+
+    await user.click(within(detail).getByRole('button', { name: /play puzzle game/i }))
+
+    const emptySlots = within(detail).getAllByRole('button', { name: /empty space/i })
+    expect(emptySlots).toHaveLength(5)
+    expect(
+      within(detail).getAllByRole('button', { name: /puzzle piece/i }),
+    ).toHaveLength(5)
+    expect(
+      within(detail).getByAltText(/complete cartoon to copy/i),
+    ).toHaveAttribute('src', '/images/ghosts/voyager-1/cartoon.jpg')
+
+    // Tap a piece, then its matching hole: the piece leaves the tray.
+    const slotNumber = emptySlots[0].getAttribute('aria-label')?.match(/\d+/)?.[0]
+    await user.click(
+      within(detail).getByRole('button', {
+        name: new RegExp(`puzzle piece ${slotNumber} for space ${slotNumber}`, 'i'),
+      }),
+    )
+    await user.click(emptySlots[0])
+
+    expect(within(detail).getAllByRole('button', { name: /empty space/i })).toHaveLength(4)
+    expect(within(detail).getByText('4 pieces left')).toBeInTheDocument()
+  })
+
+  it('goes back to the previous ghost from the footer', async () => {
+    mockMedia()
+    const user = userEvent.setup()
+    renderMap()
+
+    await openGhost(user, /voyager 1, 1977/i)
+    const detail = screen.getByRole('dialog', { name: /voyager 1/i })
+
+    await user.click(within(detail).getByRole('button', { name: /previous ghost/i }))
+
+    const voyagerIndex = machines.findIndex((machine) => machine.name.en === 'Voyager 1')
+    const previous = machines[(voyagerIndex - 1 + machines.length) % machines.length]
+
+    expect(
+      await screen.findByRole('dialog', { name: new RegExp(previous.name.en, 'i') }),
+    ).toBeInTheDocument()
+  })
+
   it('counts the ghosts', () => {
     renderMap()
     expect(screen.getByText('17 ghosts')).toBeInTheDocument()

@@ -205,7 +205,7 @@ export const ghostPhotos: Record<string, GhostPhotoSet> = {
   'voyager-2': {
     hero: {
       src: image('voyager-2', 'real.jpg'),
-      title: { en: 'Voyager 2, built for the outer planets', bn: 'বহিঃস্থ গ্রহের জন্য তৈরি ভয়েজার ২' },
+      title: { en: 'Voyager 2 in the clean room', bn: 'পরিচ্ছন্ন কক্ষে ভয়েজার ২' },
       credit: 'NASA / JPL-Caltech',
     },
     cartoon: cartoon('voyager-2', { en: 'Voyager 2 cartoon', bn: 'ভয়েজার ২-এর কার্টুন ছবি' }),

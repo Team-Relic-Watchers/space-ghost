@@ -1,0 +1,83 @@
+/*
+ * The voice card: a small pill of play, pause and resume buttons. It sits in
+ * the top right corner of Pandastein's card, right where the reader looks.
+ *
+ * The bubble behind it is a pale gradient, so the card is deep and dark: the
+ * buttons always read clearly against the light card of the professor.
+ */
+
+.voice-card {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.12rem;
+  padding: 0.2rem 0.28rem;
+  background: rgba(23, 11, 58, 0.62);
+  border: 2px solid rgba(23, 11, 58, 0.35);
+  border-radius: 999px;
+  box-shadow: 0 3px 0 rgba(43, 27, 90, 0.32);
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.voice-card:hover {
+  background: rgba(23, 11, 58, 0.78);
+  border-color: rgba(23, 11, 58, 0.5);
+}
+
+.voice-card button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: #fff;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.voice-card button:hover:not(:disabled) {
+  color: var(--ink-deep);
+  background: #ffe27a;
+  transform: scale(1.1);
+}
+
+.voice-card button:disabled {
+  color: rgba(255, 255, 255, 0.45);
+  cursor: default;
+}
+
+/* The voice is talking right now. */
+.voice-card[data-state='talking'] {
+  background: linear-gradient(180deg, #ff7ab8, #ff3d8f);
+  border-color: rgba(255, 255, 255, 0.9);
+  animation: story-part-voice-pulse 1.1s ease-in-out infinite;
+}
+
+.voice-card[data-state='talking'] button[data-active='true'] {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* The reader is holding the voice. */
+.voice-card[data-state='held'] {
+  background: rgba(23, 11, 58, 0.8);
+  border-color: rgba(56, 225, 255, 0.85);
+}
+
+.voice-card[data-state='held'] button:not(:disabled) {
+  color: var(--cyan);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voice-card button {
+    transition: none;
+  }
+
+  .voice-card[data-state='talking'] {
+    animation: none;
+  }
+}

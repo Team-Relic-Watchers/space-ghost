@@ -203,7 +203,11 @@ export function GhostsMap() {
           </span>
         </footer>
 
-        <GhostDetail machine={open} onClose={() => setOpenSequence(null)} />
+        <GhostDetail
+          machine={open}
+          onClose={() => setOpenSequence(null)}
+          onOpenSequence={setOpenSequence}
+        />
       </main>
 
     {/* The jump is a viewport-sized overlay, so it sits outside the screen

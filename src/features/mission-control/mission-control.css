@@ -20,6 +20,43 @@
   padding: clamp(0.75rem, 2.5vmin, 1.75rem) clamp(1rem, 4vw, 3rem) 0;
 }
 
+/* The buttons in the top right corner: the piano and the language. */
+.mission__top-tools {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* The button that starts the space piano. */
+.mission__music {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  transition: background 0.18s ease, transform 0.18s ease, color 0.18s ease;
+}
+
+.mission__music:hover {
+  background: rgba(143, 75, 240, 0.7);
+  transform: translateY(-1px);
+}
+
+.mission__music[data-playing='true'] {
+  color: var(--ink-deep);
+  background: linear-gradient(180deg, #ffe27a, var(--sun));
+  border-color: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 0 18px rgba(255, 212, 59, 0.5);
+}
+
 /* The stage holds the Time Machine in the middle and Pandastein beside it. */
 .mission__stage {
   position: relative;

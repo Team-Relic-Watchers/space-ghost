@@ -12,10 +12,15 @@
   line-height: 1.15;
   text-align: center;
   cursor: pointer;
+  color: #fff;
   border: 5px solid var(--ink-deep);
   border-radius: 999px;
-  text-shadow: 0 3px 0 rgba(23, 11, 58, 0.45);
+  -webkit-text-stroke: 1.5px var(--ink-deep);
+  paint-order: stroke fill;
+  text-shadow: 0 3px 0 var(--ink-deep);
   overflow: hidden;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .big-button--go {

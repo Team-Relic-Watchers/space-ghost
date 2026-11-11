@@ -32,8 +32,9 @@ interface TimeJumpProps {
  * back to `onDone` exactly once.
  *
  * The clip plays its opening seconds, then cuts to its closing seconds (see
- * `nextSeekTime`). Pandastein loops over it like a gif, and the optional
- * year/name/destination lines appear above him.
+ * `nextSeekTime`). A brief radial flash masks the seek cut so it feels
+ * seamless. Pandastein loops over it like a gif, and the optional
+ * year/name/destination lines cascade in above him.
  */
 export function TimeJump({ active, onDone, year, title, info }: TimeJumpProps) {
   const { t } = useTranslation()
@@ -41,6 +42,8 @@ export function TimeJump({ active, onDone, year, title, info }: TimeJumpProps) {
   const [showSkip, setShowSkip] = useState(false)
   const doneRef = useRef(false)
   const onDoneRef = useRef(onDone)
+  /** Brief flash to mask the mid-clip seek cut. */
+  const [seekFlash, setSeekFlash] = useState(false)
 
   useEffect(() => {
     onDoneRef.current = onDone
@@ -60,6 +63,7 @@ export function TimeJump({ active, onDone, year, title, info }: TimeJumpProps) {
 
     doneRef.current = false
     setShowSkip(false)
+    setSeekFlash(false)
     video.currentTime = 0
     const skipTimer = window.setTimeout(() => setShowSkip(true), SKIP_DELAY_MS)
 
@@ -90,7 +94,11 @@ export function TimeJump({ active, onDone, year, title, info }: TimeJumpProps) {
     const video = videoRef.current
     if (!video) return
     const seekTo = nextSeekTime(video.currentTime, video.duration)
-    if (seekTo !== null) video.currentTime = seekTo
+    if (seekTo !== null) {
+      setSeekFlash(true)
+      video.currentTime = seekTo
+      window.setTimeout(() => setSeekFlash(false), 400)
+    }
   }
 
   const hasText = Boolean(year || title || info)
@@ -104,7 +112,7 @@ export function TimeJump({ active, onDone, year, title, info }: TimeJumpProps) {
       aria-label={active ? (year ? t('common.jumpToYear', { year }) : t('common.jumpLabel')) : undefined}
       initial={false}
       animate={{ opacity: active ? 1 : 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: active ? 0.55 : 0.4, ease: 'easeInOut' }}
       style={{ pointerEvents: active ? 'auto' : 'none' }}
     >
       <video
@@ -118,6 +126,12 @@ export function TimeJump({ active, onDone, year, title, info }: TimeJumpProps) {
         onEnded={active ? finish : undefined}
         onError={active ? finish : undefined}
         onTimeUpdate={active ? handleTimeUpdate : undefined}
+      />
+
+      {/* Brief radial flash to mask the mid-clip seek cut. */}
+      <div
+        className={`jump__seek-flash${seekFlash ? ' jump__seek-flash--active' : ''}`}
+        aria-hidden="true"
       />
 
       {/* Pandastein loops over the jump like a gif. Decorative, so screen

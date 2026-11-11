@@ -20,10 +20,39 @@
   object-fit: cover;
 }
 
-/* Pandastein rides the jump centre stage in his ship, looping like a gif: a
+/* ── Seek-cut flash ────────────────────────────────────────────────────────
+   A brief radial burst that masks the hard cut when the video skips from its
+   opening to its closing seconds. It flares in fast and fades out slowly so
+   the eye reads it as a warp pulse rather than a glitch. */
+.jump__seek-flash {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(255, 255, 255, 0.65) 0%,
+    rgba(56, 225, 255, 0.45) 25%,
+    rgba(143, 75, 240, 0.25) 50%,
+    transparent 75%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.jump__seek-flash--active {
+  opacity: 1;
+  transition: opacity 0.06s ease-out;
+}
+
+/* ── Pandastein ────────────────────────────────────────────────────────────
+   Pandastein rides the jump centre stage in his ship, looping like a gif: a
    gentle bob with a tilt, forever. The global reduced-motion rule freezes
    him. The ship is wide, so it is sized by its height and kept clear of the
-   destination lines above. */
+   destination lines above.
+
+   The entrance animation slides him up and fades him in; the bob starts
+   after the entrance finishes so the two never fight over `transform`. */
 .jump__panda {
   position: absolute;
   left: 50%;
@@ -33,7 +62,20 @@
   transform: translate(-50%, -50%);
   pointer-events: none;
   filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.55));
-  animation: jump-panda 2.4s ease-in-out infinite;
+  animation:
+    jump-panda-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both,
+    jump-panda 2.6s cubic-bezier(0.45, 0, 0.55, 1) 0.7s infinite;
+}
+
+@keyframes jump-panda-enter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -38%) scale(0.82);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 @keyframes jump-panda {
@@ -46,8 +88,10 @@
   }
 }
 
-/* The destination lines, floating over the panda: a big year like the warp
-   reveal, then who we are visiting and where they went. */
+/* ── Destination text ──────────────────────────────────────────────────────
+   The destination lines float over the panda: a big year like the warp
+   reveal, then who we are visiting and where they went. Each line cascades
+   in with a staggered delay so they read like a title card. */
 .jump__text {
   position: absolute;
   inset: 0;
@@ -67,6 +111,7 @@
   -webkit-text-stroke: 0.08em var(--ink-deep);
   paint-order: stroke fill;
   text-shadow: 0 0.06em 0 var(--ink-deep), 0 0.12em 0 var(--ink-deep);
+  animation: jump-year-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
 }
 
 .jump__title {
@@ -76,6 +121,7 @@
   -webkit-text-stroke: 0.05em var(--ink-deep);
   paint-order: stroke fill;
   text-shadow: 0 0.1em 0 var(--ink-deep);
+  animation: jump-text-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
 }
 
 .jump__info {
@@ -83,11 +129,50 @@
   font-weight: 600;
   color: var(--lilac);
   text-shadow: 0 0.12em 0 var(--ink-deep);
+  animation: jump-text-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
 }
 
-/* The skip control reuses the global pill button; only place it. */
+/* The year punches in big and settles to its resting size. */
+@keyframes jump-year-in {
+  from {
+    opacity: 0;
+    transform: scale(1.6) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Title and info slide up gently from below. */
+@keyframes jump-text-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Skip button ───────────────────────────────────────────────────────────
+   The skip control reuses the global pill button; only place it. It fades
+   in softly so it does not steal attention from the jump itself. */
 .jump__skip {
   position: absolute;
   right: 1.5rem;
   bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  animation: jump-skip-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes jump-skip-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

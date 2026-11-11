@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
@@ -57,32 +57,33 @@ describe('Mission Control flow', () => {
     expect(document.documentElement.lang).toBe('bn')
   })
 
-  it('launches into the warp screen showing 1964', async () => {
+  it('plays the jump video at once and opens the campaign map', async () => {
     mockMedia()
     const user = userEvent.setup()
     renderAt('/')
     await user.click(screen.getByRole('button', { name: /start the adventure/i }))
     expect(useGameStore.getState().hasLaunched).toBe(true)
-    // The Time Machine charges, plays the jump video, then arrives in 1964.
-    await waitFor(
-      () => expect(screen.getByTestId('time-jump')).toHaveAttribute('data-active', 'true'),
-      { timeout: 3000 },
-    )
+    // The time-travel jump takes over straight away: no charging pause.
+    expect(screen.getByTestId('time-jump')).toHaveAttribute('data-active', 'true')
     fireEvent(screen.getByTestId('time-jump').querySelector('video')!, new Event('ended'))
-    expect(await screen.findByTestId('warp-year', undefined, { timeout: 3000 })).toHaveTextContent('1964')
+    expect(
+      await screen.findByRole('heading', { name: /the 17 space ghosts/i }, { timeout: 3000 }),
+    ).toBeInTheDocument()
   })
 
-  it('lets players skip the jump video straight to the warp screen', async () => {
+  it('lets players skip the jump video straight to the campaign map', async () => {
     mockMedia()
     const user = userEvent.setup()
     renderAt('/')
     await user.click(screen.getByRole('button', { name: /start the adventure/i }))
     const skip = await screen.findByRole('button', { name: /skip/i }, { timeout: 5000 })
     await user.click(skip)
-    expect(await screen.findByTestId('warp-year', undefined, { timeout: 3000 })).toHaveTextContent('1964')
+    expect(
+      await screen.findByRole('heading', { name: /the 17 space ghosts/i }, { timeout: 3000 }),
+    ).toBeInTheDocument()
   })
 
-  it('still reaches the warp screen when the jump video cannot play', async () => {
+  it('still reaches the campaign map when the jump video cannot play', async () => {
     // Both the audible and the muted play attempts are refused.
     vi.spyOn(HTMLMediaElement.prototype, 'pause').mockImplementation(() => {})
     vi.spyOn(HTMLMediaElement.prototype, 'play').mockRejectedValue(
@@ -91,7 +92,9 @@ describe('Mission Control flow', () => {
     const user = userEvent.setup()
     renderAt('/')
     await user.click(screen.getByRole('button', { name: /start the adventure/i }))
-    expect(await screen.findByTestId('warp-year', undefined, { timeout: 5000 })).toHaveTextContent('1964')
+    expect(
+      await screen.findByRole('heading', { name: /the 17 space ghosts/i }, { timeout: 5000 }),
+    ).toBeInTheDocument()
   })
 
   it('sends visitors who open /warp directly back to Mission Control', () => {

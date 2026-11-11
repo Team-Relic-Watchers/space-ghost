@@ -36,15 +36,19 @@ browser: no backend, no login, no tracking, and no autoplay.
 ## 🚀 The journey
 
 ```
-Mission Control  ──►  Warp  ──►  Ranger 7 mission  ──►  The 17 Space Ghosts
-   /                    /warp        /ranger-7              /ghosts
- Time Machine        "1964"      3D explorer + hub     map, stories, quiz,
- + Pandastein                     + 4 stops             puzzle, voice
+Mission Control  ──►  Time jump video  ──►  The 17 Space Ghosts
+   /                 Pandastein rides       /ghosts
+ Time Machine +     through time map, stories, quiz,
+ Pandastein                               puzzle, voice
+
+Warp screen ("1964")  ──►  Ranger 7 mission  ──►  back to Mission Control
+       /warp                  /ranger-7         3D explorer + hub
+                                                   + 4 stops
 ```
 
 | Route | Screen | What happens |
 |---|---|---|
-| `/` | **Mission Control** | The Time Machine charges, Pandastein greets the explorer, "Start the adventure" launches the warp (1.2 s, 0.2 s with reduced motion). |
+| `/` | **Mission Control** | Pandastein greets the explorer beside the Time Machine. "Start the adventure" plays the time-travel jump (video + Pandastein) and lands on the campaign map — or opens the map straight away with reduced motion. |
 | `/warp` | **Warp screen** | The stars stretch and the year becomes **1964**. |
 | `/ranger-7` | **Ranger 7 mission** | A split screen: the 3D spacecraft on the left, the mission hub on the right (story · photos · briefing · challenge). |
 | `/ranger-7/scene` | **Showcase** | The full-screen 3D scene — spacecraft, Moon, 1400 stars, nebula and sparkles. |

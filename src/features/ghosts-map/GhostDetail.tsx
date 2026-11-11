@@ -118,9 +118,10 @@ export function GhostDetail({ machine, onClose, onOpenSequence }: GhostDetailPro
     voice: currentVoice,
     microsoft: voiceIsMicrosoft,
     microsoftAvailable: voiceMicrosoftAvailable,
-    fixed: voiceFixed,
     paused: voicePaused,
     missing: voiceMissing,
+    noVoices: voiceNoVoices,
+    trouble: voiceTrouble,
     speak: speakVoice,
     stop: stopVoice,
     pause: pauseVoice,
@@ -225,9 +226,12 @@ export function GhostDetail({ machine, onClose, onOpenSequence }: GhostDetailPro
         const text = detail.parts.find((part) => part.part === id)?.text
         if (!text) return
 
+        // Scrolling inside one part must not restart its reading.
+        const settled = activePartRef.current === id
         activePartRef.current = id
         // Pandastein only reads when the reader has asked him to.
         if (!readingRef.current) return
+        if (settled) return
 
         const spoken = pick(text, languageRef.current)
         // Scrolling quickly must not start every part at once: the last one
@@ -253,16 +257,19 @@ export function GhostDetail({ machine, onClose, onOpenSequence }: GhostDetailPro
   }
 
   /**
-   * The sound button: the first press lets Pandastein read, and it starts
-   * with the part the reader is looking at right now.
+   * The sound button: the first press lets Pandastein read, and he starts at
+   * once — with the part the reader is looking at, or with the first part of
+   * the story when none is on the screen yet. The browser insists on hearing
+   * a tap before any talking, so the reading begins here, in the tap.
    */
   const handleVoiceToggle = () => {
     const turningOn = !voiceEnabled
     toggleVoice()
 
     if (!turningOn) return
-    const id = activePartRef.current
-    if (id === null) return
+    const id = activePartRef.current ?? detail?.parts[0]?.part
+    if (id === undefined || id === null) return
+    activePartRef.current = id
     const part = detail?.parts.find((entry) => entry.part === id)
     if (part) speakVoice(id, pick(part.text, language))
   }
@@ -464,7 +471,16 @@ export function GhostDetail({ machine, onClose, onOpenSequence }: GhostDetailPro
 
                 {voiceSupported && (
                   <div className="ghost-story__voice-picker">
-                    {voiceMissing ? (
+                    {voiceNoVoices ? (
+                      <>
+                        <span className="ghost-story__voice-warning">
+                          {t('ghostStory.voice.noVoices')}
+                        </span>
+                        <span className="ghost-story__voice-hint">
+                          {t('ghostStory.voice.noVoicesHint')}
+                        </span>
+                      </>
+                    ) : voiceMissing ? (
                       <>
                         <span className="ghost-story__voice-warning">
                           {t('ghostStory.voice.missing')}
@@ -477,42 +493,33 @@ export function GhostDetail({ machine, onClose, onOpenSequence }: GhostDetailPro
                       </>
                     ) : (
                       <>
-                        {voiceFixed ? (
-                          // English has one voice of its own: Microsoft Mark.
-                          <span className="ghost-story__voice-fixed">
-                            {currentVoice?.name ?? t('ghostStory.voice.microsoft')}
-                          </span>
-                        ) : (
-                          <>
-                            <label htmlFor="pandastein-voice">
-                              {t('ghostStory.voice.pick')}
-                            </label>
-                            <select
-                              id="pandastein-voice"
-                              value={currentVoice?.name ?? ''}
-                              onChange={(event) => chooseVoice(event.target.value)}
-                            >
-                              {microsoftVoices.length > 0 && (
-                                <optgroup label={t('ghostStory.voice.microsoftGroup')}>
-                                  {microsoftVoices.map((candidate) => (
-                                    <option key={candidate.name} value={candidate.name}>
-                                      {candidate.name} · {candidate.lang}
-                                    </option>
-                                  ))}
-                                </optgroup>
-                              )}
-                              {otherVoices.length > 0 && (
-                                <optgroup label={t('ghostStory.voice.otherGroup')}>
-                                  {otherVoices.map((candidate) => (
-                                    <option key={candidate.name} value={candidate.name}>
-                                      {candidate.name} · {candidate.lang}
-                                    </option>
-                                  ))}
-                                </optgroup>
-                              )}
-                            </select>
-                          </>
-                        )}
+                        <label htmlFor="pandastein-voice">
+                          {t('ghostStory.voice.pick')}
+                        </label>
+                        <select
+                          id="pandastein-voice"
+                          value={currentVoice?.name ?? ''}
+                          onChange={(event) => chooseVoice(event.target.value)}
+                        >
+                          {microsoftVoices.length > 0 && (
+                            <optgroup label={t('ghostStory.voice.microsoftGroup')}>
+                              {microsoftVoices.map((candidate) => (
+                                <option key={candidate.name} value={candidate.name}>
+                                  {candidate.name} · {candidate.lang}
+                                </option>
+                              ))}
+                            </optgroup>
+                          )}
+                          {otherVoices.length > 0 && (
+                            <optgroup label={t('ghostStory.voice.otherGroup')}>
+                              {otherVoices.map((candidate) => (
+                                <option key={candidate.name} value={candidate.name}>
+                                  {candidate.name} · {candidate.lang}
+                                </option>
+                              ))}
+                            </optgroup>
+                          )}
+                        </select>
                         <span
                           className="ghost-story__voice-engine"
                           data-microsoft={voiceIsMicrosoft ? 'true' : 'false'}
@@ -521,6 +528,16 @@ export function GhostDetail({ machine, onClose, onOpenSequence }: GhostDetailPro
                             ? t('ghostStory.voice.microsoft')
                             : t('ghostStory.voice.otherEngine')}
                         </span>
+                        {voiceTrouble && (
+                          <>
+                            <span className="ghost-story__voice-warning">
+                              {t('ghostStory.voice.trouble')}
+                            </span>
+                            <span className="ghost-story__voice-hint">
+                              {t('ghostStory.voice.troubleHint')}
+                            </span>
+                          </>
+                        )}
                       </>
                     )}
                   </div>

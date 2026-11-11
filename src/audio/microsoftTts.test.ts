@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
+  browserVoice,
   canRead,
   isMicrosoftVoice,
   pickBestVoice,
@@ -79,6 +80,17 @@ describe('the Microsoft voices of the device', () => {
 })
 
 describe('the script of a line', () => {
+  it('lets the browser pick the English voice when nothing is chosen', () => {
+    // The device default for English wins, as the browser itself would choose.
+    expect(browserVoice(VOICES, 'en')?.name).toBe('Microsoft Zira')
+    // With no default among them, the first English voice the browser offers.
+    expect(browserVoice(VOICES.slice(1), 'en')?.name).toBe(
+      'Microsoft Guy Online (Natural) - English (United States)',
+    )
+    // Bangla is not the browser's business here: it has its own rules.
+    expect(browserVoice(VOICES, 'bn')?.lang).toMatch(/^bn/)
+  })
+
   it('knows Bangla from English', () => {
     expect(scriptOf('প্যান্ডাস্টাইন গল্পটা পড়ছেন।')).toBe('bangla')
     expect(scriptOf('Pandastein reads the story.')).toBe('latin')

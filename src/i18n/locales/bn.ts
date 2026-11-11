@@ -81,6 +81,12 @@ export const bn: Translation = {
       otherGroup: 'অন্যান্য ভয়েস',
       install:
         'এই ভাষার জন্য মাইক্রোসফট টিটিএস ভয়েস এখনো নেই। উইন্ডোজে যোগ করো: Settings → Time & language → Language & region → ভাষা → Language options → Speech।',
+      noVoices: 'এই ব্রাউজারে পড়ার মতো কোনো ভয়েসই নেই।',
+      noVoicesHint:
+        'লিনাক্সে ফায়ারফক্সের জন্য স্পিচ-ইঞ্জিন লাগে (speech-dispatcher ও espeak-ng ইনস্টল করো)। লিনাক্সের Brave আর Chromium-এ কোনো ভয়েস থাকে না: Chrome বা Edge ব্যবহার করো, অথবা ফোনে অ্যাপটা খোলো।',
+      trouble: 'প্যান্ডাস্টাইন পড়তে চাইল, কিন্তু এই ব্রাউজার কোনো শব্দ বের করল না।',
+      troubleHint:
+        'গল্পের কোনো অংশের প্লে বোতাম চেপে আবার চেষ্টা করো — কিছু ব্রাউজার টোকা দেওয়ার পরেই কথা বলে।',
     },
     photoCredit: 'ছবি: {{credit}}',
     photoGalleryTitle: 'মিশনের ছবির অ্যালবাম',

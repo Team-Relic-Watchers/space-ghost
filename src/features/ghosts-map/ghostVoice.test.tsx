@@ -33,7 +33,7 @@ class FakeUtterance {
   rate = 1
   volume = 1
   onend: (() => void) | null = null
-  onerror: (() => void) | null = null
+  onerror: ((event: { error: string }) => void) | null = null
 
   constructor(text: string) {
     this.text = text
@@ -257,10 +257,26 @@ describe("Pandastein's voice", () => {
     expect(spoken[0].text.length).toBeGreaterThan(0)
     // The sentence is spoken in the language of the voice that was chosen.
     expect(spoken[0].lang).toMatch(/^en/)
-    // Microsoft text to speech, a man, and a storyteller who lifts his voice on
-    // some sentences.
-    expect(spoken[0].voice).toBe('Microsoft Guy Online (Natural) - English (United States)')
+    // The browser picks the English voice: here, its own default.
+    expect(spoken[0].voice).toBe('Microsoft Zira')
     expect(spoken[0].pitch).toBeGreaterThan(1)
+  })
+
+  it('starts reading the moment the sound button is pressed', async () => {
+    const user = userEvent.setup()
+    renderMap()
+    const detail = await openStory(user)
+
+    // The reader is at the top of the story: no part has been scrolled to.
+    const sound = within(detail).getByRole('button', {
+      name: /let pandastein read the story aloud/i,
+    })
+    await user.click(sound)
+
+    // Pandastein begins at once — the tap is what lets the browser speak.
+    await waitFor(() => expect(spoken.length).toBeGreaterThan(0), { timeout: 8000 })
+    expect(spoken[0].text.length).toBeGreaterThan(0)
+    expect(spoken[0].lang).toMatch(/^en/)
   })
 
   it('reads the next part when the reader scrolls on', async () => {
@@ -351,10 +367,11 @@ describe("Pandastein's voice", () => {
     renderMap()
     const detail = await openStory(user)
 
-    // English has one voice of its own, so there is nothing to pick.
+    // English can be picked too: the browser's default is only the start.
+    await within(detail).findByLabelText(/reading voice|পড়ার কণ্ঠ/i)
     expect(
-      within(detail).queryByLabelText(/reading voice/i),
-    ).not.toBeInTheDocument()
+      within(detail).getByRole('option', { name: /microsoft zira/i }),
+    ).toBeInTheDocument()
 
     // Bangla has many: every voice of the device that speaks it is collected.
     await user.click(
@@ -419,6 +436,79 @@ describe("Pandastein's voice", () => {
     expect(spoken).toHaveLength(0)
   })
 
+  it('tells the reader when the browser has no voice at all', async () => {
+    const user = userEvent.setup()
+    // Brave and Linux browsers often offer no voice whatsoever.
+    Object.defineProperty(window, 'speechSynthesis', {
+      configurable: true,
+      value: {
+        getVoices: () => [],
+        speak: (utterance: FakeUtterance) => {
+          spoken.push({
+            text: utterance.text,
+            lang: utterance.lang,
+            voice: utterance.voice?.name ?? null,
+            pitch: utterance.pitch,
+            rate: utterance.rate,
+          })
+          setTimeout(() => utterance.onend?.(), 0)
+        },
+        cancel: () => {},
+        addEventListener: (type: string, listener: () => void) => {
+          // The browser says its (empty) list of voices has arrived.
+          if (type === 'voiceschanged') setTimeout(listener, 0)
+        },
+        removeEventListener: () => {},
+      },
+    })
+
+    renderMap()
+    const detail = await openStory(user)
+
+    await waitFor(() =>
+      expect(
+        within(detail).getByText(/no voice to read with/i),
+      ).toBeInTheDocument(),
+    )
+  })
+
+  it('tells the reader when the browser makes no sound', async () => {
+    const user = userEvent.setup()
+    // The voices are listed, but the browser still refuses to speak.
+    Object.defineProperty(window, 'speechSynthesis', {
+      configurable: true,
+      value: {
+        getVoices: () => VOICES,
+        speak: (utterance: FakeUtterance) => {
+          spoken.push({
+            text: utterance.text,
+            lang: utterance.lang,
+            voice: utterance.voice?.name ?? null,
+            pitch: utterance.pitch,
+            rate: utterance.rate,
+          })
+          utterance.onerror?.({ error: 'not-allowed' })
+        },
+        cancel: () => {},
+        addEventListener: () => {},
+        removeEventListener: () => {},
+      },
+    })
+
+    renderMap()
+    const detail = await openStory(user)
+
+    await user.click(
+      within(detail).getByRole('button', { name: /let pandastein read the story aloud/i }),
+    )
+
+    await waitFor(() =>
+      expect(
+        within(detail).getByText(/made no sound/i),
+      ).toBeInTheDocument(),
+    )
+  })
+
   it('says which engine is speaking', async () => {
     const user = userEvent.setup()
     renderMap()
@@ -430,7 +520,8 @@ describe("Pandastein's voice", () => {
 
   it('never reads Bangla with an English voice', async () => {
     const user = userEvent.setup()
-    // The reader picks an English voice, then switches to Bangla.
+    // The reader picks an English voice for Bangla. Such a pick is ignored:
+    // the story is still read, but by a voice that knows the language.
     useGameStore.setState({ voiceChoice: { en: '', bn: 'Microsoft Zira' } })
 
     renderMap()
@@ -445,8 +536,11 @@ describe("Pandastein's voice", () => {
       within(detail).getByRole('button', { name: /প্যান্ডাস্টাইনকে গল্পটা পড়তে দাও/i }),
     )
 
-    await new Promise((resolve) => setTimeout(resolve, 800))
-    expect(spoken).toHaveLength(0)
+    await waitFor(() => expect(spoken.length).toBeGreaterThan(0), { timeout: 8000 })
+    for (const line of spoken) {
+      expect(line.voice).not.toBe('Microsoft Zira')
+      expect(line.lang).toBe('bn-IN')
+    }
   })
 
   it('holds the voice and carries it on from the card of Pandastein', async () => {

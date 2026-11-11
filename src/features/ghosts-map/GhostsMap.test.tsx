@@ -65,6 +65,13 @@ describe('the campaign map', () => {
     }
   })
 
+  it('keeps the jump overlay outside the map layout so it can go fullscreen', () => {
+    renderMap()
+    // If the overlay sat inside <main>, the map grid would size it like a
+    // layout row instead of letting it cover the viewport.
+    expect(screen.getByTestId('time-jump').closest('main')).toBeNull()
+  })
+
   it('opens a machine detail when its ghost is clicked', async () => {
     mockMedia()
     const user = userEvent.setup()

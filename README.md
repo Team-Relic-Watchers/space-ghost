@@ -24,7 +24,7 @@ browser: no backend, no login, no tracking, and no autoplay.
 | 🕰️ | **Time travel** | The Time Machine on Mission Control warps the reader from 2026 back to 1964 — and on to 17 missions that span 1964 → 2021. |
 | 🐼 | **Pandastein** | A professor panda with a comic speech bubble guides the whole journey, explains every part of every story and never talks without being asked. |
 | 📖 | **Storytelling** | **7 parts × 17 machines = 119 bilingual stories.** Each part scrolls into view and is read aloud, with a Mission File of five facts and the machine's own "robot voice". |
-| 🔊 | **Voice** | Real **Microsoft text to speech** (fixed to *Microsoft Mark* in English, *Microsoft Ruhul / Nayan* in Bangla), with a play / pause / resume card in every card. Bangla is never read by an English voice. |
+| 🔊 | **Voice** | The **browser's reading voices** with a picker in every story (*Microsoft Mark / Ruhul / Nayan* on Windows, whatever the device offers elsewhere), with a play / pause / resume card in every card. Bangla is never read by an English voice. |
 | 🎧 | **Background music** | The *Interstellar* theme plays for 10 seconds, loops, and only ever sounds **under the voice** — quietly, at 24% volume. |
 | ⭐ | **Star quiz** | **10 questions × 17 machines = 170 questions.** Four options each, one star per right answer, best score kept forever, with a bilingual explanation after every answer. |
 | 🧩 | **Mission jigsaw** | Every machine's cartoon is torn into a 3×3 board; **5 pieces are missing** and must be dragged (or tapped) back home. |
@@ -36,15 +36,19 @@ browser: no backend, no login, no tracking, and no autoplay.
 ## 🚀 The journey
 
 ```
-Mission Control  ──►  Warp  ──►  Ranger 7 mission  ──►  The 17 Space Ghosts
-   /                    /warp        /ranger-7              /ghosts
- Time Machine        "1964"      3D explorer + hub     map, stories, quiz,
- + Pandastein                     + 4 stops             puzzle, voice
+Mission Control  ──►  The 17 Space Ghosts
+   /                    /ghosts
+ Time Machine +      map, stories, quiz,
+ Pandastein          puzzle, voice
+
+Warp screen ("1964")  ──►  Ranger 7 mission  ──►  back to Mission Control
+       /warp                  /ranger-7         3D explorer + hub
+                                                   + 4 stops
 ```
 
 | Route | Screen | What happens |
 |---|---|---|
-| `/` | **Mission Control** | The Time Machine charges, Pandastein greets the explorer, "Start the adventure" launches the warp (1.2 s, 0.2 s with reduced motion). |
+| `/` | **Mission Control** | Pandastein greets the explorer beside the Time Machine. "Start the adventure" opens the campaign map at once. |
 | `/warp` | **Warp screen** | The stars stretch and the year becomes **1964**. |
 | `/ranger-7` | **Ranger 7 mission** | A split screen: the 3D spacecraft on the left, the mission hub on the right (story · photos · briefing · challenge). |
 | `/ranger-7/scene` | **Showcase** | The full-screen 3D scene — spacecraft, Moon, 1400 stars, nebula and sparkles. |
@@ -122,7 +126,7 @@ The voice is the heart of the app, so it is treated carefully.
 
 **Microsoft text to speech, always first.**
 
-- **English is fixed** to one voice of its own: **Microsoft Mark**. If a device does not have it, the app falls back to the next Microsoft voice rather than going mute.
+- **English starts with the browser's own default voice**, and the reader can pick any other voice of the device from the story page. On Windows these are the Microsoft voices.
 - **Bangla is a free choice**: every voice of the device that supports বাংলা is collected — `Microsoft Ruhul` (a man), `Microsoft Nayan` (a woman), `Google বাংলা`, and anything else that turns up — Microsoft voices first.
 - Edge dresses its voices up (`Microsoft Aria Online (Natural) - English (United States)`); the app reads through the dressing and still knows it is Microsoft.
 
@@ -138,6 +142,20 @@ Chrome stops talking after about fifteen seconds, so the story is read in short 
 **The music follows the voice.** The *Interstellar* theme plays ten seconds and loops — but only while Pandastein is talking, at 24% volume, through a hidden YouTube player. Nothing is downloaded and no video is ever shown.
 
 **Nothing plays on its own.** The reading switch is deliberately *not* saved between visits: a fresh page always starts silent, and the app never talks until the reader asks it to.
+
+### If you hear nothing
+
+The app speaks through the **Web Speech API of the browser**, and some browsers simply have no voice to offer. The story page says so when it knows, but here is the whole truth:
+
+| Setup | What happens | What to do |
+|---|---|---|
+| **Windows** Chrome / Edge / Brave | Microsoft voices are used out of the box | Nothing — press the sound button |
+| **Android** Chrome / Brave | The phone's own TTS engine speaks | Make sure a voice is installed: Settings → Accessibility → Text-to-speech |
+| **Linux** Firefox | Silent unless a speech engine is installed | `sudo apt install speech-dispatcher espeak-ng`, then restart Firefox |
+| **Linux** Brave / Chromium | These builds come with **no voices at all** (no Google network voices) | Use Chrome or Edge, or open the app on a phone |
+| **iOS / macOS** Safari | Speaks, but only after a tap | Start the reading with the sound button or a part's play button |
+
+The first press of the sound button always starts reading at once — browsers only allow talking after a tap.
 
 ---
 
@@ -303,7 +321,7 @@ reading switch is dropped on the way.
 |---|---|
 | Content | Every machine has 7 bilingual parts and 5 Mission File lines; the quiz has 10 questions with 4 options; the impact coordinates are sane; the photos resolve. |
 | Map layout | The field lays out on wide and narrow screens; the flight path never paints over a planet. |
-| Voice | Microsoft is preferred; English is fixed to Microsoft Mark; Bangla collects every supporting voice; Bangla is never read by an English voice. |
+| Voice | Microsoft is preferred; the browser's default voice starts and the reader can pick any; Bangla collects every supporting voice; Bangla is never read by an English voice. |
 | Music | The theme plays ten seconds and loops; pause and resume hold it where it is; it stays quiet. |
 | Flow | Mission Control → warp → mission → map, and back again. |
 | 3D | The asset contracts and the showcase framing maths. |

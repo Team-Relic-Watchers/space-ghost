@@ -1,7 +1,7 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { beforeEach, describe, expect, it } from 'vitest'
 import i18n from '../i18n'
 import { useGameStore } from '../game/store'
 import { AppRoutes } from './AppRoutes'
@@ -13,12 +13,6 @@ const renderAt = (path: string) =>
       <AppRoutes />
     </MemoryRouter>,
   )
-
-/** jsdom cannot play media; resolve like a browser would. */
-const mockMedia = () => {
-  vi.spyOn(HTMLMediaElement.prototype, 'pause').mockImplementation(() => {})
-  return vi.spyOn(HTMLMediaElement.prototype, 'play').mockResolvedValue(undefined)
-}
 
 describe('Mission Control flow', () => {
   beforeEach(async () => {
@@ -42,11 +36,15 @@ describe('Mission Control flow', () => {
     expect(screen.queryByRole('navigation')).not.toBeInTheDocument()
   })
 
-  it('keeps the jump overlay outside the screen layout so it can go fullscreen', () => {
+  it('takes the reader straight to the campaign map', async () => {
+    const user = userEvent.setup()
     renderAt('/')
-    // If the overlay sat inside <main>, the mission grid would size it like a
-    // layout row instead of letting it cover the viewport.
-    expect(screen.getByTestId('time-jump').closest('main')).toBeNull()
+    await user.click(screen.getByRole('button', { name: /start the adventure/i }))
+    expect(useGameStore.getState().hasLaunched).toBe(true)
+    // No warm-up and no jump video in between: the map is right there.
+    expect(
+      await screen.findByRole('heading', { name: /the 17 space ghosts/i }, { timeout: 3000 }),
+    ).toBeInTheDocument()
   })
 
   it('switches the whole screen to Bangla', async () => {
@@ -55,43 +53,6 @@ describe('Mission Control flow', () => {
     await user.click(screen.getByRole('button', { name: /switch language/i }))
     expect(await screen.findByRole('button', { name: 'অভিযান শুরু করো' })).toBeInTheDocument()
     expect(document.documentElement.lang).toBe('bn')
-  })
-
-  it('launches into the warp screen showing 1964', async () => {
-    mockMedia()
-    const user = userEvent.setup()
-    renderAt('/')
-    await user.click(screen.getByRole('button', { name: /start the adventure/i }))
-    expect(useGameStore.getState().hasLaunched).toBe(true)
-    // The Time Machine charges, plays the jump video, then arrives in 1964.
-    await waitFor(
-      () => expect(screen.getByTestId('time-jump')).toHaveAttribute('data-active', 'true'),
-      { timeout: 3000 },
-    )
-    fireEvent(screen.getByTestId('time-jump').querySelector('video')!, new Event('ended'))
-    expect(await screen.findByTestId('warp-year', undefined, { timeout: 3000 })).toHaveTextContent('1964')
-  })
-
-  it('lets players skip the jump video straight to the warp screen', async () => {
-    mockMedia()
-    const user = userEvent.setup()
-    renderAt('/')
-    await user.click(screen.getByRole('button', { name: /start the adventure/i }))
-    const skip = await screen.findByRole('button', { name: /skip/i }, { timeout: 5000 })
-    await user.click(skip)
-    expect(await screen.findByTestId('warp-year', undefined, { timeout: 3000 })).toHaveTextContent('1964')
-  })
-
-  it('still reaches the warp screen when the jump video cannot play', async () => {
-    // Both the audible and the muted play attempts are refused.
-    vi.spyOn(HTMLMediaElement.prototype, 'pause').mockImplementation(() => {})
-    vi.spyOn(HTMLMediaElement.prototype, 'play').mockRejectedValue(
-      new DOMException('blocked', 'NotAllowedError'),
-    )
-    const user = userEvent.setup()
-    renderAt('/')
-    await user.click(screen.getByRole('button', { name: /start the adventure/i }))
-    expect(await screen.findByTestId('warp-year', undefined, { timeout: 5000 })).toHaveTextContent('1964')
   })
 
   it('sends visitors who open /warp directly back to Mission Control', () => {

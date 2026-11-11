@@ -3,9 +3,9 @@ import { useGameStore } from '../../game/store'
 import type { Language } from '../../game/store'
 import { spaceMusic } from '../../audio/spaceMusic'
 import {
+  browserVoice,
   canRead,
   collectedVoices,
-  findMicrosoftVoice,
   isMicrosoftVoice,
   pickBestVoice,
   voicesForLanguage,
@@ -16,8 +16,9 @@ import {
  *
  * The browser speaks for us: the Web Speech API needs no key, no upload and
  * no new dependency, and on Windows it *is* Microsoft text to speech. English
- * is read by one voice, Microsoft Mark, and Bangla by any voice of the device
- * that supports the language — the Microsoft ones first.
+ * is read by the browser's own default English voice, unless the reader picks
+ * another one. Bangla is read by a voice of the device that supports it, the
+ * Microsoft ones first.
  *
  * The last rule matters most: a line is only ever spoken by a voice that can
  * read it. Bangla letters in an English voice, or the wrong language on the
@@ -26,17 +27,6 @@ import {
 
 /** The locale we ask the browser for when a voice cannot tell us better. */
 const LOCALE: Record<Language, string> = { en: 'en-US', bn: 'bn-IN' }
-
-/**
- * The voice of each language.
- *
- * English has one voice of its own. Bangla has many: every voice of the
- * device that speaks it is collected, so the reader can hear them all.
- */
-const FIXED_VOICE: Record<Language, string | null> = {
-  en: 'Microsoft Mark',
-  bn: null,
-}
 
 /** How excited the professor sounds in each language. */
 const TONE: Record<Language, { rate: number; pitch: number }> = {
@@ -127,12 +117,14 @@ export interface PandasteinVoice {
   microsoft: boolean
   /** True when this device knows any Microsoft voice at all. */
   microsoftAvailable: boolean
-  /** True when the voice of this language cannot be changed. */
-  fixed: boolean
   /** True while the reader holds the voice. */
   paused: boolean
   /** True when the device has no voice for this language at all. */
   missing: boolean
+  /** True when this browser offers no voice at all. */
+  noVoices: boolean
+  /** True when the browser refused or failed to make a sound. */
+  trouble: boolean
   /** Reads one part aloud, replacing whatever was talking before. */
   speak: (id: number, text: string) => void
   /** Stops the voice at once. */
@@ -157,6 +149,10 @@ export function usePandasteinVoice(language: Language): PandasteinVoice {
   const [speakingId, setSpeakingId] = useState<number | null>(null)
   const [paused, setPaused] = useState(false)
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([])
+  /** True once the browser has had its say about which voices it has. */
+  const [settled, setSettled] = useState(false)
+  /** True when the browser would not or could not make a sound. */
+  const [trouble, setTrouble] = useState(false)
 
   /** Every new reading gets its own number, so an old one can be ignored. */
   const run = useRef(0)
@@ -186,16 +182,29 @@ export function usePandasteinVoice(language: Language): PandasteinVoice {
   useEffect(() => {
     if (!supported) return
     const synth = window.speechSynthesis
-    const load = () => setVoices(synth.getVoices())
+    const load = () => {
+      const list = synth.getVoices()
+      setVoices(list)
+      // A non-empty list means the voices have arrived.
+      if (list.length > 0) setSettled(true)
+    }
+    // The browser has spoken, even with nothing: the waiting is over.
+    const settle = () => {
+      load()
+      setSettled(true)
+    }
     load()
-    synth.addEventListener('voiceschanged', load)
+    synth.addEventListener('voiceschanged', settle)
     // Microsoft voices often arrive late: ask again a few times.
-    const timers = [200, 700, 1500, 3000].map((delay) =>
+    const timers = [200, 700, 1500].map((delay) =>
       window.setTimeout(load, delay),
     )
+    // A browser with no voices at all never brings any: stop waiting on it.
+    const last = window.setTimeout(settle, 3000)
     return () => {
-      synth.removeEventListener('voiceschanged', load)
+      synth.removeEventListener('voiceschanged', settle)
       for (const timer of timers) window.clearTimeout(timer)
+      window.clearTimeout(last)
     }
   }, [supported])
 
@@ -206,16 +215,11 @@ export function usePandasteinVoice(language: Language): PandasteinVoice {
 
   // The voice of the language: the fixed one, or the one the reader picked.
   const voice = useMemo(() => {
-    const fixed = FIXED_VOICE[language]
-    if (fixed) {
-      const mark = findMicrosoftVoice(voices, language, fixed)
-      if (mark) return mark
-      return pickBestVoice(voices, language)
-    }
     const picked = voiceChoice[language]
     const match = languageVoices.find((candidate) => candidate.name === picked)
     if (match) return match
-    return pickBestVoice(voices, language)
+    // Nothing picked: the browser's own voice for this language.
+    return browserVoice(voices, language) ?? pickBestVoice(voices, language)
   }, [language, languageVoices, voiceChoice, voices])
 
   const stop = useCallback(() => {
@@ -242,6 +246,7 @@ export function usePandasteinVoice(language: Language): PandasteinVoice {
       synth.cancel()
       held.current = false
       setPaused(false)
+      setTrouble(false)
       markSpeaking(id)
 
       const spoken = splitSentences(text)
@@ -262,8 +267,7 @@ export function usePandasteinVoice(language: Language): PandasteinVoice {
         return
       }
 
-      const fixed = FIXED_VOICE[language]
-      const picked = fixed ? null : voiceChoice[language]
+      const picked = voiceChoice[language]
       const pickedVoice = picked
         ? fresh.find((candidate) => candidate.name === picked)
         : undefined
@@ -272,9 +276,10 @@ export function usePandasteinVoice(language: Language): PandasteinVoice {
         pickedVoice && voicesForLanguage([pickedVoice], language).length
           ? pickedVoice
           : undefined
+      // Nothing picked: the browser's own voice for this language.
       const chosen =
         usablePick ??
-        (fixed ? findMicrosoftVoice(fresh, language, fixed) : null) ??
+        browserVoice(fresh, language) ??
         (fresh.length ? pickBestVoice(fresh, language) : null) ??
         voice
       const tone = TONE[language]
@@ -327,8 +332,13 @@ export function usePandasteinVoice(language: Language): PandasteinVoice {
           if (current !== run.current) return
           breath.current = window.setTimeout(next, BREATH_MS)
         }
-        utterance.onerror = () => {
+        utterance.onerror = (event) => {
           if (current !== run.current) return
+          // The browser refused or could not make a sound at all. The reader
+          // must hear about it, or the silence is a mystery.
+          if (event.error === 'not-allowed' || event.error === 'synthesis-failed') {
+            setTrouble(true)
+          }
           // A held voice is not a broken one.
           if (held.current) return
           if (speaking.current === id) {
@@ -413,10 +423,12 @@ export function usePandasteinVoice(language: Language): PandasteinVoice {
     voice,
     microsoft: voice ? isMicrosoftVoice(voice) : false,
     microsoftAvailable: voices.some((candidate) => isMicrosoftVoice(candidate)),
-    fixed: FIXED_VOICE[language] !== null,
     paused,
     // Only a real "no voice for this language" once the list has arrived.
     missing: supported && voices.length > 0 && languageVoices.length === 0,
+    // Brave and Linux browsers often offer no voice at all: say so.
+    noVoices: supported && settled && voices.length === 0,
+    trouble,
     speak,
     stop,
     pause,

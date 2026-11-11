@@ -1,6 +1,5 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Map, Rocket } from 'lucide-react'
-import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { ROUTES } from '../../app/routes'
@@ -14,7 +13,6 @@ import { SpeechBubble } from '../../components/ui/SpeechBubble'
 import { journey } from '../../content/journey'
 import { useGameStore } from '../../game/store'
 import { formatYear } from '../../i18n'
-import { TimeJump } from '../../components/time-jump/TimeJump'
 import './mission-control.css'
 
 export function MissionControl() {
@@ -22,105 +20,91 @@ export function MissionControl() {
   const navigate = useNavigate()
   const language = useGameStore((s) => s.language)
   const launch = useGameStore((s) => s.launch)
-  const reduceMotion = useReducedMotion()
-  const [jumping, setJumping] = useState(false)
 
   const beginAdventure = () => {
-    if (jumping) return
     launch()
-    // The time-travel jump takes over at once — the video and Pandastein,
-    // no warm-up in between — and hands off to the campaign map when it
-    // finishes (or is skipped). Reduced motion skips the jump video and
-    // opens the map straight away.
-    if (reduceMotion) navigate(ROUTES.ghostsMap)
-    else setJumping(true)
+    // The adventure begins on the campaign map at once: no warm-up and
+    // no jump video in between.
+    navigate(ROUTES.ghostsMap)
   }
 
   return (
-    <>
-      <main className="screen mission">
-        <StationBackdrop />
+    <main className="screen mission">
+      <StationBackdrop />
 
-        <header className="mission__top">
-          <Logo />
-          <LanguageToggle />
-        </header>
+      <header className="mission__top">
+        <Logo />
+        <LanguageToggle />
+      </header>
 
-        <section className="mission__stage">
+      <section className="mission__stage">
+        <motion.div
+          className="mission__machine"
+          initial={{ opacity: 0, scale: 0.6 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ type: 'spring', stiffness: 120, damping: 14, delay: 0.15 }}
+          role="img"
+          aria-label={t('missionControl.timeMachineLabel')}
+        >
+          <TimeMachine />
+        </motion.div>
+
+        <motion.div
+          className="mission__panda"
+          initial={{ opacity: 0, x: -60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ type: 'spring', stiffness: 110, damping: 15, delay: 0.4 }}
+        >
           <motion.div
-            className="mission__machine"
-            initial={{ opacity: 0, scale: 0.6 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ type: 'spring', stiffness: 120, damping: 14, delay: 0.15 }}
-            role="img"
-            aria-label={t('missionControl.timeMachineLabel')}
+            className="mission__bubble"
+            initial={{ opacity: 0, scale: 0.7, y: 12 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ type: 'spring', stiffness: 260, damping: 16, delay: 0.9 }}
           >
-            <TimeMachine />
+            <SpeechBubble>
+              <p>{t('missionControl.greeting')}</p>
+              <p>
+                {t('missionControl.prompt', {
+                  year: formatYear(journey.destinationYear, language),
+                })}
+              </p>
+            </SpeechBubble>
           </motion.div>
+          <Pandastein className="mission__panda-art" />
+        </motion.div>
+      </section>
 
-          <motion.div
-            className="mission__panda"
-            initial={{ opacity: 0, x: -60 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ type: 'spring', stiffness: 110, damping: 15, delay: 0.4 }}
+      <footer className="mission__dock">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: 'spring', stiffness: 220, damping: 18, delay: 0.2 }}
+          className="mission__dock-row"
+        >
+          <BigButton
+            onClick={beginAdventure}
+            icon={<Rocket size={30} strokeWidth={2.75} aria-hidden="true" />}
           >
-            <motion.div
-              className="mission__bubble"
-              initial={{ opacity: 0, scale: 0.7, y: 12 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ type: 'spring', stiffness: 260, damping: 16, delay: 0.9 }}
-            >
-              <SpeechBubble>
-                <p>{t('missionControl.greeting')}</p>
-                <p>
-                  {t('missionControl.prompt', {
-                    year: formatYear(journey.destinationYear, language),
-                  })}
-                </p>
-              </SpeechBubble>
-            </motion.div>
-            <Pandastein className="mission__panda-art" />
-          </motion.div>
-        </section>
+            {t('missionControl.start')}
+          </BigButton>
+        </motion.div>
 
-        <footer className="mission__dock">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: 'spring', stiffness: 220, damping: 18, delay: 0.2 }}
-            className="mission__dock-row"
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: 'spring', stiffness: 220, damping: 18, delay: 0.35 }}
+          className="mission__dock-row"
+        >
+          <button
+            type="button"
+            className="pill-button mission__map-link"
+            onClick={() => navigate(ROUTES.ghostsMap)}
           >
-            <BigButton
-              onClick={beginAdventure}
-              icon={<Rocket size={30} strokeWidth={2.75} aria-hidden="true" />}
-            >
-              {t('missionControl.start')}
-            </BigButton>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: 'spring', stiffness: 220, damping: 18, delay: 0.35 }}
-            className="mission__dock-row"
-          >
-            <button
-              type="button"
-              className="pill-button mission__map-link"
-              onClick={() => navigate(ROUTES.ghostsMap)}
-            >
-              <Map size={20} strokeWidth={2.75} aria-hidden="true" />
-              {t('missionControl.seeGhosts')}
-            </button>
-          </motion.div>
-        </footer>
-
-      </main>
-
-      {/* The jump is a viewport-sized overlay, so it sits outside the screen
-          layout: `.mission > :not(.backdrop)` would otherwise pin it into the
-          grid instead of letting it cover the whole page. */}
-      <TimeJump active={jumping} onDone={() => navigate(ROUTES.ghostsMap)} />
-    </>
+            <Map size={20} strokeWidth={2.75} aria-hidden="true" />
+            {t('missionControl.seeGhosts')}
+          </button>
+        </motion.div>
+      </footer>
+    </main>
   )
 }

@@ -3,10 +3,12 @@ import './pandastein.css'
 
 interface PandasteinProps {
   className?: string
+  /** Accessible name for the panda as a picture. */
+  label?: string
 }
 
 /** Prof. Pandastein: an original panda scientist with a lab coat, goggles and a glowing collar. */
-export function Pandastein({ className }: PandasteinProps) {
+export function Pandastein({ className, label = 'Prof. Pandastein' }: PandasteinProps) {
   // Ids must be unique: the panda may be painted in more than one place at
   // once, and duplicated gradient ids would leave one coat unpainted.
   const uid = useId()
@@ -18,7 +20,7 @@ export function Pandastein({ className }: PandasteinProps) {
       className={`pandastein ${className ?? ''}`}
       viewBox="0 0 260 340"
       role="img"
-      aria-label="Prof. Pandastein"
+      aria-label={label}
     >
       <defs>
         <linearGradient id={coat} x1="0" y1="0" x2="0" y2="1">

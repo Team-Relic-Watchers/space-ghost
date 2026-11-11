@@ -1,16 +1,22 @@
 import { fireEvent, render, screen, waitFor, waitForElementToBeRemoved, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import i18n from '../../i18n'
 import { useGameStore } from '../../game/store'
 import { machines } from '../../content/ranger7/machines'
 import { GhostsMap } from './GhostsMap'
 
-const renderMap = () =>
+type InitialEntry = string | { pathname: string; state?: unknown }
+
+const renderMap = (initialEntries: InitialEntry[] = ['/ghosts']) =>
   render(
-    <MemoryRouter>
-      <GhostsMap />
+    <MemoryRouter initialEntries={initialEntries}>
+      <Routes>
+        <Route path="/" element={<div data-testid="home-page" />} />
+        <Route path="/ghosts" element={<GhostsMap />} />
+        <Route path="/ghosts/:sequence/quiz" element={<div data-testid="quiz-page" />} />
+      </Routes>
     </MemoryRouter>,
   )
 
@@ -28,7 +34,8 @@ const openGhost = async (user: ReturnType<typeof userEvent.setup>, name: RegExp)
   await user.click(screen.getByRole('button', { name }))
   const jump = screen.getByTestId('time-jump')
   await waitFor(() => expect(jump).toHaveAttribute('data-active', 'true'))
-  fireEvent(jump.querySelector('video')!, new Event('ended'))
+  // A tap on the jump lets it land straight away.
+  fireEvent.click(jump)
 }
 
 describe('the campaign map', () => {
@@ -130,7 +137,7 @@ describe('the campaign map', () => {
     expect(Array.from(images, (image) => image.getAttribute('src'))).toEqual([
       '/images/ghosts/apollo-15-lunar-roving-vehicle/real.jpg',
       '/images/ghosts/apollo-15-lunar-roving-vehicle/cartoon.jpg',
-      '/images/ghosts/apollo-15-lunar-roving-vehicle/technical.png',
+      '/images/ghosts/apollo-15-lunar-roving-vehicle/technical.webp',
       '/images/ghosts/apollo-15-lunar-roving-vehicle/taken.jpeg',
     ])
     expect(within(detail).getByText('Robot voice')).toBeInTheDocument()
@@ -148,7 +155,10 @@ describe('the campaign map', () => {
     const detail = screen.getByRole('dialog', { name: /voyager 1/i })
     await user.click(within(detail).getByRole('button', { name: 'Switch language to বাংলা' }))
 
-    expect(within(detail).getByRole('button', { name: 'ভাষা বদলে English করো' })).toBeInTheDocument()
+    // The Bangla dictionary is fetched the first time it is needed.
+    expect(
+      await within(detail).findByRole('button', { name: 'ভাষা বদলে English করো' }),
+    ).toBeInTheDocument()
     expect(within(detail).getByRole('button', { name: /শুরুর কথা/ })).toBeInTheDocument()
   })
 
@@ -165,7 +175,16 @@ describe('the campaign map', () => {
     await waitForElementToBeRemoved(() => screen.queryByRole('dialog'))
   })
 
-  it('starts the star quiz only after the start button is clicked', async () => {
+  it('offers a way back home from the map', async () => {
+    const user = userEvent.setup()
+    renderMap()
+
+    await user.click(screen.getByRole('button', { name: /back to home/i }))
+
+    expect(await screen.findByTestId('home-page')).toBeInTheDocument()
+  })
+
+  it('opens the star quiz as a page of its own', async () => {
     mockMedia()
     const user = userEvent.setup()
     renderMap()
@@ -176,7 +195,17 @@ describe('the campaign map', () => {
     expect(within(detail).queryByText(/question 1 of/i)).not.toBeInTheDocument()
 
     await user.click(within(detail).getByRole('button', { name: /start quiz/i }))
-    expect(within(detail).getByText(/question 1 of/i)).toBeInTheDocument()
+
+    expect(await screen.findByTestId('quiz-page')).toBeInTheDocument()
+    expect(screen.queryByRole('dialog', { name: /voyager 1/i })).not.toBeInTheDocument()
+  })
+
+  it('reopens the same ghost when the quiz sends the explorer back', () => {
+    renderMap([{ pathname: '/ghosts', state: { openSequence: machines[0].sequence } }])
+
+    expect(
+      screen.getByRole('dialog', { name: new RegExp(machines[0].name.en, 'i') }),
+    ).toBeInTheDocument()
   })
 
   it('jumps to the next ghost from the bottom-left button', async () => {

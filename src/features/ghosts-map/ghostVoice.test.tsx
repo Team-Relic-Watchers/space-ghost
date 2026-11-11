@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import i18n from '../../i18n'
 import { useGameStore } from '../../game/store'
 import { GhostsMap } from './GhostsMap'
@@ -165,7 +165,8 @@ const openStory = async (user: ReturnType<typeof userEvent.setup>) => {
   await user.click(screen.getByRole('button', { name: /voyager 1, 1977/i }))
   const jump = screen.getByTestId('time-jump')
   await waitFor(() => expect(jump).toHaveAttribute('data-active', 'true'))
-  fireEvent(jump.querySelector('video')!, new Event('ended'))
+  // A tap on the jump lets it land straight away.
+  fireEvent.click(jump)
   return screen.getByRole('dialog', { name: /voyager 1/i })
 }
 
@@ -176,10 +177,7 @@ describe("Pandastein's voice", () => {
     useGameStore.setState({ language: 'en', voiceEnabled: false, voiceChoice: { en: '', bn: '' } })
     await i18n.changeLanguage('en')
 
-    // jsdom cannot play media; the jump clip resolves like a browser would.
-    vi.spyOn(HTMLMediaElement.prototype, 'pause').mockImplementation(() => {})
-    vi.spyOn(HTMLMediaElement.prototype, 'play').mockResolvedValue(undefined)
-
+    // The jump is drawn in the browser now, so there is no media to mock.
     Object.defineProperty(window, 'SpeechSynthesisUtterance', {
       configurable: true,
       value: FakeUtterance,

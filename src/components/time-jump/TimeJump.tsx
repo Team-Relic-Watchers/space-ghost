@@ -1,17 +1,16 @@
 import { motion } from 'framer-motion'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { JUMP_VIDEO_SRC, nextSeekTime } from './jumpClip'
+import { WarpField } from './WarpField'
+import { playWarpSound } from './warpSound'
+import { JUMP_DURATION_MS, REDUCED_JUMP_DURATION_MS, SKIP_DELAY_MS } from './jumpTiming'
 import './time-jump.css'
 
-/** The skip control appears after a beat so the jump can establish itself. */
-const SKIP_DELAY_MS = 1500
-
 /** Pandastein rides along on every time jump, looping like a gif. */
-const PANDA_SRC = '/images/panda-ship.png'
+const PANDA_SRC = '/images/panda-ship.webp'
 
 interface TimeJumpProps {
-  /** Takes over the screen once true; the clip is preloaded while false. */
+  /** Takes over the screen once true. */
   active: boolean
   /** Called exactly once when the jump ends, is skipped, or fails. */
   onDone: () => void
@@ -25,25 +24,22 @@ interface TimeJumpProps {
 
 /**
  * Fullscreen time-travel jump, shared by the Mission Control launch and the
- * per-ghost jumps on the campaign map. It stays mounted (with
- * `preload="auto"`) so the clip downloads while the page plays, and takes over
- * the screen once `active` becomes true. Every path — the video ending, the
- * skip control, Escape, a click on the video, or playback failing — hands
- * back to `onDone` exactly once.
+ * per-ghost jumps on the campaign map.
  *
- * The clip plays its opening seconds, then cuts to its closing seconds (see
- * `nextSeekTime`). A brief radial flash masks the seek cut so it feels
- * seamless. Pandastein loops over it like a gif, and the optional
- * year/name/destination lines cascade in above him.
+ * The jump is drawn and scored in the browser: a canvas paints the warp
+ * tunnel, Web Audio plays the whoosh, and Pandastein rides the middle of it
+ * in his ship. Nothing is downloaded, so the jump starts the moment the
+ * explorer taps a ghost and never stalls on a slow phone.
+ *
+ * Every path — the flight finishing, the skip control, Escape, a tap on the
+ * screen, or a browser without audio — hands back to `onDone` exactly once.
  */
 export function TimeJump({ active, onDone, year, title, info }: TimeJumpProps) {
   const { t } = useTranslation()
-  const videoRef = useRef<HTMLVideoElement>(null)
   const [showSkip, setShowSkip] = useState(false)
   const doneRef = useRef(false)
   const onDoneRef = useRef(onDone)
-  /** Brief flash to mask the mid-clip seek cut. */
-  const [seekFlash, setSeekFlash] = useState(false)
+  const stopSoundRef = useRef<(() => void) | null>(null)
 
   useEffect(() => {
     onDoneRef.current = onDone
@@ -52,31 +48,31 @@ export function TimeJump({ active, onDone, year, title, info }: TimeJumpProps) {
   const finish = useCallback(() => {
     if (doneRef.current) return
     doneRef.current = true
-    videoRef.current?.pause()
+    stopSoundRef.current?.()
+    stopSoundRef.current = null
     onDoneRef.current()
   }, [])
 
   // Begin the jump as soon as the overlay activates.
   useEffect(() => {
-    const video = videoRef.current
-    if (!active || !video) return
+    if (!active) return
+
+    const reduceMotion =
+      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false
+    const duration = reduceMotion ? REDUCED_JUMP_DURATION_MS : JUMP_DURATION_MS
 
     doneRef.current = false
-    setShowSkip(false)
-    setSeekFlash(false)
-    video.currentTime = 0
+
     const skipTimer = window.setTimeout(() => setShowSkip(true), SKIP_DELAY_MS)
+    const doneTimer = window.setTimeout(() => finish(), duration)
+    stopSoundRef.current = playWarpSound(duration)
 
-    // Play with the jump's own sound. If the browser refuses (autoplay
-    // policy), retry once muted; if that fails too, hand back immediately so
-    // the journey is never blocked by a video.
-    const attempt = video.play()
-    attempt?.catch?.(() => {
-      video.muted = true
-      video.play()?.catch?.(() => finish())
-    })
-
-    return () => window.clearTimeout(skipTimer)
+    return () => {
+      window.clearTimeout(skipTimer)
+      window.clearTimeout(doneTimer)
+      stopSoundRef.current?.()
+      stopSoundRef.current = null
+    }
   }, [active, finish])
 
   // Escape skips the jump as well.
@@ -88,18 +84,6 @@ export function TimeJump({ active, onDone, year, title, info }: TimeJumpProps) {
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [active, finish])
-
-  const handleTimeUpdate = () => {
-    if (!active) return
-    const video = videoRef.current
-    if (!video) return
-    const seekTo = nextSeekTime(video.currentTime, video.duration)
-    if (seekTo !== null) {
-      setSeekFlash(true)
-      video.currentTime = seekTo
-      window.setTimeout(() => setSeekFlash(false), 400)
-    }
-  }
 
   const hasText = Boolean(year || title || info)
 
@@ -114,25 +98,14 @@ export function TimeJump({ active, onDone, year, title, info }: TimeJumpProps) {
       animate={{ opacity: active ? 1 : 0 }}
       transition={{ duration: active ? 0.55 : 0.4, ease: 'easeInOut' }}
       style={{ pointerEvents: active ? 'auto' : 'none' }}
+      onClick={active ? finish : undefined}
     >
-      <video
-        ref={videoRef}
-        src={JUMP_VIDEO_SRC}
-        preload="auto"
-        playsInline
-        aria-hidden="true"
-        tabIndex={-1}
-        onClick={active ? finish : undefined}
-        onEnded={active ? finish : undefined}
-        onError={active ? finish : undefined}
-        onTimeUpdate={active ? handleTimeUpdate : undefined}
-      />
+      {/* The warp tunnel: stars painted on a canvas, so the jump needs no
+          video file and cannot stall while it loads. */}
+      <WarpField active={active} />
 
-      {/* Brief radial flash to mask the mid-clip seek cut. */}
-      <div
-        className={`jump__seek-flash${seekFlash ? ' jump__seek-flash--active' : ''}`}
-        aria-hidden="true"
-      />
+      {/* The light of the gate the ship is flying into. */}
+      <div className="jump__gate" aria-hidden="true" />
 
       {/* Pandastein loops over the jump like a gif. Decorative, so screen
           readers hear the jump through the container's label instead. */}

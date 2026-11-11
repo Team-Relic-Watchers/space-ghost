@@ -1,0 +1,209 @@
+/*
+ * The standalone puzzle screen: the picker of all 17 machines across the top,
+ * the jigsaw underneath. The puzzle itself is styled in the ghosts-map
+ * feature; this file only dresses the page around it.
+ */
+
+.puzzle-screen {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background:
+    radial-gradient(120% 70% at 50% 0%, rgba(143, 75, 240, 0.42) 0%, transparent 60%),
+    linear-gradient(180deg, #1b0b4d 0%, #2b1170 52%, #12072e 100%);
+}
+
+.puzzle-screen__sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.puzzle-screen > :not(.puzzle-screen__sky) {
+  position: relative;
+  z-index: 1;
+}
+
+.puzzle-screen__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(0.6rem, 2vmin, 1.1rem) clamp(0.9rem, 3vw, 2rem) 0;
+}
+
+.puzzle-screen__back {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 42px;
+  padding: 0.35em 0.95em;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.puzzle-screen__back:hover {
+  background: rgba(143, 75, 240, 0.7);
+  transform: translateY(-1px);
+}
+
+/* The logo keeps its place in the middle, as on the home page. */
+.puzzle-screen__brand {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.puzzle-screen__brand .logo__word {
+  font-size: clamp(1.1rem, 3.4vmin, 1.8rem);
+}
+
+.puzzle-screen__body {
+  width: min(1180px, 100%);
+  margin-inline: auto;
+  padding: clamp(0.9rem, 2.6vw, 2rem) clamp(0.8rem, 3.2vw, 2.4rem) 3rem;
+}
+
+.puzzle-screen__head {
+  margin-bottom: clamp(1rem, 2.4vw, 1.6rem);
+  text-align: center;
+}
+
+.puzzle-screen__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--cyan);
+  text-transform: uppercase;
+}
+
+.puzzle-screen__title {
+  margin: 0.35rem 0 0.3rem;
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  line-height: 1.1;
+  color: #fff;
+  text-shadow: 0 3px 0 rgba(23, 11, 58, 0.8);
+}
+
+.puzzle-screen__lede {
+  max-width: 40rem;
+  margin: 0 auto;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(233, 227, 255, 0.76);
+}
+
+/* ---- The machine picker ---- */
+
+.puzzle-screen__picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: clamp(1rem, 2.5vw, 1.6rem);
+}
+
+.puzzle-screen__pick {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.62rem;
+  min-width: 0;
+  padding: 0.36rem 0.85rem 0.36rem 0.36rem;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.07);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  transition: background 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+}
+
+.puzzle-screen__pick:hover {
+  background: rgba(56, 225, 255, 0.16);
+  border-color: rgba(56, 225, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.puzzle-screen__pick[data-active='true'] {
+  background: linear-gradient(120deg, rgba(255, 212, 59, 0.3), rgba(255, 92, 168, 0.28));
+  border-color: var(--sun);
+  box-shadow: 0 0 0 3px rgba(255, 212, 59, 0.14), 0 6px 16px rgba(6, 2, 20, 0.35);
+}
+
+.puzzle-screen__pick img {
+  width: 46px;
+  height: 46px;
+  flex: none;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}
+
+.puzzle-screen__pick-label {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-align: left;
+  line-height: 1.15;
+}
+
+.puzzle-screen__pick-name {
+  overflow: hidden;
+  max-width: 11rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.puzzle-screen__pick-year {
+  font-size: 0.76rem;
+  color: var(--sun);
+}
+
+.puzzle-screen__pick-number {
+  display: grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  flex: none;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--lilac);
+  border-radius: 50%;
+}
+
+.puzzle-screen__game .ghost-puzzle {
+  margin-top: 0;
+}
+
+@media (max-width: 640px) {
+  .puzzle-screen__back span {
+    display: none;
+  }
+
+  .puzzle-screen__back {
+    width: 42px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .puzzle-screen__pick-name {
+    max-width: 7.5rem;
+  }
+}

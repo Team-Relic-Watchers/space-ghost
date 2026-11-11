@@ -22,7 +22,10 @@ if (!window.matchMedia) {
     }) as MediaQueryList
 }
 
-// jsdom has no IntersectionObserver; the story reader watches for parts.
+// jsdom cannot paint on a canvas; the warp tunnel uses one. Stubbing it keeps
+// the tests quiet, and the app already copes with a missing drawing context.
+HTMLCanvasElement.prototype.getContext = (() => null) as unknown as
+  HTMLCanvasElement['getContext']
 if (!('IntersectionObserver' in window)) {
   class NoopIntersectionObserver {
     readonly root: Element | Document | null = null

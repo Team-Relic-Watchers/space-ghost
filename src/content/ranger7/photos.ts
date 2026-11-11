@@ -118,7 +118,7 @@ export const ghostPhotos: Record<string, GhostPhotoSet> = {
     },
     cartoon: cartoon('eagle', { en: 'Eagle lunar module cartoon', bn: 'ঈগল লুনার মডিউলের কার্টুন ছবি' }),
     design: {
-      src: image('eagle', 'technical.png'),
+      src: image('eagle', 'technical.webp'),
       title: { en: 'The lunar module, labelled', bn: 'চাঁদ-যানের যন্ত্র-নকশা' },
       credit: 'NASA',
       fit: 'contain',
@@ -140,7 +140,7 @@ export const ghostPhotos: Record<string, GhostPhotoSet> = {
       bn: 'অ্যাপোলো ১৫ চাঁদ-গাড়ির কার্টুন ছবি',
     }),
     design: {
-      src: image('apollo-15-lunar-roving-vehicle', 'technical.png'),
+      src: image('apollo-15-lunar-roving-vehicle', 'technical.webp'),
       title: { en: "The lunar rover's anatomy", bn: 'চাঁদ-গাড়ির গঠন' },
       credit: 'NASA',
       fit: 'contain',
@@ -289,7 +289,7 @@ export const ghostPhotos: Record<string, GhostPhotoSet> = {
     },
     cartoon: cartoon('opportunity', { en: 'Opportunity rover cartoon', bn: 'অপরচুনিটি রোভারের কার্টুন ছবি' }),
     design: {
-      src: image('opportunity', 'technical.png'),
+      src: image('opportunity', 'technical.webp'),
       title: { en: "Opportunity's parts", bn: 'অপরচুনিটির যন্ত্রাংশ' },
       credit: 'NASA / JPL-Caltech',
       fit: 'contain',
@@ -308,7 +308,7 @@ export const ghostPhotos: Record<string, GhostPhotoSet> = {
     },
     cartoon: cartoon('new-horizons', { en: 'New Horizons cartoon', bn: 'নিউ হরাইজনসের কার্টুন ছবি' }),
     design: {
-      src: image('new-horizons', 'technical.png'),
+      src: image('new-horizons', 'technical.webp'),
       title: { en: "New Horizons' instruments", bn: 'নিউ হরাইজনসের যন্ত্রপাতি' },
       credit: 'NASA / JHUAPL / SwRI',
       fit: 'contain',

@@ -18,8 +18,8 @@ export function WarpScreen() {
   const language = useGameStore((s) => s.language)
   const hasLaunched = useGameStore((s) => s.hasLaunched)
 
-  // Opening /warp directly, without pressing start, goes back to Mission Control.
-  if (!hasLaunched) return <Navigate to={ROUTES.missionControl} replace />
+  // Opening /warp directly, without pressing start, goes back to the home page.
+  if (!hasLaunched) return <Navigate to={ROUTES.home} replace />
 
   const beginMission = () => {
     // The whole Ranger 7 journey lives at /ranger-7: the 3D spacecraft on the

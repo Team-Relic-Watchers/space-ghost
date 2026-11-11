@@ -9,6 +9,11 @@ import type { Machine } from '../../content/ranger7/machines'
 
 interface StarQuizProps {
   machine: Machine
+  /**
+   * Whether the quiz prints its own title block. The standalone quiz page
+   * passes false, because it already carries the heading above the quiz.
+   */
+  showIntro?: boolean
 }
 
 const OPTION_LETTERS = ['A', 'B', 'C', 'D']
@@ -18,7 +23,7 @@ const OPTION_LETTERS = ['A', 'B', 'C', 'D']
  * correct answer, and the best score kept per machine so the map remembers how
  * well the explorer did.
  */
-export function StarQuiz({ machine }: StarQuizProps) {
+export function StarQuiz({ machine, showIntro = true }: StarQuizProps) {
   const { t } = useTranslation()
   const language = useGameStore((state) => state.language)
   const bestStars = useGameStore((state) => state.quizStars[machine.id] ?? 0)
@@ -76,17 +81,23 @@ export function StarQuiz({ machine }: StarQuizProps) {
         : t('ghostStory.quiz.resultTry')
 
   return (
-    <section className="star-quiz" aria-labelledby="star-quiz-title">
-      <header className="star-quiz__head">
-        <div className="star-quiz__intro">
-          <span className="star-quiz__eyebrow">{t('ghostStory.quiz.eyebrow')}</span>
-          <h3 id="star-quiz-title" className="star-quiz__title">
-            {t('ghostStory.quiz.title')}
-          </h3>
-          <p className="star-quiz__lede">
-            {t('ghostStory.quiz.intro', { name: pick(machine.name, language) })}
-          </p>
-        </div>
+    <section
+      className="star-quiz"
+      aria-labelledby={showIntro ? 'star-quiz-title' : undefined}
+      aria-label={showIntro ? undefined : t('ghostStory.quiz.eyebrow')}
+    >
+      <header className={`star-quiz__head${showIntro ? '' : ' star-quiz__head--score-only'}`}>
+        {showIntro && (
+          <div className="star-quiz__intro">
+            <span className="star-quiz__eyebrow">{t('ghostStory.quiz.eyebrow')}</span>
+            <h3 id="star-quiz-title" className="star-quiz__title">
+              {t('ghostStory.quiz.title')}
+            </h3>
+            <p className="star-quiz__lede">
+              {t('ghostStory.quiz.intro', { name: pick(machine.name, language) })}
+            </p>
+          </div>
+        )}
         <div className="star-quiz__score" aria-label={t('ghostStory.quiz.starsLabel')}>
           <Star size={22} fill="currentColor" aria-hidden="true" />
           <strong>

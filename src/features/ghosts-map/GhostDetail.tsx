@@ -9,7 +9,6 @@ import {
   Flag,
   Gift,
   MapPin,
-  Play,
   Route,
   Search,
   Star,
@@ -18,8 +17,10 @@ import {
   VolumeX,
   X,
 } from 'lucide-react'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
+import { ROUTES } from '../../app/routes'
 import { formatNumber, formatYear } from '../../i18n'
 import { useGameStore } from '../../game/store'
 import { machineDetails, machines, pick } from '../../content/ranger7/machines'
@@ -33,7 +34,6 @@ import { VoiceCard } from '../../components/ui/VoiceCard'
 import { isMicrosoftVoice } from '../../audio/microsoftTts'
 import { endingColour } from './art/colours'
 import { GhostPuzzle } from './GhostPuzzle'
-import { StarQuiz } from './StarQuiz'
 import { usePandasteinVoice } from './usePandasteinVoice'
 import './ghost-story.css'
 
@@ -103,9 +103,9 @@ function StoryPhoto({ photo }: StoryPhotoProps) {
  */
 export function GhostDetail({ machine, onClose, onOpenSequence }: GhostDetailProps) {
   const { t } = useTranslation()
+  const navigate = useNavigate()
   const language = useGameStore((state) => state.language)
   const quizStars = useGameStore((state) => state.quizStars)
-  const [quizStarted, setQuizStarted] = useState(false)
   const closeRef = useRef<HTMLButtonElement>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
   const onCloseRef = useRef(onClose)
@@ -160,10 +160,9 @@ export function GhostDetail({ machine, onClose, onOpenSequence }: GhostDetailPro
     onCloseRef.current = onClose
   }, [onClose])
 
-  // Every ghost starts with a fresh page: scrolled to the top, quiz not begun.
+  // Every ghost starts with a fresh page: scrolled to the top.
   useEffect(() => {
     if (!machine) return
-    setQuizStarted(false)
     if (scrollRef.current) scrollRef.current.scrollTop = 0
   }, [machine])
 
@@ -643,33 +642,33 @@ export function GhostDetail({ machine, onClose, onOpenSequence }: GhostDetailPro
                 </div>
               </section>
 
-              {quizStarted ? (
-                <StarQuiz key={`quiz-${machine.id}`} machine={machine} />
-              ) : (
-                <section className="star-quiz star-quiz--launch" aria-labelledby="star-quiz-start">
-                  <header className="star-quiz__head">
-                    <div className="star-quiz__intro">
-                      <span className="star-quiz__eyebrow">{t('ghostStory.quiz.eyebrow')}</span>
-                      <h3 id="star-quiz-start" className="star-quiz__title">
-                        {t('ghostStory.quiz.title')}
-                      </h3>
-                      <p className="star-quiz__lede">
-                        {t('ghostStory.quiz.intro', { name })}
-                      </p>
-                    </div>
-                  </header>
-                  <div className="star-quiz__launch">
-                    <button
-                      type="button"
-                      className="ghost-story__action star-quiz__start"
-                      onClick={() => setQuizStarted(true)}
-                    >
-                      <Play size={18} fill="currentColor" aria-hidden="true" />
-                      {t('ghostStory.quiz.start')}
-                    </button>
+              <section className="star-quiz star-quiz--launch" aria-labelledby="star-quiz-start">
+                <header className="star-quiz__head">
+                  <div className="star-quiz__intro">
+                    <span className="star-quiz__eyebrow">{t('ghostStory.quiz.eyebrow')}</span>
+                    <h3 id="star-quiz-start" className="star-quiz__title">
+                      {t('ghostStory.quiz.title')}
+                    </h3>
+                    <p className="star-quiz__lede">
+                      {t('ghostStory.quiz.intro', { name })}
+                    </p>
                   </div>
-                </section>
-              )}
+                </header>
+                <div className="star-quiz__launch">
+                  <button
+                    type="button"
+                    className="ghost-story__action star-quiz__start"
+                    onClick={() =>
+                      navigate(
+                        ROUTES.ghostQuiz.replace(':sequence', String(machine.sequence)),
+                      )
+                    }
+                  >
+                    <Star size={18} fill="currentColor" aria-hidden="true" />
+                    {t('ghostStory.quiz.start')}
+                  </button>
+                </div>
+              </section>
 
               <GhostPuzzle
                 key={`puzzle-${machine.id}`}

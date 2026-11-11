@@ -1,0 +1,67 @@
+/*
+ * The hero's language switch: a dark pill that holds both languages, with the
+ * chosen one lifted into a bright chip.
+ */
+
+.language-switch {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 2px;
+  padding: 3px;
+  background: rgba(12, 5, 34, 0.72);
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  box-shadow:
+    0 4px 0 rgba(12, 5, 34, 0.6),
+    0 10px 24px rgba(6, 2, 20, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+}
+
+.language-switch__option {
+  min-width: 3.1rem;
+  min-height: 38px;
+  padding: 0.2em 0.85em;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(233, 227, 255, 0.78);
+  cursor: pointer;
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.language-switch__option:hover {
+  color: #fff;
+  background: rgba(143, 75, 240, 0.5);
+}
+
+/* The chosen language sits in a bright chip, like the reference. */
+.language-switch__option[data-active='true'] {
+  color: var(--ink-deep);
+  background: linear-gradient(180deg, #ffffff, var(--lilac));
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 0 rgba(23, 11, 58, 0.35);
+}
+
+.language-switch__option[data-active='true']:hover {
+  color: var(--ink-deep);
+  background: linear-gradient(180deg, #ffffff, var(--lilac));
+}
+
+.language-switch__option:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 420px) {
+  .language-switch__option {
+    min-width: 2.6rem;
+    padding-inline: 0.6em;
+    font-size: 0.85rem;
+  }
+}

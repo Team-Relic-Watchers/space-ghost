@@ -21,13 +21,14 @@ browser: no backend, no login, no tracking, and no autoplay.
 
 | | Feature | What it does |
 |---|---|---|
-| 🕰️ | **Time travel** | The Time Machine on Mission Control warps the reader from 2026 back to 1964 — and on to 17 missions that span 1964 → 2021. |
+| 🕰️ | **Time travel** | The Time Machine warps the reader from 2026 back to 1964 — and on to 17 missions that span 1964 → 2021. The jump is **drawn in the browser** (a canvas warp tunnel with its own soundtrack), so it starts instantly and never stalls. |
 | 🐼 | **Pandastein** | A professor panda with a comic speech bubble guides the whole journey, explains every part of every story and never talks without being asked. |
 | 📖 | **Storytelling** | **7 parts × 17 machines = 119 bilingual stories.** Each part scrolls into view and is read aloud, with a Mission File of five facts and the machine's own "robot voice". |
 | 🔊 | **Voice** | The **browser's reading voices** with a picker in every story (*Microsoft Mark / Ruhul / Nayan* on Windows, whatever the device offers elsewhere), with a play / pause / resume card in every card. Bangla is never read by an English voice. |
 | 🎧 | **Background music** | The *Interstellar* theme plays for 10 seconds, loops, and only ever sounds **under the voice** — quietly, at 24% volume. |
 | ⭐ | **Star quiz** | **10 questions × 17 machines = 170 questions.** Four options each, one star per right answer, best score kept forever, with a bilingual explanation after every answer. |
-| 🧩 | **Mission jigsaw** | Every machine's cartoon is torn into a 3×3 board; **5 pieces are missing** and must be dragged (or tapped) back home. |
+| 🧩 | **Mission jigsaw** | Every machine's cartoon is torn into a 3×3 board; **5 pieces are missing** and must be dragged (or tapped) back home. Play any of the 17 from the puzzle corner. |
+| ⚡ | **Quick to open** | The home page pulls in **≈ 0.4 MB** and the campaign map **≈ 1.5 MB** — the whole picture archive was redrawn at the size it is shown at, and nothing is downloaded before it is needed. |
 | 🌐 | **Multilanguage** | **245 strings × 2 languages.** English and বাংলা — including local digits, local number formatting and a full Bangla story bible. |
 | 🛰️ | **3D model** | Ranger 7 as a real 3D model you can spin and inspect (5 hotspots), the NASA Moon GLB, and the impact site rebuilt from **LOLA elevation data** with the **Sun exactly where it was on 31 July 1964**. |
 
@@ -36,25 +37,29 @@ browser: no backend, no login, no tracking, and no autoplay.
 ## 🚀 The journey
 
 ```
-Mission Control  ──►  The 17 Space Ghosts
-   /                    /ghosts
- Time Machine +      map, stories, quiz,
- Pandastein          puzzle, voice
+Home page  ──►  The 17 Space Ghosts  ──►  Puzzle corner  ──►  Star quiz
+    /                 /ghosts                /puzzle          /ghosts/:n/quiz
+ title, the       map, stories,        jigsaw for any of    ten questions
+ two ways in,     quiz, puzzle,        the 17 machines      on its own page
+ the four
+ features
 
-Warp screen ("1964")  ──►  Ranger 7 mission  ──►  back to Mission Control
+Warp screen ("1964")  ──►  Ranger 7 mission  ──►  back to the home page
        /warp                  /ranger-7         3D explorer + hub
                                                    + 4 stops
 ```
 
 | Route | Screen | What happens |
 |---|---|---|
-| `/` | **Mission Control** | Pandastein greets the explorer beside the Time Machine. "Start the adventure" opens the campaign map at once. |
+| `/` | **Home page** | The title, the two ways in ("Start Mission" and "Play Puzzle") and the four things the app can do. "Start Mission" opens the campaign map at once. |
 | `/warp` | **Warp screen** | The stars stretch and the year becomes **1964**. |
 | `/ranger-7` | **Ranger 7 mission** | A split screen: the 3D spacecraft on the left, the mission hub on the right (story · photos · briefing · challenge). |
 | `/ranger-7/scene` | **Showcase** | The full-screen 3D scene — spacecraft, Moon, 1400 stars, nebula and sparkles. |
-| `/ghosts` | **The 17 Space Ghosts** | The campaign map: a tall, scrolling field of 17 planets with the flight path drawn between them. Tap one to open its full story. |
+| `/ghosts` | **The 17 Space Ghosts** | The campaign map: a tall, scrolling field of 17 planets with the flight path drawn between them. Tap one to open its full story. A **back-to-home** button sits in the top bar. |
+| `/ghosts/:sequence/quiz` | **Star quiz** | One machine's ten questions on a page of their own, opened from that machine's story. |
+| `/puzzle` | **Puzzle corner** | Pick any of the 17 machines and rebuild its cartoon, piece by piece. |
 
-Deep-linking to `/warp` or `/ranger-7` without launching sends the reader back to Mission Control.
+Deep-linking to `/warp` or `/ranger-7` without launching sends the reader back to the home page.
 
 ---
 
@@ -177,6 +182,8 @@ i18next and react-i18next drive the interface; the story bible uses its own tiny
 
 Each machine's cartoon is cut into a 3 × 3 board. **Four pieces stay; five are lifted out** into a tray and shuffled. The explorer drags a piece back to its hole — or taps a piece and then taps the hole, which works just as well on a phone. A wrong piece flashes and shakes; the board is finished when every slot holds its own piece. A live preview of the complete cartoon sits beside the board, and *Shuffle* deals a new set of holes.
 
+On a phone the layout stacks instead: **the complete picture comes first**, then the board, then the waiting pieces — the explorer sees what they are making before they start.
+
 ---
 
 ## ⭐ The star quiz
@@ -185,9 +192,23 @@ Ten questions per machine, four options each, drawn from the machine's own Missi
 
 One star per correct answer, ten stars per machine, and the best score is kept for good. After each answer the explanation appears in the reader's language.
 
+The quiz has **its own page** (`/ghosts/:sequence/quiz`), opened from the story with *Start quiz*. The back button returns to the map and reopens the same machine, so the reader never loses their place.
+
 ---
 
-## 🛠 Getting started
+## ⚡ Speed
+
+The app is used on school tablets and old phones, so the first page has to be small and
+the animation has to be light.
+
+| What | How |
+|---|---|
+| **The time jump** | Drawn on a **canvas** and scored with the **Web Audio API** — no video file, no music file. The old 7 MB clip is gone. |
+| **The photographs** | Every archive picture was redrawn at the size it is actually shown at (28.4 MB → **6.8 MB**), and the cartoons that appear in a 120 px ring are 520 px wide instead of 1500 px. |
+| **The first paint** | The home page pulls in **≈ 0.4 MB**: no animation library, no schema library and no Bangla font until a reader actually asks for বাংলা. |
+| **Everything else** | Every screen is a lazy chunk; the 3D mission (Three.js, the Moon GLB) is only fetched when it is opened. |
+
+---
 
 ```bash
 npm install          # install the dependencies
@@ -218,7 +239,7 @@ npm run lint         # oxlint
 | UI | **React 19** + **TypeScript 7** | React Compiler enabled through Babel; strict types over the whole content model. |
 | Build | **Vite 8** + **Vitest 5** | One config for the app and the tests; jsdom environment. |
 | 3D | **three 0.180** + **@react-three/fiber 9** + **drei 10** | The spacecraft, the Moon and the terrain; the same scene powers the inspector and the showcase. |
-| Motion | **framer-motion 14** | The warp, the cards, the map and the mascot. |
+| Motion | **framer-motion 14** + plain CSS | The map, the warp and the story pages; the **home page is CSS only**, so the first paint does not wait for an animation library. |
 | State | **Zustand 5** (+ `persist`) | Four keys survive a reload; everything else is thrown away on purpose. |
 | Content | **Zod 4** | The story bible, the machines and the quiz are validated, not trusted. |
 | Language | **i18next 27** + **react-i18next 18** | 245 strings × 2 locales, type-checked in both. |
@@ -235,20 +256,23 @@ npm run lint         # oxlint
 src/
 ├── app/            Shell: routes, lazy loading, the flow test
 ├── audio/          Voice (Microsoft TTS helpers) and music (YouTube player)
-├── components/     Backdrop, mascot, time machine, shared UI
+├── components/     Backdrop, mascot, scene art, shared UI
 │   ├── backdrop/   Starfield, planets, station backdrop
-│   ├── mascot/     Pandastein himself
-│   ├── time-machine/
-│   └── ui/         Logo, language toggle, big button, voice card, speech bubble
+│   ├── mascot/     Pandastein himself, and Pandastein in his spacesuit
+│   ├── scene/      The Moon, the rocket, the rover, the shooting star
+│   ├── time-jump/  The warp tunnel (canvas) and its soundtrack (Web Audio)
+│   └── ui/         Logo, language toggle and switch, big button, voice card, speech bubble
 ├── content/        All the words and the data
 │   ├── journey.ts  The year we travel to
-│   ├── ranger7/    Machines, stories, quiz, photos, hotspots, impact site
+│   ├── ranger7/    Machines, stories, quiz, photos, hotspots
 │   └── space-ghosts-story-bible.json   17 missions × 7 parts, bilingual
 ├── features/
-│   ├── mission-control/   The Time Machine and Pandastein's greeting
-│   ├── warp/              The jump to 1964
-│   ├── ghosts-map/        The map, the stories, the quiz, the puzzle, the voice
-│   └── ranger7/           The 3D mission: hub, inspect, site, photos, briefing, challenge
+│   ├── home/           The home page: the title, the two ways in, the four features
+│   ├── warp/           The jump to 1964
+│   ├── ghosts-map/     The map, the stories, the quiz, the puzzle, the voice
+│   ├── puzzle/         The puzzle corner: a jigsaw for any of the 17 machines
+│   ├── quiz/           One machine's star quiz on a page of its own
+│   └── ranger7/        The 3D mission: hub, inspect, photos, briefing, challenge
 ├── game/           Zustand store (persisted progress)
 ├── i18n/           i18next setup and the two locales
 └── styles/         Design tokens and base styles
@@ -301,7 +325,7 @@ localStorage key `space-ghosts`, **version 7**.
 
 | Saved | Not saved |
 |---|---|
-| `language` — English or বাংলা | `hasLaunched` — the journey always starts at Mission Control |
+| `language` — English or বাংলা | `hasLaunched` — the journey always starts at the home page |
 | `ranger7` — the step, the hotspots found, the best score, whether it is done | `voiceEnabled` — **the reading is never remembered**, so the app never talks on its own |
 | `quizStars` — the best star score per machine (0–10) | |
 | `voiceChoice` — the voice picked for each language | |
@@ -323,7 +347,7 @@ reading switch is dropped on the way.
 | Map layout | The field lays out on wide and narrow screens; the flight path never paints over a planet. |
 | Voice | Microsoft is preferred; the browser's default voice starts and the reader can pick any; Bangla collects every supporting voice; Bangla is never read by an English voice. |
 | Music | The theme plays ten seconds and loops; pause and resume hold it where it is; it stays quiet. |
-| Flow | Mission Control → warp → mission → map, and back again. |
+| Flow | Home page → map → mission → warp, and back again. |
 | 3D | The asset contracts and the showcase framing maths. |
 
 ```bash

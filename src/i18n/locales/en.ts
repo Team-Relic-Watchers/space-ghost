@@ -2,7 +2,7 @@ export const en = {
   appName: 'Space Ghosts',
   missionControl: {
     greeting: "Hello, explorer! I'm Prof. Pandastein.",
-    prompt: 'The Time Machine is ready. Let’s visit {{year}}!',
+    prompt: 'Ready to uncover the real stories of NASA\'s greatest space missions?',
     start: 'Start the adventure',
     seeGhosts: 'Meet the 17 Space Ghosts',
     timeMachineLabel: 'The Time Machine',

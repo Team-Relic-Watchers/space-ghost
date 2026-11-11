@@ -2,15 +2,13 @@ import './time-machine.css'
 
 interface TimeMachineProps {
   className?: string
-  /** Speeds up the portal spin while the machine warms up for launch. */
-  charging?: boolean
 }
 
 /** The Time Machine: a chunky pod inside a spinning, glowing portal ring. */
-export function TimeMachine({ className, charging = false }: TimeMachineProps) {
+export function TimeMachine({ className }: TimeMachineProps) {
   return (
     <svg
-      className={`time-machine ${charging ? 'time-machine--charging' : ''} ${className ?? ''}`}
+      className={`time-machine ${className ?? ''}`}
       viewBox="0 0 400 400"
       aria-hidden="true"
     >

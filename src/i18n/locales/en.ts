@@ -2,7 +2,7 @@ export const en = {
   appName: 'Space Ghosts',
   missionControl: {
     greeting: "Hello, explorer! I'm Prof. Pandastein.",
-    prompt: 'The Time Machine is ready. Let’s visit {{year}}!',
+    prompt: 'Ready to uncover the real stories of NASA\'s greatest space missions?',
     start: 'Start the adventure',
     seeGhosts: 'Meet the 17 Space Ghosts',
     timeMachineLabel: 'The Time Machine',
@@ -79,6 +79,12 @@ export const en = {
       otherGroup: 'Other voices',
       install:
         'Microsoft TTS has no voice for this language yet. Add one in Windows: Settings → Time & language → Language & region → your language → Language options → Speech.',
+      noVoices: 'This browser has no voice to read with.',
+      noVoicesHint:
+        'Firefox on Linux needs a speech engine (install speech-dispatcher and espeak-ng). Brave and Chromium on Linux come with no voices: try Chrome or Edge, or open the app on a phone.',
+      trouble: 'Pandastein tried to read, but this browser made no sound.',
+      troubleHint:
+        'Press play on a story part to try again — some browsers only speak after a tap.',
     },
     photoCredit: 'Photo: {{credit}}',
     photoGalleryTitle: 'Mission photo album',

@@ -112,6 +112,19 @@ export const collectedVoices = (
 }
 
 /**
+ * The voice the browser would use for this language on its own: the device's
+ * default for it, or the first one it offers. The app does not second-guess
+ * this choice for English, so the browser decides which voice reads the story.
+ */
+export const browserVoice = (
+  voices: SpeechSynthesisVoice[],
+  language: Language,
+): SpeechSynthesisVoice | null => {
+  const pool = voicesForLanguage(voices, language)
+  return pool.find((voice) => voice.default) ?? pool[0] ?? null
+}
+
+/**
  * The voice that should read the story.
  *
  * Microsoft comes first: the app asks for Microsoft text to speech, so a

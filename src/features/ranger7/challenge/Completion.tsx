@@ -85,7 +85,7 @@ export function MissionComplete({ onReplay, onHub }: CompletionProps) {
             <RotateCcw size={18} aria-hidden="true" />
             {t('ranger7.complete.replay')}
           </button>
-          <button type="button" className="pill-button" onClick={() => navigate(ROUTES.missionControl)}>
+          <button type="button" className="pill-button" onClick={() => navigate(ROUTES.home)}>
             <Home size={18} aria-hidden="true" />
             {t('ranger7.complete.home')}
           </button>

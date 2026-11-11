@@ -50,7 +50,7 @@ describe('the machine photographs', () => {
     ]).toEqual([
       '/images/ghosts/apollo-15-lunar-roving-vehicle/real.jpg',
       '/images/ghosts/apollo-15-lunar-roving-vehicle/cartoon.jpg',
-      '/images/ghosts/apollo-15-lunar-roving-vehicle/technical.png',
+      '/images/ghosts/apollo-15-lunar-roving-vehicle/technical.webp',
       '/images/ghosts/apollo-15-lunar-roving-vehicle/taken.jpeg',
     ])
   })

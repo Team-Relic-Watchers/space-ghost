@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { formatNumber } from '../../i18n'
 import { useGameStore } from '../../game/store'
 import type { GhostPhoto } from '../../content/ranger7/photos'
+import './puzzle.css'
 
 interface GhostPuzzleProps {
   name: string
@@ -120,7 +121,7 @@ export function GhostPuzzle({ name, image }: GhostPuzzleProps) {
               {t('ghostStory.puzzle.intro', { name })}
             </p>
           </div>
-          <button type="button" className="ghost-story__action" onClick={start}>
+          <button type="button" className="ghost-puzzle__action" onClick={start}>
             <Puzzle size={18} aria-hidden="true" />
             {t('ghostStory.puzzle.play')}
           </button>
@@ -252,7 +253,7 @@ export function GhostPuzzle({ name, image }: GhostPuzzleProps) {
               <Trophy size={30} aria-hidden="true" />
               <strong>{t('ghostStory.puzzle.solvedTitle')}</strong>
               <p>{t('ghostStory.puzzle.solvedLine', { name })}</p>
-              <button type="button" className="ghost-story__action" onClick={start}>
+              <button type="button" className="ghost-puzzle__action" onClick={start}>
                 <RotateCcw size={18} aria-hidden="true" />
                 {t('ghostStory.puzzle.playAgain')}
               </button>

@@ -1,0 +1,142 @@
+/*
+ * The standalone star quiz page: the same quiz that lives at the bottom of a
+ * ghost's story, but on its own screen, with a heading and a way back.
+ */
+
+.ghost-quiz {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(120% 70% at 50% 0%, rgba(143, 75, 240, 0.42) 0%, transparent 60%),
+    radial-gradient(80% 50% at 90% 20%, rgba(255, 212, 59, 0.12) 0%, transparent 60%),
+    linear-gradient(180deg, #1b0b4d 0%, #2b1170 52%, #12072e 100%);
+}
+
+.ghost-quiz__sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ghost-quiz > :not(.ghost-quiz__sky) {
+  position: relative;
+  z-index: 1;
+}
+
+.ghost-quiz__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(0.6rem, 2vmin, 1.1rem) clamp(0.9rem, 3vw, 2rem) 0;
+}
+
+.ghost-quiz__back {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 42px;
+  padding: 0.35em 0.95em;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.ghost-quiz__back:hover {
+  background: rgba(143, 75, 240, 0.7);
+  transform: translateY(-1px);
+}
+
+/* The logo keeps its place in the middle, as on the home page. */
+.ghost-quiz__brand {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.ghost-quiz__brand .logo__word {
+  font-size: clamp(1.1rem, 3.4vmin, 1.8rem);
+}
+
+.ghost-quiz__body {
+  width: min(880px, 100%);
+  margin-inline: auto;
+  padding: clamp(0.9rem, 2.6vw, 2rem) clamp(0.8rem, 3.2vw, 2.4rem) 3rem;
+}
+
+.ghost-quiz__head {
+  margin-bottom: clamp(1rem, 2.4vw, 1.6rem);
+  text-align: center;
+}
+
+.ghost-quiz__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--sun);
+  text-transform: uppercase;
+}
+
+.ghost-quiz__title {
+  margin: 0.35rem 0 0.3rem;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  line-height: 1.1;
+  color: #fff;
+  text-shadow: 0 3px 0 rgba(23, 11, 58, 0.8);
+}
+
+.ghost-quiz__lede {
+  max-width: 40rem;
+  margin: 0 auto;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(233, 227, 255, 0.78);
+}
+
+/* The page owns the heading, so the quiz opens straight on the first question. */
+.ghost-quiz .star-quiz {
+  margin-top: 0;
+}
+
+/* With no title inside the quiz, the score shrinks to a slim strip. */
+.ghost-quiz .star-quiz__head--score-only {
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.ghost-quiz .star-quiz__head--score-only .star-quiz__score {
+  flex-direction: row;
+  gap: 0.45rem;
+  min-width: 0;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+}
+
+.ghost-quiz .star-quiz__head--score-only .star-quiz__score small {
+  font-size: 0.68rem;
+}
+
+@media (max-width: 640px) {
+  .ghost-quiz__back span {
+    display: none;
+  }
+
+  .ghost-quiz__back {
+    width: 42px;
+    padding: 0;
+    justify-content: center;
+  }
+}

@@ -40,7 +40,7 @@ export function Ranger7Explorer() {
   const narrow = useIsNarrow(NARROW_BREAKPOINT_PX)
   const [view, setView] = useState<ExplorerView>('model')
 
-  if (!hasLaunched) return <Navigate to={ROUTES.missionControl} replace />
+  if (!hasLaunched) return <Navigate to={ROUTES.home} replace />
 
   const modelActive = !narrow || view === 'model'
   const infoActive = !narrow || view === 'info'

@@ -1,7 +1,10 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
 import { useReducedMotion } from 'framer-motion'
+import { ArrowLeft } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { ROUTES } from '../../app/routes'
 import { Logo } from '../../components/ui/Logo'
 import { LanguageToggle } from '../../components/ui/LanguageToggle'
 import { StationBackdrop } from '../../components/backdrop/StationBackdrop'
@@ -34,9 +37,15 @@ const SCROLL_STEP = 0.8
  */
 export function GhostsMap() {
   const { t } = useTranslation()
+  const location = useLocation()
+  const navigate = useNavigate()
   const language = useGameStore((s) => s.language)
   const reduceMotion = useReducedMotion()
-  const [openSequence, setOpenSequence] = useState<number | null>(null)
+  // Returning from a quiz page asks the map to reopen the same ghost.
+  const [openSequence, setOpenSequence] = useState<number | null>(() => {
+    const state = location.state as { openSequence?: number } | null
+    return typeof state?.openSequence === 'number' ? state.openSequence : null
+  })
   /** While set, the time jump to that ghost plays before its detail opens. */
   const [jumpSequence, setJumpSequence] = useState<number | null>(null)
   const [atStart, setAtStart] = useState(true)
@@ -69,6 +78,14 @@ export function GhostsMap() {
       return null
     })
   }, [])
+
+  /** The router state only opens the card once; clear it so a reload stays clean. */
+  useEffect(() => {
+    const state = location.state as { openSequence?: number } | null
+    if (state?.openSequence != null) {
+      navigate(location.pathname, { replace: true, state: null })
+    }
+  }, [location.pathname, location.state, navigate])
 
   /** The field reflows (three ghosts per row, two on phones) as width changes. */
   const layout = useMemo(() => getLayout(stageWidth), [stageWidth])
@@ -146,6 +163,14 @@ export function GhostsMap() {
         <h2 className="ghosts-map__title">{t('ghostsMap.title')}</h2>
 
         <header className="ghosts-map__top">
+          <button
+            type="button"
+            className="ghosts-map__home"
+            onClick={() => navigate(ROUTES.home)}
+          >
+            <ArrowLeft size={20} strokeWidth={2.75} aria-hidden="true" />
+            <span>{t('ghostsMap.backHome')}</span>
+          </button>
           <Logo />
           <p className="ghosts-map__welcome">
             <span className="ghosts-map__welcome-text">{t('ghostsMap.welcome')}</span>
@@ -211,9 +236,10 @@ export function GhostsMap() {
       </main>
 
     {/* The jump is a viewport-sized overlay, so it sits outside the screen
-        layout rather than being pinned into the map grid. It stays
-        mounted so the clip is preloaded before the first tap. */}
+        layout rather than being pinned into the map grid. The key makes it
+        start fresh for every ghost. */}
     <TimeJump
+      key={jumpSequence ?? 'idle'}
       active={jumpMachine !== null}
       onDone={finishJump}
       year={

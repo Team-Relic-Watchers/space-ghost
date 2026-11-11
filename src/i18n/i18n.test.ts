@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import i18n, { formatYear } from './index'
+import i18n, { ensureBangla, formatYear } from './index'
 import { bn } from './locales/bn'
 import { en } from './locales/en'
 
@@ -28,17 +28,19 @@ describe('i18n', () => {
 
   it('keeps the same interpolation placeholders in both languages', () => {
     const placeholders = (s: string) => (s.match(/{{\w+}}/g) ?? []).sort()
-    expect(placeholders(bn.missionControl.prompt)).toEqual(
-      placeholders(en.missionControl.prompt),
+    expect(placeholders(bn.home.prompt)).toEqual(
+      placeholders(en.home.prompt),
     )
     expect(placeholders(bn.language.switchTo)).toEqual(
       placeholders(en.language.switchTo),
     )
   })
 
-  it('translates through i18next', () => {
-    expect(i18n.getFixedT('en')('missionControl.start')).toBe(en.missionControl.start)
-    expect(i18n.getFixedT('bn')('missionControl.start')).toBe(bn.missionControl.start)
+  it('translates through i18next', async () => {
+    // The Bangla dictionary is only fetched when it is needed.
+    await ensureBangla()
+    expect(i18n.getFixedT('en')('home.start')).toBe(en.home.start)
+    expect(i18n.getFixedT('bn')('home.start')).toBe(bn.home.start)
   })
 
   it('formats years in Bengali digits for Bangla', () => {

@@ -63,7 +63,7 @@ describe('Ranger 7 showcase screen', () => {
   it('does not require the mission to be launched, unlike the story route', async () => {
     renderAt('/ranger-7')
     expect(
-      await screen.findByRole('button', { name: /start the adventure/i }, { timeout: 5000 }),
+      await screen.findByRole('button', { name: /start mission/i }, { timeout: 5000 }),
     ).toBeInTheDocument()
   })
 

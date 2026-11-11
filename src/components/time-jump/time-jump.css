@@ -7,42 +7,58 @@
   overflow: hidden;
   background: var(--space-950);
   visibility: hidden;
+  cursor: pointer;
 }
 
 .jump[data-active='true'] {
   visibility: visible;
 }
 
-.jump video {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ── Seek-cut flash ────────────────────────────────────────────────────────
-   A brief radial burst that masks the hard cut when the video skips from its
-   opening to its closing seconds. It flares in fast and fades out slowly so
-   the eye reads it as a warp pulse rather than a glitch. */
-.jump__seek-flash {
+/* ── The warp tunnel ───────────────────────────────────────────────────────
+   A canvas paints the stars as they streak out of the middle of the screen.
+   No video file is fetched, so the jump starts instantly on slow phones. */
+.jump__field {
   position: absolute;
   inset: 0;
-  z-index: 2;
-  background: radial-gradient(
-    ellipse at 50% 50%,
-    rgba(255, 255, 255, 0.65) 0%,
-    rgba(56, 225, 255, 0.45) 25%,
-    rgba(143, 75, 240, 0.25) 50%,
-    transparent 75%
-  );
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
-.jump__seek-flash--active {
-  opacity: 1;
-  transition: opacity 0.06s ease-out;
+/* ── The gate ───────────────────────────────────────────────────────────────
+   The glow of the portal the ship is flying into, sitting behind Pandastein.
+   It breathes a little so the middle of the screen never feels dead. */
+.jump__gate {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  width: min(78vmin, 640px);
+  height: min(78vmin, 640px);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 0.22) 0%,
+      rgba(56, 225, 255, 0.16) 26%,
+      rgba(143, 75, 240, 0.12) 46%,
+      transparent 70%
+    );
+  mix-blend-mode: screen;
+  animation: jump-gate 3.4s ease-in-out infinite;
+}
+
+@keyframes jump-gate {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
 }
 
 /* ── Pandastein ────────────────────────────────────────────────────────────

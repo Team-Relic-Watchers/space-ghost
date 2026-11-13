@@ -2,6 +2,8 @@
 
 ### A learning platform for NASA's space robots and rovers — in English and বাংলা
 
+**[▶ Watch the demo on YouTube](https://youtu.be/Xkt4cdaI0KE)** · **[🌐 Try it live — the 17 Space Ghosts map](https://space-ghosts.vercel.app/ghosts)**
+
 > Seventeen NASA spacecraft are still out there, some of them silent, some still talking.
 > **Space Ghosts** turns their stories into a journey: children travel back through time,
 > meet the machines that were left behind on the Moon, on Mars and in deep space, and

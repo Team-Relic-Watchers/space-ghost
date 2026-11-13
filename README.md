@@ -1,8 +1,23 @@
+<div align="center">
+
 # 🚀 Space Ghosts
 
 ### A learning platform for NASA's space robots and rovers — in English and বাংলা
 
-**[▶ Watch the demo on YouTube](https://youtu.be/Xkt4cdaI0KE)** · **[🌐 Try it live — the 17 Space Ghosts map](https://space-ghosts.vercel.app/ghosts)**
+<a href="https://space-ghosts.vercel.app/"><img src="https://img.shields.io/badge/%F0%9F%8C%90%20Live%20App-space--ghosts.vercel.app-38e1ff?style=for-the-badge&logo=vercel&logoColor=black" alt="Open the live app at space-ghosts.vercel.app" height="34"></a>
+<a href="https://youtu.be/Xkt4cdaI0KE"><img src="https://img.shields.io/badge/%E2%96%B6%EF%B8%8F%20Watch%20on%20YouTube-ff0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch the demo on YouTube" height="34"></a>
+<a href="https://github.com/Team-Relic-Watchers/space-ghost"><img src="https://img.shields.io/badge/%F0%9F%92%BB%20Source%20Code-8f4bf0?style=for-the-badge&logo=github&logoColor=white" alt="Read the source code on GitHub" height="34"></a>
+
+<br><br>
+
+<a href="https://space-ghosts.vercel.app/ghosts"><img src="https://img.shields.io/badge/%F0%9F%9A%80%2017%20NASA%20Machines-ff5ca8?style=for-the-badge" alt="17 NASA machines" height="22"></a>
+<img src="https://img.shields.io/badge/%F0%9F%93%95%20119%20Bilingual%20Stories-6a2bd1?style=for-the-badge" alt="119 bilingual stories" height="22">
+<img src="https://img.shields.io/badge/%E2%AD%90%20170%20Quiz%20Questions-ffd43b?style=for-the-badge" alt="170 quiz questions" height="22">
+<img src="https://img.shields.io/badge/%F0%9F%8C%9D%20EN%20%2B%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE-7dffb5?style=for-the-badge" alt="English and Bangla" height="22">
+
+</div>
+
+---
 
 > Seventeen NASA spacecraft are still out there, some of them silent, some still talking.
 > **Space Ghosts** turns their stories into a journey: children travel back through time,
@@ -37,6 +52,9 @@ browser: no backend, no login, no tracking, and no autoplay.
 ---
 
 ## 🚀 The journey
+
+> ▶ **[Play it now](https://space-ghosts.vercel.app/)** — the home page is the start.
+> ▶ **[Watch the demo video](https://youtu.be/Xkt4cdaI0KE)** first, then open it yourself.
 
 ```
 Home page  ──►  The 17 Space Ghosts  ──►  Puzzle corner  ──►  Star quiz
